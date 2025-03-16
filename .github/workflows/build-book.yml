@@ -24,18 +24,9 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '20'
           cache: 'npm'
           
-      - name: Cache APT packages
-        id: apt-cache
-        uses: actions/cache@v3
-        with:
-          path: /var/cache/apt/archives
-          key: ${{ runner.os }}-apt-${{ hashFiles('.github/workflows/build-book.yml') }}
-          restore-keys: |
-            ${{ runner.os }}-apt-
-
       - name: Cache texlive
         id: texlive-cache
         uses: actions/cache@v3
