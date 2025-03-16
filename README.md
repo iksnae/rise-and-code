@@ -65,9 +65,48 @@ A free, open-source book designed to teach programming, software development, an
     - Answer Key and Solution Guide
     - Recommended Reading and Tools
 
+## Getting the Latest Version
+
+The book is automatically built and published as releases. You can access the latest version in two formats:
+
+- **Markdown**: A single markdown file containing all content
+- **PDF**: A formatted PDF ready for reading or printing
+
+To get the latest version:
+
+1. Go to the [Releases page](https://github.com/iksnae/rise-and-code/releases)
+2. Download the most recent release assets
+
+## Building the Book Locally
+
+To build the book on your local machine:
+
+1. Clone this repository
+2. Install Node.js (v14 or higher)
+3. Install dependencies:
+   ```
+   npm install -g markdown-pdf
+   ```
+4. Run the build script:
+   ```
+   npm run build
+   ```
+5. Find the outputs in the `build` directory
+
+For more detailed build instructions, see [tools/README.md](tools/README.md).
+
 ## Contributing
 
 We welcome contributions to this project! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute.
+
+## Development Process
+
+This project uses continuous integration to automatically build and publish new versions of the book:
+
+- **Build Automation**: GitHub Actions automatically builds the book when changes are pushed
+- **Versioning**: Each build gets a unique version tag based on the date and time
+- **Release Management**: Completed builds are published as GitHub releases
+- **Testing**: You can manually trigger builds from the Actions tab
 
 ## License
 
