@@ -2,11 +2,9 @@ name: Build and Deploy Jekyll Site
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
   pull_request:
-    branches:
-      - main
+    branches: [ main ]
   workflow_dispatch:
 
 permissions:
@@ -23,51 +21,46 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout Repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y build-essential libffi-dev ruby-full
-      
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2'
           bundler-cache: true
 
-      - name: Install Jekyll and Dependencies
+      - name: Install dependencies
         run: |
-          gem install bundler
-          bundle install
+          sudo apt-get update
+          sudo apt-get install -y pandoc texlive-xetex librsvg2-bin
 
-      - name: Setup GitHub Pages
-        id: pages
-        uses: actions/configure-pages@v4
-      
-      - name: Build Jekyll Site
-        run: bundle exec jekyll build --source ./docs --destination ./_site
-
-      - name: Verify Build Output
+      - name: Set up version info
+        id: version
         run: |
-          if [ -d "_site" ] && [ "$(ls -A _site)" ]; then
-            echo "Jekyll site built successfully."
-          else
-            echo "ERROR: Jekyll build failed or _site is empty!" && exit 1
-          fi
-      
-      - name: Upload Artifact for Deployment
-        uses: actions/upload-pages-artifact@v2
+          VERSION=$(date +'v%Y.%m.%d-%H%M')
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "DATE=$(date +'%B %d, %Y')" >> $GITHUB_ENV
+
+      - name: Create build directory
+        run: mkdir -p build
+
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
         with:
-          path: ./_site
+          source: ./docs
+          destination: ./_site
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
 
   deploy:
-    runs-on: ubuntu-latest
-    needs: build
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/main'
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
