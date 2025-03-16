@@ -10,7 +10,6 @@ on:
       - '.github/workflows/build-book.yml'
   workflow_dispatch:  # Allow manual triggering
 
-# Add permissions block for GitHub token
 permissions:
   contents: write  # Required for creating releases and tags
 
@@ -30,8 +29,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y pandoc texlive-xetex librsvg2-bin imagemagick wkhtmltopdf
-          npm install -g markdown-pdf
+          sudo apt-get install -y pandoc texlive-xetex librsvg2-bin
           
       - name: Set up version info
         id: version
