@@ -15,7 +15,6 @@ const config = {
   bookDir: path.resolve(__dirname, '../book'),
   outputMarkdown: 'rise-and-code.md',
   outputPdf: 'rise-and-code.pdf',
-  mainReadme: path.resolve(__dirname, '../README.md'),
   version: process.env.VERSION || `v${new Date().toISOString().split('T')[0]}`,
   date: process.env.DATE || new Date().toLocaleDateString('en-US', { 
     year: 'numeric', 
@@ -61,10 +60,7 @@ function buildBook() {
   output += '## A Programming Book for Everyone\n\n';
   output += `### Version: ${config.version}\n`;
   output += `### Generated on: ${config.date}\n\n`;
-  
-  // Add main README content
-  output += readMarkdownFile(config.mainReadme);
-  output += '\n\n';
+  output += 'This book is designed to teach programming, software development, and logical problem-solving to people without access to computers.\n\n';
   
   // Process each chapter
   const chapterDirs = getChapterDirs();
@@ -93,7 +89,7 @@ function buildBook() {
         const sectionPath = path.join(sectionsDir, sectionFile);
         const sectionContent = readMarkdownFile(sectionPath);
         
-        output += '\n\n## ' + sectionFile + '\n\n';
+        output += '\n\n## ' + sectionFile.replace(/^\d+-/,'').replace(/-/g, ' ').replace(/\.md$/,'') + '\n\n';
         output += sectionContent;
       }
     }
@@ -113,7 +109,7 @@ function buildBook() {
         const activityPath = path.join(activitiesDir, activityFile);
         const activityContent = readMarkdownFile(activityPath);
         
-        output += '\n\n### ' + activityFile + '\n\n';
+        output += '\n\n### ' + activityFile.replace(/^\d+-/,'').replace(/-/g, ' ').replace(/\.md$/,'') + '\n\n';
         output += activityContent;
       }
     }
