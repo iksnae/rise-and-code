@@ -1,21 +1,25 @@
 # Rise & Code
-
 ## A Programming Book for Everyone
 
-Written by K Mills  
-Co-authored with AI  
-March 2025
+### About This Book
 
----
+"Rise & Code" makes the exciting world of programming accessible to everyone, regardless of age, background, or access to technology. Through interactive lessons, engaging visuals, and a unique notebook methodology, it offers a fresh and empowering approach to learning code.
 
-This book is designed to teach programming, software development, and logical problem-solving to people without access to computers. Through unplugged activities and exercises requiring only paper and pencil, readers will learn fundamental programming concepts that apply across all programming languages.
+### Key Features
 
----
+- **No Computer Required**: Learn programming concepts using just pen and paper
+- **Hands-on Activities**: Every chapter includes practical exercises and activities
+- **Visual Learning**: Concepts illustrated through diagrams and flowcharts
+- **Progressive Curriculum**: Builds skills gradually from foundational to advanced topics
+- **Inclusive Design**: Created for diverse audiences with different learning styles
 
-### Open Source Community Project
+### Our Mission
 
-This book is the result of collaborative efforts from contributors around the world dedicated to making programming education accessible to everyone, regardless of technology access.
+- Make programming education accessible to underserved communities
+- Teach computational thinking through unplugged activities
+- Build foundational skills that transfer to any programming language
+- Create a resource that can be freely shared, printed, and distributed
 
----
+### License
 
-Licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)
+This book is released under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0).
