@@ -25,7 +25,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          # Removed the cache option that was causing issues
           
       - name: Install dependencies
         run: |
@@ -58,7 +57,15 @@ jobs:
             echo "# Rise & Code - Placeholder PDF" > build/placeholder.md
             pandoc build/placeholder.md -o build/rise-and-code.pdf --pdf-engine=xelatex
           fi
-          
+
+      # New step for HTML generation
+      - name: Generate HTML file
+        run: |
+          pandoc book/**/*.md -o build/rise-and-code.html
+        env:
+          VERSION: ${{ env.VERSION }}
+          DATE: ${{ env.DATE }}
+
       - name: Upload artifacts for debugging if needed
         uses: actions/upload-artifact@v4
         with:
@@ -77,6 +84,7 @@ jobs:
           files: |
             build/rise-and-code.md
             build/rise-and-code.pdf
+            build/rise-and-code.html  # Added HTML file to the release
           body: |
             # Rise & Code Book - ${{ env.VERSION }}
             
@@ -90,5 +98,16 @@ jobs:
             
             - [Complete Book (Markdown)](https://github.com/iksnae/rise-and-code/releases/download/${{ env.VERSION }}/rise-and-code.md)
             - [Complete Book (PDF)](https://github.com/iksnae/rise-and-code/releases/download/${{ env.VERSION }}/rise-and-code.pdf)
+            - [Complete Book (HTML)](https://github.com/iksnae/rise-and-code/releases/download/${{ env.VERSION }}/rise-and-code.html)  # Added HTML link
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main'  # Only deploy on pushes to the main branch
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages  # The branch to push to
+          folder: build  # The folder containing the HTML file
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
