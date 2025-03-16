@@ -21,6 +21,11 @@ const config = {
     year: 'numeric', 
     month: 'long', 
     day: 'numeric' 
+  }),
+  time: new Date().toLocaleTimeString('en-US', {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false
   })
 };
 
@@ -88,8 +93,28 @@ function extractSceneSummaries(chapterDir) {
 function createLatexTemplate() {
   const templatePath = path.join(config.templateDir, 'template.tex');
   
+  // Check if the template exists and read it
+  if (fs.existsSync(templatePath)) {
+    console.log('Using existing LaTeX template and updating version information...');
+    let template = fs.readFileSync(templatePath, 'utf8');
+    
+    // Replace version and build date placeholders
+    const versionWithoutV = config.version.replace(/^v/, '');
+    template = template.replace(/\\newcommand{\\bookversion}{VERSION}/g, 
+                              `\\newcommand{\\bookversion}{${versionWithoutV}}`);
+    template = template.replace(/\\newcommand{\\builddate}{BUILDDATE}/g, 
+                              `\\newcommand{\\builddate}{${config.date} ${config.time}}`);
+    
+    // Write the modified template to a temporary file
+    const tempTemplatePath = path.join(config.templateDir, 'template-version.tex');
+    fs.writeFileSync(tempTemplatePath, template);
+    return tempTemplatePath;
+  }
+  
+  // If no template exists, create a new one (this should not happen in normal operation)
+  console.log('Template not found, creating a new one...');
+  
   // Enhanced LaTeX template with better structure and formatting
-  // ADDED: Roman numerals for frontmatter, reset page numbers for mainmatter, clearpage after TOC
   const template = `
 \\documentclass[12pt,a4paper]{book}
 \\usepackage{geometry}
@@ -102,6 +127,7 @@ function createLatexTemplate() {
 
 % Define colors
 \\definecolor{chaptercolor}{RGB}{0, 83, 156}
+\\definecolor{versioncolor}{RGB}{100, 100, 100}
 
 % Set page geometry
 \\geometry{margin=1in}
@@ -115,21 +141,27 @@ function createLatexTemplate() {
 \\newcommand{\\chapterbreak}{\\clearpage}
 \\newcommand{\\sectionbreak}{\\clearpage}
 
+% Define version and build date
+\\newcommand{\\bookversion}{${config.version.replace(/^v/, '')}}
+\\newcommand{\\builddate}{${config.date} ${config.time}}
+
 % Configure headers and footers
 \\pagestyle{fancy}
 \\fancyhf{}
 \\fancyhead[LE,RO]{Rise \\& Code}
 \\fancyhead[RE,LO]{\\leftmark}
 \\fancyfoot[C]{\\thepage}
+\\fancyfoot[R]{\\textcolor{versioncolor}{\\footnotesize{v\\bookversion}}}
 \\renewcommand{\\headrulewidth}{0.4pt}
-\\renewcommand{\\footrulewidth}{0pt}
+\\renewcommand{\\footrulewidth}{0.4pt}
 
 % Title page and TOC page style (no headers/footers)
 \\fancypagestyle{plain}{
   \\fancyhf{}
   \\fancyfoot[C]{\\thepage}
+  \\fancyfoot[R]{\\textcolor{versioncolor}{\\footnotesize{v\\bookversion}}}
   \\renewcommand{\\headrulewidth}{0pt}
-  \\renewcommand{\\footrulewidth}{0pt}
+  \\renewcommand{\\footrulewidth}{0.4pt}
 }
 
 % Title page customization
@@ -184,8 +216,10 @@ $body$
 \\end{document}
 `;
 
-  fs.writeFileSync(templatePath, template);
-  return templatePath;
+  // Write the temporary template
+  const tempTemplatePath = path.join(config.templateDir, 'template-version.tex');
+  fs.writeFileSync(tempTemplatePath, template);
+  return tempTemplatePath;
 }
 
 // Build the book
@@ -193,6 +227,7 @@ function buildBook() {
   console.log('Building Rise & Code book...');
   console.log(`Version: ${config.version}`);
   console.log(`Date: ${config.date}`);
+  console.log(`Time: ${config.time}`);
   
   // Initialize output content
   let output = '';
@@ -309,7 +344,7 @@ function buildBook() {
   fs.writeFileSync(outputMarkdownPath, output);
   console.log(`Markdown output written to: ${outputMarkdownPath}`);
   
-  // Create LaTeX template
+  // Create LaTeX template with version information
   const templatePath = createLatexTemplate();
   
   // Convert to PDF
@@ -338,6 +373,14 @@ function buildBook() {
       }
       fs.unlinkSync(path.join(config.outputDir, 'placeholder.md'));
     }
+  }
+  
+  // Clean up temporary template file
+  try {
+    fs.unlinkSync(templatePath);
+    console.log('Cleaned up temporary template file');
+  } catch (error) {
+    console.log('Note: Could not clean up temporary template file');
   }
   
   console.log('Book build complete!');
