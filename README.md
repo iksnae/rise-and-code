@@ -69,6 +69,32 @@ A free, open-source book designed to teach programming, software development, an
     - Answer Key and Solution Guide
     - Recommended Reading and Tools
 
+## Repository Structure
+
+The project is organized with the following directory structure:
+
+```
+rise-and-code/
+├── .github/           # GitHub Actions workflows
+├── book/              # Main book content
+│   ├── chapter-01/    # Each chapter in its own directory
+│   │   ├── README.md  # Chapter introduction
+│   │   ├── sections/  # Chapter sections
+│   │   ├── activities/# Chapter activities
+│   │   └── chapter-summary.md  # Chapter summary
+│   ├── chapter-02/    # Additional chapters...
+│   └── ...
+├── build/             # Generated output (not in repo)
+├── templates/         # LaTeX templates for PDF generation
+└── tools/             # Build scripts and utilities
+```
+
+Each chapter follows a consistent structure:
+- `README.md`: Introduction, objectives, and overview of the chapter
+- `sections/`: Core content divided into focused, sequential sections
+- `activities/`: Hands-on exercises with clear instructions and examples
+- `chapter-summary.md`: Recap of key concepts, reflections, and preview of the next chapter
+
 ## Getting the Latest Version
 
 The book is automatically built and published as releases. You can access the latest version in two formats:
@@ -89,7 +115,7 @@ To build the book on your local machine:
 2. Install Node.js (v14 or higher)
 3. Install dependencies:
    ```
-   npm install -g markdown-pdf
+   npm install
    ```
 4. Run the build script:
    ```
@@ -97,11 +123,24 @@ To build the book on your local machine:
    ```
 5. Find the outputs in the `build` directory
 
+The build process:
+- Collates all markdown files according to the chapter structure
+- Generates a single markdown file with proper formatting
+- Creates a PDF version with formatting and page breaks between sections
+- Uses LaTeX templates for professional PDF output
+
 For more detailed build instructions, see [tools/README.md](tools/README.md).
 
 ## Contributing
 
-We welcome contributions to this project! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute.
+We welcome contributions to this project! The book is designed to be a collaborative effort, and we need help with content writing, editing, activities development, and more.
+
+Please see [CONTRIBUTING.md](CONTRIBUTING.md) for comprehensive guidelines on:
+- Content formatting and style
+- Chapter structure and organization
+- Activity development guidelines
+- Pull request process
+- Code of conduct
 
 ## Development Process
 
@@ -111,6 +150,15 @@ This project uses continuous integration to automatically build and publish new 
 - **Versioning**: Each build gets a unique version tag based on the date and time
 - **Release Management**: Completed builds are published as GitHub releases
 - **Testing**: You can manually trigger builds from the Actions tab
+
+## PDF Output Format
+
+The PDF version of the book includes:
+- Each chapter starting on a new page
+- Each section starting on a new page for clear organization
+- Table of contents for easy navigation
+- Consistent formatting and typography
+- Page headers and footers with page numbers
 
 ## License
 
@@ -126,7 +174,13 @@ Under the following terms:
 
 ## Project Status
 
-This project is currently in active development.
+This project is currently in active development. We're working on completing early chapters and establishing the foundation for additional content.
+
+Current focus:
+- Chapters 1-3 content development
+- Establishing consistent formatting and style
+- Creating engaging activities
+- Building robust PDF generation
 
 ## Contact
 
