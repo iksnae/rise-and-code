@@ -48,10 +48,22 @@ Step | Current Position | Visited | Options | Choice
 2. Think about handling dead ends
 3. Plan for backtracking when needed
 
-### Encoded Solution
+### Solution
 ```
-Algorithm: GHSWKBILUVWBVHDUFKBEDFNWUDFN
-(Encoding: Shift each character back by 3)
+Step 1: Initialize an empty list for the path
+Step 2: Create a visited matrix to track explored cells
+Step 3: Define a recursive depth-first search function:
+        - Mark current cell as visited
+        - If current cell is the end, return true
+        - For each adjacent cell (up, right, down, left):
+          - If it's valid (in bounds, not a wall, not visited):
+            - Add it to the path
+            - Recursively search from this cell
+            - If search returns true, return true
+            - If search returns false, remove cell from path (backtrack)
+        - Return false if no path found
+Step 4: Start the search from the starting position
+Step 5: Return the final path if found, or "No path exists" otherwise
 ```
 
 ## Challenge 2: Expression Evaluator ⭐⭐⭐
@@ -93,10 +105,28 @@ Step | Token | Operator Stack | Value Stack | Action
 2. Think about handling parentheses
 3. Plan for error cases
 
-### Encoded Solution
+### Solution
 ```
-Steps: VWDFNBHYDOXDWHBSUHFHGHQFH
-(Encoding: Shift each character up by 3)
+Step 1: Initialize an operator stack and a value stack
+Step 2: For each token in the expression:
+        If token is a number:
+            Push it onto the value stack
+        If token is an operator (+, -, *, /):
+            While operator stack is not empty AND 
+                  top of operator stack has higher precedence:
+                Pop operator and apply it to top two values
+            Push token onto operator stack
+        If token is '(':
+            Push onto operator stack
+        If token is ')':
+            While top of operator stack is not '(':
+                Pop operator and apply it to top two values
+            Pop the '(' from operator stack
+Step 3: While operator stack is not empty:
+        Pop operator and apply it to top two values
+Step 4: Return the final value on the value stack
+
+Operator precedence: * and / higher than + and -
 ```
 
 ## Challenge 3: Data Compressor ⭐⭐⭐
@@ -140,10 +170,28 @@ Special cases:
 2. Think about preserving case
 3. Plan for single character sequences
 
-### Encoded Solution
+### Solution
 ```
-Process: FRXQWBEXLOGBVWULQJ
-(Encoding: Shift each character up by 3)
+Step 1: If input string is empty, return empty string
+Step 2: Initialize current character to first character of the input
+Step 3: Initialize count to 1
+Step 4: Initialize result string to empty
+Step 5: For each character at position i from 1 to end of string:
+        If character at i equals current character:
+            Increment count
+        Else:
+            If count > 1:
+                Append count and current character to result
+            Else:
+                Append just current character to result
+            Set current character to character at i
+            Reset count to 1
+Step 6: Handle the last character sequence:
+        If count > 1:
+            Append count and current character to result
+        Else:
+            Append just current character to result
+Step 7: Return the result string
 ```
 
 ## Challenge 4: Binary Tree Builder ⭐⭐⭐
@@ -187,10 +235,25 @@ Build steps:
 2. Think about balancing conditions
 3. Plan traversal order
 
-### Encoded Solution
+### Solution
 ```
-Build: LQVHUWBWUDYHUVHBUHFXUVH
-(Encoding: Shift each character back by 3)
+Step 1: Define a Node class with value, left, and right properties
+Step 2: Define a function to insert a value into the tree:
+        - If the tree is empty, create a new node with the value
+        - If the value is less than the current node's value:
+          - If left child exists, recursively insert to the left
+          - Otherwise, set the left child to a new node with the value
+        - If the value is greater than the current node's value:
+          - If right child exists, recursively insert to the right
+          - Otherwise, set the right child to a new node with the value
+Step 3: Define an in-order traversal function:
+        - If the node is null, return
+        - Recursively traverse the left subtree
+        - Visit the current node (add to result list)
+        - Recursively traverse the right subtree
+Step 4: Build the tree by inserting each value from the input array
+Step 5: Perform in-order traversal to get the sorted list
+Step 6: Return the result list
 ```
 
 ## Challenge 5: Game State Analyzer ⭐⭐⭐
@@ -244,10 +307,29 @@ Diag 2  |       |
 2. Think about efficient checking methods
 3. Plan for all possible states
 
-### Encoded Solution
+### Solution
 ```
-Check: OLQHVBGLDJRQDOVBVSDFHV
-(Encoding: Shift each character up by 3)
+Step 1: Check all rows for a winner:
+        For each row:
+            If all three cells contain the same player mark (X or O):
+                Return "[player] wins"
+
+Step 2: Check all columns for a winner:
+        For each column:
+            If all three cells contain the same player mark (X or O):
+                Return "[player] wins"
+
+Step 3: Check the diagonals for a winner:
+        If top-left, center, and bottom-right contain the same mark:
+            Return "[player] wins"
+        If top-right, center, and bottom-left contain the same mark:
+            Return "[player] wins"
+
+Step 4: Check if board is full:
+        If any cell is empty:
+            Return "Game in progress"
+        Else:
+            Return "Draw"
 ```
 
 ## Approaching Advanced Challenges
