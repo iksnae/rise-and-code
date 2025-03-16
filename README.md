@@ -1,3 +1,4 @@
+![Cover](./art/cover.png)
 # Rise & Code
 
 [![Build Book](https://github.com/iksnae/rise-and-code/actions/workflows/build-book.yml/badge.svg)](https://github.com/iksnae/rise-and-code/actions/workflows/build-book.yml)
