@@ -1,0 +1,127 @@
+name: Build Book
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'book/**/*.md'
+      - '.github/workflows/build-book.yml'
+  workflow_dispatch:  # Allow manual triggering
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc texlive-xetex
+          npm install -g markdown-pdf
+          
+      - name: Set up version info
+        id: version
+        run: |
+          VERSION=$(date +'v%Y.%m.%d-%H%M')
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "DATE=$(date +'%B %d, %Y')" >> $GITHUB_ENV
+          
+      - name: Create build directory
+        run: mkdir -p build
+        
+      - name: Collate markdown files
+        run: |
+          echo "# Rise & Code" > build/rise-and-code.md
+          echo "## A Programming Book for Everyone" >> build/rise-and-code.md
+          echo "### Version: ${{ env.VERSION }}" >> build/rise-and-code.md
+          echo "### Generated on: ${{ env.DATE }}" >> build/rise-and-code.md
+          echo "" >> build/rise-and-code.md
+          
+          # Include the main README content
+          cat README.md >> build/rise-and-code.md
+          echo "" >> build/rise-and-code.md
+          
+          # Process each chapter in order
+          for chapter_dir in $(ls -d book/chapter-*/ | sort -V); do
+            echo "Processing $chapter_dir"
+            
+            # Add chapter README
+            if [ -f "$chapter_dir/README.md" ]; then
+              echo "" >> build/rise-and-code.md
+              echo "---" >> build/rise-and-code.md
+              echo "" >> build/rise-and-code.md
+              cat "$chapter_dir/README.md" >> build/rise-and-code.md
+            fi
+            
+            # Add chapter sections
+            if [ -d "$chapter_dir/sections" ]; then
+              for section in $(ls "$chapter_dir/sections/"*.md | sort -V); do
+                echo "" >> build/rise-and-code.md
+                echo "## $(basename "$section" .md)" >> build/rise-and-code.md
+                cat "$section" >> build/rise-and-code.md
+              done
+            fi
+            
+            # Add chapter activities
+            if [ -d "$chapter_dir/activities" ]; then
+              echo "" >> build/rise-and-code.md
+              echo "## Activities" >> build/rise-and-code.md
+              for activity in $(ls "$chapter_dir/activities/"*.md | sort -V); do
+                echo "" >> build/rise-and-code.md
+                echo "### $(basename "$activity" .md)" >> build/rise-and-code.md
+                cat "$activity" >> build/rise-and-code.md
+              done
+            fi
+            
+            # Add chapter summary if it exists
+            if [ -f "$chapter_dir/chapter-summary.md" ]; then
+              echo "" >> build/rise-and-code.md
+              echo "## Chapter Summary" >> build/rise-and-code.md
+              cat "$chapter_dir/chapter-summary.md" >> build/rise-and-code.md
+            fi
+          done
+          
+      - name: Convert to PDF
+        run: |
+          # Convert using markdown-pdf
+          markdown-pdf build/rise-and-code.md -o build/rise-and-code.pdf
+          # Backup approach if markdown-pdf fails
+          if [ ! -f build/rise-and-code.pdf ]; then
+            pandoc build/rise-and-code.md -o build/rise-and-code.pdf --pdf-engine=xelatex
+          fi
+      
+      - name: Create GitHub Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: ${{ env.VERSION }}
+          tag_name: ${{ env.VERSION }}
+          draft: false
+          prerelease: false
+          files: |
+            build/rise-and-code.md
+            build/rise-and-code.pdf
+          body: |
+            # Rise & Code Book - ${{ env.VERSION }}
+            
+            Automatically generated build of the Rise & Code book.
+            
+            ## Changes in this version
+            
+            This version includes all changes pushed to the repository as of ${{ env.DATE }}.
+            
+            ## Download
+            
+            - [Complete Book (Markdown)](https://github.com/iksnae/rise-and-code/releases/download/${{ env.VERSION }}/rise-and-code.md)
+            - [Complete Book (PDF)](https://github.com/iksnae/rise-and-code/releases/download/${{ env.VERSION }}/rise-and-code.pdf)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
