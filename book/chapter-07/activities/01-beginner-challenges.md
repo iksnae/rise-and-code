@@ -39,10 +39,18 @@ Step | Current Number | Result List
 2. Think about how to get from one number to the next
 3. Consider how to keep track of your numbers
 
-### Encoded Solution
+### Solution
 ```
-Final sequence: NRVWPXGRVW
-(Encoding: Shift each digit up by 3 letters)
+Step 1: Set current = 1
+Step 2: Add current to result list
+Step 3: Set current = current * 2
+Step 4: Add current to result list
+Step 5: Set current = current * 2
+Step 6: Add current to result list
+Step 7: Set current = current * 2
+Step 8: Add current to result list
+Step 9: Set current = current * 2
+Step 10: Add current to result list
 ```
 
 ## Challenge 2: Word Reverser ⭐
@@ -79,10 +87,13 @@ Position | Original Letter | Reversed Position | New Letter
 2. Consider how to swap positions
 3. Track which letters you've already moved
 
-### Encoded Solution
+### Solution
 ```
-Process: HVWWHO-WVDO-HFSODFH
-(Encoding: Shift each letter back by 3)
+Step 1: Set original = input word
+Step 2: Set reversed = empty string
+Step 3: For i = length of original down to 1
+Step 4:    Add character at position i to reversed
+Step 5: Return reversed
 ```
 
 ## Challenge 3: Even Number Counter ⭐
@@ -121,10 +132,13 @@ Number | Is Even? | Running Count
 2. Think about keeping a running total
 3. Consider what to do with each number
 
-### Encoded Solution
+### Solution
 ```
-Algorithm: FKHFNBPRG2BFRXQWBXS
-(Encoding: Shift each character up by 3)
+Step 1: Set count = 0
+Step 2: For each number in the list
+Step 3:    If number % 2 == 0
+Step 4:        Increment count by 1
+Step 5: Return count
 ```
 
 ## Challenge 4: Temperature Converter ⭐
@@ -160,10 +174,12 @@ Final temperature in Fahrenheit: _____
 2. Consider the order of operations
 3. Think about how to handle decimal numbers
 
-### Encoded Solution
+### Solution
 ```
-Steps: PXOWLSOB9GLYLGH5DGG32
-(Encoding: Shift each character up by 3)
+Step 1: Multiply Celsius temperature by 9
+Step 2: Divide the result by 5
+Step 3: Add 32 to the result
+Step 4: Return the final value as Fahrenheit temperature
 ```
 
 ## Challenge 5: Name Formatter ⭐
@@ -200,10 +216,12 @@ Final format: _____________
 2. Consider what separates the names
 3. Plan the order of assembly
 
-### Encoded Solution
+### Solution
 ```
-Process: ODVWBFRPPDBILUVW
-(Encoding: Shift each character up by 3)
+Step 1: Create result string starting with the last name
+Step 2: Add a comma and space ", " to the result
+Step 3: Add the first name to the result
+Step 4: Return the formatted string
 ```
 
 ## Checking Your Work
@@ -212,8 +230,7 @@ For each challenge:
 1. Write out your complete solution
 2. Test it with the example provided
 3. Try it with different inputs
-4. Encode your solution using the specified method
-5. Compare with the encoded solution provided
+4. Compare with the solution provided
 
 ## Reflection Questions
 
