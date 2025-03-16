@@ -38,7 +38,7 @@ jobs:
         run: |
           VERSION=$(date +'v%Y.%m.%d-%H%M')
           echo "VERSION=$VERSION" >> $GITHUB_ENV
-          echo "DATE=$(date +'%B %d, %Y')\" >> $GITHUB_ENV
+          echo "DATE=$(date +'%B %d, %Y')" >> $GITHUB_ENV
           
       - name: Create build directory
         run: mkdir -p build
