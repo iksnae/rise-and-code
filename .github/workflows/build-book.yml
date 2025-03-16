@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y pandoc texlive-xetex
+          sudo apt-get install -y pandoc texlive-xetex librsvg2-bin imagemagick
           npm install -g markdown-pdf
           
       - name: Set up version info
@@ -38,7 +38,7 @@ jobs:
         run: |
           VERSION=$(date +'v%Y.%m.%d-%H%M')
           echo "VERSION=$VERSION" >> $GITHUB_ENV
-          echo "DATE=$(date +'%B %d, %Y')" >> $GITHUB_ENV
+          echo "DATE=$(date +'%B %d, %Y')\" >> $GITHUB_ENV
           
       - name: Create build directory
         run: mkdir -p build
