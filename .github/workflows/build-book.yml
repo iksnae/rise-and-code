@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'book/**/*.md'
+      - 'tools/build.js'
       - '.github/workflows/build-book.yml'
   workflow_dispatch:  # Allow manual triggering
 
@@ -38,66 +39,12 @@ jobs:
       - name: Create build directory
         run: mkdir -p build
         
-      - name: Collate markdown files
+      - name: Build book using custom script
         run: |
-          echo "# Rise & Code" > build/rise-and-code.md
-          echo "## A Programming Book for Everyone" >> build/rise-and-code.md
-          echo "### Version: ${{ env.VERSION }}" >> build/rise-and-code.md
-          echo "### Generated on: ${{ env.DATE }}" >> build/rise-and-code.md
-          echo "" >> build/rise-and-code.md
-          
-          # Include the main README content
-          cat README.md >> build/rise-and-code.md
-          echo "" >> build/rise-and-code.md
-          
-          # Process each chapter in order
-          for chapter_dir in $(ls -d book/chapter-*/ | sort -V); do
-            echo "Processing $chapter_dir"
-            
-            # Add chapter README
-            if [ -f "$chapter_dir/README.md" ]; then
-              echo "" >> build/rise-and-code.md
-              echo "---" >> build/rise-and-code.md
-              echo "" >> build/rise-and-code.md
-              cat "$chapter_dir/README.md" >> build/rise-and-code.md
-            fi
-            
-            # Add chapter sections
-            if [ -d "$chapter_dir/sections" ]; then
-              for section in $(ls "$chapter_dir/sections/"*.md | sort -V); do
-                echo "" >> build/rise-and-code.md
-                echo "## $(basename "$section" .md)" >> build/rise-and-code.md
-                cat "$section" >> build/rise-and-code.md
-              done
-            fi
-            
-            # Add chapter activities
-            if [ -d "$chapter_dir/activities" ]; then
-              echo "" >> build/rise-and-code.md
-              echo "## Activities" >> build/rise-and-code.md
-              for activity in $(ls "$chapter_dir/activities/"*.md | sort -V); do
-                echo "" >> build/rise-and-code.md
-                echo "### $(basename "$activity" .md)" >> build/rise-and-code.md
-                cat "$activity" >> build/rise-and-code.md
-              done
-            fi
-            
-            # Add chapter summary if it exists
-            if [ -f "$chapter_dir/chapter-summary.md" ]; then
-              echo "" >> build/rise-and-code.md
-              echo "## Chapter Summary" >> build/rise-and-code.md
-              cat "$chapter_dir/chapter-summary.md" >> build/rise-and-code.md
-            fi
-          done
-          
-      - name: Convert to PDF
-        run: |
-          # Convert using markdown-pdf
-          markdown-pdf build/rise-and-code.md -o build/rise-and-code.pdf
-          # Backup approach if markdown-pdf fails
-          if [ ! -f build/rise-and-code.pdf ]; then
-            pandoc build/rise-and-code.md -o build/rise-and-code.pdf --pdf-engine=xelatex
-          fi
+          node tools/build.js
+        env:
+          VERSION: ${{ env.VERSION }}
+          DATE: ${{ env.DATE }}
       
       - name: Create GitHub Release
         id: create_release
