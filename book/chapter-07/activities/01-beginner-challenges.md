@@ -1,251 +1,201 @@
-# Beginner Challenge Set
+# Beginner Coding Challenges
 
-Welcome to your first set of coding challenges! These problems are designed to help you practice the fundamental concepts you've learned in previous chapters. Remember, the goal is to develop your problem-solving skills while having fun.
+This set of beginner-level challenges is designed to build your programming fundamentals through hands-on practice. Each challenge includes a clear problem statement, examples, hints, and a complete solution.
 
-## Challenge 1: Number Sequence ⭐
-
-### Problem Statement
-Create an algorithm that generates the first 5 numbers in a sequence where each number is double the previous number, starting with 1.
-
-### Required Skills
-- Variables
-- Basic arithmetic
-- Loops
-
-### Example
-```
-Input: Start with 1
-Output: 1, 2, 4, 8, 16
-```
-
-### Workspace Setup
-```
-Variables needed:
-- Current number
-- Result list
-
-Table format:
-Step | Current Number | Result List
------|---------------|-------------
-1    |               |
-2    |               |
-3    |               |
-4    |               |
-5    |               |
-```
-
-### Hints
-1. Start with the number 1
-2. Think about how to get from one number to the next
-3. Consider how to keep track of your numbers
-
-### Solution
-```
-Step 1: Set current = 1
-Step 2: Add current to result list
-Step 3: Set current = current * 2
-Step 4: Add current to result list
-Step 5: Set current = current * 2
-Step 6: Add current to result list
-Step 7: Set current = current * 2
-Step 8: Add current to result list
-Step 9: Set current = current * 2
-Step 10: Add current to result list
-```
-
-## Challenge 2: Word Reverser ⭐
+## Challenge 1: Even Number Counter
 
 ### Problem Statement
-Create an algorithm that reverses a given word letter by letter.
+Create an algorithm that counts the number of even numbers in a list of integers.
 
 ### Required Skills
-- String manipulation
-- Variables
-- Loops
-
-### Example
-```
-Input: "CODE"
-Output: "EDOC"
-```
-
-### Workspace Setup
-```
-Word to reverse: ________
-
-Table format:
-Position | Original Letter | Reversed Position | New Letter
----------|----------------|------------------|------------
-1        |                |                  |
-2        |                |                  |
-3        |                |                  |
-4        |                |                  |
-```
-
-### Hints
-1. Think about how to access letters from both ends
-2. Consider how to swap positions
-3. Track which letters you've already moved
-
-### Solution
-```
-Step 1: Set original = input word
-Step 2: Set reversed = empty string
-Step 3: For i = length of original down to 1
-Step 4:    Add character at position i to reversed
-Step 5: Return reversed
-```
-
-## Challenge 3: Even Number Counter ⭐
-
-### Problem Statement
-Create an algorithm that counts how many even numbers are in a given list of numbers.
-
-### Required Skills
-- Loops
+- Basic loops
 - Conditional statements
-- Basic arithmetic
+- Modulo operation
 
 ### Example
-```
-Input: [1, 2, 3, 4, 5, 6]
-Output: 3 (because 2, 4, and 6 are even)
-```
+Input: `[1, 2, 3, 4, 5, 6, 7, 8]`
+Output: `4` (the even numbers are 2, 4, 6, and 8)
 
 ### Workspace Setup
-```
-Numbers to check: [ ] [ ] [ ] [ ] [ ] [ ]
-
-Table format:
-Number | Is Even? | Running Count
---------|----------|---------------
-        |          |
-        |          |
-        |          |
-        |          |
-        |          |
-        |          |
-```
+- `numbers` - The input list
+- `count` - Running total of even numbers found
+- Loop structure to iterate through the list
 
 ### Hints
-1. How can you tell if a number is even?
-2. Think about keeping a running total
-3. Consider what to do with each number
+1. Remember that even numbers can be divided by 2 with no remainder
+2. Use the modulo operator (`%`) to check for even numbers
+3. Initialize a counter variable before your loop begins
 
 ### Solution
 ```
-Step 1: Set count = 0
-Step 2: For each number in the list
-Step 3:    If number % 2 == 0
-Step 4:        Increment count by 1
-Step 5: Return count
+function countEvenNumbers(numbers):
+    count = 0
+    for num in numbers:
+        if num % 2 == 0:
+            count = count + 1
+    return count
 ```
 
-## Challenge 4: Temperature Converter ⭐
+## Challenge 2: String Reversal
 
 ### Problem Statement
-Create an algorithm that converts temperatures from Celsius to Fahrenheit using the formula: F = (C × 9/5) + 32
-
-### Required Skills
-- Variables
-- Arithmetic operations
-- Order of operations
-
-### Example
-```
-Input: 0°C
-Output: 32°F
-```
-
-### Workspace Setup
-```
-Temperature in Celsius: _____
-
-Calculation steps:
-1. _____________________
-2. _____________________
-3. _____________________
-
-Final temperature in Fahrenheit: _____
-```
-
-### Hints
-1. Break down the formula into steps
-2. Consider the order of operations
-3. Think about how to handle decimal numbers
-
-### Solution
-```
-Step 1: Multiply Celsius temperature by 9
-Step 2: Divide the result by 5
-Step 3: Add 32 to the result
-Step 4: Return the final value as Fahrenheit temperature
-```
-
-## Challenge 5: Name Formatter ⭐
-
-### Problem Statement
-Create an algorithm that takes a first name and last name and formats them into "Last, First"
+Create an algorithm that reverses a string without using built-in reverse functions.
 
 ### Required Skills
 - String manipulation
-- Variables
-- Basic formatting
+- Loop structures
+- Variable assignment
 
 ### Example
-```
-Input: First = "Ada", Last = "Lovelace"
-Output: "Lovelace, Ada"
-```
+Input: `"hello"`
+Output: `"olleh"`
 
 ### Workspace Setup
-```
-First Name: _____________
-Last Name: _____________
-
-Steps:
-1. _____________________
-2. _____________________
-3. _____________________
-
-Final format: _____________
-```
+- `input_string` - The original string
+- `reversed_string` - The string being built in reverse order
+- Loop structure to iterate through the input
 
 ### Hints
-1. Think about the pieces you need to combine
-2. Consider what separates the names
-3. Plan the order of assembly
+1. Consider processing the input string one character at a time
+2. You can build a new string by adding characters to the front
+3. Try working through the input string from right to left
 
 ### Solution
 ```
-Step 1: Create result string starting with the last name
-Step 2: Add a comma and space ", " to the result
-Step 3: Add the first name to the result
-Step 4: Return the formatted string
+function reverseString(input_string):
+    reversed_string = ""
+    for i = length(input_string) - 1; i >= 0; i--:
+        reversed_string = reversed_string + input_string[i]
+    return reversed_string
 ```
 
-## Checking Your Work
+## Challenge 3: Sum of Digits
 
-For each challenge:
-1. Write out your complete solution
-2. Test it with the example provided
-3. Try it with different inputs
-4. Compare with the solution provided
+### Problem Statement
+Create an algorithm that calculates the sum of all digits in a given integer.
+
+### Required Skills
+- Number manipulation
+- Modulo and integer division
+- Loop structures
+
+### Example
+Input: `123`
+Output: `6` (1 + 2 + 3 = 6)
+
+### Workspace Setup
+- `number` - The input integer
+- `sum` - Running total of digits
+- Loop to extract and add each digit
+
+### Hints
+1. You can extract the rightmost digit of a number using the modulo operator (`%`)
+2. After extracting a digit, you can remove it by integer division (`//`)
+3. Continue this process until the number becomes zero
+
+### Solution
+```
+function sumDigits(number):
+    sum = 0
+    while number > 0:
+        digit = number % 10
+        sum = sum + digit
+        number = number // 10
+    return sum
+```
+
+## Challenge 4: Find Maximum Value
+
+### Problem Statement
+Create an algorithm that finds the maximum value in a list of numbers without using built-in max functions.
+
+### Required Skills
+- Variables and assignment
+- Loop structures
+- Comparison operators
+
+### Example
+Input: `[12, 45, 7, 23, 56, 9]`
+Output: `56`
+
+### Workspace Setup
+- `numbers` - The input list
+- `max_value` - The current maximum value
+- Loop to compare each value
+
+### Hints
+1. Start by assuming the first number is the maximum
+2. Compare each subsequent number with the current maximum
+3. If a larger number is found, update the maximum
+
+### Solution
+```
+function findMaximum(numbers):
+    if length(numbers) == 0:
+        return null  # Handle empty list case
+    max_value = numbers[0]
+    for i = 1; i < length(numbers); i++:
+        if numbers[i] > max_value:
+            max_value = numbers[i]
+    return max_value
+```
+
+## Challenge 5: Word Counter
+
+### Problem Statement
+Create an algorithm that counts the number of words in a string, assuming words are separated by spaces.
+
+### Required Skills
+- String manipulation
+- Counting techniques
+- Basic loops
+
+### Example
+Input: `"The quick brown fox jumps over the lazy dog"`
+Output: `9`
+
+### Workspace Setup
+- `sentence` - The input string
+- `word_count` - Running count of words
+- Logic to identify word boundaries
+
+### Hints
+1. Spaces typically separate words in a sentence
+2. Consider the edge cases of having multiple consecutive spaces
+3. Think about how to handle an empty string
+
+### Solution
+```
+function countWords(sentence):
+    if length(sentence) == 0:
+        return 0
+    
+    word_count = 0
+    is_word = false
+    
+    for i = 0; i < length(sentence); i++:
+        # If current character is not a space
+        if sentence[i] != ' ':
+            # If we weren't previously in a word, we found a new word
+            if is_word == false:
+                word_count = word_count + 1
+                is_word = true
+        else:
+            # We found a space, so we're not in a word anymore
+            is_word = false
+    
+    return word_count
+```
 
 ## Reflection Questions
 
 After completing these challenges, consider:
-1. Which challenge was the most difficult and why?
-2. What patterns did you notice across different problems?
-3. How could you modify these challenges to make them harder?
-4. What new problem-solving strategies did you learn?
+
+1. Which challenge was most difficult for you and why?
+2. Did you develop any reusable problem-solving patterns?
+3. How would you modify these algorithms to handle different input conditions?
+4. Could any of these solutions be written more efficiently or clearly?
 
 ## Next Steps
 
-Once you've completed these challenges:
-1. Try solving them again with different inputs
-2. Create similar challenges of your own
-3. Share and solve challenges with peers
-4. Move on to the intermediate challenge set
-
-Remember: The goal is not just to solve these problems, but to understand how you solved them. Take time to document your thinking process and strategies used.
+Once you're comfortable with these beginner challenges, move on to the intermediate challenges which will combine multiple concepts and require more advanced problem-solving approaches.
