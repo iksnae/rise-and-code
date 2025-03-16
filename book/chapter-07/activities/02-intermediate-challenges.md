@@ -43,10 +43,14 @@ Building steps:
 2. Consider the spaces needed for alignment
 3. Think about the relationship between row number and pattern
 
-### Encoded Solution
+### Solution
 ```
-Logic: VSDFHV=Q-L VWDUV=2L-1
-(Encoding: Shift each character back by 3)
+Step 1: For i from 1 to n
+Step 2:    Set spaces = n - i
+Step 3:    Set stars = 2 * i - 1
+Step 4:    Print spaces number of space characters
+Step 5:    Print stars number of * characters
+Step 6:    Move to next line
 ```
 
 ## Challenge 2: Array Rotator ⭐⭐
@@ -83,10 +87,18 @@ Step | Current Array    | Operation
 2. Think about handling rotations larger than array size
 3. Look for patterns in element movement
 
-### Encoded Solution
+### Solution
 ```
-Method: UHYHUVHBDOOBUHYHUVHBSDUWV
-(Encoding: Shift each character back by 3)
+Step 1: Handle the case where k > array length
+        Set k = k % array length
+Step 2: Reverse the entire array
+Step 3: Reverse the first k elements
+Step 4: Reverse the remaining elements from position k+1 to end
+
+For example, with input [1, 2, 3, 4, 5] and k = 2:
+- After step 2: [5, 4, 3, 2, 1]
+- After step 3: [4, 5, 3, 2, 1]
+- After step 4: [4, 5, 1, 2, 3]
 ```
 
 ## Challenge 3: Prime Factorizer ⭐⭐
@@ -122,10 +134,18 @@ Step | Current Number | Factor Found | Remaining Number
 2. Consider when to move to the next potential factor
 3. Think about when to stop
 
-### Encoded Solution
+### Solution
 ```
-Steps: GLYLGHBZKLOHBSRVVLEOH
-(Encoding: Shift each character up by 3)
+Step 1: Initialize an empty array for factors
+Step 2: Set n = input number
+Step 3: Set divisor = 2
+Step 4: While n > 1
+Step 5:    If n is divisible by divisor
+Step 6:        Add divisor to factors array
+Step 7:        Divide n by divisor
+Step 8:    Else
+Step 9:        Increment divisor by 1
+Step 10: Return factors array
 ```
 
 ## Challenge 4: Word Frequency Counter ⭐⭐
@@ -172,10 +192,18 @@ Word | Count
 2. Think about word separation
 3. Plan how to store and update counts
 
-### Encoded Solution
+### Solution
 ```
-Process: ORZHUFDVHBVSOLWBGLFWLRQDU
-(Encoding: Shift each character up by 3)
+Step 1: Convert the sentence to lowercase
+Step 2: Remove any punctuation
+Step 3: Split the sentence into words by spaces
+Step 4: Initialize an empty dictionary to store word counts
+Step 5: For each word in the list of words
+Step 6:    If the word exists in the dictionary
+Step 7:        Increment its count by 1
+Step 8:    Else
+Step 9:        Add the word to the dictionary with count 1
+Step 10: Return the dictionary
 ```
 
 ## Challenge 5: Number Sequence Finder ⭐⭐
@@ -212,10 +240,17 @@ Position | Number | Difference | Ratio | Pattern
 2. Consider differences between consecutive numbers
 3. Think about ratios between numbers
 
-### Encoded Solution
+### Solution
 ```
-Analysis: ILQGBUDWLRBDSSOBSDWWHUQ
-(Encoding: Shift each character up by 3)
+Step 1: Calculate differences between consecutive terms
+Step 2: Check if differences are constant (arithmetic sequence)
+        If yes, next term = last term + common difference
+Step 3: If not arithmetic, calculate ratios between consecutive terms
+Step 4: Check if ratios are constant (geometric sequence)
+        If yes, next term = last term * common ratio
+Step 5: If neither pattern is found, look for more complex patterns
+        (quadratic, cubic, etc.)
+Step 6: Return the identified next term
 ```
 
 ## Working Through the Challenges
