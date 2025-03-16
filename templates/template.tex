@@ -6,9 +6,11 @@
 \usepackage{graphicx}
 \usepackage{fancyhdr}
 \usepackage{titlesec}
+\usepackage{setspace}
 
 % Define colors
 \definecolor{chaptercolor}{RGB}{0, 83, 156}
+\definecolor{versioncolor}{RGB}{100, 100, 100}
 
 % Set page geometry
 \geometry{margin=1in}
@@ -21,12 +23,29 @@
 % Always start sections on a new page
 \newcommand{\sectionbreak}{\clearpage}
 
+% Define version and build date commands
+\newcommand{\bookversion}{VERSION}
+\newcommand{\builddate}{BUILDDATE}
+
 % Configure headers and footers
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[LE,RO]{Rise \& Code}
 \fancyhead[RE,LO]{\leftmark}
 \fancyfoot[C]{\thepage}
+\fancyfoot[R]{\textcolor{versioncolor}{\footnotesize{v\bookversion}}}
+
+% Add a footer rule
+\renewcommand{\footrulewidth}{0.4pt}
+
+% Plain style for chapter pages
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \fancyfoot[C]{\thepage}
+  \fancyfoot[R]{\textcolor{versioncolor}{\footnotesize{v\bookversion}}}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0.4pt}
+}
 
 % Title page information
 \title{\Huge Rise \& Code\\\large A Programming Book for Everyone}
@@ -41,6 +60,7 @@ $endif$
 
 $if(toc)$
 \tableofcontents
+\clearpage
 $endif$
 
 $body$
