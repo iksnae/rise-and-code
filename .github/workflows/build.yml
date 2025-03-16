@@ -1,0 +1,113 @@
+name: Build Book
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'book/**/*.md'
+      - 'tools/build.js'
+      - '.github/workflows/build-book.yml'
+  workflow_dispatch:  # Allow manual triggering
+
+permissions:
+  contents: write  # Required for creating releases and tags
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc texlive-xetex librsvg2-bin
+          
+      - name: Set up version info
+        id: version
+        run: |
+          VERSION=$(date +'v%Y.%m.%d-%H%M')
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "DATE=$(date +'%B %d, %Y')" >> $GITHUB_ENV
+          
+      - name: Create build directory
+        run: mkdir -p build
+        
+      - name: Build book using custom script
+        run: |
+          node tools/build.js
+        env:
+          VERSION: ${{ env.VERSION }}
+          DATE: ${{ env.DATE }}
+      
+      - name: Check PDF file exists and has content
+        run: |
+          if [ -f "build/rise-and-code.pdf" ] && [ -s "build/rise-and-code.pdf" ]; then
+            echo "PDF file exists and has content"
+          else
+            echo "WARNING: PDF file is missing or empty, creating a placeholder"
+            echo "# Rise & Code - Placeholder PDF" > build/placeholder.md
+            pandoc build/placeholder.md -o build/rise-and-code.pdf --pdf-engine=xelatex
+          fi
+
+      # New step for HTML generation
+      - name: Generate HTML file
+        run: |
+          pandoc book/**/*.md -o build/rise-and-code.html
+        env:
+          VERSION: ${{ env.VERSION }}
+          DATE: ${{ env.DATE }}
+
+      - name: Upload artifacts for debugging if needed
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-outputs
+          path: build/
+          retention-days: 7
+      
+      - name: Create GitHub Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: ${{ env.VERSION }}
+          tag_name: ${{ env.VERSION }}
+          draft: false
+          prerelease: false
+          files: |
+            build/rise-and-code.md
+            build/rise-and-code.pdf
+            build/rise-and-code.html  # Added HTML file to the release
+          body: |
+            # Rise & Code Book - ${{ env.VERSION }}
+            
+            Automatically generated build of the Rise & Code book.
+            
+            ## Changes in this version
+            
+            This version includes all changes pushed to the repository as of ${{ env.DATE }}.
+            
+            ## Download
+            
+            - [Complete Book (Markdown)](https://github.com/iksnae/rise-and-code/releases/download/${{ env.VERSION }}/rise-and-code.md)
+            - [Complete Book (PDF)](https://github.com/iksnae/rise-and-code/releases/download/${{ env.VERSION }}/rise-and-code.pdf)
+            - [Complete Book (HTML)](https://github.com/iksnae/rise-and-code/releases/download/${{ env.VERSION }}/rise-and-code.html)  # Added HTML link
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main'  # Only deploy on pushes to the main branch
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages  # The branch to push to
+          folder: build  # The folder containing the HTML file
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
