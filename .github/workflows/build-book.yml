@@ -66,13 +66,23 @@ jobs:
           VERSION: ${{ env.VERSION }}
           DATE: ${{ env.DATE }}
 
+      # Check if HTML file exists
+      - name: Check HTML file exists
+        run: |
+          if [ -f "build/rise-and-code.html" ]; then
+            echo "HTML file exists"
+          else
+            echo "HTML file is missing!"
+            exit 1
+          fi
+
       - name: Upload artifacts for debugging if needed
         uses: actions/upload-artifact@v4
         with:
           name: build-outputs
           path: build/
           retention-days: 7
-      
+
       - name: Create GitHub Release
         id: create_release
         uses: softprops/action-gh-release@v1
@@ -109,5 +119,10 @@ jobs:
         with:
           branch: gh-pages  # The branch to push to
           folder: build  # The folder containing the HTML file
+          target_folder: .  # Deploy to the root of the branch
+          clean: true  # Clean the target branch before deploying (optional, but can help)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Rename the generated HTML file to index.html before deployment
+          mv build/rise-and-code.html build/index.html
