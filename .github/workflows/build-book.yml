@@ -94,7 +94,7 @@ jobs:
           files: |
             build/rise-and-code.md
             build/rise-and-code.pdf
-            build/rise-and-code.html  # Added HTML file to the release
+            build/rise-and-code.html  # Keep HTML file in the release assets
           body: |
             # Rise & Code Book - ${{ env.VERSION }}
             
@@ -108,7 +108,6 @@ jobs:
             
             - [Complete Book (Markdown)](https://github.com/iksnae/rise-and-code/releases/download/${{ env.VERSION }}/rise-and-code.md)
             - [Complete Book (PDF)](https://github.com/iksnae/rise-and-code/releases/download/${{ env.VERSION }}/rise-and-code.pdf)
-            - [Complete Book (HTML)](https://github.com/iksnae/rise-and-code/releases/download/${{ env.VERSION }}/rise-and-code.html)  # Added HTML link
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
