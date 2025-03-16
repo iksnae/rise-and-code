@@ -15,6 +15,7 @@ const config = {
   bookDir: path.resolve(__dirname, '../book'),
   outputMarkdown: 'rise-and-code.md',
   outputPdf: 'rise-and-code.pdf',
+  templateDir: path.resolve(__dirname, '../templates'),
   version: process.env.VERSION || `v${new Date().toISOString().split('T')[0]}`,
   date: process.env.DATE || new Date().toLocaleDateString('en-US', { 
     year: 'numeric', 
@@ -26,6 +27,11 @@ const config = {
 // Ensure output directory exists
 if (!fs.existsSync(config.outputDir)) {
   fs.mkdirSync(config.outputDir, { recursive: true });
+}
+
+// Ensure template directory exists
+if (!fs.existsSync(config.templateDir)) {
+  fs.mkdirSync(config.templateDir, { recursive: true });
 }
 
 // Get chapter directories sorted by chapter number
@@ -46,6 +52,65 @@ function readMarkdownFile(filePath) {
   return fs.readFileSync(filePath, 'utf8');
 }
 
+// Create LaTeX template for better PDF formatting
+function createLatexTemplate() {
+  const templatePath = path.join(config.templateDir, 'template.tex');
+  
+  // Basic LaTeX template with customizations for new sections on new pages
+  const template = `
+\\documentclass[12pt,a4paper]{book}
+\\usepackage{geometry}
+\\usepackage{hyperref}
+\\usepackage{xcolor}
+\\usepackage{graphicx}
+\\usepackage{fancyhdr}
+\\usepackage{titlesec}
+
+% Define colors
+\\definecolor{chaptercolor}{RGB}{0, 83, 156}
+
+% Set page geometry
+\\geometry{margin=1in}
+
+% Configure section formatting
+\\titleformat{\\chapter}[display]{\\normalfont\\huge\\bfseries\\color{chaptercolor}}{\\chaptertitlename\\ \\thechapter}{20pt}{\\Huge}
+\\titleformat{\\section}{\\normalfont\\Large\\bfseries\\color{chaptercolor}}{\\thesection}{1em}{}
+\\titleformat{\\subsection}{\\normalfont\\large\\bfseries}{\\thesubsection}{1em}{}
+
+% Always start sections on a new page
+\\newcommand{\\sectionbreak}{\\clearpage}
+
+% Configure headers and footers
+\\pagestyle{fancy}
+\\fancyhf{}
+\\fancyhead[LE,RO]{Rise \\& Code}
+\\fancyhead[RE,LO]{\\leftmark}
+\\fancyfoot[C]{\\thepage}
+
+% Title page information
+\\title{\\Huge Rise \\& Code\\\\\\large A Programming Book for Everyone}
+\\author{Open Source Community}
+\\date{\\today}
+
+\\begin{document}
+
+$if(title)$
+\\maketitle
+$endif$
+
+$if(toc)$
+\\tableofcontents
+$endif$
+
+$body$
+
+\\end{document}
+`;
+
+  fs.writeFileSync(templatePath, template);
+  return templatePath;
+}
+
 // Build the book
 function buildBook() {
   console.log('Building Rise & Code book...');
@@ -56,6 +121,14 @@ function buildBook() {
   let output = '';
   
   // Add header and version info
+  output += '---\n';
+  output += 'title: "Rise & Code"\n';
+  output += 'subtitle: "A Programming Book for Everyone"\n';
+  output += `date: "${config.date}"\n`;
+  output += `author: "Open Source Community"\n`;
+  output += 'toc: true\n';
+  output += '---\n\n';
+  
   output += '# Rise & Code\n';
   output += '## A Programming Book for Everyone\n\n';
   output += `### Version: ${config.version}\n`;
@@ -68,8 +141,8 @@ function buildBook() {
   for (const chapterDir of chapterDirs) {
     console.log(`Processing ${path.basename(chapterDir)}...`);
     
-    // Add chapter separator
-    output += '\n\n---\n\n';
+    // Add chapter separator (use LaTeX page break for PDF)
+    output += '\n\n\\newpage\n\n';
     
     // Add chapter README
     const readmePath = path.join(chapterDir, 'README.md');
@@ -89,7 +162,9 @@ function buildBook() {
         const sectionPath = path.join(sectionsDir, sectionFile);
         const sectionContent = readMarkdownFile(sectionPath);
         
-        output += '\n\n## ' + sectionFile.replace(/^\d+-/,'').replace(/-/g, ' ').replace(/\.md$/,'') + '\n\n';
+        // Add section with a page break before it
+        output += '\n\n\\newpage\n\n';
+        output += '## ' + sectionFile.replace(/^\d+-/,'').replace(/-/g, ' ').replace(/\.md$/,'') + '\n\n';
         output += sectionContent;
       }
     }
@@ -97,7 +172,9 @@ function buildBook() {
     // Get activities directory
     const activitiesDir = path.join(chapterDir, 'activities');
     if (fs.existsSync(activitiesDir)) {
-      output += '\n\n## Activities\n\n';
+      // Add activities section with a page break
+      output += '\n\n\\newpage\n\n';
+      output += '## Activities\n\n';
       
       // Process each activity file in order
       const activityFiles = fs.readdirSync(activitiesDir)
@@ -109,7 +186,9 @@ function buildBook() {
         const activityPath = path.join(activitiesDir, activityFile);
         const activityContent = readMarkdownFile(activityPath);
         
-        output += '\n\n### ' + activityFile.replace(/^\d+-/,'').replace(/-/g, ' ').replace(/\.md$/,'') + '\n\n';
+        // Add each activity with a page break
+        output += '\n\n\\newpage\n\n';
+        output += '### ' + activityFile.replace(/^\d+-/,'').replace(/-/g, ' ').replace(/\.md$/,'') + '\n\n';
         output += activityContent;
       }
     }
@@ -118,7 +197,9 @@ function buildBook() {
     const summaryPath = path.join(chapterDir, 'chapter-summary.md');
     if (fs.existsSync(summaryPath)) {
       console.log(`  Adding chapter summary`);
-      output += '\n\n## Chapter Summary\n\n';
+      // Add summary with a page break
+      output += '\n\n\\newpage\n\n';
+      output += '## Chapter Summary\n\n';
       output += readMarkdownFile(summaryPath);
     }
   }
@@ -128,24 +209,35 @@ function buildBook() {
   fs.writeFileSync(outputMarkdownPath, output);
   console.log(`Markdown output written to: ${outputMarkdownPath}`);
   
+  // Create LaTeX template
+  const templatePath = createLatexTemplate();
+  
   // Convert to PDF
   const outputPdfPath = path.join(config.outputDir, config.outputPdf);
   try {
     console.log('Converting to PDF...');
-    // Simple direct call to pandoc, which is more reliable
-    execSync(`pandoc "${outputMarkdownPath}" -o "${outputPdfPath}" --pdf-engine=xelatex`, { stdio: 'inherit' });
+    // Call pandoc with custom template
+    execSync(`pandoc "${outputMarkdownPath}" -o "${outputPdfPath}" --pdf-engine=xelatex --template="${templatePath}" --toc`, { stdio: 'inherit' });
     console.log(`PDF output written to: ${outputPdfPath}`);
   } catch (error) {
     console.error('PDF conversion failed:', error);
-    // Create a minimal PDF with just title
-    const minimalTitle = '# Rise & Code\n## This is a placeholder PDF. Please see the Markdown version.';
-    fs.writeFileSync(path.join(config.outputDir, 'placeholder.md'), minimalTitle);
+    // Try again without custom template
     try {
-      execSync(`pandoc "${path.join(config.outputDir, 'placeholder.md')}" -o "${outputPdfPath}" --pdf-engine=xelatex`, { stdio: 'inherit' });
+      console.log('Trying again with default template...');
+      execSync(`pandoc "${outputMarkdownPath}" -o "${outputPdfPath}" --pdf-engine=xelatex`, { stdio: 'inherit' });
+      console.log(`PDF output written to: ${outputPdfPath} (default template)`);
     } catch (err) {
-      console.error('Even placeholder PDF creation failed:', err);
+      console.error('Default template conversion failed:', err);
+      // Create a minimal PDF with just title
+      const minimalTitle = '# Rise & Code\n## This is a placeholder PDF. Please see the Markdown version.';
+      fs.writeFileSync(path.join(config.outputDir, 'placeholder.md'), minimalTitle);
+      try {
+        execSync(`pandoc "${path.join(config.outputDir, 'placeholder.md')}" -o "${outputPdfPath}" --pdf-engine=xelatex`, { stdio: 'inherit' });
+      } catch (err2) {
+        console.error('Even placeholder PDF creation failed:', err2);
+      }
+      fs.unlinkSync(path.join(config.outputDir, 'placeholder.md'));
     }
-    fs.unlinkSync(path.join(config.outputDir, 'placeholder.md'));
   }
   
   console.log('Book build complete!');
