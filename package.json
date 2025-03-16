@@ -1,0 +1,32 @@
+{
+  "name": "rise-and-code",
+  "version": "0.1.0",
+  "description": "A free book teaching programming concepts without requiring a computer",
+  "scripts": {
+    "build": "node tools/build.js",
+    "dev": "nodemon --watch book --ext md --exec \"node tools/build.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iksnae/rise-and-code.git"
+  },
+  "keywords": [
+    "programming",
+    "education",
+    "book",
+    "offline",
+    "accessible"
+  ],
+  "author": "iksnae",
+  "license": "CC-BY-NC-SA-4.0",
+  "bugs": {
+    "url": "https://github.com/iksnae/rise-and-code/issues"
+  },
+  "homepage": "https://github.com/iksnae/rise-and-code#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
