@@ -52,11 +52,43 @@ function readMarkdownFile(filePath) {
   return fs.readFileSync(filePath, 'utf8');
 }
 
+// Better sorting function for files with numeric prefixes
+function sortFilesByNumber(a, b) {
+  // Extract numeric prefix if it exists
+  const numA = a.match(/^(\d+)-/) ? parseInt(a.match(/^(\d+)-/)[1]) : 999;
+  const numB = b.match(/^(\d+)-/) ? parseInt(b.match(/^(\d+)-/)[1]) : 999;
+  return numA - numB;
+}
+
+// Extract scene summaries from artifact files if they exist
+function extractSceneSummaries(chapterDir) {
+  const artifactsDir = path.join(chapterDir, 'artifacts');
+  if (!fs.existsSync(artifactsDir)) return '';
+  
+  let summaries = '';
+  
+  const artifactFiles = fs.readdirSync(artifactsDir)
+    .filter(file => file.endsWith('.md'));
+  
+  for (const file of artifactFiles) {
+    const content = readMarkdownFile(path.join(artifactsDir, file));
+    
+    // Look for scene summary sections in the artifact
+    const sceneSummaryMatch = content.match(/## Scene Summary\n\n([\s\S]+?)(?:\n\n##|$)/);
+    if (sceneSummaryMatch && sceneSummaryMatch[1]) {
+      summaries += '### Scene Summary from ' + file.replace('.md', '') + '\n\n';
+      summaries += sceneSummaryMatch[1] + '\n\n';
+    }
+  }
+  
+  return summaries;
+}
+
 // Create LaTeX template for better PDF formatting
 function createLatexTemplate() {
   const templatePath = path.join(config.templateDir, 'template.tex');
   
-  // Basic LaTeX template with customizations for new sections on new pages
+  // Enhanced LaTeX template with better structure and formatting
   const template = `
 \\documentclass[12pt,a4paper]{book}
 \\usepackage{geometry}
@@ -65,6 +97,7 @@ function createLatexTemplate() {
 \\usepackage{graphicx}
 \\usepackage{fancyhdr}
 \\usepackage{titlesec}
+\\usepackage{setspace}
 
 % Define colors
 \\definecolor{chaptercolor}{RGB}{0, 83, 156}
@@ -77,7 +110,8 @@ function createLatexTemplate() {
 \\titleformat{\\section}{\\normalfont\\Large\\bfseries\\color{chaptercolor}}{\\thesection}{1em}{}
 \\titleformat{\\subsection}{\\normalfont\\large\\bfseries}{\\thesubsection}{1em}{}
 
-% Always start sections on a new page
+% Always start chapters and major sections on a new page
+\\newcommand{\\chapterbreak}{\\clearpage}
 \\newcommand{\\sectionbreak}{\\clearpage}
 
 % Configure headers and footers
@@ -86,11 +120,37 @@ function createLatexTemplate() {
 \\fancyhead[LE,RO]{Rise \\& Code}
 \\fancyhead[RE,LO]{\\leftmark}
 \\fancyfoot[C]{\\thepage}
+\\renewcommand{\\headrulewidth}{0.4pt}
+\\renewcommand{\\footrulewidth}{0pt}
 
-% Title page information
-\\title{\\Huge Rise \\& Code\\\\\\large A Programming Book for Everyone}
-\\author{Open Source Community}
-\\date{\\today}
+% Title page customization
+\\makeatletter
+\\def\\maketitle{%
+  \\begin{titlepage}%
+    \\let\\footnotesize\\small
+    \\let\\footnoterule\\relax
+    \\let\\footnote\\thanks
+    \\null\\vfil
+    \\vskip 60\\p@
+    \\begin{center}%
+      {\\LARGE \\@title \\par}%
+      \\vskip 1em%
+      {\\large \\@subtitle \\par}%
+      \\vskip 3em%
+      {\\large
+       \\lineskip .75em%
+       \\begin{tabular}[t]{c}%
+         \\@author
+       \\end{tabular}\\par}%
+      \\vskip 1.5em%
+      {\\large \\@date \\par}%
+    \\end{center}\\par
+    \\@thanks
+    \\vfil\\null
+  \\end{titlepage}%
+  \\setcounter{footnote}{0}%
+}
+\\makeatother
 
 \\begin{document}
 
@@ -129,6 +189,14 @@ function buildBook() {
   output += 'toc: true\n';
   output += '---\n\n';
   
+  // IMPROVEMENT: Explicitly include the title page first
+  const titlePagePath = path.join(config.bookDir, 'title-page.md');
+  if (fs.existsSync(titlePagePath)) {
+    console.log('Adding title page...');
+    output += readMarkdownFile(titlePagePath);
+    output += '\n\n\\newpage\n\n';
+  }
+  
   output += '# Rise & Code\n';
   output += '## A Programming Book for Everyone\n\n';
   output += `### Version: ${config.version}\n`;
@@ -153,9 +221,10 @@ function buildBook() {
     const sectionsDir = path.join(chapterDir, 'sections');
     if (fs.existsSync(sectionsDir)) {
       // Process each section file in order
+      // IMPROVEMENT: Better sorting with numeric prefixes
       const sectionFiles = fs.readdirSync(sectionsDir)
         .filter(file => file.endsWith('.md'))
-        .sort();
+        .sort(sortFilesByNumber);
       
       for (const sectionFile of sectionFiles) {
         console.log(`  Adding section: ${sectionFile}`);
@@ -177,9 +246,10 @@ function buildBook() {
       output += '## Activities\n\n';
       
       // Process each activity file in order
+      // IMPROVEMENT: Better sorting with numeric prefixes
       const activityFiles = fs.readdirSync(activitiesDir)
         .filter(file => file.endsWith('.md'))
-        .sort();
+        .sort(sortFilesByNumber);
       
       for (const activityFile of activityFiles) {
         console.log(`  Adding activity: ${activityFile}`);
@@ -193,11 +263,20 @@ function buildBook() {
       }
     }
     
+    // IMPROVEMENT: Add scene summaries from artifacts if they exist
+    const sceneSummaries = extractSceneSummaries(chapterDir);
+    if (sceneSummaries) {
+      console.log(`  Adding scene summaries from artifacts`);
+      output += '\n\n\\newpage\n\n';
+      output += '## Scene Summaries\n\n';
+      output += sceneSummaries;
+    }
+    
     // Add chapter summary if it exists
     const summaryPath = path.join(chapterDir, 'chapter-summary.md');
     if (fs.existsSync(summaryPath)) {
       console.log(`  Adding chapter summary`);
-      // Add summary with a page break
+      // Always ensure the chapter summary appears last in the chapter
       output += '\n\n\\newpage\n\n';
       output += '## Chapter Summary\n\n';
       output += readMarkdownFile(summaryPath);
