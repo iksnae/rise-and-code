@@ -32,10 +32,10 @@ This chapter is organized into three main sections, followed by varied challenge
    - Types of hints and solution strategies
    - Learning from solutions
 
-3. **Encoded Answer Keys**
-   - Verifying your solutions without spoilers
-   - Encoding and decoding techniques
-   - Creating your own encoding methods
+3. **Solutions and Answer Keys**
+   - Verifying your solutions
+   - Learning from different solution approaches
+   - Creating good solution documentation
 
 ### Activities
 
