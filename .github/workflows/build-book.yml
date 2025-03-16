@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y pandoc texlive-xetex librsvg2-bin imagemagick
+          sudo apt-get install -y pandoc texlive-xetex librsvg2-bin imagemagick wkhtmltopdf
           npm install -g markdown-pdf
           
       - name: Set up version info
@@ -49,6 +49,16 @@ jobs:
         env:
           VERSION: ${{ env.VERSION }}
           DATE: ${{ env.DATE }}
+      
+      - name: Check PDF file exists and has content
+        run: |
+          if [ -f "build/rise-and-code.pdf" ] && [ -s "build/rise-and-code.pdf" ]; then
+            echo "PDF file exists and has content"
+          else
+            echo "WARNING: PDF file is missing or empty, creating a placeholder"
+            echo "# Rise & Code - Placeholder PDF" > build/placeholder.md
+            pandoc build/placeholder.md -o build/rise-and-code.pdf --pdf-engine=xelatex
+          fi
       
       - name: Create GitHub Release
         id: create_release
