@@ -1,0 +1,48 @@
+
+\documentclass[12pt,a4paper]{book}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+
+% Define colors
+\definecolor{chaptercolor}{RGB}{0, 83, 156}
+
+% Set page geometry
+\geometry{margin=1in}
+
+% Configure section formatting
+\titleformat{\chapter}[display]{\normalfont\huge\bfseries\color{chaptercolor}}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titleformat{\section}{\normalfont\Large\bfseries\color{chaptercolor}}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+% Always start sections on a new page
+\newcommand{\sectionbreak}{\clearpage}
+
+% Configure headers and footers
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{Rise \& Code}
+\fancyhead[RE,LO]{\leftmark}
+\fancyfoot[C]{\thepage}
+
+% Title page information
+\title{\Huge Rise \& Code\\\large A Programming Book for Everyone}
+\author{Open Source Community}
+\date{\today}
+
+\begin{document}
+
+$if(title)$
+\maketitle
+$endif$
+
+$if(toc)$
+\tableofcontents
+$endif$
+
+$body$
+
+\end{document}
