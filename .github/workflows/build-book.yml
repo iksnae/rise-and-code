@@ -19,28 +19,15 @@ jobs:
     
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
           
-      - name: Cache texlive
-        id: texlive-cache
-        uses: actions/cache@v3
-        with:
-          path: |
-            /usr/share/texlive
-            /usr/share/texmf
-            /var/lib/texmf
-          key: ${{ runner.os }}-texlive-${{ hashFiles('.github/workflows/build-book.yml') }}
-          restore-keys: |
-            ${{ runner.os }}-texlive-
-          
       - name: Install dependencies
-        if: steps.apt-cache.outputs.cache-hit != 'true' || steps.texlive-cache.outputs.cache-hit != 'true'
         run: |
           sudo apt-get update
           sudo apt-get install -y pandoc texlive-xetex librsvg2-bin
@@ -73,7 +60,7 @@ jobs:
           fi
           
       - name: Upload artifacts for debugging if needed
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build-outputs
           path: build/
