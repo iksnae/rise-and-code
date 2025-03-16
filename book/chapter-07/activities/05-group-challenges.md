@@ -1,11 +1,11 @@
-# Self-Collaboration Exercises
+# Multiple Perspectives Exercises
 
-Welcome to the self-collaboration exercises! While traditional programming education often emphasizes group work, as a solo learner, you can gain similar benefits by learning to approach problems from multiple perspectives. These exercises will teach you how to "collaborate with yourself" by adopting different roles and viewpoints during the problem-solving process.
+Welcome to the multiple perspectives exercises! These activities will help you develop your ability to approach problems from different angles, enhancing your problem-solving skills. By deliberately switching between different thinking modes, you can gain insights that might remain hidden when using a single approach.
 
 ## Exercise 1: The Multiple Hats Approach 🎩
 
 ### Concept
-When working alone, you can still benefit from diverse thinking by deliberately adopting different perspectives or "hats" during your problem-solving process.
+You can gain deeper insights by deliberately adopting different perspectives or "hats" during your problem-solving process.
 
 ### Problem Statement
 Improve the following number sorting algorithm by examining it from multiple angles:
@@ -19,7 +19,7 @@ Step 5:            Swap numbers
 Step 6: Print sorted list
 ```
 
-### Self-Collaboration Process
+### Multi-Perspective Process
 
 #### 1. The Code Reviewer Hat
 With this hat, critically examine the code as if you were reviewing someone else's work:
@@ -49,7 +49,7 @@ Finally, combine your insights:
 - How do the different perspectives complement each other?
 - Create a final improved version incorporating the best ideas
 
-### Self-Documentation Table
+### Documentation Table
 ```
 Perspective | Observations | Suggested Improvements
 ------------|--------------|------------------------
@@ -59,10 +59,10 @@ User Exp.   |              |
 Integrated  |              |
 ```
 
-## Exercise 2: Rubber Duck Debugging 🦆
+## Exercise 2: Verbalization Debugging 🦆
 
 ### Concept
-"Rubber duck debugging" is a method where you explain your code line-by-line to an inanimate object (traditionally a rubber duck). This process often helps you spot issues by forcing you to articulate your logic.
+Explaining your code aloud, even to an inanimate object, can help you spot issues by forcing you to articulate your logic clearly.
 
 ### Problem Statement
 Find and fix bugs in this calculator program by talking through the code:
@@ -81,13 +81,13 @@ Step 10:   Result = a / b
 Step 11: Print Result
 ```
 
-### Self-Debugging Process
+### Verbalization Process
 
 #### 1. Setup
-Find an object (anything will work - a pen, stuffed animal, coffee mug) to be your "rubber duck."
+Find an object (anything will work - a pen, stuffed animal, coffee mug) to focus your explanation.
 
 #### 2. Verbalization
-- Explain each line of the code out loud to your "duck"
+- Explain each line of the code out loud
 - Be specific about what each step does
 - Work through different input scenarios
 - Listen to yourself for hesitations or uncertainties
@@ -102,16 +102,16 @@ As you explain, write down:
 #### 4. Code Correction
 Write a corrected version based on your findings.
 
-### Self-Reflection Questions
+### Reflection Questions
 1. What bugs did you find through this process?
 2. Were there issues you only noticed when explaining out loud?
 3. How did verbalizing help clarify your thinking?
 4. Would you have caught the same issues by just reading the code?
 
-## Exercise 3: Role-Playing Development 🎭
+## Exercise 3: Role-Shifting Development 🎭
 
 ### Concept
-Even as a solo learner, you can simulate the collaborative development process by adopting different roles at different stages.
+You can simulate different perspectives in the development process by deliberately shifting between different roles at different stages.
 
 ### Problem Statement
 Create an algorithm for a simple text-based game where players guess a hidden pattern.
@@ -123,7 +123,7 @@ Create an algorithm for a simple text-based game where players guess a hidden pa
 4. Track number of attempts
 5. Declare when pattern is found
 
-### Multi-Role Development Process
+### Multi-Role Process
 
 #### 1. Requirements Analyst Role (10-15 minutes)
 - Define exactly what the program should do
@@ -155,7 +155,7 @@ Create an algorithm for a simple text-based game where players guess a hidden pa
 - Address issues found during testing
 - Document lessons learned
 
-### Self-Documentation Template
+### Documentation Template
 ```
 Role              | Key Decisions/Findings
 ------------------|------------------------
@@ -169,7 +169,7 @@ Reviewer/Refiner  |
 ## Exercise 4: The Incremental Builder 🏗️
 
 ### Concept
-Breaking a complex task into smaller, achievable steps makes large projects manageable for solo learners. This exercise teaches you to build solutions incrementally.
+Breaking a complex task into smaller, achievable steps makes large projects manageable. This exercise teaches you to build solutions incrementally.
 
 ### Problem Statement
 Extend a basic todo list program with new features, adding one feature at a time and ensuring each works before moving to the next.
@@ -281,11 +281,11 @@ Pass 2  |             |                   |
 Final   |             |                   |
 ```
 
-## Self-Collaboration Guidelines
+## Multiple Perspectives Guidelines
 
-### Creating Your Ideal Learning Environment
+### Creating Your Ideal Thinking Environment
 1. **Minimize distractions** - Create a dedicated thinking space
-2. **Physical separation** - Move to different locations for different roles
+2. **Physical separation** - Move to different locations for different mental modes
 3. **Visual aids** - Use different colored notes for different perspectives
 4. **Time boundaries** - Set clear timeboxes for each role or activity
 
@@ -295,7 +295,7 @@ Final   |             |                   |
 3. Note challenges and how you overcome them
 4. Track insights and learning moments
 
-### Self-Reflection Questions
+### Reflection Questions
 After each exercise:
 1. Which perspective was most challenging to adopt?
 2. What insights would you have missed with a single approach?
@@ -304,9 +304,9 @@ After each exercise:
 
 ## Next Steps
 
-1. Apply these self-collaboration techniques to your own projects
+1. Apply these perspective-shifting techniques to your own projects
 2. Experiment with different role combinations
 3. Keep a journal of insights gained through multiple perspectives
 4. Gradually build your ability to switch between different thinking modes
 
-Remember: Working alone doesn't mean you can't benefit from collaborative thinking techniques. By consciously adopting different perspectives, you can enhance your problem-solving abilities and develop more robust solutions!
+Remember: By deliberately adopting different perspectives, you can enhance your problem-solving abilities and develop more robust solutions!
