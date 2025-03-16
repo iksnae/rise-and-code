@@ -12,30 +12,17 @@ Welcome to the fourth chapter of "Rise & Code"! In this chapter, we'll explore t
 
 ## Sections
 
-1. [What is Data?](sections/01-what-is-data.md)
-2. [Types of Data and Variables](sections/02-types-of-data-and-variables.md)
-3. [How to Manipulate Data](sections/03-how-to-manipulate-data.md)
+1. What is Data?
+2. Types of Data and Variables
+3. How to Manipulate Data
 
 ## Activities
 
-- [Data Type Safari: Finding Data in the Wild](activities/01-data-type-safari.md)
-- [Variable Tracker: Following the Data](activities/02-variable-tracker.md)
-- [String Manipulation: Word Play](activities/03-string-manipulation.md)
-- [Secret Codes: Introduction to Cryptography](activities/04-secret-codes.md)
+- Data Type Safari: Finding Data in the Wild
+- Variable Tracker: Following the Data
+- String Manipulation: Word Play
+- Secret Codes: Introduction to Cryptography
 
 ## Chapter Summary
 
-Ready to review what you've learned? Check out the [Chapter Summary](chapter-summary.md) for a recap of key concepts and a preview of what's coming next.
-
-## Notes for Contributors
-
-This chapter introduces fundamental programming concepts through tangible, real-world examples. When contributing to this chapter, please:
-
-- Use concrete, relatable metaphors for abstract data concepts
-- Provide diverse examples that are culturally inclusive
-- Ensure all activities can be completed with paper and pencil
-- Include visual aids and diagrams to illustrate concepts
-- Maintain a consistent visual language for representing variables and data types
-- Consider the perspective of readers with no prior programming experience
-
-For more detailed contributor guidelines, please refer to the [CONTRIBUTING.md](../../CONTRIBUTING.md) file in the repository root.
+Ready to review what you've learned? Check out the Chapter Summary for a recap of key concepts and a preview of what's coming next.
