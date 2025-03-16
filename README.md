@@ -1,5 +1,9 @@
 # Rise & Code
 
+[![Build Book](https://github.com/iksnae/rise-and-code/actions/workflows/build-book.yml/badge.svg)](https://github.com/iksnae/rise-and-code/actions/workflows/build-book.yml)
+[![Latest Release](https://img.shields.io/github/v/release/iksnae/rise-and-code?label=Latest%20Release)](https://github.com/iksnae/rise-and-code/releases/latest)
+[![CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
 A free, open-source book designed to teach programming, software development, and logical problem-solving to people without access to computers.
 
 ## About This Project
