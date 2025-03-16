@@ -112,17 +112,17 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # Deploy to GitHub Pages
+      - name: Rename HTML file for GitHub Pages
+        run: |
+          mv build/rise-and-code.html build/index.html
+
       - name: Deploy to GitHub Pages
         if: github.ref == 'refs/heads/main'  # Only deploy on pushes to the main branch
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages  # The branch to push to
           folder: build  # The folder containing the HTML file
-          target_folder: .  # Deploy to the root of the branch
+          target-folder: .  # Deploy to the root of the branch
           clean: true  # Clean the target branch before deploying (optional, but can help)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          # Rename the generated HTML file to index.html before deployment
-          mv build/rise-and-code.html build/index.html
