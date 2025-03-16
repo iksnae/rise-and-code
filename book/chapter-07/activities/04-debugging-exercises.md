@@ -42,10 +42,18 @@ Step | Counter | Condition | Action
 2. Think about when the counter changes
 3. Consider the loop structure
 
-### Encoded Solution
+### Solution
 ```
-Fix: LQGHQWBVWHS4BLQBZKLOH
-(Encoding: Shift each character back by 3)
+The problem is that Step 4 (Add 1 to counter) is not properly indented, 
+so it's not part of the while loop. This causes the counter to never 
+increment, creating an infinite loop.
+
+Corrected version:
+Step 1: Set counter = 1
+Step 2: While counter <= n
+Step 3:    Print counter
+Step 4:    Add 1 to counter
+Step 5: End while
 ```
 
 ## Exercise 2: Array Sum Calculator Bug ⚠️
@@ -89,10 +97,18 @@ Step | Number | Old Sum | New Sum | Action
 2. Think about what happens to previous values
 3. Consider the accumulation process
 
-### Encoded Solution
+### Solution
 ```
-Fix: VXPBSOXVBQXPEHU
-(Encoding: Shift each character up by 3)
+The problem is in Step 3. Instead of adding each number to the sum,
+it's replacing the sum with the current number. This means only the
+last number in the array is kept.
+
+Corrected version:
+Step 1: Set sum = 0
+Step 2: For each number in array
+Step 3:    sum = sum + number
+Step 4: End for
+Step 5: Print sum
 ```
 
 ## Exercise 3: String Reversal Bug ⚠️
@@ -137,10 +153,20 @@ Step | i | j | Current String | Action
 2. Think about array indexing
 3. Consider string bounds
 
-### Encoded Solution
+### Solution
 ```
-Fix: MBHTXDOVBOHQJWKBPLQXV1
-(Encoding: Shift each character back by 3)
+The problem is that j is set to the length of the string, but in most
+programming languages, indices are 0-based, so the last character is at
+position (length-1). This causes an out-of-bounds error.
+
+Corrected version:
+Step 1: Set i = 0
+Step 2: Set j = length of string - 1
+Step 3: While i < j
+Step 4:    Swap characters at i and j
+Step 5:    Increment i
+Step 6:    Decrement j
+Step 7: End while
 ```
 
 ## Exercise 4: Even Number Counter Bug ⚠️
@@ -183,10 +209,19 @@ Number | Division Result | Should Count? | Actual Count
 2. Think about division vs modulo
 3. Consider operator precedence
 
-### Encoded Solution
+### Solution
 ```
-Fix: XVHBPRGXORBQRWBGLYLVLRQ
-(Encoding: Shift each character up by 3)
+The problem is in Step 3. The condition is using division (/) instead of
+modulo (%). When checking for even numbers, we need to see if the remainder
+when divided by 2 is 0, not if the division result is 0.
+
+Corrected version:
+Step 1: Set count = 0
+Step 2: For each number in array
+Step 3:    If number % 2 = 0
+Step 4:        Increment count
+Step 5: End for
+Step 6: Print count
 ```
 
 ## Exercise 5: Temperature Converter Bug ⚠️
@@ -224,10 +259,17 @@ Step | Operation | Result
 2. Think about integer division
 3. Consider parentheses placement
 
-### Encoded Solution
+### Solution
 ```
-Fix: DGGBSDUHQWKHVHVBF9B5
-(Encoding: Shift each character up by 3)
+The problem is with operator precedence. Without parentheses, the expression
+C * 9/5 + 32 is evaluated as C * (9/5) + 32. If the division is performed
+in integer arithmetic, 9/5 becomes 1, making the calculation C * 1 + 32.
+
+Corrected version:
+Step 1: Set F = (C * 9/5) + 32
+        or better yet:
+        Set F = (C * 9) / 5 + 32
+Step 2: Print F
 ```
 
 ## Debugging Process Guide
