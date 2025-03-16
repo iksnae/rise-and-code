@@ -1,14 +1,16 @@
-name: Build and deploy Jekyll site to GitHub Pages
+name: Build and Deploy Jekyll Site
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -19,36 +21,53 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    
     steps:
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v4
+
+      - name: Setup Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential libffi-dev ruby-full
       
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2'
           bundler-cache: true
-      
-      - name: Setup Pages
+
+      - name: Install Jekyll and Dependencies
+        run: |
+          gem install bundler
+          bundle install
+
+      - name: Setup GitHub Pages
         id: pages
         uses: actions/configure-pages@v4
       
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./docs
-          destination: ./_site
+      - name: Build Jekyll Site
+        run: bundle exec jekyll build --source ./docs --destination ./_site
+
+      - name: Verify Build Output
+        run: |
+          if [ -d "_site" ] && [ "$(ls -A _site)" ]; then
+            echo "Jekyll site built successfully."
+          else
+            echo "ERROR: Jekyll build failed or _site is empty!" && exit 1
+          fi
       
-      - name: Upload artifact
+      - name: Upload Artifact for Deployment
         uses: actions/upload-pages-artifact@v2
+        with:
+          path: ./_site
 
   deploy:
+    runs-on: ubuntu-latest
+    needs: build
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    if: github.ref == 'refs/heads/main'
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
