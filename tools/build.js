@@ -89,6 +89,7 @@ function createLatexTemplate() {
   const templatePath = path.join(config.templateDir, 'template.tex');
   
   // Enhanced LaTeX template with better structure and formatting
+  // ADDED: Roman numerals for frontmatter, reset page numbers for mainmatter, clearpage after TOC
   const template = `
 \\documentclass[12pt,a4paper]{book}
 \\usepackage{geometry}
@@ -123,6 +124,14 @@ function createLatexTemplate() {
 \\renewcommand{\\headrulewidth}{0.4pt}
 \\renewcommand{\\footrulewidth}{0pt}
 
+% Title page and TOC page style (no headers/footers)
+\\fancypagestyle{plain}{
+  \\fancyhf{}
+  \\fancyfoot[C]{\\thepage}
+  \\renewcommand{\\headrulewidth}{0pt}
+  \\renewcommand{\\footrulewidth}{0pt}
+}
+
 % Title page customization
 \\makeatletter
 \\def\\maketitle{%
@@ -149,6 +158,9 @@ function createLatexTemplate() {
     \\vfil\\null
   \\end{titlepage}%
   \\setcounter{footnote}{0}%
+  \\setcounter{page}{1}
+  % Roman numerals for front matter
+  \\pagenumbering{roman}
 }
 \\makeatother
 
@@ -160,7 +172,12 @@ $endif$
 
 $if(toc)$
 \\tableofcontents
+\\clearpage  % Ensure content starts on a new page after TOC
 $endif$
+
+% Reset page numbering for main content
+\\pagenumbering{arabic}
+\\setcounter{page}{1}
 
 $body$
 
@@ -196,6 +213,10 @@ function buildBook() {
     output += readMarkdownFile(titlePagePath);
     output += '\n\n\\newpage\n\n';
   }
+  
+  // Add a explicit section break before first chapter to ensure
+  // it starts on a new page after the TOC
+  output += '\\newpage\n\n';
   
   output += '# Rise & Code\n';
   output += '## A Programming Book for Everyone\n\n';
