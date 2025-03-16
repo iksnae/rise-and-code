@@ -10,6 +10,10 @@ on:
       - '.github/workflows/build-book.yml'
   workflow_dispatch:  # Allow manual triggering
 
+# Add permissions block for GitHub token
+permissions:
+  contents: write  # Required for creating releases and tags
+
 jobs:
   build:
     runs-on: ubuntu-latest
