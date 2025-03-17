@@ -43,22 +43,45 @@ jobs:
       
       - name: Ensure images directory exists
         run: |
-          # Simply ensure the images directory exists
+          # Ensure common images directory exists
           mkdir -p book/images
-          # Verify cover image exists
+          
+          # Ensure language-specific images directories exist
+          mkdir -p book/en/images
+          mkdir -p book/es/images
+          
+          # Verify common cover image exists
           if [ -f "book/images/cover.png" ]; then
             echo "Cover image exists at book/images/cover.png"
           else
             echo "WARNING: Cover image not found at book/images/cover.png"
-            # Look for cover image in alternative locations
-            if [ -f "art/cover.png" ]; then
-              echo "Found cover image at art/cover.png, copying to book/images/cover.png"
-              cp art/cover.png book/images/cover.png
-              echo "Cover image copied successfully"
-            else
-              echo "WARNING: Could not find cover image in alternative locations"
-              echo "EPUB generation will proceed without a cover image"
-            fi
+            
+            # Check for language-specific covers
+            for lang in en es; do
+              if [ -f "book/$lang/images/cover.png" ]; then
+                echo "Language-specific cover image found at book/$lang/images/cover.png"
+              else
+                echo "WARNING: Cover image not found at book/$lang/images/cover.png"
+                
+                # Try to find cover image in art directory and copy to language-specific folder
+                if [ -f "art/cover.png" ]; then
+                  echo "Found cover image at art/cover.png, copying to language directories"
+                  
+                  # Copy to language-specific directories
+                  mkdir -p book/$lang/images
+                  cp art/cover.png book/$lang/images/cover.png
+                  echo "Cover image copied to book/$lang/images/cover.png"
+                  
+                  # Also copy to common directory if it doesn't exist
+                  if [ ! -f "book/images/cover.png" ]; then
+                    cp art/cover.png book/images/cover.png
+                    echo "Cover image also copied to book/images/cover.png"
+                  fi
+                else
+                  echo "WARNING: Could not find cover image in art directory"
+                fi
+              fi
+            done
           fi
         
       - name: Build book in all available languages
