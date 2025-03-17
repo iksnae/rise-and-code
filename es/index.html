@@ -164,6 +164,70 @@
       vertical-align: middle;
     }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
 </head>
 <body>
@@ -177,57 +241,2261 @@
 <ul>
 <li><a href="#rise-code" id="toc-rise-code">Rise &amp; Code</a>
 <ul>
-<li><a href="#un-libro-de-programación-para-todos"
-id="toc-un-libro-de-programación-para-todos">Un libro de programación
-para todos</a>
+<li><a href="#un-libro-de-programación-para-todos" id="toc-un-libro-de-programación-para-todos">Un libro de programación para todos</a>
 <ul>
-<li><a href="#acerca-de-este-libro" id="toc-acerca-de-este-libro">Acerca
-de este libro</a></li>
-<li><a href="#características-principales"
-id="toc-características-principales">Características
-principales</a></li>
-<li><a href="#nuestra-misión" id="toc-nuestra-misión">Nuestra
-misión</a></li>
+<li><a href="#acerca-de-este-libro" id="toc-acerca-de-este-libro">Acerca de este libro</a></li>
+<li><a href="#características-principales" id="toc-características-principales">Características principales</a></li>
+<li><a href="#nuestra-misión" id="toc-nuestra-misión">Nuestra misión</a></li>
 <li><a href="#licencia" id="toc-licencia">Licencia</a></li>
 </ul></li>
+</ul></li>
+<li><a href="#capítulo-1-introducción---el-mundo-de-la-programación-sin-computadora" id="toc-capítulo-1-introducción---el-mundo-de-la-programación-sin-computadora">Capítulo 1: Introducción - El mundo de la programación sin computadora</a>
+<ul>
+<li><a href="#objetivos-del-capítulo" id="toc-objetivos-del-capítulo">Objetivos del capítulo</a></li>
+<li><a href="#secciones" id="toc-secciones">Secciones</a></li>
+<li><a href="#actividades" id="toc-actividades">Actividades</a></li>
+<li><a href="#resumen-del-capítulo" id="toc-resumen-del-capítulo">Resumen del capítulo</a></li>
+</ul></li>
+<li><a href="#capítulo-1-resumen" id="toc-capítulo-1-resumen">Capítulo 1: Resumen</a>
+<ul>
+<li><a href="#puntos-clave" id="toc-puntos-clave">Puntos clave</a>
+<ul>
+<li><a href="#por-qué-la-programación-importa" id="toc-por-qué-la-programación-importa">Por qué la programación importa</a></li>
+<li><a href="#para-quién-es-este-libro" id="toc-para-quién-es-este-libro">Para quién es este libro</a></li>
+<li><a href="#cómo-usar-este-libro" id="toc-cómo-usar-este-libro">Cómo usar este libro</a></li>
+</ul></li>
+<li><a href="#conceptos-introducidos" id="toc-conceptos-introducidos">Conceptos introducidos</a></li>
+<li><a href="#actividades-completadas" id="toc-actividades-completadas">Actividades completadas</a></li>
+<li><a href="#próximos-pasos" id="toc-próximos-pasos">Próximos pasos</a></li>
+</ul></li>
+<li><a href="#por-qué-importa-la-programación" id="toc-por-qué-importa-la-programación">Por qué importa la programación</a>
+<ul>
+<li><a href="#introducción" id="toc-introducción">Introducción</a></li>
+<li><a href="#qué-es-la-programación" id="toc-qué-es-la-programación">¿Qué es la programación?</a></li>
+<li><a href="#la-programación-en-la-vida-cotidiana" id="toc-la-programación-en-la-vida-cotidiana">La programación en la vida cotidiana</a></li>
+<li><a href="#por-qué-aprender-programación-sin-una-computadora" id="toc-por-qué-aprender-programación-sin-una-computadora">¿Por qué aprender programación sin una computadora?</a></li>
+</ul></li>
+<li><a href="#a-quién-está-dirigido-este-libro" id="toc-a-quién-está-dirigido-este-libro">A quién está dirigido este libro</a>
+<ul>
+<li><a href="#introducción-1" id="toc-introducción-1">Introducción</a></li>
+<li><a href="#estudiantes-de-todas-las-edades" id="toc-estudiantes-de-todas-las-edades">Estudiantes de todas las edades</a></li>
+<li><a href="#personas-con-acceso-limitado-a-la-tecnología" id="toc-personas-con-acceso-limitado-a-la-tecnología">Personas con acceso limitado a la tecnología</a></li>
+<li><a href="#educadores-y-líderes-comunitarios" id="toc-educadores-y-líderes-comunitarios">Educadores y líderes comunitarios</a></li>
+<li><a href="#aprendices-autodidactas" id="toc-aprendices-autodidactas">Aprendices autodidactas</a></li>
+<li><a href="#aquellos-que-aprenden-haciendo" id="toc-aquellos-que-aprenden-haciendo">Aquellos que aprenden haciendo</a></li>
+<li><a href="#cualquiera-con-curiosidad-sobre-cómo-funciona-la-programación" id="toc-cualquiera-con-curiosidad-sobre-cómo-funciona-la-programación">Cualquiera con curiosidad sobre cómo funciona la programación</a></li>
+<li><a href="#lo-que-no-necesitas-para-este-libro" id="toc-lo-que-no-necesitas-para-este-libro">Lo que NO necesitas para este libro</a></li>
+<li><a href="#lo-que-sí-necesitas-para-este-libro" id="toc-lo-que-sí-necesitas-para-este-libro">Lo que SÍ necesitas para este libro</a></li>
+<li><a href="#actividad-tu-perfil-de-aprendizaje" id="toc-actividad-tu-perfil-de-aprendizaje">Actividad: Tu perfil de aprendizaje</a></li>
+<li><a href="#puntos-clave-1" id="toc-puntos-clave-1">Puntos clave</a></li>
+</ul></li>
+<li><a href="#cómo-usar-este-libro-incluido-el-método-de-cuaderno" id="toc-cómo-usar-este-libro-incluido-el-método-de-cuaderno">Cómo usar este libro (incluido el método de cuaderno)</a>
+<ul>
+<li><a href="#introducción-2" id="toc-introducción-2">Introducción</a></li>
+<li><a href="#el-método-de-cuaderno-tu-computadora-de-papel" id="toc-el-método-de-cuaderno-tu-computadora-de-papel">El método de cuaderno: Tu computadora de papel</a></li>
+<li><a href="#configurando-tu-cuaderno-de-programación" id="toc-configurando-tu-cuaderno-de-programación">Configurando tu cuaderno de programación</a></li>
+<li><a href="#organizando-tu-cuaderno" id="toc-organizando-tu-cuaderno">Organizando tu cuaderno</a></li>
+<li><a href="#cómo-está-estructurado-el-libro" id="toc-cómo-está-estructurado-el-libro">Cómo está estructurado el libro</a></li>
+<li><a href="#trabajando-con-las-actividades" id="toc-trabajando-con-las-actividades">Trabajando con las actividades</a></li>
+<li><a href="#aprendiendo-solo-vs.-aprendiendo-en-grupo" id="toc-aprendiendo-solo-vs.-aprendiendo-en-grupo">Aprendiendo solo vs. aprendiendo en grupo</a></li>
+<li><a href="#seguimiento-de-tu-progreso" id="toc-seguimiento-de-tu-progreso">Seguimiento de tu progreso</a></li>
+<li><a href="#actividad-configurando-tu-cuaderno-de-programación" id="toc-actividad-configurando-tu-cuaderno-de-programación">Actividad: Configurando tu cuaderno de programación</a></li>
+<li><a href="#consejos-para-el-éxito" id="toc-consejos-para-el-éxito">Consejos para el éxito</a></li>
+<li><a href="#puntos-clave-2" id="toc-puntos-clave-2">Puntos clave</a></li>
+</ul></li>
+<li><a href="#actividad-tu-primer-algoritmo" id="toc-actividad-tu-primer-algoritmo">Actividad: Tu primer algoritmo</a>
+<ul>
+<li><a href="#visión-general" id="toc-visión-general">Visión general</a></li>
+<li><a href="#objetivos-de-aprendizaje" id="toc-objetivos-de-aprendizaje">Objetivos de aprendizaje</a></li>
+<li><a href="#materiales-necesarios" id="toc-materiales-necesarios">Materiales necesarios</a></li>
+<li><a href="#tiempo-requerido" id="toc-tiempo-requerido">Tiempo requerido</a></li>
+<li><a href="#instrucciones" id="toc-instrucciones">Instrucciones</a>
+<ul>
+<li><a href="#parte-1-elige-tu-tarea" id="toc-parte-1-elige-tu-tarea">Parte 1: Elige tu tarea</a></li>
+<li><a href="#parte-2-escribe-tu-algoritmo" id="toc-parte-2-escribe-tu-algoritmo">Parte 2: Escribe tu algoritmo</a></li>
+<li><a href="#parte-3-prueba-tu-algoritmo" id="toc-parte-3-prueba-tu-algoritmo">Parte 3: Prueba tu algoritmo</a></li>
+<li><a href="#parte-4-depura-y-mejora" id="toc-parte-4-depura-y-mejora">Parte 4: Depura y mejora</a></li>
+<li><a href="#parte-5-reflexiona" id="toc-parte-5-reflexiona">Parte 5: Reflexiona</a></li>
+</ul></li>
+<li><a href="#ejemplo" id="toc-ejemplo">Ejemplo</a></li>
+<li><a href="#actividades-de-extensión" id="toc-actividades-de-extensión">Actividades de extensión</a></li>
+<li><a href="#conexión-con-la-programación" id="toc-conexión-con-la-programación">Conexión con la programación</a></li>
+</ul></li>
+<li><a href="#actividad-pensamiento-computacional-en-la-vida-cotidiana" id="toc-actividad-pensamiento-computacional-en-la-vida-cotidiana">Actividad: Pensamiento computacional en la vida cotidiana</a>
+<ul>
+<li><a href="#visión-general-1" id="toc-visión-general-1">Visión general</a></li>
+<li><a href="#objetivos-de-aprendizaje-1" id="toc-objetivos-de-aprendizaje-1">Objetivos de aprendizaje</a></li>
+<li><a href="#materiales-necesarios-1" id="toc-materiales-necesarios-1">Materiales necesarios</a></li>
+<li><a href="#tiempo-requerido-1" id="toc-tiempo-requerido-1">Tiempo requerido</a></li>
+<li><a href="#instrucciones-1" id="toc-instrucciones-1">Instrucciones</a>
+<ul>
+<li><a href="#parte-1-introducción-al-pensamiento-computacional" id="toc-parte-1-introducción-al-pensamiento-computacional">Parte 1: Introducción al pensamiento computacional</a></li>
+<li><a href="#parte-2-observación" id="toc-parte-2-observación">Parte 2: Observación</a></li>
+<li><a href="#parte-3-análisis" id="toc-parte-3-análisis">Parte 3: Análisis</a></li>
+<li><a href="#parte-4-conexiones-más-profundas" id="toc-parte-4-conexiones-más-profundas">Parte 4: Conexiones más profundas</a></li>
+<li><a href="#parte-5-reflexión" id="toc-parte-5-reflexión">Parte 5: Reflexión</a></li>
+</ul></li>
+<li><a href="#ejemplo-1" id="toc-ejemplo-1">Ejemplo</a></li>
+<li><a href="#actividades-de-extensión-1" id="toc-actividades-de-extensión-1">Actividades de extensión</a></li>
+<li><a href="#conexión-con-la-programación-1" id="toc-conexión-con-la-programación-1">Conexión con la programación</a></li>
+</ul></li>
+<li><a href="#actividad-configurando-tu-cuaderno-de-programación-1" id="toc-actividad-configurando-tu-cuaderno-de-programación-1">Actividad: Configurando tu cuaderno de programación</a>
+<ul>
+<li><a href="#visión-general-2" id="toc-visión-general-2">Visión general</a></li>
+<li><a href="#objetivos-de-aprendizaje-2" id="toc-objetivos-de-aprendizaje-2">Objetivos de aprendizaje</a></li>
+<li><a href="#materiales-necesarios-2" id="toc-materiales-necesarios-2">Materiales necesarios</a></li>
+<li><a href="#tiempo-requerido-2" id="toc-tiempo-requerido-2">Tiempo requerido</a></li>
+<li><a href="#instrucciones-2" id="toc-instrucciones-2">Instrucciones</a>
+<ul>
+<li><a href="#parte-1-eligiendo-tu-cuaderno" id="toc-parte-1-eligiendo-tu-cuaderno">Parte 1: Eligiendo tu cuaderno</a></li>
+<li><a href="#parte-2-creando-una-tabla-de-contenidos" id="toc-parte-2-creando-una-tabla-de-contenidos">Parte 2: Creando una tabla de contenidos</a></li>
+<li><a href="#parte-3-dividiendo-tu-cuaderno-en-secciones" id="toc-parte-3-dividiendo-tu-cuaderno-en-secciones">Parte 3: Dividiendo tu cuaderno en secciones</a></li>
+<li><a href="#parte-4-configurando-tu-primera-página-de-contenido" id="toc-parte-4-configurando-tu-primera-página-de-contenido">Parte 4: Configurando tu primera página de contenido</a></li>
+<li><a href="#parte-5-estableciendo-convenciones-de-codificación" id="toc-parte-5-estableciendo-convenciones-de-codificación">Parte 5: Estableciendo convenciones de codificación</a></li>
+<li><a href="#parte-6-reflexión" id="toc-parte-6-reflexión">Parte 6: Reflexión</a></li>
+</ul></li>
+<li><a href="#consejos-para-el-éxito-1" id="toc-consejos-para-el-éxito-1">Consejos para el éxito</a></li>
+<li><a href="#extensiones" id="toc-extensiones">Extensiones</a></li>
+<li><a href="#conexión-con-la-programación-2" id="toc-conexión-con-la-programación-2">Conexión con la programación</a></li>
+</ul></li>
+<li><a href="#capítulo-2-el-compilador-humano---entendiendo-la-lógica-y-la-estructura" id="toc-capítulo-2-el-compilador-humano---entendiendo-la-lógica-y-la-estructura">Capítulo 2: El compilador humano - Entendiendo la lógica y la estructura</a>
+<ul>
+<li><a href="#objetivos-del-capítulo-1" id="toc-objetivos-del-capítulo-1">Objetivos del capítulo</a></li>
+<li><a href="#secciones-1" id="toc-secciones-1">Secciones</a></li>
+<li><a href="#actividades-1" id="toc-actividades-1">Actividades</a></li>
+<li><a href="#resumen-del-capítulo-1" id="toc-resumen-del-capítulo-1">Resumen del capítulo</a></li>
+</ul></li>
+<li><a href="#capítulo-2-resumen" id="toc-capítulo-2-resumen">Capítulo 2: Resumen</a>
+<ul>
+<li><a href="#puntos-clave-3" id="toc-puntos-clave-3">Puntos clave</a>
+<ul>
+<li><a href="#lógica-básica-y-toma-de-decisiones" id="toc-lógica-básica-y-toma-de-decisiones">Lógica básica y toma de decisiones</a></li>
+<li><a href="#declaraciones-condicionales-y-diagramas-de-flujo" id="toc-declaraciones-condicionales-y-diagramas-de-flujo">Declaraciones condicionales y diagramas de flujo</a></li>
+<li><a href="#pseudocódigo" id="toc-pseudocódigo">Pseudocódigo</a></li>
+</ul></li>
+<li><a href="#conceptos-introducidos-1" id="toc-conceptos-introducidos-1">Conceptos introducidos</a></li>
+<li><a href="#actividades-completadas-1" id="toc-actividades-completadas-1">Actividades completadas</a></li>
+<li><a href="#próximos-pasos-1" id="toc-próximos-pasos-1">Próximos pasos</a></li>
+</ul></li>
+<li><a href="#lógica-básica-y-toma-de-decisiones-1" id="toc-lógica-básica-y-toma-de-decisiones-1">Lógica básica y toma de decisiones</a>
+<ul>
+<li><a href="#introducción-3" id="toc-introducción-3">Introducción</a></li>
+<li><a href="#qué-es-la-lógica" id="toc-qué-es-la-lógica">¿Qué es la lógica?</a></li>
+<li><a href="#lógica-booleana-el-fundamento-de-la-computación" id="toc-lógica-booleana-el-fundamento-de-la-computación">Lógica booleana: El fundamento de la computación</a></li>
+<li><a href="#valores-booleanos-en-la-vida-real" id="toc-valores-booleanos-en-la-vida-real">Valores booleanos en la vida real</a></li>
+<li><a href="#operadores-booleanos-and-or-y-not" id="toc-operadores-booleanos-and-or-y-not">Operadores booleanos: AND, OR y NOT</a>
+<ul>
+<li><a href="#and-conjunción-lógica" id="toc-and-conjunción-lógica">1. AND (Conjunción lógica)</a></li>
+<li><a href="#or-disyunción-lógica" id="toc-or-disyunción-lógica">2. OR (Disyunción lógica)</a></li>
+<li><a href="#not-negación-lógica" id="toc-not-negación-lógica">3. NOT (Negación lógica)</a></li>
+</ul></li>
+<li><a href="#tablas-de-verdad-mapeando-la-lógica" id="toc-tablas-de-verdad-mapeando-la-lógica">Tablas de verdad: Mapeando la lógica</a></li>
+<li><a href="#tomando-decisiones-basadas-en-la-lógica" id="toc-tomando-decisiones-basadas-en-la-lógica">Tomando decisiones basadas en la lógica</a></li>
+<li><a href="#toma-de-decisiones-en-la-vida-real" id="toc-toma-de-decisiones-en-la-vida-real">Toma de decisiones en la vida real</a></li>
+<li><a href="#combinando-múltiples-condiciones" id="toc-combinando-múltiples-condiciones">Combinando múltiples condiciones</a></li>
+<li><a href="#ejemplo-práctico-la-decisión-de-la-fiesta" id="toc-ejemplo-práctico-la-decisión-de-la-fiesta">Ejemplo práctico: La decisión de la fiesta</a></li>
+<li><a href="#actividad-lógica-en-acción" id="toc-actividad-lógica-en-acción">Actividad: Lógica en acción</a></li>
+<li><a href="#puntos-clave-4" id="toc-puntos-clave-4">Puntos clave</a></li>
+</ul></li>
+<li><a href="#declaraciones-condicionales-y-diagramas-de-flujo-1" id="toc-declaraciones-condicionales-y-diagramas-de-flujo-1">Declaraciones condicionales y diagramas de flujo</a>
+<ul>
+<li><a href="#introducción-4" id="toc-introducción-4">Introducción</a></li>
+<li><a href="#entendiendo-las-declaraciones-condicionales" id="toc-entendiendo-las-declaraciones-condicionales">Entendiendo las declaraciones condicionales</a></li>
+<li><a href="#tipos-de-declaraciones-condicionales" id="toc-tipos-de-declaraciones-condicionales">Tipos de declaraciones condicionales</a>
+<ul>
+<li><a href="#declaración-si-simple" id="toc-declaración-si-simple">1. Declaración SI simple</a></li>
+<li><a href="#declaración-si-si-no" id="toc-declaración-si-si-no">2. Declaración SI-SI NO</a></li>
+<li><a href="#declaraciones-si-anidadas" id="toc-declaraciones-si-anidadas">3. Declaraciones SI anidadas</a></li>
+<li><a href="#declaración-si-no-si-o-sino-si" id="toc-declaración-si-no-si-o-sino-si">4. Declaración SI NO SI (o SINO SI)</a></li>
+</ul></li>
+<li><a href="#introducción-a-los-diagramas-de-flujo" id="toc-introducción-a-los-diagramas-de-flujo">Introducción a los diagramas de flujo</a>
+<ul>
+<li><a href="#símbolos-básicos-de-los-diagramas-de-flujo" id="toc-símbolos-básicos-de-los-diagramas-de-flujo">Símbolos básicos de los diagramas de flujo</a></li>
+<li><a href="#creando-un-diagrama-de-flujo-simple" id="toc-creando-un-diagrama-de-flujo-simple">Creando un diagrama de flujo simple</a></li>
+</ul></li>
+<li><a href="#traduciendo-entre-declaraciones-condicionales-y-diagramas-de-flujo" id="toc-traduciendo-entre-declaraciones-condicionales-y-diagramas-de-flujo">Traduciendo entre declaraciones condicionales y diagramas de flujo</a></li>
+<li><a href="#cuándo-usar-diagramas-de-flujo" id="toc-cuándo-usar-diagramas-de-flujo">Cuándo usar diagramas de flujo</a></li>
+<li><a href="#actividad-toma-de-decisiones-con-diagramas-de-flujo" id="toc-actividad-toma-de-decisiones-con-diagramas-de-flujo">Actividad: Toma de decisiones con diagramas de flujo</a></li>
+<li><a href="#condiciones-complejas-en-diagramas-de-flujo" id="toc-condiciones-complejas-en-diagramas-de-flujo">Condiciones complejas en diagramas de flujo</a>
+<ul>
+<li><a href="#condición-and-y" id="toc-condición-and-y">Condición AND (Y)</a></li>
+<li><a href="#condición-or-o" id="toc-condición-or-o">Condición OR (O)</a></li>
+</ul></li>
+<li><a href="#decisiones-anidadas-vs.-condiciones-compuestas" id="toc-decisiones-anidadas-vs.-condiciones-compuestas">Decisiones anidadas vs. condiciones compuestas</a>
+<ul>
+<li><a href="#enfoque-1-decisiones-anidadas" id="toc-enfoque-1-decisiones-anidadas">Enfoque 1: Decisiones anidadas</a></li>
+<li><a href="#enfoque-2-condición-compuesta" id="toc-enfoque-2-condición-compuesta">Enfoque 2: Condición compuesta</a></li>
+</ul></li>
+<li><a href="#errores-comunes-en-la-lógica-condicional" id="toc-errores-comunes-en-la-lógica-condicional">Errores comunes en la lógica condicional</a>
+<ul>
+<li><a href="#olvidar-casos-límite" id="toc-olvidar-casos-límite">1. Olvidar casos límite</a></li>
+<li><a href="#condiciones-superpuestas" id="toc-condiciones-superpuestas">2. Condiciones superpuestas</a></li>
+<li><a href="#bucles-infinitos" id="toc-bucles-infinitos">3. Bucles infinitos</a></li>
+</ul></li>
+<li><a href="#actividad-diagramando-una-decisión-de-la-vida-real" id="toc-actividad-diagramando-una-decisión-de-la-vida-real">Actividad: Diagramando una decisión de la vida real</a></li>
+<li><a href="#puntos-clave-5" id="toc-puntos-clave-5">Puntos clave</a></li>
+</ul></li>
+<li><a href="#pseudocódigo-1" id="toc-pseudocódigo-1">Pseudocódigo</a>
+<ul>
+<li><a href="#introducción-5" id="toc-introducción-5">Introducción</a></li>
+<li><a href="#qué-es-el-pseudocódigo" id="toc-qué-es-el-pseudocódigo">¿Qué es el pseudocódigo?</a></li>
+<li><a href="#por-qué-usar-pseudocódigo" id="toc-por-qué-usar-pseudocódigo">¿Por qué usar pseudocódigo?</a></li>
+<li><a href="#convenciones-del-pseudocódigo" id="toc-convenciones-del-pseudocódigo">Convenciones del pseudocódigo</a></li>
+<li><a href="#de-diagramas-de-flujo-a-pseudocódigo" id="toc-de-diagramas-de-flujo-a-pseudocódigo">De diagramas de flujo a pseudocódigo</a></li>
+<li><a href="#elementos-comunes-del-pseudocódigo" id="toc-elementos-comunes-del-pseudocódigo">Elementos comunes del pseudocódigo</a>
+<ul>
+<li><a href="#entrada-y-salida" id="toc-entrada-y-salida">Entrada y salida</a></li>
+<li><a href="#variables-y-asignación" id="toc-variables-y-asignación">Variables y asignación</a></li>
+<li><a href="#declaraciones-condicionales" id="toc-declaraciones-condicionales">Declaraciones condicionales</a></li>
+<li><a href="#bucles-que-exploraremos-más-en-capítulos-posteriores" id="toc-bucles-que-exploraremos-más-en-capítulos-posteriores">Bucles (que exploraremos más en capítulos posteriores)</a></li>
+<li><a href="#funciones-que-también-exploraremos-más-adelante" id="toc-funciones-que-también-exploraremos-más-adelante">Funciones (que también exploraremos más adelante)</a></li>
+</ul></li>
+<li><a href="#ejemplo-usando-pseudocódigo-para-planificar-una-solución" id="toc-ejemplo-usando-pseudocódigo-para-planificar-una-solución">Ejemplo: Usando pseudocódigo para planificar una solución</a></li>
+<li><a href="#traduciendo-lenguaje-natural-a-pseudocódigo" id="toc-traduciendo-lenguaje-natural-a-pseudocódigo">Traduciendo lenguaje natural a pseudocódigo</a></li>
+<li><a href="#actividad-traduciendo-problemas-a-pseudocódigo" id="toc-actividad-traduciendo-problemas-a-pseudocódigo">Actividad: Traduciendo problemas a pseudocódigo</a></li>
+<li><a href="#mejores-prácticas-para-el-pseudocódigo" id="toc-mejores-prácticas-para-el-pseudocódigo">Mejores prácticas para el pseudocódigo</a></li>
+<li><a href="#del-pseudocódigo-al-código" id="toc-del-pseudocódigo-al-código">Del pseudocódigo al código</a></li>
+<li><a href="#actividad-implementando-pseudocódigo-en-la-vida-real" id="toc-actividad-implementando-pseudocódigo-en-la-vida-real">Actividad: Implementando pseudocódigo en la vida real</a></li>
+<li><a href="#puntos-clave-6" id="toc-puntos-clave-6">Puntos clave</a></li>
+</ul></li>
+<li><a href="#actividad-tablas-de-verdad-y-acertijos-lógicos" id="toc-actividad-tablas-de-verdad-y-acertijos-lógicos">Actividad: Tablas de verdad y acertijos lógicos</a>
+<ul>
+<li><a href="#visión-general-3" id="toc-visión-general-3">Visión general</a></li>
+<li><a href="#objetivos-de-aprendizaje-3" id="toc-objetivos-de-aprendizaje-3">Objetivos de aprendizaje</a></li>
+<li><a href="#materiales-necesarios-3" id="toc-materiales-necesarios-3">Materiales necesarios</a></li>
+<li><a href="#tiempo-requerido-3" id="toc-tiempo-requerido-3">Tiempo requerido</a></li>
+<li><a href="#parte-1-creando-tablas-de-verdad-básicas" id="toc-parte-1-creando-tablas-de-verdad-básicas">Parte 1: Creando tablas de verdad básicas</a>
+<ul>
+<li><a href="#paso-1-configura-tablas-de-verdad-para-operaciones-básicas" id="toc-paso-1-configura-tablas-de-verdad-para-operaciones-básicas">Paso 1: Configura tablas de verdad para operaciones básicas</a></li>
+<li><a href="#paso-2-completa-los-valores-de-verdad" id="toc-paso-2-completa-los-valores-de-verdad">Paso 2: Completa los valores de verdad</a></li>
+<li><a href="#ejemplo-2" id="toc-ejemplo-2">Ejemplo:</a></li>
+</ul></li>
+<li><a href="#parte-2-expresiones-lógicas-compuestas" id="toc-parte-2-expresiones-lógicas-compuestas">Parte 2: Expresiones lógicas compuestas</a>
+<ul>
+<li><a href="#paso-1-configura-tablas-de-verdad-para-expresiones-compuestas" id="toc-paso-1-configura-tablas-de-verdad-para-expresiones-compuestas">Paso 1: Configura tablas de verdad para expresiones compuestas</a></li>
+<li><a href="#paso-2-completa-todas-las-combinaciones-posibles" id="toc-paso-2-completa-todas-las-combinaciones-posibles">Paso 2: Completa todas las combinaciones posibles</a></li>
+<li><a href="#paso-3-evalúa-paso-a-paso" id="toc-paso-3-evalúa-paso-a-paso">Paso 3: Evalúa paso a paso</a></li>
+<li><a href="#ejemplo-3" id="toc-ejemplo-3">Ejemplo:</a></li>
+</ul></li>
+<li><a href="#parte-3-equivalencias-lógicas" id="toc-parte-3-equivalencias-lógicas">Parte 3: Equivalencias lógicas</a>
+<ul>
+<li><a href="#paso-1-compara-tus-tablas-de-verdad" id="toc-paso-1-compara-tus-tablas-de-verdad">Paso 1: Compara tus tablas de verdad</a></li>
+<li><a href="#paso-2-descubre-las-leyes-de-de-morgan" id="toc-paso-2-descubre-las-leyes-de-de-morgan">Paso 2: Descubre las Leyes de De Morgan</a></li>
+<li><a href="#paso-3-verifica-la-segunda-ley" id="toc-paso-3-verifica-la-segunda-ley">Paso 3: Verifica la segunda ley</a></li>
+</ul></li>
+<li><a href="#parte-4-acertijos-lógicos" id="toc-parte-4-acertijos-lógicos">Parte 4: Acertijos lógicos</a>
+<ul>
+<li><a href="#acertijo-1-detectando-mentiras" id="toc-acertijo-1-detectando-mentiras">Acertijo 1: Detectando mentiras</a></li>
+<li><a href="#acertijo-2-los-interruptores-de-luz" id="toc-acertijo-2-los-interruptores-de-luz">Acertijo 2: Los interruptores de luz</a></li>
+<li><a href="#acertijo-3-deducción-lógica" id="toc-acertijo-3-deducción-lógica">Acertijo 3: Deducción lógica</a></li>
+</ul></li>
+<li><a href="#parte-5-aplicaciones-del-mundo-real" id="toc-parte-5-aplicaciones-del-mundo-real">Parte 5: Aplicaciones del mundo real</a>
+<ul>
+<li><a href="#aplicación-1-criterios-de-elegibilidad" id="toc-aplicación-1-criterios-de-elegibilidad">Aplicación 1: Criterios de elegibilidad</a></li>
+<li><a href="#aplicación-2-personalización-de-menú" id="toc-aplicación-2-personalización-de-menú">Aplicación 2: Personalización de menú</a></li>
+</ul></li>
+<li><a href="#actividades-de-extensión-2" id="toc-actividades-de-extensión-2">Actividades de extensión</a>
+<ul>
+<li><a href="#crea-tu-propio-acertijo-lógico" id="toc-crea-tu-propio-acertijo-lógico">1. Crea tu propio acertijo lógico</a></li>
+<li><a href="#explora-nand-y-nor" id="toc-explora-nand-y-nor">2. Explora NAND y NOR</a></li>
+<li><a href="#diagramas-de-venn" id="toc-diagramas-de-venn">3. Diagramas de Venn</a></li>
+</ul></li>
+<li><a href="#preguntas-de-reflexión" id="toc-preguntas-de-reflexión">Preguntas de reflexión</a></li>
+<li><a href="#conexión-con-la-programación-3" id="toc-conexión-con-la-programación-3">Conexión con la programación</a></li>
+</ul></li>
+<li><a href="#actividad-creando-diagramas-de-flujo-para-decisiones-cotidianas" id="toc-actividad-creando-diagramas-de-flujo-para-decisiones-cotidianas">Actividad: Creando diagramas de flujo para decisiones cotidianas</a>
+<ul>
+<li><a href="#visión-general-4" id="toc-visión-general-4">Visión general</a></li>
+<li><a href="#objetivos-de-aprendizaje-4" id="toc-objetivos-de-aprendizaje-4">Objetivos de aprendizaje</a></li>
+<li><a href="#materiales-necesarios-4" id="toc-materiales-necesarios-4">Materiales necesarios</a></li>
+<li><a href="#tiempo-requerido-4" id="toc-tiempo-requerido-4">Tiempo requerido</a></li>
+<li><a href="#parte-1-símbolos-y-convenciones-de-los-diagramas-de-flujo" id="toc-parte-1-símbolos-y-convenciones-de-los-diagramas-de-flujo">Parte 1: Símbolos y convenciones de los diagramas de flujo</a>
+<ul>
+<li><a href="#símbolos-estándar-de-los-diagramas-de-flujo" id="toc-símbolos-estándar-de-los-diagramas-de-flujo">Símbolos estándar de los diagramas de flujo</a></li>
+<li><a href="#convenciones-de-los-diagramas-de-flujo" id="toc-convenciones-de-los-diagramas-de-flujo">Convenciones de los diagramas de flujo</a></li>
+</ul></li>
+<li><a href="#parte-2-práctica-de-diagramas-de-flujo-simples" id="toc-parte-2-práctica-de-diagramas-de-flujo-simples">Parte 2: Práctica de diagramas de flujo simples</a>
+<ul>
+<li><a href="#paso-1-crea-un-diagrama-de-flujo-de-una-rutina-matutina" id="toc-paso-1-crea-un-diagrama-de-flujo-de-una-rutina-matutina">Paso 1: Crea un diagrama de flujo de una rutina matutina</a></li>
+<li><a href="#paso-2-agrega-una-decisión-sobre-el-clima" id="toc-paso-2-agrega-una-decisión-sobre-el-clima">Paso 2: Agrega una decisión sobre el clima</a></li>
+<li><a href="#paso-3-revisa-y-refina" id="toc-paso-3-revisa-y-refina">Paso 3: Revisa y refina</a></li>
+</ul></li>
+<li><a href="#parte-3-diagramas-de-flujo-para-decisiones-cotidianas" id="toc-parte-3-diagramas-de-flujo-para-decisiones-cotidianas">Parte 3: Diagramas de flujo para decisiones cotidianas</a>
+<ul>
+<li><a href="#escenario-1-decidir-qué-comer-para-la-cena" id="toc-escenario-1-decidir-qué-comer-para-la-cena">Escenario 1: Decidir qué comer para la cena</a></li>
+<li><a href="#escenario-2-planificar-una-actividad-de-fin-de-semana" id="toc-escenario-2-planificar-una-actividad-de-fin-de-semana">Escenario 2: Planificar una actividad de fin de semana</a></li>
+<li><a href="#escenario-3-elegir-un-regalo-para-alguien" id="toc-escenario-3-elegir-un-regalo-para-alguien">Escenario 3: Elegir un regalo para alguien</a></li>
+<li><a href="#escenario-4-solución-de-problemas-de-un-dispositivo-que-no-funciona" id="toc-escenario-4-solución-de-problemas-de-un-dispositivo-que-no-funciona">Escenario 4: Solución de problemas de un dispositivo que no funciona</a></li>
+</ul></li>
+<li><a href="#parte-4-traduciendo-historias-a-diagramas-de-flujo" id="toc-parte-4-traduciendo-historias-a-diagramas-de-flujo">Parte 4: Traduciendo historias a diagramas de flujo</a>
+<ul>
+<li><a href="#paso-1-lee-la-historia" id="toc-paso-1-lee-la-historia">Paso 1: Lee la historia</a></li>
+<li><a href="#paso-2-identifica-los-elementos-clave" id="toc-paso-2-identifica-los-elementos-clave">Paso 2: Identifica los elementos clave</a></li>
+<li><a href="#paso-3-crea-el-diagrama-de-flujo" id="toc-paso-3-crea-el-diagrama-de-flujo">Paso 3: Crea el diagrama de flujo</a></li>
+<li><a href="#paso-4-prueba-tu-diagrama-de-flujo" id="toc-paso-4-prueba-tu-diagrama-de-flujo">Paso 4: Prueba tu diagrama de flujo</a></li>
+</ul></li>
+<li><a href="#parte-5-diagramas-de-flujo-para-algoritmos" id="toc-parte-5-diagramas-de-flujo-para-algoritmos">Parte 5: Diagramas de flujo para algoritmos</a>
+<ul>
+<li><a href="#algoritmo-1-encontrar-el-número-más-grande" id="toc-algoritmo-1-encontrar-el-número-más-grande">Algoritmo 1: Encontrar el número más grande</a></li>
+<li><a href="#algoritmo-2-calculando-un-precio-con-descuento" id="toc-algoritmo-2-calculando-un-precio-con-descuento">Algoritmo 2: Calculando un precio con descuento</a></li>
+</ul></li>
+<li><a href="#parte-6-diagramas-de-flujo-colaborativos-actividad-grupal-opcional" id="toc-parte-6-diagramas-de-flujo-colaborativos-actividad-grupal-opcional">Parte 6: Diagramas de flujo colaborativos (actividad grupal opcional)</a>
+<ul>
+<li><a href="#paso-1-selecciona-un-proceso-complejo" id="toc-paso-1-selecciona-un-proceso-complejo">Paso 1: Selecciona un proceso complejo</a></li>
+<li><a href="#paso-2-borradores-individuales" id="toc-paso-2-borradores-individuales">Paso 2: Borradores individuales</a></li>
+<li><a href="#paso-3-comparar-y-combinar" id="toc-paso-3-comparar-y-combinar">Paso 3: Comparar y combinar</a></li>
+<li><a href="#paso-4-crear-un-diagrama-de-flujo-maestro" id="toc-paso-4-crear-un-diagrama-de-flujo-maestro">Paso 4: Crear un diagrama de flujo maestro</a></li>
+</ul></li>
+<li><a href="#plantillas-para-símbolos-de-diagramas-de-flujo" id="toc-plantillas-para-símbolos-de-diagramas-de-flujo">Plantillas para símbolos de diagramas de flujo</a></li>
+<li><a href="#actividades-de-extensión-3" id="toc-actividades-de-extensión-3">Actividades de extensión</a>
+<ul>
+<li><a href="#revisión-del-diagrama-de-flujo" id="toc-revisión-del-diagrama-de-flujo">1. Revisión del diagrama de flujo</a></li>
+<li><a href="#conceptos-de-programación-en-diagramas-de-flujo" id="toc-conceptos-de-programación-en-diagramas-de-flujo">2. Conceptos de programación en diagramas de flujo</a></li>
+<li><a href="#diagramas-de-flujo-digitales" id="toc-diagramas-de-flujo-digitales">3. Diagramas de flujo digitales</a></li>
+</ul></li>
+<li><a href="#preguntas-de-reflexión-1" id="toc-preguntas-de-reflexión-1">Preguntas de reflexión</a></li>
+</ul></li>
+<li><a href="#actividad-traduciendo-del-lenguaje-natural-al-pseudocódigo" id="toc-actividad-traduciendo-del-lenguaje-natural-al-pseudocódigo">Actividad: Traduciendo del lenguaje natural al pseudocódigo</a>
+<ul>
+<li><a href="#visión-general-5" id="toc-visión-general-5">Visión general</a></li>
+<li><a href="#objetivos-de-aprendizaje-5" id="toc-objetivos-de-aprendizaje-5">Objetivos de aprendizaje</a></li>
+<li><a href="#materiales-necesarios-5" id="toc-materiales-necesarios-5">Materiales necesarios</a></li>
+<li><a href="#tiempo-requerido-5" id="toc-tiempo-requerido-5">Tiempo requerido</a></li>
+<li><a href="#parte-1-revisión-de-convenciones-de-pseudocódigo" id="toc-parte-1-revisión-de-convenciones-de-pseudocódigo">Parte 1: Revisión de convenciones de pseudocódigo</a></li>
+<li><a href="#parte-2-traducciones-simples" id="toc-parte-2-traducciones-simples">Parte 2: Traducciones simples</a>
+<ul>
+<li><a href="#paso-1-estudia-el-ejemplo" id="toc-paso-1-estudia-el-ejemplo">Paso 1: Estudia el ejemplo</a></li>
+<li><a href="#paso-2-practica-con-procesos-simples" id="toc-paso-2-practica-con-procesos-simples">Paso 2: Practica con procesos simples</a></li>
+<li><a href="#paso-3-revisa-y-refina-1" id="toc-paso-3-revisa-y-refina-1">Paso 3: Revisa y refina</a></li>
+</ul></li>
+<li><a href="#parte-3-traduciendo-procesos-complejos" id="toc-parte-3-traduciendo-procesos-complejos">Parte 3: Traduciendo procesos complejos</a>
+<ul>
+<li><a href="#paso-1-ejercicio-de-traducción" id="toc-paso-1-ejercicio-de-traducción">Paso 1: Ejercicio de traducción</a></li>
+<li><a href="#paso-2-añade-detalle-y-claridad" id="toc-paso-2-añade-detalle-y-claridad">Paso 2: Añade detalle y claridad</a></li>
+</ul></li>
+<li><a href="#parte-4-de-diagramas-de-flujo-a-pseudocódigo" id="toc-parte-4-de-diagramas-de-flujo-a-pseudocódigo">Parte 4: De diagramas de flujo a pseudocódigo</a>
+<ul>
+<li><a href="#paso-1-elige-un-diagrama-de-flujo" id="toc-paso-1-elige-un-diagrama-de-flujo">Paso 1: Elige un diagrama de flujo</a></li>
+<li><a href="#paso-2-convierte-a-pseudocódigo" id="toc-paso-2-convierte-a-pseudocódigo">Paso 2: Convierte a pseudocódigo</a></li>
+<li><a href="#paso-3-compara-representaciones" id="toc-paso-3-compara-representaciones">Paso 3: Compara representaciones</a></li>
+</ul></li>
+<li><a href="#parte-5-del-pseudocódigo-al-lenguaje-natural" id="toc-parte-5-del-pseudocódigo-al-lenguaje-natural">Parte 5: Del pseudocódigo al lenguaje natural</a>
+<ul>
+<li><a href="#paso-1-estudia-el-ejemplo-1" id="toc-paso-1-estudia-el-ejemplo-1">Paso 1: Estudia el ejemplo</a></li>
+<li><a href="#paso-2-traduce-al-lenguaje-natural" id="toc-paso-2-traduce-al-lenguaje-natural">Paso 2: Traduce al lenguaje natural</a></li>
+<li><a href="#paso-3-evalúa-la-claridad" id="toc-paso-3-evalúa-la-claridad">Paso 3: Evalúa la claridad</a></li>
+</ul></li>
+<li><a href="#parte-6-la-computadora-humana" id="toc-parte-6-la-computadora-humana">Parte 6: La computadora humana</a>
+<ul>
+<li><a href="#paso-1-escribe-un-algoritmo-en-pseudocódigo" id="toc-paso-1-escribe-un-algoritmo-en-pseudocódigo">Paso 1: Escribe un algoritmo en pseudocódigo</a></li>
+<li><a href="#paso-2-actúa-como-la-computadora" id="toc-paso-2-actúa-como-la-computadora">Paso 2: Actúa como la computadora</a></li>
+<li><a href="#paso-3-ejecuta-el-programa" id="toc-paso-3-ejecuta-el-programa">Paso 3: Ejecuta el programa</a></li>
+<li><a href="#paso-4-depura-y-mejora" id="toc-paso-4-depura-y-mejora">Paso 4: Depura y mejora</a></li>
+</ul></li>
+<li><a href="#actividades-de-extensión-4" id="toc-actividades-de-extensión-4">Actividades de extensión</a>
+<ul>
+<li><a href="#patrones-de-pseudocódigo" id="toc-patrones-de-pseudocódigo">1. Patrones de pseudocódigo</a></li>
+<li><a href="#investigación-de-algoritmos" id="toc-investigación-de-algoritmos">2. Investigación de algoritmos</a></li>
+<li><a href="#crear-una-guía-de-pseudocódigo" id="toc-crear-una-guía-de-pseudocódigo">3. Crear una guía de pseudocódigo</a></li>
+</ul></li>
+<li><a href="#preguntas-de-reflexión-2" id="toc-preguntas-de-reflexión-2">Preguntas de reflexión</a></li>
+<li><a href="#conexión-con-la-programación-4" id="toc-conexión-con-la-programación-4">Conexión con la programación</a></li>
+</ul></li>
+<li><a href="#actividad-la-computadora-humana---representando-programas-simples" id="toc-actividad-la-computadora-humana---representando-programas-simples">Actividad: La computadora humana - Representando programas simples</a>
+<ul>
+<li><a href="#visión-general-6" id="toc-visión-general-6">Visión general</a></li>
+<li><a href="#objetivos-de-aprendizaje-6" id="toc-objetivos-de-aprendizaje-6">Objetivos de aprendizaje</a></li>
+<li><a href="#materiales-necesarios-6" id="toc-materiales-necesarios-6">Materiales necesarios</a></li>
+<li><a href="#tiempo-requerido-6" id="toc-tiempo-requerido-6">Tiempo requerido</a></li>
+<li><a href="#preparación" id="toc-preparación">Preparación</a></li>
+<li><a href="#parte-1-introducción-a-ser-una-computadora" id="toc-parte-1-introducción-a-ser-una-computadora">Parte 1: Introducción a ser una computadora</a>
+<ul>
+<li><a href="#paso-1-explicar-la-actividad" id="toc-paso-1-explicar-la-actividad">Paso 1: Explicar la actividad</a></li>
+<li><a href="#paso-2-asignar-roles" id="toc-paso-2-asignar-roles">Paso 2: Asignar roles</a></li>
+</ul></li>
+<li><a href="#parte-2-ejecución-básica-de-programa" id="toc-parte-2-ejecución-básica-de-programa">Parte 2: Ejecución básica de programa</a>
+<ul>
+<li><a href="#programa-1-rutina-matutina" id="toc-programa-1-rutina-matutina">Programa 1: Rutina matutina</a></li>
+</ul></li>
+<li><a href="#parte-3-programas-más-complejos" id="toc-parte-3-programas-más-complejos">Parte 3: Programas más complejos</a>
+<ul>
+<li><a href="#programa-2-comprobando-elegibilidad" id="toc-programa-2-comprobando-elegibilidad">Programa 2: Comprobando elegibilidad</a></li>
+</ul></li>
+<li><a href="#parte-4-simulación-de-depuración" id="toc-parte-4-simulación-de-depuración">Parte 4: Simulación de depuración</a>
+<ul>
+<li><a href="#paso-1-introducir-errores" id="toc-paso-1-introducir-errores">Paso 1: Introducir errores</a></li>
+<li><a href="#paso-2-depurar-en-grupo" id="toc-paso-2-depurar-en-grupo">Paso 2: Depurar en grupo</a></li>
+<li><a href="#paso-3-corregir-los-errores" id="toc-paso-3-corregir-los-errores">Paso 3: Corregir los errores</a></li>
+</ul></li>
+<li><a href="#parte-5-creando-tus-propios-programas" id="toc-parte-5-creando-tus-propios-programas">Parte 5: Creando tus propios programas</a>
+<ul>
+<li><a href="#paso-1-diseño-en-grupo" id="toc-paso-1-diseño-en-grupo">Paso 1: Diseño en grupo</a></li>
+<li><a href="#paso-2-crear-tarjetas-de-instrucciones" id="toc-paso-2-crear-tarjetas-de-instrucciones">Paso 2: Crear tarjetas de instrucciones</a></li>
+<li><a href="#paso-3-ejecutar-los-programas-de-otros" id="toc-paso-3-ejecutar-los-programas-de-otros">Paso 3: Ejecutar los programas de otros</a></li>
+<li><a href="#paso-4-retroalimentación" id="toc-paso-4-retroalimentación">Paso 4: Retroalimentación</a></li>
+</ul></li>
+<li><a href="#actividades-de-extensión-5" id="toc-actividades-de-extensión-5">Actividades de extensión</a>
+<ul>
+<li><a href="#añadir-bucles" id="toc-añadir-bucles">1. Añadir bucles</a></li>
+<li><a href="#múltiples-caminos-de-ejecución" id="toc-múltiples-caminos-de-ejecución">2. Múltiples caminos de ejecución</a></li>
+<li><a href="#ejecución-concurrente" id="toc-ejecución-concurrente">3. Ejecución concurrente</a></li>
+</ul></li>
+<li><a href="#preguntas-de-reflexión-3" id="toc-preguntas-de-reflexión-3">Preguntas de reflexión</a></li>
+<li><a href="#conexión-con-la-programación-5" id="toc-conexión-con-la-programación-5">Conexión con la programación</a></li>
 </ul></li>
 </ul>
 </nav>
 <h1 id="rise-code">Rise &amp; Code</h1>
-<h2 id="un-libro-de-programación-para-todos">Un libro de programación
-para todos</h2>
+<h2 id="un-libro-de-programación-para-todos">Un libro de programación para todos</h2>
 <h3 id="acerca-de-este-libro">Acerca de este libro</h3>
-<p>“Rise &amp; Code” hace que el emocionante mundo de la programación
-sea accesible para todos, independientemente de su edad, origen o acceso
-a la tecnología. A través de lecciones interactivas, imágenes atractivas
-y una metodología única de cuaderno, ofrece un enfoque fresco y
-empoderador para aprender a programar.</p>
+<p>“Rise &amp; Code” hace que el emocionante mundo de la programación sea accesible para todos, independientemente de su edad, origen o acceso a la tecnología. A través de lecciones interactivas, imágenes atractivas y una metodología única de cuaderno, ofrece un enfoque fresco y empoderador para aprender a programar.</p>
 <h3 id="características-principales">Características principales</h3>
 <ul>
-<li><strong>No se requiere computadora</strong>: Aprende conceptos de
-programación usando solo papel y lápiz</li>
-<li><strong>Actividades prácticas</strong>: Cada capítulo incluye
-ejercicios y actividades prácticas</li>
-<li><strong>Aprendizaje visual</strong>: Conceptos ilustrados a través
-de diagramas y diagramas de flujo</li>
-<li><strong>Plan de estudios progresivo</strong>: Desarrolla habilidades
-gradualmente desde temas fundamentales hasta avanzados</li>
-<li><strong>Diseño inclusivo</strong>: Creado para audiencias diversas
-con diferentes estilos de aprendizaje</li>
+<li><strong>No se requiere computadora</strong>: Aprende conceptos de programación usando solo papel y lápiz</li>
+<li><strong>Actividades prácticas</strong>: Cada capítulo incluye ejercicios y actividades prácticas</li>
+<li><strong>Aprendizaje visual</strong>: Conceptos ilustrados a través de diagramas y diagramas de flujo</li>
+<li><strong>Plan de estudios progresivo</strong>: Desarrolla habilidades gradualmente desde temas fundamentales hasta avanzados</li>
+<li><strong>Diseño inclusivo</strong>: Creado para audiencias diversas con diferentes estilos de aprendizaje</li>
 </ul>
 <h3 id="nuestra-misión">Nuestra misión</h3>
 <ul>
-<li>Hacer que la educación en programación sea accesible para
-comunidades desatendidas</li>
-<li>Enseñar pensamiento computacional a través de actividades sin
-conexión</li>
-<li>Construir habilidades fundamentales que se transfieran a cualquier
-lenguaje de programación</li>
-<li>Crear un recurso que pueda ser compartido, impreso y distribuido
-libremente</li>
+<li>Hacer que la educación en programación sea accesible para comunidades desatendidas</li>
+<li>Enseñar pensamiento computacional a través de actividades sin conexión</li>
+<li>Construir habilidades fundamentales que se transfieran a cualquier lenguaje de programación</li>
+<li>Crear un recurso que pueda ser compartido, impreso y distribuido libremente</li>
 </ul>
 <h3 id="licencia">Licencia</h3>
-<p>Este libro se publica bajo la Licencia Internacional Creative Commons
-Attribution-NonCommercial-ShareAlike 4.0 (CC BY-NC-SA 4.0).</p>
+<p>Este libro se publica bajo la Licencia Internacional Creative Commons Attribution-NonCommercial-ShareAlike 4.0 (CC BY-NC-SA 4.0).</p>
+<h1 id="capítulo-1-introducción---el-mundo-de-la-programación-sin-computadora">Capítulo 1: Introducción - El mundo de la programación sin computadora</h1>
+<p>¡Bienvenido al primer capítulo de “Rise &amp; Code”! Este capítulo te introduce al concepto de programación sin computadora y prepara el escenario para el resto del libro.</p>
+<h2 id="objetivos-del-capítulo">Objetivos del capítulo</h2>
+<ul>
+<li>Entender por qué las habilidades de programación son valiosas en el mundo actual</li>
+<li>Reconocer que los conceptos de programación pueden aprenderse sin una computadora</li>
+<li>Aprender a usar el método de cuaderno para practicar conceptos de programación</li>
+<li>Familiarizarse con el enfoque y la estructura del libro</li>
+</ul>
+<h2 id="secciones">Secciones</h2>
+<ol type="1">
+<li>Por qué importa la programación</li>
+<li>A quién está dirigido este libro</li>
+<li>Cómo usar este libro (incluido el método de cuaderno)</li>
+</ol>
+<h2 id="actividades">Actividades</h2>
+<ul>
+<li>Tu primer algoritmo</li>
+<li>Identificar el pensamiento computacional en la vida cotidiana</li>
+<li>Configurar tu cuaderno de programación</li>
+</ul>
+<h2 id="resumen-del-capítulo">Resumen del capítulo</h2>
+<p>¿Listo para revisar lo que has aprendido? Consulta el Resumen del Capítulo para repasar los conceptos clave y obtener una vista previa de lo que viene a continuación.</p>
+<h1 id="capítulo-1-resumen">Capítulo 1: Resumen</h1>
+<h2 id="puntos-clave">Puntos clave</h2>
+<h3 id="por-qué-la-programación-importa">Por qué la programación importa</h3>
+<ul>
+<li>La programación es una habilidad fundamental en el mundo digital actual</li>
+<li>Aprender a programar desarrolla el pensamiento crítico y las habilidades para resolver problemas</li>
+<li>El pensamiento computacional puede aplicarse a muchas áreas fuera de la programación</li>
+<li>Incluso la programación básica proporciona acceso a tecnologías y oportunidades nuevas</li>
+</ul>
+<h3 id="para-quién-es-este-libro">Para quién es este libro</h3>
+<ul>
+<li>Este libro está diseñado para ser accesible a todos, independientemente de su acceso a tecnología</li>
+<li>No se requiere una computadora, solo un cuaderno y un lápiz</li>
+<li>El contenido se adapta a estudiantes de todas las edades y orígenes</li>
+<li>Los conceptos se centran en fundamentos universales, no en lenguajes o tecnologías específicas</li>
+</ul>
+<h3 id="cómo-usar-este-libro">Cómo usar este libro</h3>
+<ul>
+<li>El método del cuaderno proporciona una forma táctil y deliberada de aprender programación</li>
+<li>La estructura del libro incluye conceptos, actividades y reflexiones para un aprendizaje completo</li>
+<li>Se pueden elegir diferentes caminos a través del material en función de los intereses y necesidades</li>
+<li>La consistencia y la práctica regular son clave para el éxito</li>
+</ul>
+<h2 id="conceptos-introducidos">Conceptos introducidos</h2>
+<ul>
+<li><strong>Algoritmos</strong>: Instrucciones paso a paso para realizar una tarea</li>
+<li><strong>Pensamiento computacional</strong>: Un enfoque para resolver problemas que incluye:
+<ul>
+<li>Descomposición: Dividir problemas grandes en partes más pequeñas</li>
+<li>Reconocimiento de patrones: Identificar tendencias y similitudes</li>
+<li>Abstracción: Enfocarse en lo importante, ignorando detalles irrelevantes</li>
+<li>Algoritmos: Crear soluciones paso a paso</li>
+</ul></li>
+<li><strong>Programación sin computadoras</strong>: Cómo aprender y practicar conceptos de programación usando solo papel y lápiz</li>
+</ul>
+<h2 id="actividades-completadas">Actividades completadas</h2>
+<ol type="1">
+<li><strong>Tu primer algoritmo</strong>: Creación de instrucciones paso a paso para una tarea cotidiana</li>
+<li><strong>Pensamiento computacional en la vida cotidiana</strong>: Identificación de ejemplos de pensamiento computacional en el mundo que te rodea</li>
+<li><strong>Configurando tu cuaderno de programación</strong>: Establecimiento de un sistema organizado para documentar tu aprendizaje</li>
+</ol>
+<h2 id="próximos-pasos">Próximos pasos</h2>
+<p>En el Capítulo 2, profundizaremos en los conceptos fundamentales de la programación, incluyendo: - Variables y almacenamiento de datos - Operaciones básicas y expresiones - Sentencias condicionales - Primeros pasos para pensar como un programador</p>
+<p>Prepárate para resolver problemas emocionantes usando tu nuevo cuaderno de programación y las habilidades que has comenzado a desarrollar.</p>
+<h1 id="por-qué-importa-la-programación">Por qué importa la programación</h1>
+<h2 id="introducción">Introducción</h2>
+<p>Imagina un mundo donde pudieras decirle a una máquina exactamente lo que quieres que haga, y lo hiciera perfectamente cada vez. Ese es el poder de la programación. Pero la programación es mucho más que simplemente controlar computadoras—se trata de desarrollar una forma de pensar que te ayuda a resolver todo tipo de problemas.</p>
+<h2 id="qué-es-la-programación">¿Qué es la programación?</h2>
+<p>En su esencia, la programación consiste en dar instrucciones a una computadora. Pero a diferencia de los humanos, las computadoras necesitan instrucciones extremadamente precisas. Siguen exactamente lo que les dices que hagan—ni más, ni menos.</p>
+<p>Piensa en dar direcciones a un amigo versus a un extraño en una nueva ciudad. Con tu amigo, podrías decir: “Nos vemos en el café de siempre”. El amigo completa los vacíos usando conocimiento compartido. Pero con un extraño, necesitas proporcionar cada detalle: qué calles tomar, puntos de referencia a observar y exactamente cómo reconocer el café.</p>
+<p>La programación es como dar direcciones a ese extraño—que además resulta ser increíblemente rápido, nunca se cansa y sigue tus instrucciones exactamente.</p>
+<h2 id="la-programación-en-la-vida-cotidiana">La programación en la vida cotidiana</h2>
+<p>Es posible que no te des cuenta, pero estás rodeado de programación todos los días:</p>
+<ul>
+<li>Cuando retiras dinero de un cajero automático</li>
+<li>Cuando los semáforos cambian según la hora del día</li>
+<li>Cuando tu teléfono móvil te notifica sobre un mensaje</li>
+<li>Cuando los agricultores usan sistemas de riego automatizados</li>
+<li>Cuando los trabajadores de salud rastrean brotes de enfermedades</li>
+</ul>
+<p>Todos estos sistemas funcionan con instrucciones escritas por programadores. Y cada vez más, saber programar—o al menos entender cómo funciona la programación—se está convirtiendo en una habilidad esencial para muchos trabajos y oportunidades.</p>
+<h2 id="por-qué-aprender-programación-sin-una-computadora">¿Por qué aprender programación sin una computadora?</h2>
+<p>Tal vez te estés preguntando: “¿Cómo puedo aprender programación sin una computadora?” ¡Es una pregunta válida!</p>
+<h1 id="a-quién-está-dirigido-este-libro">A quién está dirigido este libro</h1>
+<h2 id="introducción-1">Introducción</h2>
+<p>La programación es para todos. Ya seas estudiante, maestro, agricultor, médico, comerciante o simplemente alguien con curiosidad sobre cómo funciona la tecnología, este libro está diseñado para ti. No necesitas experiencia previa con computadoras o programación para beneficiarte de los conceptos que exploraremos juntos.</p>
+<h2 id="estudiantes-de-todas-las-edades">Estudiantes de todas las edades</h2>
+<p>¿Eres una persona joven que quiere entender la tecnología que da forma a nuestro mundo? ¿O tal vez eres un adulto que nunca tuvo la oportunidad de aprender programación antes? Este libro es para estudiantes de todas las edades.</p>
+<p>Las actividades y explicaciones están diseñadas para ser accesibles tanto si tienes 10 como 70 años. Algunos conceptos pueden ser desafiantes al principio, pero los hemos dividido en piezas manejables que se construyen una sobre otra.</p>
+<h2 id="personas-con-acceso-limitado-a-la-tecnología">Personas con acceso limitado a la tecnología</h2>
+<p>Uno de los objetivos más importantes de este libro es hacer que la educación en programación sea accesible para todos, especialmente para aquellos que no tienen acceso regular a computadoras.</p>
+<p>Si tú: - Vives en una región con electricidad o acceso a internet limitados - No tienes una computadora personal - Compartes recursos tecnológicos limitados con muchos otros - Solo tienes acceso ocasional a computadoras</p>
+<p>…entonces este libro fue creado específicamente pensando en ti. Todo en este libro se puede hacer solo con papel, lápiz y tu propio pensamiento creativo.</p>
+<h2 id="educadores-y-líderes-comunitarios">Educadores y líderes comunitarios</h2>
+<p>Si eres maestro, mentor o líder comunitario que busca introducir conceptos de programación a tus estudiantes o miembros de la comunidad, este libro proporciona un marco para hacerlo sin requerir un laboratorio de computación o equipo costoso.</p>
+<p>Las actividades pueden adaptarse para: - Entornos de aula - Programas extraescolares - Talleres comunitarios - Mentoría individual</p>
+<p>Cada capítulo incluye actividades que se pueden realizar individualmente o en grupos, haciéndolas flexibles para diferentes entornos de aprendizaje.</p>
+<h2 id="aprendices-autodidactas">Aprendices autodidactas</h2>
+<p>Si estás aprendiendo por tu cuenta, este libro proporciona un camino estructurado para aprender conceptos de programación a tu propio ritmo. Las actividades están diseñadas para ser autónomas, con instrucciones claras y preguntas reflexivas para guiar tu aprendizaje.</p>
+<h2 id="aquellos-que-aprenden-haciendo">Aquellos que aprenden haciendo</h2>
+<p>Muchas personas aprenden mejor a través de actividades prácticas y manuales que mediante teoría abstracta. Si eres alguien que prefiere aprender haciendo, encontrarás que este libro está lleno de ejercicios interactivos que te permiten practicar conceptos de programación inmediatamente.</p>
+<h2 id="cualquiera-con-curiosidad-sobre-cómo-funciona-la-programación">Cualquiera con curiosidad sobre cómo funciona la programación</h2>
+<p>Quizás has oído hablar de programación y quieres entender de qué se trata. O tal vez usas tecnología todos los días y quieres echar un vistazo detrás del telón para ver cómo funciona. Este libro te ayudará a desmitificar la programación y te mostrará el pensamiento lógico que impulsa nuestro mundo digital.</p>
+<h2 id="lo-que-no-necesitas-para-este-libro">Lo que NO necesitas para este libro</h2>
+<p>Es importante destacar lo que NO necesitas para este libro:</p>
+<ul>
+<li>No necesitas una computadora</li>
+<li>No necesitas acceso a internet</li>
+<li>No necesitas materiales costosos</li>
+<li>No necesitas experiencia previa con matemáticas o programación</li>
+<li>No necesitas hablar ningún idioma específico (aunque este libro está actualmente disponible en [lista de idiomas aquí])</li>
+</ul>
+<h2 id="lo-que-sí-necesitas-para-este-libro">Lo que SÍ necesitas para este libro</h2>
+<p>Esto es todo lo que necesitas para comenzar:</p>
+<ul>
+<li>Un cuaderno o papel</li>
+<li>Algo para escribir (lápiz, bolígrafo, etc.)</li>
+<li>Curiosidad y disposición para probar nuevas formas de pensar</li>
+<li>Persistencia cuando surjan desafíos (¡y surgirán!)</li>
+<li>Tiempo para trabajar en actividades y reflexionar sobre lo que has aprendido</li>
+</ul>
+<h2 id="actividad-tu-perfil-de-aprendizaje">Actividad: Tu perfil de aprendizaje</h2>
+<p><strong>Materiales necesarios</strong>: Tu cuaderno y algo para escribir</p>
+<p><strong>Instrucciones</strong>: 1. Titula una página en tu cuaderno “Mi perfil de aprendizaje” 2. Responde las siguientes preguntas: - ¿Qué te interesa más sobre la programación? - ¿Qué experiencia (si alguna) tienes con la tecnología? - ¿Cómo aprendes mejor? (Leyendo, haciendo, viendo, discutiendo, etc.) - ¿Qué tipo de problemas te gustaría resolver con la programación? - ¿Qué podría ser desafiante para ti al aprender a programar? - ¿Qué recursos y apoyo tienes disponibles? 3. Mantén esta página a mano mientras trabajas con el libro. Te ayudará a conectar los conceptos con tus propios objetivos y estilo de aprendizaje.</p>
+<h2 id="puntos-clave-1">Puntos clave</h2>
+<ul>
+<li>Este libro está diseñado para personas de todas las edades y orígenes</li>
+<li>No se requiere acceso a computadoras para aprender de este libro</li>
+<li>Todos pueden beneficiarse de los conceptos de programación, independientemente de su carrera o intereses</li>
+<li>Diferentes lectores tendrán diferentes objetivos y preferencias de aprendizaje</li>
+<li>La programación es una habilidad que cualquiera puede aprender con práctica y persistencia</li>
+</ul>
+<p>En la siguiente sección, explicaremos cómo usar este libro de manera efectiva, incluyendo el método de cuaderno que será central para tu experiencia de aprendizaje.</p>
+<h1 id="cómo-usar-este-libro-incluido-el-método-de-cuaderno">Cómo usar este libro (incluido el método de cuaderno)</h1>
+<h2 id="introducción-2">Introducción</h2>
+<p>Este libro está diseñado para ser tanto una guía como un cuaderno de trabajo para tu viaje de programación. En esta sección, explicaremos cómo aprovechar al máximo el libro e introduciremos el “método de cuaderno”, un enfoque poderoso para aprender programación sin una computadora.</p>
+<h2 id="el-método-de-cuaderno-tu-computadora-de-papel">El método de cuaderno: Tu computadora de papel</h2>
+<p>A lo largo de la historia, grandes científicos, matemáticos e inventores han utilizado cuadernos para desarrollar sus ideas. Leonardo da Vinci llenó miles de páginas con bocetos, cálculos y observaciones. Ada Lovelace, a menudo considerada la primera programadora del mundo, usó papel para escribir el primer algoritmo diseñado para una máquina.</p>
+<p>Siguiendo esta tradición, tu cuaderno se convertirá en tu “computadora de papel”, un lugar donde puedes trabajar con conceptos de programación, seguir tu progreso, probar tus ideas y reflexionar sobre tu aprendizaje.</p>
+<h2 id="configurando-tu-cuaderno-de-programación">Configurando tu cuaderno de programación</h2>
+<p>Para comenzar, necesitarás un cuaderno que se convertirá en tu compañero de programación. Idealmente, elige uno que:</p>
+<ul>
+<li>Tenga muchas páginas (al menos 100)</li>
+<li>Se mantenga abierto fácilmente cuando se coloca en una superficie plana</li>
+<li>Tenga páginas lo suficientemente grandes para diagramas</li>
+<li>Tenga papel en blanco o papel cuadriculado (en lugar de líneas) si es posible, pero el papel con líneas también funciona</li>
+</ul>
+<p>Si no tienes un cuaderno dedicado, puedes usar hojas sueltas recopiladas en una carpeta, o incluso hacer tu propio cuaderno uniendo hojas de papel.</p>
+<h2 id="organizando-tu-cuaderno">Organizando tu cuaderno</h2>
+<p>Recomendamos dividir tu cuaderno en estas secciones:</p>
+<ol type="1">
+<li><strong>Tabla de contenidos</strong> (primeras páginas)
+<ul>
+<li>Deja espacio para registrar lo que has escrito y dónde encontrarlo</li>
+</ul></li>
+<li><strong>Conceptos</strong> (aproximadamente 25% de tu cuaderno)
+<ul>
+<li>Para notas sobre conceptos de programación a medida que los aprendes</li>
+<li>Incluye tus propias explicaciones y ejemplos</li>
+</ul></li>
+<li><strong>Ejercicios y actividades</strong> (aproximadamente 50% de tu cuaderno)
+<ul>
+<li>Para completar las actividades del libro</li>
+<li>Trabajar en tus propios problemas de práctica</li>
+<li>Espacio para depurar y revisar tu trabajo</li>
+</ul></li>
+<li><strong>Reflexiones</strong> (aproximadamente 15% de tu cuaderno)
+<ul>
+<li>Registra lo que has aprendido</li>
+<li>Anota conexiones entre conceptos</li>
+<li>Realiza un seguimiento de desafíos y avances</li>
+<li>Establece metas para lo que aprenderás a continuación</li>
+</ul></li>
+<li><strong>Referencia</strong> (aproximadamente 10% de tu cuaderno)
+<ul>
+<li>Crea tus propias guías de referencia rápida</li>
+<li>Mantén un registro de símbolos, términos y conceptos que quieras recordar</li>
+</ul></li>
+</ol>
+<p>Puedes marcar estas secciones con pestañas, marcadores o coloreando los bordes de las páginas.</p>
+<h2 id="cómo-está-estructurado-el-libro">Cómo está estructurado el libro</h2>
+<p>“Rise &amp; Code” está organizado en capítulos que se construyen uno sobre otro. Cada capítulo sigue una estructura similar:</p>
+<ol type="1">
+<li><strong>Introducción</strong> - Visión general de los conceptos cubiertos</li>
+<li><strong>Conceptos básicos</strong> - Explicaciones de ideas clave de programación</li>
+<li><strong>Ejemplos</strong> - Ilustraciones de conceptos en acción</li>
+<li><strong>Actividades</strong> - Ejercicios prácticos para practicar los conceptos</li>
+<li><strong>Reflexiones</strong> - Preguntas para profundizar tu comprensión</li>
+<li><strong>Puntos clave</strong> - Resumen de los puntos principales</li>
+<li><strong>Próximos pasos</strong> - Vista previa de lo que viene a continuación</li>
+</ol>
+<p>Aunque el libro está diseñado para leerse en orden, siéntete libre de saltar a temas específicos si ya te sientes cómodo con los conceptos anteriores.</p>
+<h2 id="trabajando-con-las-actividades">Trabajando con las actividades</h2>
+<p>Las actividades son el corazón de este libro. Están diseñadas para realizarse con materiales simples y para involucrarte activamente en el proceso de aprendizaje. Para cada actividad:</p>
+<ol type="1">
+<li><strong>Lee completamente</strong> antes de comenzar</li>
+<li><strong>Reúne los materiales necesarios</strong> (generalmente solo tu cuaderno y algo para escribir)</li>
+<li><strong>Trabaja a tu propio ritmo</strong> - algunas actividades pueden tomar minutos, otras pueden tomar una hora o más</li>
+<li><strong>Registra tu trabajo</strong> en tu cuaderno</li>
+<li><strong>Reflexiona sobre el proceso</strong> y lo que has aprendido</li>
+<li><strong>Comprueba tu comprensión</strong> usando las preguntas proporcionadas</li>
+<li><strong>Revisa las actividades desafiantes</strong> más tarde si es necesario</li>
+</ol>
+<p>No te preocupes por cometer errores, ¡son parte del proceso de aprendizaje! De hecho, encontrar y corregir errores (llamado “depuración” en programación) es una de las habilidades más importantes que desarrollarás.</p>
+<h2 id="aprendiendo-solo-vs.-aprendiendo-en-grupo">Aprendiendo solo vs. aprendiendo en grupo</h2>
+<p>Este libro puede usarse eficazmente tanto por tu cuenta como en grupo:</p>
+<p><strong>Para estudiantes individuales:</strong> - Establece un horario regular para trabajar con el libro - Encuentra formas de probar tu comprensión explicando conceptos en voz alta - Crea tus propios desafíos para ampliar las actividades - Conéctate con otros que estén aprendiendo a programar si es posible, incluso a distancia</p>
+<p><strong>Para grupos:</strong> - Túrnense para explicarse conceptos entre ustedes - Trabajen en actividades de forma colaborativa - Discutan diferentes enfoques para resolver problemas - Creen grupos de estudio para compartir desafíos e ideas</p>
+<h2 id="seguimiento-de-tu-progreso">Seguimiento de tu progreso</h2>
+<p>A medida que trabajas con el libro, es útil hacer un seguimiento de tu progreso:</p>
+<ul>
+<li>Marca las secciones completadas en la tabla de contenidos</li>
+<li>Anota los conceptos que te resulten desafiantes y que quizás quieras revisar</li>
+<li>Celebra tus momentos de “¡ajá!” en tu sección de reflexiones</li>
+<li>Revisa periódicamente el trabajo anterior para ver cuánto has avanzado</li>
+<li>Establece metas para lo que quieres aprender a continuación</li>
+</ul>
+<h2 id="actividad-configurando-tu-cuaderno-de-programación">Actividad: Configurando tu cuaderno de programación</h2>
+<p><strong>Materiales necesarios</strong>: Un cuaderno o papel, algo para escribir y, opcionalmente, marcadores/pestañas para dividir secciones</p>
+<p><strong>Instrucciones</strong>: 1. Configura las cinco secciones en tu cuaderno como se describió anteriormente. 2. En la primera página, escribe tu nombre y “Mi viaje de programación” o tu propio título. 3. Crea una tabla de contenido simple con espacio para agregar entradas a medida que avanzas. 4. En la primera página de tu sección de Conceptos, escribe la fecha de hoy y “Comenzando mi viaje de programación”. 5. Escribe de 3 a 5 cosas que esperas aprender de este libro. 6. En la sección de Referencia, crea tu primera entrada: un dibujo de un diagrama de flujo simple que muestre los pasos para tomar una decisión (como qué comer para la cena).</p>
+<h2 id="consejos-para-el-éxito">Consejos para el éxito</h2>
+<ol type="1">
+<li><p><strong>La consistencia importa más que la duración</strong> - Incluso 15 minutos de práctica diaria es mejor que varias horas una vez por semana.</p></li>
+<li><p><strong>Explica los conceptos a otros</strong> (o a ti mismo) - Enseñar algo es una de las mejores formas de aprenderlo.</p></li>
+<li><p><strong>Dibuja imágenes</strong> - Las representaciones visuales ayudan a solidificar conceptos abstractos.</p></li>
+<li><p><strong>Conecta ideas con tus propias experiencias</strong> - ¿Cómo se relaciona un concepto de programación con algo que ya conoces?</p></li>
+<li><p><strong>Ten paciencia contigo mismo</strong> - La programación implica una nueva forma de pensar que toma tiempo desarrollar.</p></li>
+<li><p><strong>Revisa regularmente</strong> - Vuelve a conceptos anteriores para profundizar tu comprensión.</p></li>
+<li><p><strong>Aplica conceptos ampliamente</strong> - Trata de ver cómo las ideas de programación se relacionan con situaciones cotidianas.</p></li>
+</ol>
+<h2 id="puntos-clave-2">Puntos clave</h2>
+<ul>
+<li>Tu cuaderno es tu herramienta más importante para aprender programación sin una computadora</li>
+<li>Organizar tu proceso de aprendizaje te ayuda a retener y construir sobre conceptos</li>
+<li>Las actividades proporcionan práctica práctica esencial para aprender programación</li>
+<li>La práctica consistente, la reflexión y la aplicación son clave para el éxito</li>
+<li>El libro está diseñado para ser flexible para diferentes estilos y contextos de aprendizaje</li>
+</ul>
+<p>En el próximo capítulo, nos sumergiremos en los fundamentos de la lógica y la estructura, los bloques de construcción de todos los lenguajes de programación.</p>
+<h1 id="actividad-tu-primer-algoritmo">Actividad: Tu primer algoritmo</h1>
+<h2 id="visión-general">Visión general</h2>
+<p>Esta actividad te introduce a la creación de algoritmos—instrucciones paso a paso para resolver un problema. Practicarás descomponer una tarea familiar en pasos claros y precisos que podrían ser seguidos por alguien que nunca ha realizado la tarea antes.</p>
+<h2 id="objetivos-de-aprendizaje">Objetivos de aprendizaje</h2>
+<ul>
+<li>Entender qué es un algoritmo</li>
+<li>Practicar la escritura de instrucciones claras y precisas</li>
+<li>Aprender a descomponer tareas complejas en pasos simples</li>
+<li>Identificar suposiciones en las instrucciones</li>
+</ul>
+<h2 id="materiales-necesarios">Materiales necesarios</h2>
+<ul>
+<li>Cuaderno y lápiz</li>
+<li>Opcional: lápices o marcadores de colores</li>
+</ul>
+<h2 id="tiempo-requerido">Tiempo requerido</h2>
+<p>30-45 minutos</p>
+<h2 id="instrucciones">Instrucciones</h2>
+<h3 id="parte-1-elige-tu-tarea">Parte 1: Elige tu tarea</h3>
+<ol type="1">
+<li>Selecciona una tarea simple y cotidiana que sabes cómo hacer. Algunas ideas:
+<ul>
+<li>Hacer un sándwich</li>
+<li>Cepillarse los dientes</li>
+<li>Atar cordones de zapatos</li>
+<li>Dibujar una forma simple</li>
+<li>Plantar una semilla</li>
+</ul></li>
+<li>En tu cuaderno, escribe el nombre de tu tarea en la parte superior de la página.</li>
+</ol>
+<h3 id="parte-2-escribe-tu-algoritmo">Parte 2: Escribe tu algoritmo</h3>
+<ol type="1">
+<li>Piensa en cómo completar tu tarea, desglosándola en pasos individuales.</li>
+<li>Escribe cada paso en orden, comenzando con el paso 1.</li>
+<li>Sé lo más claro y específico posible. Imagina que estás escribiendo instrucciones para alguien que nunca ha realizado esta tarea antes.</li>
+<li>Intenta incluir al menos 10 pasos.</li>
+</ol>
+<h3 id="parte-3-prueba-tu-algoritmo">Parte 3: Prueba tu algoritmo</h3>
+<ol type="1">
+<li>Revisa tu algoritmo y busca pasos faltantes o suposiciones.</li>
+<li>Si es posible, pide a un amigo o familiar que siga tus instrucciones exactamente como están escritas. Obsérvalos sin proporcionar ninguna guía adicional.</li>
+<li>Anota cualquier punto donde se confundan o donde tus instrucciones no fueran lo suficientemente claras.</li>
+</ol>
+<h3 id="parte-4-depura-y-mejora">Parte 4: Depura y mejora</h3>
+<ol type="1">
+<li>Basándote en tus observaciones, revisa tu algoritmo para solucionar cualquier problema.</li>
+<li>Agrega pasos donde sea necesario y aclara instrucciones ambiguas.</li>
+<li>Escribe tu algoritmo mejorado en una nueva página de tu cuaderno.</li>
+</ol>
+<h3 id="parte-5-reflexiona">Parte 5: Reflexiona</h3>
+<p>Responde estas preguntas en tu cuaderno: 1. ¿Cuál fue la parte más desafiante de escribir tu algoritmo? 2. ¿Hiciste alguna suposición en tus instrucciones originales? ¿Cuáles fueron? 3. ¿En qué se parece y en qué se diferencia escribir un algoritmo de dar indicaciones a una persona? 4. ¿Por qué crees que las computadoras necesitan instrucciones más precisas que los humanos?</p>
+<h2 id="ejemplo">Ejemplo</h2>
+<p>Aquí hay un ejemplo de un algoritmo para hacer una taza de té:</p>
+<ol type="1">
+<li>Consigue una taza limpia</li>
+<li>Consigue una bolsa de té</li>
+<li>Llena una tetera con agua</li>
+<li>Coloca la tetera en la estufa</li>
+<li>Enciende la estufa a fuego alto</li>
+<li>Espera hasta que el agua hierva</li>
+<li>Apaga la estufa</li>
+<li>Vierte el agua caliente en la taza, llenándola aproximadamente a 2 cm del borde</li>
+<li>Coloca la bolsa de té en la taza</li>
+<li>Espera 3 minutos para que el té se infusione</li>
+<li>Retira la bolsa de té de la taza</li>
+<li>(Opcional) Agrega azúcar o leche según tu gusto</li>
+<li>Revuelve el té</li>
+</ol>
+<h2 id="actividades-de-extensión">Actividades de extensión</h2>
+<ul>
+<li>Intenta reescribir tu algoritmo con el mínimo número posible de pasos mientras mantienes la claridad</li>
+<li>Escribe un algoritmo para una audiencia diferente (por ejemplo, un niño, un adulto, un robot)</li>
+<li>Dibuja símbolos o diagramas para representar cada paso en tu algoritmo</li>
+<li>Encuentra una receta publicada y analízala como un algoritmo. ¿Podrías mejorarla?</li>
+</ul>
+<h2 id="conexión-con-la-programación">Conexión con la programación</h2>
+<p>En programación, los algoritmos son el corazón de cada programa. Los programadores necesitan descomponer problemas en pasos claros y lógicos que una computadora pueda seguir. Las habilidades que practicaste en esta actividad—claridad, precisión y atención al detalle—son exactamente lo que necesitas para escribir programas de computadora efectivos.</p>
+<h1 id="actividad-pensamiento-computacional-en-la-vida-cotidiana">Actividad: Pensamiento computacional en la vida cotidiana</h1>
+<h2 id="visión-general-1">Visión general</h2>
+<p>Esta actividad te ayudará a reconocer cómo el pensamiento computacional está presente en tu vida diaria, incluso cuando no estás usando una computadora. Identificarás ejemplos de los cuatro componentes principales del pensamiento computacional: descomposición, reconocimiento de patrones, abstracción y algoritmos.</p>
+<h2 id="objetivos-de-aprendizaje-1">Objetivos de aprendizaje</h2>
+<ul>
+<li>Identificar ejemplos de pensamiento computacional en actividades cotidianas</li>
+<li>Comprender los cuatro componentes del pensamiento computacional</li>
+<li>Reconocer cómo estas habilidades de pensamiento son útiles más allá de la programación</li>
+</ul>
+<h2 id="materiales-necesarios-1">Materiales necesarios</h2>
+<ul>
+<li>Cuaderno y lápiz</li>
+<li>Opcional: lápices o marcadores de colores para organizar notas</li>
+</ul>
+<h2 id="tiempo-requerido-1">Tiempo requerido</h2>
+<p>45-60 minutos</p>
+<h2 id="instrucciones-1">Instrucciones</h2>
+<h3 id="parte-1-introducción-al-pensamiento-computacional">Parte 1: Introducción al pensamiento computacional</h3>
+<p>Primero, revisa los cuatro componentes del pensamiento computacional:</p>
+<ol type="1">
+<li><strong>Descomposición</strong>: Dividir un problema complejo en partes más pequeñas y manejables.</li>
+<li><strong>Reconocimiento de patrones</strong>: Identificar similitudes o tendencias dentro o entre problemas.</li>
+<li><strong>Abstracción</strong>: Enfocarse en la información importante, ignorando detalles irrelevantes.</li>
+<li><strong>Algoritmos</strong>: Desarrollar soluciones paso a paso o reglas para resolver problemas.</li>
+</ol>
+<p>En tu cuaderno, crea cuatro secciones, una para cada componente, donde registrarás tus observaciones.</p>
+<h3 id="parte-2-observación">Parte 2: Observación</h3>
+<p>Durante un día completo, observa tus actividades y las de quienes te rodean. Busca ejemplos de los cuatro componentes del pensamiento computacional en acción.</p>
+<p>Por ejemplo: - Al cocinar, ¿cómo divides la preparación en tareas más pequeñas? (descomposición) - ¿Qué patrones has notado en tu rutina matutina? (reconocimiento de patrones) - Cuando explicas una ubicación a alguien, ¿qué detalles incluyes y cuáles omites? (abstracción) - ¿Qué procesos sigues paso a paso, como una receta o un procedimiento de limpieza? (algoritmos)</p>
+<p>Registra al menos dos ejemplos para cada componente.</p>
+<h3 id="parte-3-análisis">Parte 3: Análisis</h3>
+<p>Una vez que hayas recopilado tus ejemplos, para cada uno:</p>
+<ol type="1">
+<li>Describe la situación o actividad</li>
+<li>Explica qué componente de pensamiento computacional observaste</li>
+<li>Detalla cómo este componente ayudó a resolver un problema o realizar una tarea</li>
+<li>Reflexiona sobre cómo esta misma habilidad podría aplicarse a la programación</li>
+</ol>
+<h3 id="parte-4-conexiones-más-profundas">Parte 4: Conexiones más profundas</h3>
+<p>Elige una actividad que realizas regularmente (cocinar, hacer ejercicio, ir al trabajo, organizar tu espacio, etc.) y analízala usando los cuatro componentes del pensamiento computacional:</p>
+<ol type="1">
+<li>¿Cómo la descompones en subtareas?</li>
+<li>¿Qué patrones has notado o creado?</li>
+<li>¿Qué abstracciones usas? (atajos mentales, reglas generales, etc.)</li>
+<li>¿Qué algoritmos o procedimientos sigues?</li>
+</ol>
+<p>Escribe tu análisis en tu cuaderno, detallando cómo estos cuatro componentes trabajando juntos te ayudan a completar la actividad de manera efectiva.</p>
+<h3 id="parte-5-reflexión">Parte 5: Reflexión</h3>
+<p>Responde estas preguntas en tu cuaderno:</p>
+<ol type="1">
+<li>¿Qué componente del pensamiento computacional te resulta más natural usar? ¿Por qué?</li>
+<li>¿Qué componente te parece más desafiante? ¿Por qué?</li>
+<li>¿Cómo crees que desarrollar estas habilidades de pensamiento podría beneficiarte en:
+<ul>
+<li>Tus estudios o trabajo?</li>
+<li>Resolución de problemas cotidianos?</li>
+<li>Aprender a programar?</li>
+</ul></li>
+<li>¿Observaste cómo diferentes personas podrían usar diferentes enfoques de pensamiento computacional para la misma tarea?</li>
+</ol>
+<h2 id="ejemplo-1">Ejemplo</h2>
+<p><strong>Situación</strong>: Organizar una reunión familiar grande</p>
+<p><strong>Descomposición</strong>: - Dividir en tareas: crear lista de invitados, planificar comida, decoración, actividades, etc. - Cada tarea se divide aún más: la lista de comida se separa en aperitivos, plato principal, postres, bebidas</p>
+<p><strong>Reconocimiento de patrones</strong>: - Notar que ciertos familiares siempre llegan tarde y planificar en consecuencia - Reconocer qué combinaciones de alimentos han funcionado bien en eventos anteriores</p>
+<p><strong>Abstracción</strong>: - Crear categorías generales de necesidades dietéticas en lugar de rastrear cada preferencia individual - Desarrollar un tema general que guíe las decisiones en lugar de considerar cada elemento decorativo individualmente</p>
+<p><strong>Algoritmos</strong>: - Seguir un cronograma para la preparación del evento: 2 semanas antes, 1 semana antes, día anterior, día del evento - Procedimiento para configurar mesas y asientos de manera eficiente</p>
+<h2 id="actividades-de-extensión-1">Actividades de extensión</h2>
+<ul>
+<li>Entrevista a amigos o familiares sobre cómo usan el pensamiento computacional en sus trabajos o pasatiempos</li>
+<li>Elige un proceso en tu escuela, trabajo o comunidad que podría mejorarse aplicando el pensamiento computacional</li>
+<li>Crea un póster o diagrama visual que ilustre cómo los cuatro componentes del pensamiento computacional trabajan juntos</li>
+</ul>
+<h2 id="conexión-con-la-programación-1">Conexión con la programación</h2>
+<p>Los programadores constantemente utilizan estos cuatro componentes del pensamiento computacional para crear software. A medida que aprendas a programar: - Descompondrás grandes proyectos en funciones y módulos más pequeños - Reconocerás patrones que te permitirán reutilizar y adaptar código - Crearás abstracciones como variables y funciones para ocultar complejidad - Desarrollarás algoritmos que resuelvan problemas específicos de manera eficiente</p>
+<p>Desarrollar estas habilidades de pensamiento ahora te dará una base sólida para la programación, incluso antes de escribir tu primera línea de código.</p>
+<h1 id="actividad-configurando-tu-cuaderno-de-programación-1">Actividad: Configurando tu cuaderno de programación</h1>
+<h2 id="visión-general-2">Visión general</h2>
+<p>Esta actividad te guiará a través del proceso de configuración de tu cuaderno de programación, que será tu herramienta principal para aprender a lo largo de este libro. A diferencia de otros cursos de programación que requieren una computadora, usarás este cuaderno como tu “computadora de papel” para trabajar con conceptos de programación, resolver problemas y registrar tu progreso.</p>
+<h2 id="objetivos-de-aprendizaje-2">Objetivos de aprendizaje</h2>
+<ul>
+<li>Crear un sistema organizado para el aprendizaje de programación</li>
+<li>Establecer prácticas de documentación que apoyen el pensamiento computacional</li>
+<li>Desarrollar un espacio personal para experimentar con conceptos de programación</li>
+</ul>
+<h2 id="materiales-necesarios-2">Materiales necesarios</h2>
+<ul>
+<li>Un cuaderno nuevo (preferiblemente con al menos 100 páginas)</li>
+<li>Bolígrafos, lápices, marcadores o lápices de colores</li>
+<li>Regla (opcional)</li>
+<li>Notas adhesivas o marcadores de página (opcional)</li>
+</ul>
+<h2 id="tiempo-requerido-2">Tiempo requerido</h2>
+<p>30-45 minutos</p>
+<h2 id="instrucciones-2">Instrucciones</h2>
+<h3 id="parte-1-eligiendo-tu-cuaderno">Parte 1: Eligiendo tu cuaderno</h3>
+<p>Si aún no lo has hecho, consigue un cuaderno que usarás exclusivamente para tu viaje de programación.</p>
+<p>Consideraciones para elegir un buen cuaderno: - <strong>Tamaño</strong>: Lo suficientemente grande para escribir cómodamente código y diagramas (A4 o carta es ideal) - <strong>Encuadernación</strong>: Una que permita que el cuaderno se abra completamente y quede plano - <strong>Páginas</strong>: Preferiblemente cuadriculadas o con líneas para facilitar la escritura de código y dibujar diagramas - <strong>Durabilidad</strong>: Una cubierta resistente que proteja tu trabajo</p>
+<h3 id="parte-2-creando-una-tabla-de-contenidos">Parte 2: Creando una tabla de contenidos</h3>
+<ol type="1">
+<li><p>Reserva las primeras 2-4 páginas de tu cuaderno para una tabla de contenidos.</p></li>
+<li><p>Crea una tabla con tres columnas:</p>
+<ul>
+<li>Número de página</li>
+<li>Título/Tema</li>
+<li>Fecha</li>
+</ul></li>
+<li><p>Decora la primera página con un título como “Mi viaje de programación” o “Cuaderno de código” y personalízalo como desees.</p></li>
+<li><p>A medida que avances en el libro, actualiza esta tabla de contenidos para facilitar la referencia futura.</p></li>
+</ol>
+<h3 id="parte-3-dividiendo-tu-cuaderno-en-secciones">Parte 3: Dividiendo tu cuaderno en secciones</h3>
+<p>Divide tu cuaderno en las siguientes secciones. Usa notas adhesivas, marcadores de página o simplemente marca las páginas con títulos claros:</p>
+<ol type="1">
+<li><strong>Conceptos y notas</strong> (aproximadamente 40% de tu cuaderno)
+<ul>
+<li>Aquí registrarás definiciones, explicaciones y notas sobre conceptos de programación</li>
+<li>Incluye ejemplos que te ayuden a entender cada concepto</li>
+<li>Usa colores o símbolos para resaltar puntos importantes</li>
+</ul></li>
+<li><strong>Ejercicios y soluciones</strong> (aproximadamente 30% de tu cuaderno)
+<ul>
+<li>Dedica esta sección a resolver los ejercicios y desafíos del libro</li>
+<li>Incluye tanto tus intentos de solución como tus soluciones finales</li>
+<li>Documenta los errores que encuentres y cómo los resolviste</li>
+</ul></li>
+<li><strong>Diagramas y visualizaciones</strong> (aproximadamente 15% de tu cuaderno)
+<ul>
+<li>Usa esta sección para crear diagramas de flujo, mapas mentales y otras representaciones visuales</li>
+<li>Dibuja cómo los diferentes conceptos se relacionan entre sí</li>
+<li>Visualiza algoritmos y estructuras de datos</li>
+</ul></li>
+<li><strong>Reflexión y aprendizaje</strong> (aproximadamente 15% de tu cuaderno)
+<ul>
+<li>Registra tus pensamientos sobre lo que estás aprendiendo</li>
+<li>Anota preguntas que surjan durante tu estudio</li>
+<li>Documenta tus “momentos ajá” y descubrimientos</li>
+<li>Haz seguimiento de tu progreso y establece metas futuras</li>
+</ul></li>
+</ol>
+<h3 id="parte-4-configurando-tu-primera-página-de-contenido">Parte 4: Configurando tu primera página de contenido</h3>
+<ol type="1">
+<li>Después de la tabla de contenidos, crea tu primera página de contenido.</li>
+<li>Escribe la fecha y un título: “Capítulo 1: Introducción a la programación”.</li>
+<li>Debajo, escribe un breve párrafo sobre por qué estás interesado en aprender a programar y qué esperas lograr.</li>
+<li>Deja espacio para agregar tus principales aprendizajes de este capítulo.</li>
+</ol>
+<h3 id="parte-5-estableciendo-convenciones-de-codificación">Parte 5: Estableciendo convenciones de codificación</h3>
+<ol type="1">
+<li>Crea una página llamada “Mis convenciones de codificación” donde documentarás cómo representarás diferentes elementos de programación en tu cuaderno.</li>
+<li>Decide cómo distinguirás visualmente:
+<ul>
+<li>Nombres de variables</li>
+<li>Funciones y métodos</li>
+<li>Palabras clave del lenguaje</li>
+<li>Comentarios y explicaciones</li>
+<li>Resultados de código</li>
+</ul></li>
+</ol>
+<p>Por ejemplo: - Variables: Subrayadas - Funciones: En negritas o con un color específico - Comentarios: En cursiva o entre paréntesis - Resultados: En un recuadro o con un color diferente</p>
+<h3 id="parte-6-reflexión">Parte 6: Reflexión</h3>
+<p>En la sección de reflexión de tu cuaderno, responde las siguientes preguntas:</p>
+<ol type="1">
+<li>¿Qué te entusiasma más sobre aprender a programar usando este método de cuaderno?</li>
+<li>¿Qué desafíos anticipas al aprender programación sin una computadora?</li>
+<li>¿Cómo planeas mantener tu cuaderno organizado a medida que acumulas más conocimiento?</li>
+<li>¿Qué hábitos de estudio crees que serán importantes para tener éxito con este enfoque?</li>
+</ol>
+<h2 id="consejos-para-el-éxito-1">Consejos para el éxito</h2>
+<ul>
+<li><strong>Sé consistente</strong>: Dedica tiempo regularmente a tu cuaderno, idealmente a la misma hora cada día o semana.</li>
+<li><strong>Sé visual</strong>: Usa colores, diagramas y símbolos para hacer que tu cuaderno sea visualmente atractivo y más fácil de revisar.</li>
+<li><strong>Sé minucioso</strong>: Escribe claramente y documenta tu pensamiento. Esto te ayudará cuando revises material más adelante.</li>
+<li><strong>Sé paciente</strong>: La programación en papel puede parecer más lenta, pero ofrece una comprensión más profunda de los conceptos fundamentales.</li>
+<li><strong>Sé creativo</strong>: Adapta este sistema a tu estilo de aprendizaje y modifícalo según sea necesario.</li>
+</ul>
+<h2 id="extensiones">Extensiones</h2>
+<ul>
+<li>Crea una “guía de referencia rápida” en la contratapa de tu cuaderno para conceptos que usas frecuentemente</li>
+<li>Diseña un sistema de símbolos o iconos para marcar diferentes tipos de entradas (problemas por resolver, conceptos confusos, ideas para explorar, etc.)</li>
+<li>Reserva algunas páginas al final de tu cuaderno para un glosario de términos de programación</li>
+<li>Incluye una sección “ideas de proyectos” para anotar ideas de programación que te gustaría implementar en el futuro</li>
+</ul>
+<h2 id="conexión-con-la-programación-2">Conexión con la programación</h2>
+<p>Los programadores profesionales suelen mantener registros detallados de su trabajo, incluyendo registros de decisiones, documentación y notas sobre problemas y soluciones. Tu cuaderno de programación te ayuda a desarrollar estas habilidades de documentación que son esenciales en el campo de la tecnología, mientras te permite explorar conceptos de programación de una manera táctil y reflexiva.</p>
+<h1 id="capítulo-2-el-compilador-humano---entendiendo-la-lógica-y-la-estructura">Capítulo 2: El compilador humano - Entendiendo la lógica y la estructura</h1>
+<p>Este capítulo introduce conceptos fundamentales de lógica y estructura de programas que forman la base del pensamiento computacional.</p>
+<h2 id="objetivos-del-capítulo-1">Objetivos del capítulo</h2>
+<ul>
+<li>Comprender operaciones lógicas básicas y valores booleanos</li>
+<li>Aprender a crear y seguir diagramas de flujo</li>
+<li>Practicar la escritura de pseudocódigo para expresar algoritmos</li>
+<li>Desarrollar habilidades de pensamiento lógico a través de ejercicios de toma de decisiones</li>
+</ul>
+<h2 id="secciones-1">Secciones</h2>
+<ol type="1">
+<li>Lógica básica y toma de decisiones</li>
+<li>Declaraciones condicionales y diagramas de flujo</li>
+<li>Pseudocódigo</li>
+</ol>
+<h2 id="actividades-1">Actividades</h2>
+<ul>
+<li>Acertijos lógicos de verdadero/falso</li>
+<li>Creando diagramas de flujo para decisiones cotidianas</li>
+<li>Traduciendo instrucciones en lenguaje natural a pseudocódigo</li>
+<li>La computadora humana: Representando programas simples</li>
+</ul>
+<h2 id="resumen-del-capítulo-1">Resumen del capítulo</h2>
+<p>¿Listo para revisar lo que has aprendido? Consulta el Resumen del Capítulo para un repaso de conceptos clave y una vista previa de lo que viene a continuación.</p>
+<h1 id="capítulo-2-resumen">Capítulo 2: Resumen</h1>
+<h2 id="puntos-clave-3">Puntos clave</h2>
+<h3 id="lógica-básica-y-toma-de-decisiones">Lógica básica y toma de decisiones</h3>
+<ul>
+<li>La lógica booleana usa solo dos valores: verdadero y falso</li>
+<li>Los tres operadores booleanos básicos son AND (Y), OR (O) y NOT (NO)</li>
+<li>Las tablas de verdad ayudan a visualizar los resultados de operaciones lógicas</li>
+<li>Las decisiones en programación se expresan usando estructuras SI-ENTONCES-SI NO</li>
+<li>La lógica computacional permite modelar decisiones complejas mediante la combinación de operadores</li>
+</ul>
+<h3 id="declaraciones-condicionales-y-diagramas-de-flujo">Declaraciones condicionales y diagramas de flujo</h3>
+<ul>
+<li>Las declaraciones condicionales permiten que los programas tomen decisiones basadas en condiciones</li>
+<li>Los diagramas de flujo proporcionan representaciones visuales de la lógica de un programa</li>
+<li>Los símbolos estándar en diagramas de flujo incluyen inicio/fin, proceso, decisión y entrada/salida</li>
+<li>Las decisiones complejas pueden representarse usando condiciones compuestas o anidadas</li>
+<li>Los diagramas de flujo son herramientas valiosas para planificar, explicar y depurar lógica</li>
+</ul>
+<h3 id="pseudocódigo">Pseudocódigo</h3>
+<ul>
+<li>El pseudocódigo es una forma de expresar algoritmos usando una mezcla de lenguaje natural y estructuras similares a la programación</li>
+<li>Sirve como puente entre el pensamiento humano y los lenguajes de programación formales</li>
+<li>Las convenciones comunes incluyen palabras clave en mayúsculas, indentación y símbolos estándar para operaciones</li>
+<li>El pseudocódigo permite enfocarse en la lógica sin preocuparse por la sintaxis específica del lenguaje</li>
+<li>Traducir entre lenguaje natural, pseudocódigo y diagramas de flujo ayuda a desarrollar precisión en el pensamiento algorítmico</li>
+</ul>
+<h2 id="conceptos-introducidos-1">Conceptos introducidos</h2>
+<ul>
+<li><strong>Valores booleanos</strong>: Los dos posibles estados (verdadero/falso) que forman la base de la lógica computacional</li>
+<li><strong>Operadores lógicos</strong>: AND, OR y NOT, que permiten combinar y manipular valores booleanos</li>
+<li><strong>Tablas de verdad</strong>: Herramientas para visualizar todas las posibles combinaciones de entradas y salidas para operaciones lógicas</li>
+<li><strong>Declaraciones condicionales</strong>: Estructuras SI-ENTONCES-SI NO que permiten que un programa siga diferentes caminos basados en condiciones</li>
+<li><strong>Diagramas de flujo</strong>: Representaciones visuales de procesos y algoritmos usando símbolos estandarizados</li>
+<li><strong>Pseudocódigo</strong>: Un lenguaje intermedio para expresar algoritmos sin la sintaxis estricta de los lenguajes de programación</li>
+</ul>
+<h2 id="actividades-completadas-1">Actividades completadas</h2>
+<ol type="1">
+<li><strong>Tablas de verdad y acertijos lógicos</strong>: Creación de tablas de verdad y resolución de problemas usando lógica booleana</li>
+<li><strong>Creando diagramas de flujo para decisiones cotidianas</strong>: Visualización de procesos de toma de decisiones usando símbolos de diagramas de flujo estándar</li>
+<li><strong>Traduciendo del lenguaje natural al pseudocódigo</strong>: Conversión de instrucciones en lenguaje natural a pseudocódigo estructurado</li>
+<li><strong>La computadora humana</strong>: Representación física de la ejecución de programas simples para entender cómo funcionan las computadoras</li>
+</ol>
+<h2 id="próximos-pasos-1">Próximos pasos</h2>
+<p>En el Capítulo 3, exploraremos cómo almacenar y manipular datos, aprendiendo sobre: - Variables y tipos de datos - Operaciones matemáticas y lógicas - Entrada y salida - Funciones y modularidad</p>
+<p>Estos conceptos ampliarán nuestra capacidad para crear algoritmos más complejos y útiles, aprovechando las habilidades de pensamiento lógico y estructurado que hemos desarrollado en este capítulo.</p>
+<h1 id="lógica-básica-y-toma-de-decisiones-1">Lógica básica y toma de decisiones</h1>
+<h2 id="introducción-3">Introducción</h2>
+<p>En el capítulo anterior, exploramos por qué la programación es importante y cómo puedes aprenderla sin una computadora. Ahora, nos sumergiremos en el corazón de cómo “piensan” las computadoras explorando los fundamentos de la lógica y la toma de decisiones.</p>
+<p>Considera este capítulo como un aprendizaje del lenguaje del pensamiento claro—una habilidad que te servirá bien ya sea que estés escribiendo código o tomando decisiones cotidianas.</p>
+<h2 id="qué-es-la-lógica">¿Qué es la lógica?</h2>
+<p>La lógica es el estudio del razonamiento, particularmente enfocado en cómo determinamos si las afirmaciones son verdaderas o falsas. En nuestra vida cotidiana, usamos la lógica constantemente:</p>
+<ul>
+<li>“Si está lloviendo, debo llevar un paraguas.”</li>
+<li>“Como la tienda está cerrada hoy, iré mañana.”</li>
+<li>“O tomo el autobús o llegaré tarde a la escuela.”</li>
+</ul>
+<p>En la programación de computadoras, la lógica funciona de manera similar, pero con reglas muy estrictas. Las computadoras no pueden manejar la ambigüedad con la que los humanos navegan fácilmente. Necesitan instrucciones precisas y claras basadas en si las condiciones son verdaderas o falsas.</p>
+<h2 id="lógica-booleana-el-fundamento-de-la-computación">Lógica booleana: El fundamento de la computación</h2>
+<p>En su forma más simple, la lógica informática se basa en un sistema llamado “lógica booleana”, nombrado así por el matemático George Boole. Trata solamente con dos valores posibles:</p>
+<ul>
+<li><strong>Verdadero</strong> (a menudo representado como 1, “sí” o “encendido”)</li>
+<li><strong>Falso</strong> (a menudo representado como 0, “no” o “apagado”)</li>
+</ul>
+<p>Este enfoque binario puede parecer limitado, pero en realidad es increíblemente poderoso. Las decisiones complejas en la computación se construyen a partir de estos bloques básicos de verdadero/falso.</p>
+<h2 id="valores-booleanos-en-la-vida-real">Valores booleanos en la vida real</h2>
+<p>Antes de profundizar más, identifiquemos valores booleanos en escenarios cotidianos:</p>
+<ul>
+<li>El interruptor de la luz está encendido (verdadero) o apagado (falso)</li>
+<li>La puerta está abierta (verdadero) o cerrada (falso)</li>
+<li>Tengo suficiente dinero para comprar este artículo (verdadero o falso)</li>
+<li>Actualmente está lloviendo (verdadero o falso)</li>
+</ul>
+<p>Actividad: En tu cuaderno, enumera 5 afirmaciones booleanas sobre tu día de hoy—cosas que solo pueden ser verdaderas o falsas.</p>
+<h2 id="operadores-booleanos-and-or-y-not">Operadores booleanos: AND, OR y NOT</h2>
+<p>Para construir estructuras lógicas más complejas, usamos tres operadores básicos:</p>
+<h3 id="and-conjunción-lógica">1. AND (Conjunción lógica)</h3>
+<p>El operador AND combina dos valores booleanos y resulta en verdadero SOLO si ambos valores son verdaderos.</p>
+<p>Piensa en AND como un amigo exigente que solo está satisfecho cuando todo es perfecto.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Afirmación A</th>
+<th>Afirmación B</th>
+<th>A AND B</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>verdadero</td>
+<td>verdadero</td>
+<td>verdadero</td>
+</tr>
+<tr class="even">
+<td>verdadero</td>
+<td>falso</td>
+<td>falso</td>
+</tr>
+<tr class="odd">
+<td>falso</td>
+<td>verdadero</td>
+<td>falso</td>
+</tr>
+<tr class="even">
+<td>falso</td>
+<td>falso</td>
+<td>falso</td>
+</tr>
+</tbody>
+</table>
+<p>Ejemplo: “Iré al parque si hace sol Y he terminado mi tarea.” - Sol: verdadero, Tarea terminada: verdadero → Voy al parque (verdadero) - Sol: verdadero, Tarea terminada: falso → No voy al parque (falso) - Sol: falso, Tarea terminada: verdadero → No voy al parque (falso) - Sol: falso, Tarea terminada: falso → No voy al parque (falso)</p>
+<h3 id="or-disyunción-lógica">2. OR (Disyunción lógica)</h3>
+<p>El operador OR combina dos valores booleanos y resulta en verdadero si al menos uno de los valores es verdadero.</p>
+<p>Piensa en OR como un amigo despreocupado que está feliz si ocurre algo bueno.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Afirmación A</th>
+<th>Afirmación B</th>
+<th>A OR B</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>verdadero</td>
+<td>verdadero</td>
+<td>verdadero</td>
+</tr>
+<tr class="even">
+<td>verdadero</td>
+<td>falso</td>
+<td>verdadero</td>
+</tr>
+<tr class="odd">
+<td>falso</td>
+<td>verdadero</td>
+<td>verdadero</td>
+</tr>
+<tr class="even">
+<td>falso</td>
+<td>falso</td>
+<td>falso</td>
+</tr>
+</tbody>
+</table>
+<p>Ejemplo: “Llevaré un paraguas si está lloviendo O el pronóstico predice lluvia.” - Lloviendo: verdadero, Pronóstico lluvia: verdadero → Llevar paraguas (verdadero) - Lloviendo: verdadero, Pronóstico lluvia: falso → Llevar paraguas (verdadero) - Lloviendo: falso, Pronóstico lluvia: verdadero → Llevar paraguas (verdadero) - Lloviendo: falso, Pronóstico lluvia: falso → No llevar paraguas (falso)</p>
+<h3 id="not-negación-lógica">3. NOT (Negación lógica)</h3>
+<p>El operador NOT simplemente invierte un valor booleano. Si algo es verdadero, NOT lo hace falso, y viceversa.</p>
+<p>Piensa en NOT como alguien que siempre contradice lo que dices.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Afirmación A</th>
+<th>NOT A</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>verdadero</td>
+<td>falso</td>
+</tr>
+<tr class="even">
+<td>falso</td>
+<td>verdadero</td>
+</tr>
+</tbody>
+</table>
+<p>Ejemplo: “Si NO está lloviendo, iré a caminar.” - Lloviendo: verdadero → NO lloviendo: falso → No voy a caminar - Lloviendo: falso → NO lloviendo: verdadero → Voy a caminar</p>
+<h2 id="tablas-de-verdad-mapeando-la-lógica">Tablas de verdad: Mapeando la lógica</h2>
+<p>Las tablas que hemos estado usando se llaman “tablas de verdad”. Nos ayudan a visualizar todas las posibles combinaciones de entradas y salidas para operaciones lógicas. Las tablas de verdad son especialmente útiles cuando la lógica se vuelve compleja.</p>
+<h2 id="tomando-decisiones-basadas-en-la-lógica">Tomando decisiones basadas en la lógica</h2>
+<p>En programación, la lógica se utiliza para tomar decisiones. Aquí está el patrón general:</p>
+<pre><code>SI (alguna condición es verdadera) ENTONCES
+    (hacer algo)
+SI NO
+    (hacer otra cosa)
+FIN SI</code></pre>
+<p>Esta estructura aparece en prácticamente todos los lenguajes de programación, aunque la sintaxis exacta puede variar. Es el fundamento de la toma de decisiones en el código.</p>
+<h2 id="toma-de-decisiones-en-la-vida-real">Toma de decisiones en la vida real</h2>
+<p>Exploremos una decisión de la vida real a través de la lente de la lógica de programación:</p>
+<p><strong>Escenario: Decidir qué vestir según el clima</strong></p>
+<pre><code>SI (está lloviendo) ENTONCES
+    Usar impermeable y llevar paraguas
+SI NO
+    SI (está soleado Y hace calor) ENTONCES
+        Usar ropa ligera y un sombrero
+    SI NO
+        Usar ropa normal y quizás llevar una chaqueta ligera
+    FIN SI
+FIN SI</code></pre>
+<p>Observa cómo podemos anidar decisiones dentro de decisiones para manejar escenarios más complejos.</p>
+<h2 id="combinando-múltiples-condiciones">Combinando múltiples condiciones</h2>
+<p>La toma de decisiones a menudo involucra múltiples condiciones:</p>
+<pre><code>SI (es fin de semana) Y (el clima es bueno) ENTONCES
+    Ir al parque
+SI NO
+    Quedarse en casa y leer un libro
+FIN SI</code></pre>
+<p>Usar combinaciones de AND, OR y NOT nos permite crear estructuras de decisión sofisticadas:</p>
+<pre><code>SI (es un día festivo) O ((es fin de semana) Y (no tengo tarea)) ENTONCES
+    Planear algo divertido con amigos
+SI NO
+    Ponerme al día con los estudios
+FIN SI</code></pre>
+<h2 id="ejemplo-práctico-la-decisión-de-la-fiesta">Ejemplo práctico: La decisión de la fiesta</h2>
+<p>Veamos un ejemplo más complejo:</p>
+<p><strong>Escenario: Decidir si ir a una fiesta</strong></p>
+<p>Condiciones: - Es en una noche de escuela - Tienes un examen mañana - Tu mejor amigo realmente quiere que vayas - La fiesta está cerca de tu casa</p>
+<p>Expresemos esto como una decisión lógica:</p>
+<pre><code>SI (NO es_noche_escolar) O (NO tengo_examen_mañana Y fiesta_está_cerca) ENTONCES
+    Ir a la fiesta
+SI NO
+    SI (mejor_amigo_realmente_quiere_que_vayas Y fiesta_está_cerca Y NO tengo_examen_mañana) ENTONCES
+        Ir a la fiesta pero salir temprano
+    SI NO
+        Quedarse en casa
+    FIN SI
+FIN SI</code></pre>
+<h2 id="actividad-lógica-en-acción">Actividad: Lógica en acción</h2>
+<p>En tu cuaderno, escribe la lógica para al menos dos decisiones cotidianas que tomas, usando SI, ENTONCES, SI NO, y los operadores booleanos Y, O y NO. Intenta incluir al menos una decisión compleja con múltiples condiciones.</p>
+<p>Por ejemplo: - Elegir qué comer para el almuerzo - Decidir si tomar el autobús o caminar - Seleccionar qué materia estudiar primero</p>
+<h2 id="puntos-clave-4">Puntos clave</h2>
+<ul>
+<li>La lógica booleana utiliza solo dos valores: verdadero y falso</li>
+<li>Los tres operadores booleanos básicos son AND (Y), OR (O) y NOT (NO)</li>
+<li>Las tablas de verdad ayudan a visualizar todos los posibles resultados de las operaciones lógicas</li>
+<li>Las estructuras de decisión en programación se construyen usando patrones SI-ENTONCES-SI NO</li>
+<li>Las decisiones complejas pueden modelarse combinando y anidando estructuras lógicas</li>
+</ul>
+<p>En la siguiente sección, construiremos sobre estos fundamentos para explorar las declaraciones condicionales y los diagramas de flujo, que nos darán herramientas poderosas para visualizar y estructurar procesos de toma de decisiones más complejos.</p>
+<h1 id="declaraciones-condicionales-y-diagramas-de-flujo-1">Declaraciones condicionales y diagramas de flujo</h1>
+<h2 id="introducción-4">Introducción</h2>
+<p>En la sección anterior, aprendimos sobre la lógica booleana y cómo tomar decisiones básicas usando estructuras SI-ENTONCES-SI NO. Ahora, ampliaremos estos conceptos explorando las declaraciones condicionales con más detalle e introduciendo los diagramas de flujo—herramientas visuales que nos ayudan a mapear la lógica de nuestros programas.</p>
+<h2 id="entendiendo-las-declaraciones-condicionales">Entendiendo las declaraciones condicionales</h2>
+<p>Las declaraciones condicionales son la columna vertebral de la toma de decisiones en programación. Permiten que un programa realice diferentes acciones basándose en si ciertas condiciones son verdaderas o falsas.</p>
+<p>La estructura básica de una declaración condicional es:</p>
+<pre><code>SI condición ENTONCES
+    hacer algo
+SI NO
+    hacer otra cosa
+FIN SI</code></pre>
+<p>Examinemos cada parte:</p>
+<ul>
+<li><strong>SI</strong>: Señala el inicio de una declaración condicional</li>
+<li><strong>condición</strong>: Una expresión booleana que se evalúa como verdadera o falsa</li>
+<li><strong>ENTONCES</strong>: Marca lo que sucede si la condición es verdadera</li>
+<li><strong>hacer algo</strong>: Las acciones que ocurren si la condición es verdadera</li>
+<li><strong>SI NO</strong>: Introduce las acciones alternativas</li>
+<li><strong>hacer otra cosa</strong>: Las acciones que ocurren si la condición es falsa</li>
+<li><strong>FIN SI</strong>: Señala el final de la declaración condicional</li>
+</ul>
+<h2 id="tipos-de-declaraciones-condicionales">Tipos de declaraciones condicionales</h2>
+<h3 id="declaración-si-simple">1. Declaración SI simple</h3>
+<p>La forma más simple solo ejecuta código cuando una condición es verdadera:</p>
+<pre><code>SI está lloviendo ENTONCES
+    llevar un paraguas
+FIN SI</code></pre>
+<p>En este caso, no sucede nada específico si no está lloviendo. El programa simplemente continúa con las siguientes instrucciones.</p>
+<h3 id="declaración-si-si-no">2. Declaración SI-SI NO</h3>
+<p>Esta forma proporciona dos caminos: uno para cuando la condición es verdadera y otro para cuando es falsa:</p>
+<pre><code>SI temperatura &gt; 30 grados ENTONCES
+    usar ropa ligera
+SI NO
+    usar una chaqueta
+FIN SI</code></pre>
+<h3 id="declaraciones-si-anidadas">3. Declaraciones SI anidadas</h3>
+<p>Las declaraciones condicionales pueden colocarse dentro de otras declaraciones condicionales para manejar escenarios más complejos:</p>
+<pre><code>SI es un día de semana ENTONCES
+    SI es por la mañana ENTONCES
+        ir a la escuela
+    SI NO
+        hacer la tarea
+    FIN SI
+SI NO
+    relajarse y jugar
+FIN SI</code></pre>
+<h3 id="declaración-si-no-si-o-sino-si">4. Declaración SI NO SI (o SINO SI)</h3>
+<p>Cuando necesitamos verificar múltiples condiciones en secuencia:</p>
+<pre><code>SI puntuación &gt;= 90 ENTONCES
+    calificación = &quot;A&quot;
+SI NO SI puntuación &gt;= 80 ENTONCES
+    calificación = &quot;B&quot;
+SI NO SI puntuación &gt;= 70 ENTONCES
+    calificación = &quot;C&quot;
+SI NO SI puntuación &gt;= 60 ENTONCES
+    calificación = &quot;D&quot;
+SI NO
+    calificación = &quot;F&quot;
+FIN SI</code></pre>
+<p>En este ejemplo, estamos verificando una serie de condiciones en orden, y solo un bloque de código se ejecutará.</p>
+<h2 id="introducción-a-los-diagramas-de-flujo">Introducción a los diagramas de flujo</h2>
+<p>Un diagrama de flujo es un diagrama que representa un proceso o flujo de trabajo, mostrando los pasos como cajas de diferentes tipos, y su orden conectándolas con flechas. Los diagramas de flujo son particularmente útiles para visualizar la lógica de los programas, especialmente aquellos con declaraciones condicionales.</p>
+<h3 id="símbolos-básicos-de-los-diagramas-de-flujo">Símbolos básicos de los diagramas de flujo</h3>
+<p>Estos son los símbolos más comunes utilizados en los diagramas de flujo:</p>
+<ol type="1">
+<li><strong>Inicio/Fin (Óvalo o Rectángulo redondeado)</strong>
+<ul>
+<li>Se utiliza para indicar el comienzo o el final de un proceso</li>
+<li>Ejemplo: “Inicio” o “Fin”</li>
+</ul></li>
+<li><strong>Proceso (Rectángulo)</strong>
+<ul>
+<li>Representa un paso en el proceso o una acción a tomar</li>
+<li>Ejemplo: “Agregar 2 tazas de harina” o “Calcular precio total”</li>
+</ul></li>
+<li><strong>Decisión (Diamante)</strong>
+<ul>
+<li>Muestra un punto donde se debe tomar una decisión</li>
+<li>Típicamente contiene una pregunta con una respuesta sí/no o verdadero/falso</li>
+<li>Ejemplo: “¿Está lloviendo?” o “¿Es x &gt; 10?”</li>
+</ul></li>
+<li><strong>Líneas de flujo (Flechas)</strong>
+<ul>
+<li>Conectan los símbolos para mostrar la secuencia de pasos</li>
+<li>Indican la dirección del flujo del proceso</li>
+</ul></li>
+<li><strong>Entrada/Salida (Paralelogramo)</strong>
+<ul>
+<li>Representa operaciones de entrada o salida</li>
+<li>Ejemplo: “Ingresa tu nombre” o “Mostrar total”</li>
+</ul></li>
+</ol>
+<h3 id="creando-un-diagrama-de-flujo-simple">Creando un diagrama de flujo simple</h3>
+<p>Vamos a crear un diagrama de flujo para una rutina matutina simple:</p>
+<pre><code>Inicio
+  |
+  v
+¿Es día de semana?
+  |
+  |--&gt; Sí --&gt; Despertar a las 6:30 AM
+  |              |
+  |              v
+  |            Desayunar
+  |              |
+  |              v
+  |            Ir a la escuela/trabajo
+  |
+  |--&gt; No --&gt; Despertar a las 8:00 AM
+                |
+                v
+              Tomar un desayuno tranquilo
+                |
+                v
+              Disfrutar tiempo libre
+                |
+                v
+Fin</code></pre>
+<p>Este diagrama de flujo muestra claramente los diferentes caminos que nuestra mañana podría tomar dependiendo de si es un día de semana o no.</p>
+<h2 id="traduciendo-entre-declaraciones-condicionales-y-diagramas-de-flujo">Traduciendo entre declaraciones condicionales y diagramas de flujo</h2>
+<p>Las dos representaciones—código y diagramas de flujo—pueden traducirse fácilmente entre sí. Por ejemplo, la rutina matutina en código sería:</p>
+<pre><code>SI es un día de semana ENTONCES
+    Despertar a las 6:30 AM
+    Desayunar
+    Ir a la escuela/trabajo
+SI NO
+    Despertar a las 8:00 AM
+    Tomar un desayuno tranquilo
+    Disfrutar tiempo libre
+FIN SI</code></pre>
+<p>La correspondencia entre las dos representaciones es directa e intencional. Los diagramas de flujo proporcionan una visión general visual de la lógica del programa, mientras que el código proporciona las instrucciones detalladas.</p>
+<h2 id="cuándo-usar-diagramas-de-flujo">Cuándo usar diagramas de flujo</h2>
+<p>Los diagramas de flujo son particularmente útiles cuando:</p>
+<ol type="1">
+<li>Planificamos un programa antes de escribir código</li>
+<li>Explicamos nuestra lógica a otros</li>
+<li>Depuramos estructuras de decisión complejas</li>
+<li>Documentamos cómo funciona un programa</li>
+</ol>
+<h2 id="actividad-toma-de-decisiones-con-diagramas-de-flujo">Actividad: Toma de decisiones con diagramas de flujo</h2>
+<p>Practiquemos creando un diagrama de flujo para decidir qué hacer en una tarde de sábado.</p>
+<p>Aquí hay un conjunto de reglas: - Si está lloviendo, te quedarás dentro y leerás un libro o verás una película - Si no está lloviendo pero hace mucho calor (más de 35°C), irás a la piscina - Si no está lloviendo y la temperatura es agradable, irás al parque - Si no está lloviendo pero hace frío (menos de 15°C), visitarás la casa de un amigo</p>
+<p>Dibuja el diagrama de flujo para este proceso de decisión en tu cuaderno. Asegúrate de usar los símbolos adecuados para inicio/fin, decisiones y procesos.</p>
+<h2 id="condiciones-complejas-en-diagramas-de-flujo">Condiciones complejas en diagramas de flujo</h2>
+<p>Los diagramas de flujo también pueden representar condiciones booleanas complejas:</p>
+<h3 id="condición-and-y">Condición AND (Y)</h3>
+<p>Cuando se usa AND, ambas condiciones deben ser verdaderas para seguir el camino “Sí”:</p>
+<pre><code>¿Está soleado?
+  |
+  |--&gt; Sí --&gt; ¿Tengo tiempo libre?
+  |              |
+  |              |--&gt; Sí --&gt; Ir a la playa
+  |              |
+  |              |--&gt; No --&gt; Quedarse en casa y mirar por la ventana
+  |
+  |--&gt; No --&gt; (siguiente decisión)</code></pre>
+<h3 id="condición-or-o">Condición OR (O)</h3>
+<p>Cuando se usa OR, cualquiera de las condiciones siendo verdadera es suficiente para seguir el camino “Sí”:</p>
+<pre><code>¿Está lloviendo O nevando?
+  |
+  |--&gt; Sí --&gt; Quedarse en interior
+  |
+  |--&gt; No --&gt; (siguiente decisión)</code></pre>
+<h2 id="decisiones-anidadas-vs.-condiciones-compuestas">Decisiones anidadas vs. condiciones compuestas</h2>
+<p>A menudo hay múltiples formas de representar la misma lógica. Considera estos enfoques equivalentes:</p>
+<h3 id="enfoque-1-decisiones-anidadas">Enfoque 1: Decisiones anidadas</h3>
+<pre><code>¿Es fin de semana?
+  |
+  |--&gt; Sí --&gt; ¿El clima es bueno?
+  |              |
+  |              |--&gt; Sí --&gt; Ir al parque
+  |              |
+  |              |--&gt; No --&gt; Quedarse en casa
+  |
+  |--&gt; No --&gt; Quedarse en casa</code></pre>
+<h3 id="enfoque-2-condición-compuesta">Enfoque 2: Condición compuesta</h3>
+<pre><code>¿Es fin de semana Y el clima es bueno?
+  |
+  |--&gt; Sí --&gt; Ir al parque
+  |
+  |--&gt; No --&gt; Quedarse en casa</code></pre>
+<p>Ambos enfoques conducen a los mismos resultados, pero el segundo es más conciso. A medida que ganes experiencia con la lógica de programación, desarrollarás una intuición para qué representación funciona mejor en diferentes situaciones.</p>
+<h2 id="errores-comunes-en-la-lógica-condicional">Errores comunes en la lógica condicional</h2>
+<h3 id="olvidar-casos-límite">1. Olvidar casos límite</h3>
+<p>Siempre considera todos los caminos posibles a través de tu lógica. ¿Qué sucede en casos especiales o extremos?</p>
+<h3 id="condiciones-superpuestas">2. Condiciones superpuestas</h3>
+<p>Ten cuidado cuando las condiciones pueden superponerse. Por ejemplo:</p>
+<pre><code>SI puntuación &gt; 90 ENTONCES
+    calificación = &quot;A&quot;
+SI puntuación &gt; 80 ENTONCES
+    calificación = &quot;B&quot;
+...</code></pre>
+<p>En este caso, una puntuación de 95 primero establecería la calificación como “A”, pero luego inmediatamente la sobrescribiría con “B”. El enfoque correcto es usar SI NO SI para hacer que las condiciones sean mutuamente excluyentes.</p>
+<h3 id="bucles-infinitos">3. Bucles infinitos</h3>
+<p>Cuando se usan diagramas de flujo para representar procesos repetitivos (que exploraremos más en capítulos futuros), ten cuidado de no crear caminos que nunca terminen.</p>
+<h2 id="actividad-diagramando-una-decisión-de-la-vida-real">Actividad: Diagramando una decisión de la vida real</h2>
+<p>Piensa en una decisión significativa que tomaste recientemente o necesitas tomar (como elegir un curso para estudiar, decidir sobre una compra o planificar un evento).</p>
+<ol type="1">
+<li>Enumera todos los factores que influyen en la decisión.</li>
+<li>Determina cómo estos factores se relacionan entre sí (usando AND, OR, NOT).</li>
+<li>Dibuja un diagrama de flujo que represente el proceso de decisión.</li>
+<li>Prueba tu diagrama de flujo con diferentes escenarios para ver si produce los resultados esperados.</li>
+</ol>
+<p>Por ejemplo, comprar un nuevo par de zapatos podría involucrar factores como precio, comodidad, estilo y necesidad.</p>
+<h2 id="puntos-clave-5">Puntos clave</h2>
+<ul>
+<li>Las declaraciones condicionales (SI-ENTONCES-SI NO) permiten a los programas tomar decisiones basadas en condiciones</li>
+<li>Hay varios tipos de declaraciones condicionales: SI simple, SI-SI NO, SI anidado y SI NO SI</li>
+<li>Los diagramas de flujo son representaciones visuales de la lógica del programa usando símbolos estandarizados</li>
+<li>Las decisiones en los diagramas de flujo están representadas por formas de diamante con caminos Sí/No</li>
+<li>Las condiciones complejas usando AND, OR y NOT pueden representarse en diagramas de flujo</li>
+<li>Tanto el código como los diagramas de flujo son herramientas para expresar la misma lógica subyacente</li>
+</ul>
+<p>En la siguiente sección, exploraremos el pseudocódigo—una forma de escribir instrucciones similares a programas en una forma que es más fácil de leer y escribir para los humanos, cerrando la brecha entre el lenguaje natural y los lenguajes de programación formales.</p>
+<h1 id="pseudocódigo-1">Pseudocódigo</h1>
+<h2 id="introducción-5">Introducción</h2>
+<p>En las secciones anteriores, exploramos la lógica booleana, las declaraciones condicionales y los diagramas de flujo. Ahora vamos a aprender sobre el pseudocódigo, una herramienta poderosa que cierra la brecha entre el lenguaje humano y los lenguajes de programación formales.</p>
+<p>El pseudocódigo es como un borrador de un programa—expresa la lógica y los pasos en una forma que es más fácil de escribir y entender para los humanos, mientras mantiene suficiente estructura para ser fácilmente traducido a código real más tarde.</p>
+<h2 id="qué-es-el-pseudocódigo">¿Qué es el pseudocódigo?</h2>
+<p>El pseudocódigo es una forma de describir un algoritmo o programa usando una mezcla de lenguaje natural (como el español) y estructuras similares a la programación. No está destinado a ser ejecutado por una computadora sino más bien a ayudar a los programadores a planificar su código y comunicar sus ideas a otros.</p>
+<p>Piensa en el pseudocódigo como un conjunto de instrucciones de cocina. Cuando lees una receta, tiene un formato específico y usa ciertas convenciones, pero está escrita de una manera que los humanos pueden entender fácilmente. De manera similar, el pseudocódigo utiliza conceptos de programación pero los expresa en una forma más legible.</p>
+<h2 id="por-qué-usar-pseudocódigo">¿Por qué usar pseudocódigo?</h2>
+<p>El pseudocódigo ofrece varias ventajas:</p>
+<ol type="1">
+<li><p><strong>Enfoque en la lógica</strong>: Te permite concentrarte en la lógica de resolución de problemas sin quedar atrapado en detalles de sintaxis del lenguaje de programación.</p></li>
+<li><p><strong>Comunicación</strong>: Es más fácil de entender para otros (incluso no programadores), lo que lo hace ideal para discutir algoritmos y soluciones.</p></li>
+<li><p><strong>Planificación</strong>: Te ayuda a organizar tus pensamientos y planificar tu programa antes de escribir código real.</p></li>
+<li><p><strong>Independencia del lenguaje</strong>: El pseudocódigo no está ligado a ningún lenguaje de programación específico, por lo que el mismo pseudocódigo puede traducirse a diferentes lenguajes.</p></li>
+<li><p><strong>Prevención de errores</strong>: Al planificar tu lógica en pseudocódigo primero, puedes detectar errores lógicos temprano, antes de escribir código real.</p></li>
+</ol>
+<h2 id="convenciones-del-pseudocódigo">Convenciones del pseudocódigo</h2>
+<p>Aunque no existe una sintaxis “oficial” única para el pseudocódigo, comúnmente se utilizan ciertas convenciones:</p>
+<ol type="1">
+<li><p><strong>Usar declaraciones descriptivas en español</strong> para la mayoría de las instrucciones</p></li>
+<li><p><strong>ESCRIBIR EN MAYÚSCULAS</strong> palabras clave como SI, SI NO, MIENTRAS, PARA, etc.</p></li>
+<li><p><strong>Indentar</strong> bloques de código para mostrar la estructura</p></li>
+<li><p><strong>Usar símbolos estándar</strong> para operaciones:</p>
+<ul>
+<li>= para asignación</li>
+<li>==, &gt;, &lt;, &gt;=, &lt;= para comparaciones</li>
+<li>+, -, *, / para operaciones aritméticas</li>
+</ul></li>
+<li><p><strong>Numerar líneas</strong> (opcional) para facilitar la discusión</p></li>
+</ol>
+<p>Veamos un ejemplo de pseudocódigo para determinar el mayor de tres números:</p>
+<pre><code>1. INICIO
+2. OBTENER numero1, numero2, numero3
+3. ESTABLECER mayor = numero1
+4. SI numero2 &gt; mayor ENTONCES
+5.     ESTABLECER mayor = numero2
+6. FIN SI
+7. SI numero3 &gt; mayor ENTONCES
+8.     ESTABLECER mayor = numero3
+9. FIN SI
+10. MOSTRAR &quot;El número mayor es &quot; + mayor
+11. FIN</code></pre>
+<h2 id="de-diagramas-de-flujo-a-pseudocódigo">De diagramas de flujo a pseudocódigo</h2>
+<p>Una de las fortalezas del pseudocódigo es lo bien que se combina con los diagramas de flujo. Tomemos el diagrama de flujo de actividad de fin de semana de la sección anterior y convirtámoslo a pseudocódigo:</p>
+<p>Diagrama de flujo (conceptual):</p>
+<pre><code>¿Es fin de semana Y el clima es bueno?
+  |
+  |--&gt; Sí --&gt; Ir al parque
+  |
+  |--&gt; No --&gt; Quedarse en casa</code></pre>
+<p>Pseudocódigo:</p>
+<pre><code>1. OBTENER dia_de_semana
+2. OBTENER condicion_climatica
+3. SI dia_de_semana == &quot;Sábado&quot; O dia_de_semana == &quot;Domingo&quot; ENTONCES
+4.     SI condicion_climatica == &quot;buena&quot; ENTONCES
+5.         MOSTRAR &quot;Ir al parque&quot;
+6.     SI NO
+7.         MOSTRAR &quot;Quedarse en casa&quot;
+8.     FIN SI
+9. SI NO
+10.    MOSTRAR &quot;Quedarse en casa&quot;
+11. FIN SI</code></pre>
+<p>Observa cómo el pseudocódigo es más detallado que el diagrama de flujo pero sigue siendo más fácil de leer que el código de programación real.</p>
+<h2 id="elementos-comunes-del-pseudocódigo">Elementos comunes del pseudocódigo</h2>
+<h3 id="entrada-y-salida">Entrada y salida</h3>
+<pre><code>OBTENER nombre_variable      // Para entrada
+MOSTRAR mensaje              // Para salida</code></pre>
+<h3 id="variables-y-asignación">Variables y asignación</h3>
+<pre><code>ESTABLECER variable = valor  // Asigna un valor a una variable</code></pre>
+<h3 id="declaraciones-condicionales">Declaraciones condicionales</h3>
+<pre><code>SI condición ENTONCES        // SI simple
+    declaraciones
+FIN SI
+
+SI condición ENTONCES        // SI-SI NO
+    declaraciones1
+SI NO
+    declaraciones2
+FIN SI
+
+SI condición1 ENTONCES       // SI-SI NO SI-SI NO
+    declaraciones1
+SI NO SI condición2 ENTONCES
+    declaraciones2
+SI NO
+    declaraciones3
+FIN SI</code></pre>
+<h3 id="bucles-que-exploraremos-más-en-capítulos-posteriores">Bucles (que exploraremos más en capítulos posteriores)</h3>
+<pre><code>MIENTRAS condición HACER     // Bucle MIENTRAS
+    declaraciones
+FIN MIENTRAS
+
+PARA i = inicio HASTA fin    // Bucle PARA
+    declaraciones
+FIN PARA</code></pre>
+<h3 id="funciones-que-también-exploraremos-más-adelante">Funciones (que también exploraremos más adelante)</h3>
+<pre><code>FUNCIÓN nombre(parámetros)
+    declaraciones
+    DEVOLVER valor
+FIN FUNCIÓN</code></pre>
+<h2 id="ejemplo-usando-pseudocódigo-para-planificar-una-solución">Ejemplo: Usando pseudocódigo para planificar una solución</h2>
+<p>Usemos pseudocódigo para planificar una solución para un problema común: determinar si un año es bisiesto.</p>
+<p>Un año bisiesto es un año que es divisible por 4, excepto los años que son divisibles por 100 pero no por 400.</p>
+<p>Aquí está el pseudocódigo:</p>
+<pre><code>1. INICIO
+2. OBTENER año
+3. SI (año es divisible por 400) ENTONCES
+4.     ESTABLECER es_bisiesto = verdadero
+5. SI NO SI (año es divisible por 100) ENTONCES
+6.     ESTABLECER es_bisiesto = falso
+7. SI NO SI (año es divisible por 4) ENTONCES
+8.     ESTABLECER es_bisiesto = verdadero
+9. SI NO
+10.    ESTABLECER es_bisiesto = falso
+11. FIN SI
+12. SI es_bisiesto ENTONCES
+13.    MOSTRAR año + &quot; es un año bisiesto&quot;
+14. SI NO
+15.    MOSTRAR año + &quot; no es un año bisiesto&quot;
+16. FIN SI
+17. FIN</code></pre>
+<p>Escribir la lógica en pseudocódigo nos ayuda a detectar posibles problemas antes de comenzar a codificar. Por ejemplo, el orden de las condiciones es crucial; si verificáramos primero la divisibilidad por 4, clasificaríamos incorrectamente años como 1900 (que es divisible por 100 pero no por 400) como años bisiestos.</p>
+<h2 id="traduciendo-lenguaje-natural-a-pseudocódigo">Traduciendo lenguaje natural a pseudocódigo</h2>
+<p>A menudo, necesitarás traducir un problema descrito en lenguaje natural a pseudocódigo. Aquí hay un proceso para hacer esto:</p>
+<ol type="1">
+<li><strong>Identificar las entradas y salidas</strong></li>
+<li><strong>Descomponer el problema en pasos</strong></li>
+<li><strong>Identificar puntos de decisión</strong></li>
+<li><strong>Escribir pseudocódigo para cada paso</strong></li>
+<li><strong>Revisar y refinar tu solución</strong></li>
+</ol>
+<p>Practiquemos con un ejemplo:</p>
+<p><strong>Problema</strong>: Un profesor quiere calcular el promedio de las calificaciones de los exámenes de un estudiante, pero quiere eliminar la calificación más baja si el estudiante ha realizado más de tres exámenes.</p>
+<p>Paso 1: Identificar entradas y salidas - Entradas: Una lista de calificaciones de exámenes - Salida: El promedio (potencialmente con la calificación más baja eliminada)</p>
+<p>Pasos 2-5: Descomponer el problema y escribir pseudocódigo</p>
+<pre><code>1. INICIO
+2. OBTENER calificaciones_examenes (una lista de números)
+3. ESTABLECER total = 0
+4. ESTABLECER cantidad = número de calificaciones en calificaciones_examenes
+5. SI cantidad &gt; 3 ENTONCES
+6.     ESTABLECER calificacion_min = primera calificación en calificaciones_examenes
+7.     PARA cada calificación en calificaciones_examenes
+8.         SI calificación &lt; calificacion_min ENTONCES
+9.             ESTABLECER calificacion_min = calificación
+10.        FIN SI
+11.    FIN PARA
+12.    ESTABLECER total = suma de todas las calificaciones en calificaciones_examenes - calificacion_min
+13.    ESTABLECER cantidad = cantidad - 1
+14. SI NO
+15.    ESTABLECER total = suma de todas las calificaciones en calificaciones_examenes
+16. FIN SI
+17. ESTABLECER promedio = total / cantidad
+18. MOSTRAR &quot;El promedio es &quot; + promedio
+19. FIN</code></pre>
+<h2 id="actividad-traduciendo-problemas-a-pseudocódigo">Actividad: Traduciendo problemas a pseudocódigo</h2>
+<p>Intenta convertir estos problemas del mundo real a pseudocódigo:</p>
+<ol type="1">
+<li><p><strong>Problema</strong>: Determinar si un estudiante ha aprobado un curso. Para aprobar, el estudiante debe tener un promedio de al menos 60% y haber asistido al menos al 80% de las clases.</p></li>
+<li><p><strong>Problema</strong>: Calcular el costo de un viaje en taxi. La tarifa base es $2.50, y luego $0.50 por kilómetro. Si la distancia total es más de 10 kilómetros, se aplica un descuento del 5% a la tarifa total.</p></li>
+<li><p><strong>Problema</strong>: Una máquina expendedora da cambio usando la menor cantidad de monedas posible. Dado un monto de cambio a devolver, determinar cuántas monedas de 25¢, 10¢, 5¢, y 1¢ proporcionar.</p></li>
+</ol>
+<p>Después de escribir tu pseudocódigo, pruébalo con ejemplos específicos para asegurarte de que funciona correctamente.</p>
+<h2 id="mejores-prácticas-para-el-pseudocódigo">Mejores prácticas para el pseudocódigo</h2>
+<p>Para escribir pseudocódigo efectivo:</p>
+<ol type="1">
+<li><p><strong>Sé claro y conciso</strong>: Usa lenguaje simple que cualquiera pueda entender.</p></li>
+<li><p><strong>Sé consistente</strong>: Elige un estilo y mantente con él a lo largo de tu pseudocódigo.</p></li>
+<li><p><strong>Usa el nivel adecuado de detalle</strong>: Incluye suficiente detalle para entender la lógica, pero no te pierdas en detalles específicos de implementación.</p></li>
+<li><p><strong>Piensa paso a paso</strong>: Descompón operaciones complejas en pasos más simples.</p></li>
+<li><p><strong>Usa nombres de variables significativos</strong>: Elige nombres que describan lo que representan las variables.</p></li>
+<li><p><strong>Comenta tu pseudocódigo</strong>: Agrega explicaciones para partes complejas o no obvias.</p></li>
+</ol>
+<h2 id="del-pseudocódigo-al-código">Del pseudocódigo al código</h2>
+<p>Una vez que hayas refinado tu pseudocódigo, traducirlo a código real se vuelve mucho más fácil. Aquí hay un ejemplo simple que muestra pseudocódigo y su traducción a varios lenguajes de programación:</p>
+<p>Pseudocódigo:</p>
+<pre><code>SI temperatura &gt; 30 ENTONCES
+    MOSTRAR &quot;¡Hace calor!&quot;
+SI NO
+    MOSTRAR &quot;No hace demasiado calor.&quot;
+FIN SI</code></pre>
+<p>Python:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> temperatura <span class="op">&gt;</span> <span class="dv">30</span>:</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;¡Hace calor!&quot;</span>)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;No hace demasiado calor.&quot;</span>)</span></code></pre></div>
+<p>JavaScript:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (temperatura <span class="op">&gt;</span> <span class="dv">30</span>) {</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;¡Hace calor!&quot;</span>)<span class="op">;</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;No hace demasiado calor.&quot;</span>)<span class="op">;</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Cuando eventualmente comiences a escribir en un lenguaje de programación específico, encontrarás que la transición es mucho más fluida si ya has elaborado la lógica en pseudocódigo.</p>
+<h2 id="actividad-implementando-pseudocódigo-en-la-vida-real">Actividad: Implementando pseudocódigo en la vida real</h2>
+<p>¡El pseudocódigo no es solo para programas de computadora—puede ayudar con procesos de la vida real también!</p>
+<ol type="1">
+<li><p>Elige una tarea rutinaria que realizas regularmente (como preparar el desayuno, alistarte para la escuela, u organizar tu tiempo de estudio).</p></li>
+<li><p>Escribe pseudocódigo para este proceso, incluyendo puntos de decisión y acciones repetitivas.</p></li>
+<li><p>Prueba tu pseudocódigo siguiéndolo paso a paso.</p></li>
+<li><p>Revisa tu pseudocódigo para hacer el proceso más eficiente.</p></li>
+</ol>
+<p>Este ejercicio ayuda a desarrollar el pensamiento algorítmico para situaciones cotidianas.</p>
+<h2 id="puntos-clave-6">Puntos clave</h2>
+<ul>
+<li>El pseudocódigo es una forma de describir algoritmos usando una mezcla de lenguaje natural y estructuras similares a la programación</li>
+<li>Cierra la brecha entre el pensamiento humano y los lenguajes de programación formales</li>
+<li>El pseudocódigo ayuda a enfocarse en la lógica de una solución sin quedar atrapado en la sintaxis específica del lenguaje</li>
+<li>Aunque no hay un estándar único para el pseudocódigo, la consistencia y la claridad son importantes</li>
+<li>El pseudocódigo funciona bien con los diagramas de flujo—se complementan mutuamente</li>
+<li>Desarrollar habilidades sólidas de pseudocódigo facilita la transición a lenguajes de programación reales</li>
+</ul>
+<p>En este capítulo, hemos construido una base sólida en pensamiento lógico y estructura de programa. Hemos explorado la lógica booleana y las tablas de verdad, las declaraciones condicionales y los diagramas de flujo, y finalmente el pseudocódigo como un puente para expresar algoritmos de manera más formal. Estos bloques de construcción son esenciales para la programación y el pensamiento computacional, y te servirán bien a medida que profundizamos en conceptos más complejos en los próximos capítulos.</p>
+<h1 id="actividad-tablas-de-verdad-y-acertijos-lógicos">Actividad: Tablas de verdad y acertijos lógicos</h1>
+<h2 id="visión-general-3">Visión general</h2>
+<p>Esta actividad proporciona práctica práctica con lógica booleana utilizando tablas de verdad y acertijos lógicos. Al trabajar en estos ejercicios, desarrollarás tu comprensión de cómo funcionan los operadores lógicos (AND, OR, NOT) y cómo pueden combinarse para expresar condiciones complejas.</p>
+<h2 id="objetivos-de-aprendizaje-3">Objetivos de aprendizaje</h2>
+<ul>
+<li>Crear e interpretar tablas de verdad para operaciones lógicas básicas</li>
+<li>Evaluar expresiones lógicas complejas</li>
+<li>Traducir escenarios cotidianos a expresiones lógicas</li>
+<li>Identificar patrones en operaciones lógicas</li>
+<li>Desarrollar habilidades de razonamiento lógico esenciales para la programación</li>
+</ul>
+<h2 id="materiales-necesarios-3">Materiales necesarios</h2>
+<ul>
+<li>Tu cuaderno</li>
+<li>Lápiz (y borrador)</li>
+<li>Opcional: Regla para dibujar tablas</li>
+</ul>
+<h2 id="tiempo-requerido-3">Tiempo requerido</h2>
+<p>45-60 minutos</p>
+<h2 id="parte-1-creando-tablas-de-verdad-básicas">Parte 1: Creando tablas de verdad básicas</h2>
+<h3 id="paso-1-configura-tablas-de-verdad-para-operaciones-básicas">Paso 1: Configura tablas de verdad para operaciones básicas</h3>
+<p>En tu cuaderno, crea tres tablas de verdad separadas para las operaciones lógicas básicas: AND, OR y NOT.</p>
+<p>Para AND y OR, configura tus tablas con tres columnas: - A - B - Resultado (A AND B) o (A OR B)</p>
+<p>Para NOT, solo necesitarás dos columnas: - A - Resultado (NOT A)</p>
+<h3 id="paso-2-completa-los-valores-de-verdad">Paso 2: Completa los valores de verdad</h3>
+<p>Completa todas las combinaciones posibles de valores VERDADERO y FALSO para cada tabla y determina los resultados basándote en las reglas:</p>
+<ul>
+<li>AND: Devuelve VERDADERO solo cuando ambas entradas son VERDADERO</li>
+<li>OR: Devuelve VERDADERO cuando al menos una entrada es VERDADERO</li>
+<li>NOT: Devuelve lo opuesto del valor de entrada</li>
+</ul>
+<h3 id="ejemplo-2">Ejemplo:</h3>
+<p>Para la operación AND, tu tabla completada debería verse así:</p>
+<table>
+<thead>
+<tr class="header">
+<th>A</th>
+<th>B</th>
+<th>A AND B</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>VERDADERO</td>
+<td>VERDADERO</td>
+<td>VERDADERO</td>
+</tr>
+<tr class="even">
+<td>VERDADERO</td>
+<td>FALSO</td>
+<td>FALSO</td>
+</tr>
+<tr class="odd">
+<td>FALSO</td>
+<td>VERDADERO</td>
+<td>FALSO</td>
+</tr>
+<tr class="even">
+<td>FALSO</td>
+<td>FALSO</td>
+<td>FALSO</td>
+</tr>
+</tbody>
+</table>
+<h2 id="parte-2-expresiones-lógicas-compuestas">Parte 2: Expresiones lógicas compuestas</h2>
+<p>Ahora practiquemos con expresiones más complejas que combinan múltiples operadores.</p>
+<h3 id="paso-1-configura-tablas-de-verdad-para-expresiones-compuestas">Paso 1: Configura tablas de verdad para expresiones compuestas</h3>
+<p>Crea tablas de verdad para cada una de las siguientes expresiones:</p>
+<ol type="1">
+<li>(A AND B) OR C</li>
+<li>A AND (B OR C)</li>
+<li>NOT (A AND B)</li>
+<li>(NOT A) OR (NOT B)</li>
+</ol>
+<p>Para cada expresión, tu tabla necesitará cuatro columnas: - A - B - C - Resultado</p>
+<h3 id="paso-2-completa-todas-las-combinaciones-posibles">Paso 2: Completa todas las combinaciones posibles</h3>
+<p>Cada tabla tendrá 8 filas (2³ = 8 combinaciones posibles con tres variables).</p>
+<h3 id="paso-3-evalúa-paso-a-paso">Paso 3: Evalúa paso a paso</h3>
+<p>Para cada expresión, trabaja la lógica paso a paso. Por ejemplo, para “(A AND B) OR C”: 1. Primero calcula (A AND B) 2. Luego calcula el resultado final: (A AND B) OR C</p>
+<h3 id="ejemplo-3">Ejemplo:</h3>
+<p>Para la expresión (A AND B) OR C, las primeras filas podrían verse así:</p>
+<table>
+<thead>
+<tr class="header">
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>(A AND B)</th>
+<th>(A AND B) OR C</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>VERDADERO</td>
+<td>VERDADERO</td>
+<td>VERDADERO</td>
+<td>VERDADERO</td>
+<td>VERDADERO</td>
+</tr>
+<tr class="even">
+<td>VERDADERO</td>
+<td>VERDADERO</td>
+<td>FALSO</td>
+<td>VERDADERO</td>
+<td>VERDADERO</td>
+</tr>
+<tr class="odd">
+<td>VERDADERO</td>
+<td>FALSO</td>
+<td>VERDADERO</td>
+<td>FALSO</td>
+<td>VERDADERO</td>
+</tr>
+<tr class="even">
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<p>Puedes crear una columna intermedia como se muestra para ayudar con los cálculos, o simplemente resolverlo paso a paso en tu mente.</p>
+<h2 id="parte-3-equivalencias-lógicas">Parte 3: Equivalencias lógicas</h2>
+<p>Algunas expresiones lógicas diferentes pueden ser equivalentes—siempre producen los mismos resultados para las mismas entradas.</p>
+<h3 id="paso-1-compara-tus-tablas-de-verdad">Paso 1: Compara tus tablas de verdad</h3>
+<p>Observa tus tablas de verdad completadas para las expresiones 3 y 4: - NOT (A AND B) - (NOT A) OR (NOT B)</p>
+<p>Compara las columnas de resultados. ¿Son iguales para todas las combinaciones de entrada?</p>
+<h3 id="paso-2-descubre-las-leyes-de-de-morgan">Paso 2: Descubre las Leyes de De Morgan</h3>
+<p>Lo que acabas de verificar es una de las Leyes de De Morgan, un principio importante en lógica: - NOT (A AND B) es equivalente a (NOT A) OR (NOT B)</p>
+<p>La otra Ley de De Morgan establece: - NOT (A OR B) es equivalente a (NOT A) AND (NOT B)</p>
+<h3 id="paso-3-verifica-la-segunda-ley">Paso 3: Verifica la segunda ley</h3>
+<p>Crea tablas de verdad para verificar la segunda Ley de De Morgan.</p>
+<h2 id="parte-4-acertijos-lógicos">Parte 4: Acertijos lógicos</h2>
+<p>¡Ahora apliquemos la lógica booleana para resolver algunos acertijos!</p>
+<h3 id="acertijo-1-detectando-mentiras">Acertijo 1: Detectando mentiras</h3>
+<p>Tres personas (Ali, Bo y Cal) hacen una declaración cada una, pero sabes que solo una de ellas está diciendo la verdad.</p>
+<ul>
+<li>Ali dice: “Estoy diciendo la verdad.”</li>
+<li>Bo dice: “Ali está mintiendo.”</li>
+<li>Cal dice: “Bo está mintiendo.”</li>
+</ul>
+<p>¿Quién está diciendo la verdad?</p>
+<p>Para resolver esto, crea una tabla de verdad con todas las posibilidades (cada persona dice la verdad T o miente M), y verifica qué escenario coincide con la condición de que exactamente una persona dice la verdad.</p>
+<h3 id="acertijo-2-los-interruptores-de-luz">Acertijo 2: Los interruptores de luz</h3>
+<p>Estás en una habitación con tres interruptores de luz, cada uno conectado a una bombilla diferente en otra habitación. No puedes ver las bombillas desde donde están los interruptores, y solo puedes ir a la otra habitación una vez para revisar las bombillas.</p>
+<p>¿Cómo puedes determinar qué interruptor controla qué bombilla?</p>
+<p>Piensa en este acertijo en términos de los estados (ENCENDIDO/APAGADO) y qué información puedes reunir con solo una visita a la otra habitación.</p>
+<h3 id="acertijo-3-deducción-lógica">Acertijo 3: Deducción lógica</h3>
+<p>Basándote en estas pistas, determina quién tiene qué mascota: - Hay tres amigos: Xia, Yoon y Zach - Cada uno tiene una mascota: un perro, un gato o un pájaro - Xia no tiene el pájaro - Si Yoon tiene el gato, entonces Zach tiene el pájaro - Si Zach no tiene el perro, entonces Xia tiene el perro</p>
+<p>Crea una tabla para rastrear posibilidades y usa la lógica booleana para reducir la respuesta.</p>
+<h2 id="parte-5-aplicaciones-del-mundo-real">Parte 5: Aplicaciones del mundo real</h2>
+<h3 id="aplicación-1-criterios-de-elegibilidad">Aplicación 1: Criterios de elegibilidad</h3>
+<p>Una beca tiene los siguientes requisitos de elegibilidad: - El estudiante debe tener un promedio de al menos 3.5 O - El estudiante debe haber completado al menos 30 horas de servicio comunitario Y tener un promedio de al menos 3.0</p>
+<p>Escribe esto como una expresión lógica usando variables: - Sea G = “El promedio es al menos 3.5” - Sea H = “Completó al menos 30 horas de servicio comunitario” - Sea M = “El promedio es al menos 3.0”</p>
+<p>Luego crea una tabla de verdad para mostrar todas las combinaciones de estas variables y si cada combinación calificaría para la beca.</p>
+<h3 id="aplicación-2-personalización-de-menú">Aplicación 2: Personalización de menú</h3>
+<p>El sistema de pedidos de un restaurante utiliza lógica para determinar combinaciones de comidas: - Cada comida viene con arroz O papas (pero no ambos) - Si eliges el plato de pescado, debes tener verduras - Si eliges verduras, puedes tener salsa A O salsa B (pero no ambas)</p>
+<p>Crea variables para cada elección y escribe expresiones lógicas para combinaciones válidas de comidas.</p>
+<h2 id="actividades-de-extensión-2">Actividades de extensión</h2>
+<h3 id="crea-tu-propio-acertijo-lógico">1. Crea tu propio acertijo lógico</h3>
+<p>Diseña un acertijo lógico similar a los de la Parte 4, y proporciona su solución. Intercambia acertijos con compañeros de clase si es posible.</p>
+<h3 id="explora-nand-y-nor">2. Explora NAND y NOR</h3>
+<p>Investiga dos operaciones lógicas adicionales: NAND (NOT AND) y NOR (NOT OR). Crea sus tablas de verdad y explora cómo cualquier expresión lógica puede construirse usando solo operaciones NAND o solo operaciones NOR.</p>
+<h3 id="diagramas-de-venn">3. Diagramas de Venn</h3>
+<p>Dibuja diagramas de Venn para representar las operaciones AND, OR y NOT visualmente. Luego usa diagramas de Venn para ilustrar las expresiones compuestas de la Parte 2.</p>
+<h2 id="preguntas-de-reflexión">Preguntas de reflexión</h2>
+<p>En tu cuaderno, responde estas preguntas: 1. ¿Qué operación lógica (AND, OR, NOT) fue más fácil de entender para ti? ¿Cuál fue la más desafiante? 2. ¿Cómo ayudan las Leyes de De Morgan a simplificar expresiones lógicas complejas? 3. ¿Cómo podrías usar la lógica booleana en tu toma de decisiones cotidiana? 4. ¿Qué patrones notaste en las tablas de verdad que creaste? 5. ¿Cómo crees que las computadoras usan estas operaciones lógicas para tomar decisiones?</p>
+<h2 id="conexión-con-la-programación-3">Conexión con la programación</h2>
+<p>La lógica booleana que has practicado en esta actividad forma la base de la toma de decisiones en programación. Cada declaración condicional (IF-THEN-ELSE) se basa en evaluar expresiones lógicas. Entender estos principios te ayudará a escribir código claro y efectivo y a depurar errores lógicos en tus programas cuando eventualmente comiences a programar en una computadora.</p>
+<h1 id="actividad-creando-diagramas-de-flujo-para-decisiones-cotidianas">Actividad: Creando diagramas de flujo para decisiones cotidianas</h1>
+<h2 id="visión-general-4">Visión general</h2>
+<p>Esta actividad te ayuda a practicar la creación de diagramas de flujo para visualizar procesos de toma de decisiones. Aprenderás a mapear pasos lógicos para escenarios cotidianos, utilizando símbolos estándar de diagramas de flujo para representar diferentes tipos de operaciones.</p>
+<h2 id="objetivos-de-aprendizaje-4">Objetivos de aprendizaje</h2>
+<ul>
+<li>Utilizar los símbolos apropiados de diagramas de flujo para representar diferentes operaciones</li>
+<li>Crear flujos claros y lógicos para procesos de toma de decisiones</li>
+<li>Traducir escenarios del mundo real en diagramas de flujo estructurados</li>
+<li>Identificar puntos de decisión y sus posibles resultados</li>
+<li>Desarrollar habilidades de pensamiento visual que complementen el razonamiento lógico</li>
+</ul>
+<h2 id="materiales-necesarios-4">Materiales necesarios</h2>
+<ul>
+<li>Tu cuaderno (preferiblemente con páginas en blanco o cuadriculadas)</li>
+<li>Lápiz y borrador</li>
+<li>Regla (opcional pero útil)</li>
+<li>Lápices o bolígrafos de colores (opcional)</li>
+<li>Plantillas de símbolos de diagramas de flujo (proporcionadas en esta actividad)</li>
+</ul>
+<h2 id="tiempo-requerido-4">Tiempo requerido</h2>
+<p>45-60 minutos</p>
+<h2 id="parte-1-símbolos-y-convenciones-de-los-diagramas-de-flujo">Parte 1: Símbolos y convenciones de los diagramas de flujo</h2>
+<h3 id="símbolos-estándar-de-los-diagramas-de-flujo">Símbolos estándar de los diagramas de flujo</h3>
+<p>En tu cuaderno, crea una página de referencia con estos símbolos estándar de diagramas de flujo:</p>
+<ol type="1">
+<li><strong>Inicio/Fin (Óvalo)</strong>
+<ul>
+<li>Propósito: Marca el comienzo o el final de un proceso</li>
+<li>Texto de ejemplo: “Inicio” o “Fin”</li>
+</ul></li>
+<li><strong>Proceso (Rectángulo)</strong>
+<ul>
+<li>Propósito: Representa una acción u operación</li>
+<li>Texto de ejemplo: “Agregar azúcar a la mezcla” o “Calcular precio total”</li>
+</ul></li>
+<li><strong>Decisión (Diamante)</strong>
+<ul>
+<li>Propósito: Indica un punto de decisión con múltiples caminos</li>
+<li>Texto de ejemplo: “¿Está lloviendo?” o “¿Temperatura &gt; 30°C?”</li>
+</ul></li>
+<li><strong>Entrada/Salida (Paralelogramo)</strong>
+<ul>
+<li>Propósito: Muestra entrada o salida de datos</li>
+<li>Texto de ejemplo: “Ingresa tu nombre” o “Mostrar costo total”</li>
+</ul></li>
+<li><strong>Líneas de flujo (Flechas)</strong>
+<ul>
+<li>Propósito: Conectan símbolos y muestran la secuencia del flujo</li>
+<li>Ejemplo: Flechas simples con indicadores de dirección</li>
+</ul></li>
+<li><strong>Conector (Círculo)</strong>
+<ul>
+<li>Propósito: Conecta diferentes partes de un diagrama de flujo, especialmente entre páginas</li>
+<li>Texto de ejemplo: “A” o “1”</li>
+</ul></li>
+</ol>
+<h3 id="convenciones-de-los-diagramas-de-flujo">Convenciones de los diagramas de flujo</h3>
+<p>Junto a tus símbolos, anota estas importantes convenciones:</p>
+<ol type="1">
+<li>El flujo generalmente se mueve de arriba hacia abajo y de izquierda a derecha</li>
+<li>Los diamantes de decisión tienen exactamente dos salidas (generalmente etiquetadas “Sí/No” o “Verdadero/Falso”)</li>
+<li>Cada camino debe eventualmente llegar a un punto final</li>
+<li>Las líneas no deben cruzarse si es posible (usa conectores si es necesario)</li>
+<li>Usa espaciado y tamaño consistente de símbolos</li>
+</ol>
+<h2 id="parte-2-práctica-de-diagramas-de-flujo-simples">Parte 2: Práctica de diagramas de flujo simples</h2>
+<h3 id="paso-1-crea-un-diagrama-de-flujo-de-una-rutina-matutina">Paso 1: Crea un diagrama de flujo de una rutina matutina</h3>
+<p>Dibuja un diagrama de flujo para una rutina matutina básica con estos elementos: - Comienza cuando te despiertas - Decisión sobre si es día de semana o fin de semana - Diferentes rutinas basadas en el tipo de día - Termina cuando sales de casa o comienzas las actividades de tu día</p>
+<h3 id="paso-2-agrega-una-decisión-sobre-el-clima">Paso 2: Agrega una decisión sobre el clima</h3>
+<p>Mejora tu diagrama de flujo para incluir una decisión relacionada con el clima: - Verifica si está lloviendo - Si sí, lleva un paraguas - Si no, procede normalmente</p>
+<h3 id="paso-3-revisa-y-refina">Paso 3: Revisa y refina</h3>
+<p>Verifica tu diagrama de flujo para: - Uso adecuado de símbolos - Dirección clara del flujo - Progresión lógica - Caminos completos (sin callejones sin salida)</p>
+<h2 id="parte-3-diagramas-de-flujo-para-decisiones-cotidianas">Parte 3: Diagramas de flujo para decisiones cotidianas</h2>
+<p>Ahora crearás diagramas de flujo para escenarios cotidianos más complejos. Elige dos de los siguientes escenarios para crear diagramas de flujo completos:</p>
+<h3 id="escenario-1-decidir-qué-comer-para-la-cena">Escenario 1: Decidir qué comer para la cena</h3>
+<p>Considera factores como: - ¿Qué ingredientes están disponibles? - ¿Cuánto tiempo tienes? - ¿Estás cocinando para ti o para otros? - ¿Tienes restricciones dietéticas?</p>
+<h3 id="escenario-2-planificar-una-actividad-de-fin-de-semana">Escenario 2: Planificar una actividad de fin de semana</h3>
+<p>Considera factores como: - Condiciones climáticas - Restricciones de presupuesto - Quién te acompañará - Opciones de transporte - Disponibilidad de tiempo</p>
+<h3 id="escenario-3-elegir-un-regalo-para-alguien">Escenario 3: Elegir un regalo para alguien</h3>
+<p>Considera factores como: - ¿Cuál es tu presupuesto? - ¿Cuáles son sus intereses? - ¿Ya tienen algo similar? - ¿Es una ocasión especial? - ¿Necesita ser entregado?</p>
+<h3 id="escenario-4-solución-de-problemas-de-un-dispositivo-que-no-funciona">Escenario 4: Solución de problemas de un dispositivo que no funciona</h3>
+<p>Crea un diagrama de flujo para diagnosticar por qué un dispositivo (como un teléfono móvil) no está funcionando, con pasos como: - ¿Está encendido? - ¿La batería está cargada? - ¿Todas las conexiones están seguras? - ¿Se ha caído o dañado? - ¿Qué mensajes de error se muestran?</p>
+<h2 id="parte-4-traduciendo-historias-a-diagramas-de-flujo">Parte 4: Traduciendo historias a diagramas de flujo</h2>
+<h3 id="paso-1-lee-la-historia">Paso 1: Lee la historia</h3>
+<p>Lee este breve escenario:</p>
+<blockquote>
+<p>María quiere hacer un pastel para el cumpleaños de su amiga. Verifica si tiene todos los ingredientes. Si tiene todo, comienza a hornear inmediatamente. Si le falta algo, verifica si la tienda está abierta. Si la tienda está abierta, va a comprar los ingredientes que faltan y luego hornea el pastel. Si la tienda está cerrada, decide hacer galletas en su lugar, siempre y cuando tenga esos ingredientes. Si tampoco tiene los ingredientes para galletas, comprará un pastel de la panadería mañana.</p>
+</blockquote>
+<h3 id="paso-2-identifica-los-elementos-clave">Paso 2: Identifica los elementos clave</h3>
+<p>En tu cuaderno, enumera: - Todos los puntos de decisión - Todas las acciones posibles - El flujo lógico entre decisiones y acciones</p>
+<h3 id="paso-3-crea-el-diagrama-de-flujo">Paso 3: Crea el diagrama de flujo</h3>
+<p>Dibuja un diagrama de flujo completo que represente el proceso de decisión de María para hornear el pastel.</p>
+<h3 id="paso-4-prueba-tu-diagrama-de-flujo">Paso 4: Prueba tu diagrama de flujo</h3>
+<p>Recorre tu diagrama de flujo con diferentes escenarios: - María tiene todos los ingredientes del pastel - A María le faltan huevos, la tienda está abierta - A María le falta harina, la tienda está cerrada, pero tiene ingredientes para galletas - A María le falta harina, la tienda está cerrada, y no tiene ingredientes para galletas</p>
+<h2 id="parte-5-diagramas-de-flujo-para-algoritmos">Parte 5: Diagramas de flujo para algoritmos</h2>
+<p>Ahora practiquemos la creación de diagramas de flujo para algoritmos simples (procedimientos paso a paso).</p>
+<h3 id="algoritmo-1-encontrar-el-número-más-grande">Algoritmo 1: Encontrar el número más grande</h3>
+<p>Crea un diagrama de flujo para encontrar el mayor de tres números: 1. Ingresa tres números: A, B y C 2. Compara A con B para encontrar el mayor 3. Compara ese resultado con C 4. Muestra el número más grande</p>
+<h3 id="algoritmo-2-calculando-un-precio-con-descuento">Algoritmo 2: Calculando un precio con descuento</h3>
+<p>Crea un diagrama de flujo para calcular un precio con descuento: 1. Ingresa el precio original 2. Ingresa el porcentaje de descuento 3. Si el precio original es superior a $100, aplica el descuento 4. Si el precio original es $100 o menos, aplica la mitad del descuento 5. Calcula y muestra el precio final</p>
+<h2 id="parte-6-diagramas-de-flujo-colaborativos-actividad-grupal-opcional">Parte 6: Diagramas de flujo colaborativos (actividad grupal opcional)</h2>
+<p>Si estás trabajando con otros, prueba este ejercicio colaborativo:</p>
+<h3 id="paso-1-selecciona-un-proceso-complejo">Paso 1: Selecciona un proceso complejo</h3>
+<p>Elige un proceso complejo que todos conozcan, como: - Tomar una decisión grupal sobre dónde ir a almorzar - Planificar un proyecto o evento de clase - Crear un horario de estudio para exámenes</p>
+<h3 id="paso-2-borradores-individuales">Paso 2: Borradores individuales</h3>
+<p>Cada persona crea su propio diagrama de flujo para el proceso.</p>
+<h3 id="paso-3-comparar-y-combinar">Paso 3: Comparar y combinar</h3>
+<p>Compara los diferentes diagramas de flujo y discute: - ¿Qué puntos de decisión incluyó cada uno? - ¿Qué enfoques diferentes se tomaron? - ¿Qué factores importantes consideraron algunos que otros pasaron por alto?</p>
+<h3 id="paso-4-crear-un-diagrama-de-flujo-maestro">Paso 4: Crear un diagrama de flujo maestro</h3>
+<p>Trabajen juntos para crear un diagrama de flujo integral que incorpore los mejores elementos de cada diagrama individual.</p>
+<h2 id="plantillas-para-símbolos-de-diagramas-de-flujo">Plantillas para símbolos de diagramas de flujo</h2>
+<p>Si te resulta difícil dibujar los símbolos a mano alzada, aquí hay plantillas simplificadas que puedes trazar o copiar:</p>
+<pre><code>Inicio/Fin:
+  .--------.
+ /          \
+(            )
+ \          /
+  &#39;--------&#39;
+
+Proceso:
+.-------------.
+|             |
+|             |
+&#39;-------------&#39;
+
+Decisión:
+     ./.\.
+    /     \
+   /       \
+  &lt;         &gt;
+   \       /
+    \     /
+     &#39;\.&#39;
+
+Entrada/Salida:
+   .--------.
+  /          \
+ /            \
+&#39;-------------&#39;
+
+Conector:
+   .---.
+  |     |
+  |  A  |
+  |     |
+   &#39;---&#39;</code></pre>
+<h2 id="actividades-de-extensión-3">Actividades de extensión</h2>
+<h3 id="revisión-del-diagrama-de-flujo">1. Revisión del diagrama de flujo</h3>
+<p>Toma uno de tus diagramas de flujo y optimízalo: - Reduciendo el número de puntos de decisión si es posible - Encontrando caminos más eficientes - Añadiendo factores adicionales para hacerlo más completo</p>
+<h3 id="conceptos-de-programación-en-diagramas-de-flujo">2. Conceptos de programación en diagramas de flujo</h3>
+<p>Investiga y crea diagramas de flujo que representen estos conceptos de programación: - Un bucle de conteo simple (1 a 10) - Un proceso de validación de entrada - Un algoritmo de búsqueda simple</p>
+<h3 id="diagramas-de-flujo-digitales">3. Diagramas de flujo digitales</h3>
+<p>Si tienes acceso a una computadora, prueba una de estas herramientas gratuitas de diagramas de flujo en línea: - draw.io - Lucidchart (versión gratuita) - Google Drawings</p>
+<h2 id="preguntas-de-reflexión-1">Preguntas de reflexión</h2>
+<p>En tu cuaderno, responde estas preguntas: 1. ¿Cómo te ayudó la creación de diagramas de flujo a entender mejor los procesos de decisión? 2. ¿Cuál fue la parte más desafiante de crear diagramas de flujo? 3. ¿Cómo podrían ser útiles los diagramas de flujo en tu vida diaria o estudios? 4. ¿Qué diferencias notaste entre diagramar procesos simples versus complejos? 5. ¿Cómo crees que los diagramas de flujo ayudan a los programadores a planificar su código?</p>
+<h1 id="actividad-traduciendo-del-lenguaje-natural-al-pseudocódigo">Actividad: Traduciendo del lenguaje natural al pseudocódigo</h1>
+<h2 id="visión-general-5">Visión general</h2>
+<p>Esta actividad te ayuda a desarrollar la habilidad de traducir instrucciones en lenguaje natural al pseudocódigo. Aprenderás a tomar procesos cotidianos y reescribirlos en un formato más estructurado y paso a paso que cierra la brecha entre el lenguaje humano y el código de programación formal.</p>
+<h2 id="objetivos-de-aprendizaje-5">Objetivos de aprendizaje</h2>
+<ul>
+<li>Convertir descripciones en lenguaje natural en pseudocódigo claro y estructurado</li>
+<li>Practicar el uso de convenciones y sintaxis estándar de pseudocódigo</li>
+<li>Desglosar procesos complejos en pasos lógicos</li>
+<li>Identificar puntos de decisión y estructuras de control dentro de los procesos</li>
+<li>Desarrollar precisión al expresar algoritmos</li>
+</ul>
+<h2 id="materiales-necesarios-5">Materiales necesarios</h2>
+<ul>
+<li>Tu cuaderno</li>
+<li>Lápiz y borrador</li>
+<li>La guía de referencia de pseudocódigo (de la Sección 3)</li>
+</ul>
+<h2 id="tiempo-requerido-5">Tiempo requerido</h2>
+<p>45-60 minutos</p>
+<h2 id="parte-1-revisión-de-convenciones-de-pseudocódigo">Parte 1: Revisión de convenciones de pseudocódigo</h2>
+<p>Antes de comenzar los ejercicios de traducción, repasemos las convenciones clave del pseudocódigo:</p>
+<ol type="1">
+<li><strong>Palabras clave</strong>: Comúnmente en mayúsculas (SI, SI NO, MIENTRAS, PARA, etc.)</li>
+<li><strong>Indentación</strong>: Usada para mostrar anidamiento y estructura</li>
+<li><strong>Asignación</strong>: Usa = (ej., ESTABLECER total = 0)</li>
+<li><strong>Comparación</strong>: Usa ==, &gt;, &lt;, &gt;=, &lt;= (ej., SI edad &gt;= 18 ENTONCES)</li>
+<li><strong>Operaciones básicas</strong>:
+<ul>
+<li>Entrada: OBTENER o ENTRADA</li>
+<li>Salida: MOSTRAR o SALIDA</li>
+<li>Procesamiento: ESTABLECER, CALCULAR</li>
+<li>Toma de decisiones: SI-ENTONCES-SI NO</li>
+<li>Repetición: MIENTRAS, PARA</li>
+<li>Función: FUNCIÓN, PROCEDIMIENTO, DEVOLVER</li>
+</ul></li>
+</ol>
+<p>En tu cuaderno, crea una página de referencia con estas convenciones y añade ejemplos de cada una.</p>
+<h2 id="parte-2-traducciones-simples">Parte 2: Traducciones simples</h2>
+<h3 id="paso-1-estudia-el-ejemplo">Paso 1: Estudia el ejemplo</h3>
+<p>Aquí hay un ejemplo de traducción de una descripción simple en lenguaje natural a pseudocódigo:</p>
+<p><strong>Lenguaje natural</strong>: Para hacer una taza de té, primero hierve agua en una tetera. Una vez que el agua esté hirviendo, viértela en una taza con una bolsa de té. Déjala reposar por 3 minutos, luego retira la bolsa de té. Añade azúcar si lo deseas.</p>
+<p><strong>Pseudocódigo</strong>:</p>
+<pre><code>INICIO
+    Hervir agua en tetera
+    MIENTRAS el agua no esté hirviendo
+        Esperar
+    FIN MIENTRAS
+    Verter agua en taza con bolsa de té
+    Esperar por 3 minutos
+    Retirar bolsa de té
+    MOSTRAR &quot;¿Quieres azúcar?&quot;
+    OBTENER desea_azucar
+    SI desea_azucar == &quot;sí&quot; ENTONCES
+        Añadir azúcar al té
+    FIN SI
+FIN</code></pre>
+<h3 id="paso-2-practica-con-procesos-simples">Paso 2: Practica con procesos simples</h3>
+<p>Traduce cada una de estas descripciones en lenguaje natural a pseudocódigo:</p>
+<ol type="1">
+<li><p><strong>Verificar si un número es par o impar</strong>: “Toma un número. Si puedes dividirlo por 2 sin un resto, es par. De lo contrario, es impar.”</p></li>
+<li><p><strong>Hacer un sándwich</strong>: “Toma dos rebanadas de pan. Unta mantequilla en un lado de cada rebanada. Añade queso y jamón entre las rebanadas, con los lados con mantequilla hacia adentro. Opcionalmente, tuesta el sándwich hasta que el queso se derrita.”</p></li>
+<li><p><strong>Configurar una alarma</strong>: “Decide a qué hora necesitas despertar. Resta el tiempo que necesitas para alistarte. Configura tu alarma para esa hora. Asegúrate de que la alarma esté encendida antes de ir a dormir.”</p></li>
+</ol>
+<h3 id="paso-3-revisa-y-refina-1">Paso 3: Revisa y refina</h3>
+<p>Para cada una de tus traducciones: - Verifica que hayas usado las convenciones correctas de pseudocódigo - Asegúrate de que todos los pasos estén incluidos y en el orden correcto - Busca ambigüedades o detalles faltantes en tu pseudocódigo - Asegúrate de que los puntos de decisión (declaraciones SI) tengan condiciones claras</p>
+<h2 id="parte-3-traduciendo-procesos-complejos">Parte 3: Traduciendo procesos complejos</h2>
+<p>Ahora abordemos procesos más complejos que involucran múltiples decisiones y posibles bucles.</p>
+<h3 id="paso-1-ejercicio-de-traducción">Paso 1: Ejercicio de traducción</h3>
+<p>Traduce estos procesos más complejos a pseudocódigo:</p>
+<ol type="1">
+<li><p><strong>Encontrar el máximo de tres números</strong>: “Dados tres números, primero compara los dos primeros números para encontrar cuál es mayor. Luego compara ese resultado con el tercer número para encontrar el mayor de los tres.”</p></li>
+<li><p><strong>Calculando una cuenta de restaurante con propina</strong>: “Suma el costo de todos los platos ordenados. Verifica si ya se incluye un cargo por servicio. Si no, calcula una propina del 15% por buen servicio o 20% por servicio excelente. Añade la propina al total de la cuenta. Divide el total equitativamente entre todos los comensales.”</p></li>
+<li><p><strong>Planificando un viaje</strong>: “Decide un destino. Verifica si tienes suficiente dinero para el viaje. Si lo tienes, reserva transporte y alojamiento. Si no, elige un destino más económico o ahorra más dinero antes de reservar. Antes del viaje, haz una lista de equipaje y empaca tus maletas. El día del viaje, verifica nuevamente que tengas todos los elementos esenciales.”</p></li>
+</ol>
+<h3 id="paso-2-añade-detalle-y-claridad">Paso 2: Añade detalle y claridad</h3>
+<p>Revisa tu pseudocódigo y mejóralo: - Añade comentarios para explicar partes complejas - Usa nombres de variables más específicos (ej., <code>costo_total</code> en lugar de solo <code>total</code>) - Desglosa pasos muy complejos en más simples - Asegúrate de que todos los casos límite estén manejados</p>
+<h2 id="parte-4-de-diagramas-de-flujo-a-pseudocódigo">Parte 4: De diagramas de flujo a pseudocódigo</h2>
+<h3 id="paso-1-elige-un-diagrama-de-flujo">Paso 1: Elige un diagrama de flujo</h3>
+<p>Selecciona uno de los diagramas de flujo que creaste en la actividad anterior, o usa este ejemplo simple de decidir si llevar un paraguas:</p>
+<pre><code>Inicio
+  |
+  v
+¿Está lloviendo actualmente?
+  |
+  |--&gt; Sí --&gt; Llevar paraguas
+  |              |
+  |              v
+  |           Salir afuera
+  |
+  |--&gt; No --&gt; Revisar el pronóstico
+               |
+               v
+          ¿Se pronostica lluvia?
+               |
+               |--&gt; Sí --&gt; Llevar paraguas
+               |              |
+               |              v
+               |           Salir afuera
+               |
+               |--&gt; No --&gt; Dejar el paraguas en casa
+                             |
+                             v
+                          Salir afuera
+                             |
+                             v
+                            Fin</code></pre>
+<h3 id="paso-2-convierte-a-pseudocódigo">Paso 2: Convierte a pseudocódigo</h3>
+<p>Traduce el diagrama de flujo seleccionado a pseudocódigo. Recuerda que: - Los diamantes (símbolos de decisión) se convierten en declaraciones SI - Los rectángulos (símbolos de proceso) se convierten en acciones - Las líneas de flujo indican la secuencia y anidamiento de las declaraciones</p>
+<p>Para el ejemplo del paraguas, el pseudocódigo podría verse así:</p>
+<pre><code>INICIO
+    SI actualmente_lloviendo ENTONCES
+        Llevar paraguas
+        Salir afuera
+    SI NO
+        Revisar pronóstico
+        SI se_pronostica_lluvia ENTONCES
+            Llevar paraguas
+            Salir afuera
+        SI NO
+            Dejar paraguas en casa
+            Salir afuera
+        FIN SI
+    FIN SI
+FIN</code></pre>
+<h3 id="paso-3-compara-representaciones">Paso 3: Compara representaciones</h3>
+<p>Reflexiona sobre las diferencias entre las representaciones de diagrama de flujo y pseudocódigo: - ¿Cuál es más fácil de crear? - ¿Cuál es más fácil de entender a simple vista? - ¿Cuál proporciona más detalle? - ¿Cuándo podría ser más útil cada representación?</p>
+<h2 id="parte-5-del-pseudocódigo-al-lenguaje-natural">Parte 5: Del pseudocódigo al lenguaje natural</h2>
+<p>Ahora practiquemos el proceso inverso: convertir pseudocódigo a lenguaje natural. Esto ayuda a asegurar que tu pseudocódigo sea correcto y completo.</p>
+<h3 id="paso-1-estudia-el-ejemplo-1">Paso 1: Estudia el ejemplo</h3>
+<p>Aquí hay pseudocódigo para encontrar el promedio de una lista de números:</p>
+<pre><code>INICIO
+    ESTABLECER suma = 0
+    ESTABLECER contador = 0
+    MIENTRAS haya más números por procesar
+        OBTENER siguiente_numero
+        ESTABLECER suma = suma + siguiente_numero
+        ESTABLECER contador = contador + 1
+    FIN MIENTRAS
+    SI contador &gt; 0 ENTONCES
+        ESTABLECER promedio = suma / contador
+        MOSTRAR promedio
+    SI NO
+        MOSTRAR &quot;No hay números para promediar&quot;
+    FIN SI
+FIN</code></pre>
+<p>Traducción a lenguaje natural: “Para encontrar el promedio de una lista de números, comienza estableciendo la suma y el contador en cero. Mientras haya más números por procesar, obtén el siguiente número, agrégalo a la suma y aumenta el contador en uno. Después de procesar todos los números, si el contador es mayor que cero, calcula el promedio dividiendo la suma por el contador y muestra el resultado. De lo contrario, muestra un mensaje de que no hay números para promediar.”</p>
+<h3 id="paso-2-traduce-al-lenguaje-natural">Paso 2: Traduce al lenguaje natural</h3>
+<p>Convierte cada uno de estos ejemplos de pseudocódigo a lenguaje natural claro:</p>
+<ol type="1">
+<li><strong>Verificando la fortaleza de una contraseña</strong>:</li>
+</ol>
+<pre><code>INICIO
+    OBTENER contraseña
+    ESTABLECER fortaleza = 0
+    SI longitud de contraseña &gt;= 8 ENTONCES
+        ESTABLECER fortaleza = fortaleza + 1
+    FIN SI
+    SI contraseña contiene números ENTONCES
+        ESTABLECER fortaleza = fortaleza + 1
+    FIN SI
+    SI contraseña contiene caracteres especiales ENTONCES
+        ESTABLECER fortaleza = fortaleza + 1
+    FIN SI
+    SI fortaleza == 0 ENTONCES
+        MOSTRAR &quot;Contraseña débil&quot;
+    SI NO SI fortaleza == 1 ENTONCES
+        MOSTRAR &quot;Contraseña moderada&quot;
+    SI NO SI fortaleza == 2 ENTONCES
+        MOSTRAR &quot;Contraseña fuerte&quot;
+    SI NO
+        MOSTRAR &quot;Contraseña muy fuerte&quot;
+    FIN SI
+FIN</code></pre>
+<ol start="2" type="1">
+<li><strong>Haciendo una lista de compras</strong>:</li>
+</ol>
+<pre><code>INICIO
+    ESTABLECER lista_compras = lista vacía
+    MOSTRAR &quot;Revisar despensa para artículos que comprar&quot;
+    MIENTRAS se necesiten más artículos
+        SI el artículo está bajo o vacío ENTONCES
+            AÑADIR artículo a lista_compras
+        FIN SI
+    FIN MIENTRAS
+    MOSTRAR &quot;Revisar refrigerador para artículos que comprar&quot;
+    MIENTRAS se necesiten más artículos
+        SI el artículo está bajo o vacío ENTONCES
+            AÑADIR artículo a lista_compras
+        FIN SI
+    FIN MIENTRAS
+    SI lista_compras no está vacía ENTONCES
+        MOSTRAR lista_compras
+    SI NO
+        MOSTRAR &quot;No se necesitan artículos&quot;
+    FIN SI
+FIN</code></pre>
+<h3 id="paso-3-evalúa-la-claridad">Paso 3: Evalúa la claridad</h3>
+<p>Para cada traducción: - Verifica si tu descripción en lenguaje natural captura todos los pasos en el pseudocódigo - Asegúrate de que la lógica y la secuencia permanezcan iguales - Identifica cualquier parte que haya sido difícil de traducir de vuelta al lenguaje natural</p>
+<h2 id="parte-6-la-computadora-humana">Parte 6: La computadora humana</h2>
+<p>Esta actividad final ayuda a demostrar cómo el pseudocódigo cierra la brecha entre el pensamiento humano y la ejecución de la computadora.</p>
+<h3 id="paso-1-escribe-un-algoritmo-en-pseudocódigo">Paso 1: Escribe un algoritmo en pseudocódigo</h3>
+<p>Crea pseudocódigo para un juego o acertijo simple, como: - Adivinar un número entre 1 y 10 - Jugar piedra-papel-tijeras - Resolver un acertijo simple</p>
+<h3 id="paso-2-actúa-como-la-computadora">Paso 2: Actúa como la computadora</h3>
+<p>Encuentra un compañero (o imagina uno) que actuará como el “programador” mientras tú actúas como la “computadora”. Tu trabajo es seguir las instrucciones del pseudocódigo exactamente como están escritas, sin hacer suposiciones o usar información que no esté explícitamente indicada.</p>
+<h3 id="paso-3-ejecuta-el-programa">Paso 3: Ejecuta el programa</h3>
+<p>El “programador” lee cada instrucción en el pseudocódigo, y tú (la “computadora”) la ejecutas con precisión. Si hay ambigüedades o errores en el pseudocódigo, debes comportarte como lo haría una computadora—ya sea produciendo un error o haciendo una interpretación específica basada en las reglas del pseudocódigo.</p>
+<h3 id="paso-4-depura-y-mejora">Paso 4: Depura y mejora</h3>
+<p>Basándote en la ejecución: - Identifica cualquier ambigüedad o error en el pseudocódigo - Revisa el pseudocódigo para hacerlo más preciso y efectivo - Intenta ejecutar la versión mejorada para ver si funciona mejor</p>
+<h2 id="actividades-de-extensión-4">Actividades de extensión</h2>
+<h3 id="patrones-de-pseudocódigo">1. Patrones de pseudocódigo</h3>
+<p>Investiga y crea pseudocódigo para estos patrones comunes de programación: - Intercambiar los valores de dos variables - Encontrar el mínimo y máximo en una lista - Contar ocurrencias de un elemento específico en una lista - Validar entrada de usuario</p>
+<h3 id="investigación-de-algoritmos">2. Investigación de algoritmos</h3>
+<p>Elige un algoritmo famoso (como búsqueda binaria o ordenamiento burbuja), investiga cómo funciona y escribe pseudocódigo para él.</p>
+<h3 id="crear-una-guía-de-pseudocódigo">3. Crear una guía de pseudocódigo</h3>
+<p>Crea una guía de estilo completa de pseudocódigo para tu propio uso, combinando las convenciones de este libro con cualquier estándar adicional que encuentres útil.</p>
+<h2 id="preguntas-de-reflexión-2">Preguntas de reflexión</h2>
+<p>En tu cuaderno, responde estas preguntas: 1. ¿Cuál fue el aspecto más desafiante de traducir entre lenguaje natural y pseudocódigo? 2. ¿Cómo te ayudó crear pseudocódigo a entender la lógica de diferentes procesos? 3. ¿Cuándo preferirías usar pseudocódigo en lugar de un diagrama de flujo, y viceversa? 4. ¿Cómo podría ayudarte el pseudocódigo en la planificación de tareas complejas en tu vida diaria? 5. ¿Qué ambigüedades en el lenguaje natural se hicieron evidentes cuando intentaste convertirlo a pseudocódigo?</p>
+<h2 id="conexión-con-la-programación-4">Conexión con la programación</h2>
+<p>El pseudocódigo es un puente esencial entre el pensamiento humano y la programación de computadoras. Los programadores profesionales a menudo comienzan con pseudocódigo para planificar sus soluciones antes de escribir código real. Las habilidades que has desarrollado en esta actividad se traducirán directamente a la programación en cualquier lenguaje, ya que el pseudocódigo captura la estructura lógica que comparten todos los lenguajes de programación, independientemente de su sintaxis específica.</p>
+<h1 id="actividad-la-computadora-humana---representando-programas-simples">Actividad: La computadora humana - Representando programas simples</h1>
+<h2 id="visión-general-6">Visión general</h2>
+<p>Esta actividad práctica transforma a los estudiantes en “computadoras humanas” que ejecutan código actuando físicamente la lógica y el flujo de programas simples. Al encarnar el papel de un procesador de computadora, los estudiantes obtienen una comprensión más profunda de cómo las computadoras interpretan y ejecutan instrucciones, particularmente la lógica condicional y las estructuras de toma de decisiones.</p>
+<h2 id="objetivos-de-aprendizaje-6">Objetivos de aprendizaje</h2>
+<ul>
+<li>Experimentar de primera mano cómo las computadoras ejecutan instrucciones</li>
+<li>Comprender la naturaleza precisa y literal de la ejecución de programas</li>
+<li>Visualizar el flujo de control en programas con declaraciones condicionales</li>
+<li>Reconocer cómo las computadoras mantienen y actualizan valores de variables</li>
+<li>Desarrollar una intuición para la depuración identificando dónde pueden fallar los programas</li>
+</ul>
+<h2 id="materiales-necesarios-6">Materiales necesarios</h2>
+<ul>
+<li>Tarjetas grandes con instrucciones escritas (una instrucción por tarjeta)</li>
+<li>Notas adhesivas o pequeñas libretas para representar variables y sus valores</li>
+<li>Cinta adhesiva para marcar “caminos de ejecución” en el suelo</li>
+<li>Opcional: Objetos relacionados con los escenarios del programa (paraguas, mochila, etc.)</li>
+<li>Opcional: Insignias de roles (ej., “CPU”, “Memoria”, “Entrada/Salida”)</li>
+</ul>
+<h2 id="tiempo-requerido-6">Tiempo requerido</h2>
+<p>60-90 minutos</p>
+<h2 id="preparación">Preparación</h2>
+<p>Antes de la actividad, crea tarjetas de instrucciones para al menos dos programas simples. Cada tarjeta debe contener una instrucción que corresponda a una línea de pseudocódigo. Numera las tarjetas para mostrar la secuencia.</p>
+<p>Por ejemplo, para un programa de “Rutina matutina”: 1. INICIO 2. SI (está lloviendo) ENTONCES ir a tarjeta #3, SI NO ir a tarjeta #5 3. Tomar paraguas 4. Ir a tarjeta #6 5. No tomar paraguas 6. SI (temperatura &lt; 15°C) ENTONCES ir a tarjeta #7, SI NO ir a tarjeta #9 7. Usar chaqueta pesada 8. Ir a tarjeta #10 9. Usar chaqueta ligera 10. Caminar a la parada de autobús 11. FIN</p>
+<h2 id="parte-1-introducción-a-ser-una-computadora">Parte 1: Introducción a ser una computadora</h2>
+<h3 id="paso-1-explicar-la-actividad">Paso 1: Explicar la actividad</h3>
+<p>Explica que en esta actividad, los estudiantes se convertirán en “computadoras humanas”, siguiendo instrucciones exactamente como lo haría una computadora. Enfatiza que las computadoras: - Siguen instrucciones paso a paso - No pueden adelantarse o hacer suposiciones - Solo pueden hacer exactamente lo que se les indica - Solo pueden tomar decisiones basadas en condiciones específicas</p>
+<h3 id="paso-2-asignar-roles">Paso 2: Asignar roles</h3>
+<p>Asigna diferentes roles a los estudiantes: - “CPU” - sigue instrucciones y toma decisiones - “Memoria” - mantiene valores de variables (usando notas adhesivas) - “Entrada” - proporciona información del mundo exterior - “Salida” - comunica resultados al mundo exterior</p>
+<p>Rota los roles para que todos tengan la oportunidad de experimentar ser la CPU.</p>
+<h2 id="parte-2-ejecución-básica-de-programa">Parte 2: Ejecución básica de programa</h2>
+<h3 id="programa-1-rutina-matutina">Programa 1: Rutina matutina</h3>
+<h4 id="configuración">Configuración</h4>
+<ul>
+<li>Organiza las tarjetas de instrucciones en orden numérico pero separadas</li>
+<li>Marca caminos en el suelo con cinta para mostrar las diferentes rutas de ejecución</li>
+<li>Establece valores de variables en notas adhesivas (ej., “clima = lluvioso”, “temperatura = 10°C”)</li>
+<li>Coloca objetos apropiados en diferentes estaciones</li>
+</ul>
+<h4 id="ejecución">Ejecución</h4>
+<ol type="1">
+<li>El estudiante “CPU” comienza en la tarjeta #1 (INICIO)</li>
+<li>Lee cada instrucción en voz alta y realiza la acción especificada</li>
+<li>Para declaraciones condicionales, consulta con el estudiante “Memoria” para obtener el valor de las variables</li>
+<li>Basándose en la condición, sigue el camino apropiado a la siguiente instrucción</li>
+<li>Si la instrucción actualiza una variable, el estudiante “Memoria” actualiza la nota adhesiva</li>
+<li>El estudiante “Salida” registra o anuncia cualquier acción de salida</li>
+<li>Continúa hasta llegar a la tarjeta FIN</li>
+</ol>
+<h4 id="discusión">Discusión</h4>
+<p>Después de completar el programa: - ¿Cómo fue seguir instrucciones exactamente? - ¿Hubo instrucciones ambiguas? ¿Cómo las resolviste? - ¿Cómo cambió el camino cuando cambiaste los valores de las variables?</p>
+<h2 id="parte-3-programas-más-complejos">Parte 3: Programas más complejos</h2>
+<h3 id="programa-2-comprobando-elegibilidad">Programa 2: Comprobando elegibilidad</h3>
+<p>Crea un programa más complejo que determine si alguien es elegible para una actividad específica basándose en múltiples condiciones:</p>
+<ol type="1">
+<li>INICIO</li>
+<li>ESTABLECER elegible = falso</li>
+<li>OBTENER edad</li>
+<li>SI edad &gt;= 13 ENTONCES ir a tarjeta #5, SI NO ir a tarjeta #11</li>
+<li>OBTENER tiene_permiso</li>
+<li>SI tiene_permiso == verdadero ENTONCES ir a tarjeta #7, SI NO ir a tarjeta #11</li>
+<li>OBTENER nivel_habilidad</li>
+<li>SI nivel_habilidad == “principiante” ENTONCES ir a tarjeta #9</li>
+<li>ESTABLECER elegible = verdadero</li>
+<li>Ir a tarjeta #11</li>
+<li>SI elegible == verdadero ENTONCES ir a tarjeta #12, SI NO ir a tarjeta #14</li>
+<li>MOSTRAR “Puedes unirte a la clase intermedia”</li>
+<li>Ir a tarjeta #15</li>
+<li>MOSTRAR “Lo siento, no puedes unirte a esta clase”</li>
+<li>FIN</li>
+</ol>
+<h4 id="variables-a-seguir">Variables a seguir</h4>
+<ul>
+<li>edad (ej., 10, 15)</li>
+<li>tiene_permiso (verdadero/falso)</li>
+<li>nivel_habilidad (“principiante”, “intermedio”, “avanzado”)</li>
+<li>elegible (verdadero/falso)</li>
+</ul>
+<h4 id="ejecución-1">Ejecución</h4>
+<p>Ejecuta este programa varias veces con diferentes valores de entrada para ver cómo cambia el resultado.</p>
+<h2 id="parte-4-simulación-de-depuración">Parte 4: Simulación de depuración</h2>
+<h3 id="paso-1-introducir-errores">Paso 1: Introducir errores</h3>
+<p>Crea una versión de uno de los programas anteriores con “errores” intencionales como: - Instrucciones faltantes - Verificaciones de condición incorrectas - Bucles infinitos (caminos que nunca llegan al FIN)</p>
+<h3 id="paso-2-depurar-en-grupo">Paso 2: Depurar en grupo</h3>
+<p>Haz que los estudiantes ejecuten el programa e identifiquen dónde salen mal las cosas.</p>
+<h3 id="paso-3-corregir-los-errores">Paso 3: Corregir los errores</h3>
+<p>Discutan cómo corregir cada error y modifiquen las tarjetas de instrucciones en consecuencia.</p>
+<h2 id="parte-5-creando-tus-propios-programas">Parte 5: Creando tus propios programas</h2>
+<h3 id="paso-1-diseño-en-grupo">Paso 1: Diseño en grupo</h3>
+<p>Divide a los estudiantes en pequeños grupos y haz que cada grupo diseñe un programa simple que: - Use al menos dos variables - Incluya al menos dos puntos de decisión (declaraciones SI) - Tenga un comienzo y final claros - Se relacione con un escenario de la vida real</p>
+<h3 id="paso-2-crear-tarjetas-de-instrucciones">Paso 2: Crear tarjetas de instrucciones</h3>
+<p>Cada grupo crea tarjetas de instrucciones para su programa.</p>
+<h3 id="paso-3-ejecutar-los-programas-de-otros">Paso 3: Ejecutar los programas de otros</h3>
+<p>Los grupos intercambian programas y los representan.</p>
+<h3 id="paso-4-retroalimentación">Paso 4: Retroalimentación</h3>
+<p>Los grupos proporcionan retroalimentación sobre los programas de los demás: - ¿El programa era claro de seguir? - ¿Había instrucciones ambiguas? - ¿Había errores o errores lógicos? - ¿Cómo podría mejorarse el programa?</p>
+<h2 id="actividades-de-extensión-5">Actividades de extensión</h2>
+<h3 id="añadir-bucles">1. Añadir bucles</h3>
+<p>Introduce estructuras de bucle simples (bucles MIENTRAS o PARA) en tus programas. Marca un camino de “retorno de bucle” en el suelo.</p>
+<h3 id="múltiples-caminos-de-ejecución">2. Múltiples caminos de ejecución</h3>
+<p>Ejecuta el mismo programa con diferentes valores de entrada y usa cinta de diferentes colores para marcar cada camino de ejecución, creando un mapa visual de todos los posibles caminos a través del programa.</p>
+<h3 id="ejecución-concurrente">3. Ejecución concurrente</h3>
+<p>Simula múltiples “CPUs” ejecutando diferentes partes de un programa simultáneamente, y discute los desafíos de la coordinación.</p>
+<h2 id="preguntas-de-reflexión-3">Preguntas de reflexión</h2>
+<p>En tu cuaderno, responde estas preguntas: 1. ¿Cómo se sintió ser una “computadora humana”? ¿Qué fue desafiante al respecto? 2. ¿Cómo te ayudó trazar los programas a entender la lógica condicional? 3. ¿Te sorprendió alguno de los caminos de ejecución o resultados? 4. ¿Cómo podría ayudarte esta experiencia cuando escribas tus propios programas en el futuro? 5. ¿De qué manera crees que las computadoras reales difieren de nuestra simulación de “computadora humana”?</p>
+<h2 id="conexión-con-la-programación-5">Conexión con la programación</h2>
+<p>El proceso de ejecución paso a paso que experimentaste refleja cómo las computadoras reales procesan el código. Cuando eventualmente programes en una computadora, esta comprensión te ayudará a: - Escribir instrucciones más claras y precisas - Predecir cómo se comportará tu programa con diferentes entradas - Depurar problemas trazando mentalmente la ejecución - Entender cómo la computadora mantiene el estado a través de variables</p>
+<p>Esta simulación también demuestra por qué las computadoras necesitan instrucciones tan precisas—solo pueden seguir exactamente lo que se les dice, sin la capacidad humana de inferir, asumir o entender el contexto.</p>
 </body>
 </html>
