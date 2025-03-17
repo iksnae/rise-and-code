@@ -546,14 +546,34 @@ function buildBook(lang) {
       console.log(`Cover image NOT found at: ${coverPath}`);
     }
     
-    const epubCommand = fs.existsSync(coverPath) 
-      ? `pandoc "${outputMarkdownPath}" -o "${outputEpubPath}" --toc --epub-cover-image="${coverPath}" --metadata title="${getBookTitle(lang)}" --metadata author="Open Source Community"`
-      : `pandoc "${outputMarkdownPath}" -o "${outputEpubPath}" --toc`;
-      
-    console.log(`Executing: ${epubCommand}`);
-    execSync(epubCommand, { stdio: 'inherit' });
-    console.log(`EPUB output written to: ${outputEpubPath}`);
-    result.outputEpub = outputEpub;
+    // Create EPUB with metadata including cover image if available
+    let epubCommand = `pandoc "${outputMarkdownPath}" -o "${outputEpubPath}" --toc`;
+    
+    // Add cover image if it exists
+    if (fs.existsSync(coverPath)) {
+      epubCommand = `pandoc "${outputMarkdownPath}" -o "${outputEpubPath}" --toc --epub-cover-image="${coverPath}" --metadata title="${getBookTitle(lang)}" --metadata author="Open Source Community"`;
+    }
+    
+    try {
+      console.log(`Executing EPUB command: ${epubCommand}`);
+      execSync(epubCommand, { stdio: 'inherit' });
+      console.log(`EPUB output written to: ${outputEpubPath}`);
+      result.outputEpub = outputEpub;
+    } catch (epubError) {
+      console.error(`EPUB conversion failed for ${lang}:`, epubError);
+      // Try again with simpler command
+      try {
+        console.log('Trying simpler EPUB conversion without cover...');
+        const simpleEpubCommand = `pandoc "${outputMarkdownPath}" -o "${outputEpubPath}" --toc`;
+        console.log(`Executing simple EPUB command: ${simpleEpubCommand}`);
+        execSync(simpleEpubCommand, { stdio: 'inherit' });
+        console.log(`EPUB output written to: ${outputEpubPath} (without cover)`);
+        result.outputEpub = outputEpub;
+      } catch (simpleEpubError) {
+        console.error('Simple EPUB conversion failed:', simpleEpubError);
+        result.outputEpub = null;
+      }
+    }
     
     result.success = true;
     return result;
@@ -566,20 +586,45 @@ function buildBook(lang) {
       execSync(`pandoc "${outputMarkdownPath}" -o "${outputPdfPath}" --pdf-engine=xelatex --toc`, { stdio: 'inherit' });
       console.log(`PDF output written to: ${outputPdfPath}`);
       result.outputPdf = outputPdf;
+      
+      // Still try to generate EPUB if PDF works with fallback
+      const outputEpubPath = path.join(config.outputDir, outputEpub);
+      try {
+        console.log('Attempting EPUB generation after PDF fallback...');
+        execSync(`pandoc "${outputMarkdownPath}" -o "${outputEpubPath}" --toc`, { stdio: 'inherit' });
+        console.log(`EPUB output written to: ${outputEpubPath}`);
+        result.outputEpub = outputEpub;
+      } catch (epubError) {
+        console.error(`EPUB conversion failed for ${lang}:`, epubError);
+      }
+      
       result.success = true;
       return result;
     } catch (fallbackError) {
       console.error('PDF conversion failed completely:', fallbackError);
+      
+      // Still try to generate EPUB even if PDF failed
+      const outputEpubPath = path.join(config.outputDir, outputEpub);
+      try {
+        console.log('Attempting EPUB generation even though PDF failed...');
+        execSync(`pandoc "${outputMarkdownPath}" -o "${outputEpubPath}" --toc`, { stdio: 'inherit' });
+        console.log(`EPUB output written to: ${outputEpubPath}`);
+        result.outputEpub = outputEpub;
+        result.success = true; // Consider success if at least EPUB worked
+      } catch (epubError) {
+        console.error(`EPUB conversion failed for ${lang}:`, epubError);
+      }
+      
       result.success = false;
       return result;
-    }
-  } finally {
-    // Clean up temporary template file
-    try {
-      fs.unlinkSync(templatePath);
-      console.log('Cleaned up temporary template file');
-    } catch (error) {
-      console.log('Note: Could not clean up temporary template file');
+    } finally {
+      // Clean up temporary template file
+      try {
+        fs.unlinkSync(templatePath);
+        console.log('Cleaned up temporary template file');
+      } catch (error) {
+        console.log('Note: Could not clean up temporary template file');
+      }
     }
   }
 }
