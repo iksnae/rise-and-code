@@ -40,6 +40,15 @@ jobs:
           
       - name: Create build directory
         run: mkdir -p build
+      
+      - name: Create images directory if it doesn't exist
+        run: |
+          mkdir -p book/images
+          # Check if cover.png exists, if not create a simple one
+          if [ ! -f "book/images/cover.png" ]; then
+            echo "Cover image doesn't exist, creating a simple placeholder"
+            convert -size 1200x1800 xc:white -gravity center -pointsize 72 -annotate 0 "Rise & Code" book/images/cover.png
+          fi
         
       - name: Build book in all available languages
         run: |
@@ -65,6 +74,7 @@ jobs:
           echo ""
           echo "Available languages:"
           find build -name "rise-and-code*.pdf" | sort
+          find build -name "rise-and-code*.epub" | sort
 
       - name: Rename HTML files for GitHub Pages
         run: |
@@ -102,13 +112,19 @@ jobs:
           echo "## Available Languages" >> release_body.md
           echo "" >> release_body.md
           
-          # List all generated PDF files and their languages
-          echo "| Language | PDF | Markdown | HTML |" >> release_body.md
-          echo "|----------|-----|----------|------|" >> release_body.md
+          # List all generated files and their languages
+          echo "| Language | PDF | EPUB | Markdown | HTML |" >> release_body.md
+          echo "|----------|-----|------|----------|------|" >> release_body.md
           
           # English (default) version
           if [ -f "build/rise-and-code.pdf" ]; then
-            echo "| English | [PDF](https://github.com/iksnae/rise-and-code/releases/download/${{ env.VERSION }}/rise-and-code.pdf) | [Markdown](https://github.com/iksnae/rise-and-code/releases/download/${{ env.VERSION }}/rise-and-code.md) | [HTML](https://iksnae.github.io/rise-and-code/) |" >> release_body.md
+            epub_link=""
+            if [ -f "build/rise-and-code.epub" ]; then
+              epub_link="[EPUB](https://github.com/iksnae/rise-and-code/releases/download/${{ env.VERSION }}/rise-and-code.epub)"
+            else
+              epub_link="N/A"
+            fi
+            echo "| English | [PDF](https://github.com/iksnae/rise-and-code/releases/download/${{ env.VERSION }}/rise-and-code.pdf) | ${epub_link} | [Markdown](https://github.com/iksnae/rise-and-code/releases/download/${{ env.VERSION }}/rise-and-code.md) | [HTML](https://iksnae.github.io/rise-and-code/) |" >> release_body.md
           fi
           
           # Additional languages
@@ -131,8 +147,16 @@ jobs:
                 *) langname="$(echo $langcode | tr '[:lower:]' '[:upper:]')" ;;
               esac
               
+              # Check if EPUB exists for this language
+              epub_link=""
+              if [ -f "build/rise-and-code-${langcode}.epub" ]; then
+                epub_link="[EPUB](https://github.com/iksnae/rise-and-code/releases/download/${{ env.VERSION }}/rise-and-code-${langcode}.epub)"
+              else
+                epub_link="N/A"
+              fi
+              
               # Add row to table
-              echo "| $langname | [PDF](https://github.com/iksnae/rise-and-code/releases/download/${{ env.VERSION }}/rise-and-code-$langcode.pdf) | [Markdown](https://github.com/iksnae/rise-and-code/releases/download/${{ env.VERSION }}/rise-and-code-$langcode.md) | [HTML](https://iksnae.github.io/rise-and-code/$langcode/) |" >> release_body.md
+              echo "| $langname | [PDF](https://github.com/iksnae/rise-and-code/releases/download/${{ env.VERSION }}/rise-and-code-${langcode}.pdf) | ${epub_link} | [Markdown](https://github.com/iksnae/rise-and-code/releases/download/${{ env.VERSION }}/rise-and-code-${langcode}.md) | [HTML](https://iksnae.github.io/rise-and-code/${langcode}/) |" >> release_body.md
             fi
           done
           
