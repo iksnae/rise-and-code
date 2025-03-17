@@ -10,7 +10,7 @@ const translationStatus = {
     name: "Spanish",
     code: "es",
     translators: ["Claude AI"],
-    lastUpdated: "2025-03-16",
+    lastUpdated: "2025-03-17",
     chapters: {
       "chapter-01": {
         name: "Introduction to Programming",
@@ -47,9 +47,49 @@ const translationStatus = {
           lastUpdated: "2025-03-16"
         },
         completionPercentage: 100
+      },
+      "chapter-02": {
+        name: "The Human Compiler - Understanding Logic and Structure",
+        sections: {
+          "01-basic-logic-and-decision-making": {
+            status: "complete",
+            lastUpdated: "2025-03-17"
+          },
+          "02-conditional-statements-and-flowcharts": {
+            status: "complete",
+            lastUpdated: "2025-03-17"
+          },
+          "03-pseudo-coding": {
+            status: "complete",
+            lastUpdated: "2025-03-17"
+          }
+        },
+        activities: {
+          "01-truth-tables-and-logic-puzzles": {
+            status: "complete",
+            lastUpdated: "2025-03-17"
+          },
+          "02-creating-flowcharts": {
+            status: "complete",
+            lastUpdated: "2025-03-17"
+          },
+          "03-translating-to-pseudocode": {
+            status: "complete",
+            lastUpdated: "2025-03-17"
+          },
+          "04-human-computer-simulation": {
+            status: "complete",
+            lastUpdated: "2025-03-17"
+          }
+        },
+        "chapter-summary": {
+          status: "complete",
+          lastUpdated: "2025-03-17"
+        },
+        completionPercentage: 100
       }
     },
-    overallCompletionPercentage: 8.33 // Assuming 12 chapters total (1/12 * 100)
+    overallCompletionPercentage: 16.67 // Assuming 12 chapters total (2/12 * 100)
   }
 };
 
