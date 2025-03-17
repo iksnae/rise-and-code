@@ -301,6 +301,11 @@ function buildBook(lang) {
   const outputPdf = lang === defaultLanguage 
     ? 'rise-and-code.pdf' 
     : `rise-and-code-${lang}.pdf`;
+
+  // Define EPUB output filename
+  const outputEpub = lang === defaultLanguage 
+    ? 'rise-and-code.epub' 
+    : `rise-and-code-${lang}.epub`;
   
   // Get the appropriate title and subtitle based on language
   const bookTitle = getBookTitle(lang);
@@ -434,12 +439,23 @@ function buildBook(lang) {
   // Create LaTeX template with version information
   const templatePath = createLatexTemplate(lang);
   
+  // Results object to track success of different formats
+  const result = {
+    lang,
+    outputMarkdown,
+    outputPdf: null,
+    outputHtml: null,
+    outputEpub: null,
+    success: false
+  };
+
   // Convert to PDF
   try {
     console.log(`Converting ${lang} version to PDF...`);
     // Call pandoc with custom template
     execSync(`pandoc "${outputMarkdownPath}" -o "${path.join(config.outputDir, outputPdf)}" --pdf-engine=xelatex --template="${templatePath}" --toc`, { stdio: 'inherit' });
     console.log(`PDF output written to: ${path.join(config.outputDir, outputPdf)}`);
+    result.outputPdf = outputPdf;
     
     // Generate HTML file from Markdown
     const outputHtml = lang === defaultLanguage 
@@ -450,14 +466,33 @@ function buildBook(lang) {
     console.log(`Generating HTML file for ${lang}...`);
     execSync(`pandoc "${outputMarkdownPath}" -o "${outputHtmlPath}" --toc`, { stdio: 'inherit' });
     console.log(`HTML output written to: ${outputHtmlPath}`);
+    result.outputHtml = outputHtml;
     
-    return {
-      lang,
-      outputMarkdown,
-      outputPdf,
-      outputHtml,
-      success: true
-    };
+    // Generate EPUB file from Markdown
+    const outputEpubPath = path.join(config.outputDir, outputEpub);
+    console.log(`Generating EPUB file for ${lang}...`);
+    
+    // Create EPUB with metadata including cover image if available
+    const epubCommand = `pandoc "${outputMarkdownPath}" -o "${outputEpubPath}" --toc --epub-cover-image="${path.join(config.bookDir, 'images/cover.png')}" --metadata title="${bookTitle}" --metadata author="Open Source Community"`;
+    
+    try {
+      execSync(epubCommand, { stdio: 'inherit' });
+      console.log(`EPUB output written to: ${outputEpubPath}`);
+      result.outputEpub = outputEpub;
+    } catch (epubError) {
+      console.error(`EPUB conversion failed for ${lang}:`, epubError);
+      // Try again with simpler command
+      try {
+        execSync(`pandoc "${outputMarkdownPath}" -o "${outputEpubPath}" --toc`, { stdio: 'inherit' });
+        console.log(`EPUB output written to: ${outputEpubPath} (without cover)`);
+        result.outputEpub = outputEpub;
+      } catch (simpleEpubError) {
+        console.error('Simple EPUB conversion failed:', simpleEpubError);
+      }
+    }
+    
+    result.success = true;
+    return result;
   } catch (error) {
     console.error(`PDF conversion failed for ${lang}:`, error);
     // Try again without custom template
@@ -465,12 +500,20 @@ function buildBook(lang) {
       console.log('Trying PDF conversion without custom template...');
       execSync(`pandoc "${outputMarkdownPath}" -o "${path.join(config.outputDir, outputPdf)}" --pdf-engine=xelatex --toc`, { stdio: 'inherit' });
       console.log(`PDF output written to: ${path.join(config.outputDir, outputPdf)}`);
-      return {
-        lang,
-        outputMarkdown,
-        outputPdf,
-        success: true
-      };
+      result.outputPdf = outputPdf;
+      
+      // Still try to generate EPUB if PDF works with fallback
+      const outputEpubPath = path.join(config.outputDir, outputEpub);
+      try {
+        execSync(`pandoc "${outputMarkdownPath}" -o "${outputEpubPath}" --toc`, { stdio: 'inherit' });
+        console.log(`EPUB output written to: ${outputEpubPath}`);
+        result.outputEpub = outputEpub;
+      } catch (epubError) {
+        console.error(`EPUB conversion failed for ${lang}:`, epubError);
+      }
+      
+      result.success = true;
+      return result;
     } catch (fallbackError) {
       console.error('PDF conversion failed completely:', fallbackError);
       // Create a placeholder PDF with an error message
@@ -478,15 +521,21 @@ function buildBook(lang) {
         `# Build Error for ${lang} Version\n\nThe PDF generation process failed. Please check the build logs.`);
       try {
         execSync(`pandoc "${path.join(config.outputDir, 'placeholder.md')}" -o "${path.join(config.outputDir, outputPdf)}" --pdf-engine=xelatex`, { stdio: 'inherit' });
+        
+        // Still try to generate EPUB even if PDF failed
+        const outputEpubPath = path.join(config.outputDir, outputEpub);
+        try {
+          execSync(`pandoc "${outputMarkdownPath}" -o "${outputEpubPath}" --toc`, { stdio: 'inherit' });
+          console.log(`EPUB output written to: ${outputEpubPath}`);
+          result.outputEpub = outputEpub;
+          result.success = true; // Consider success if at least EPUB worked
+        } catch (epubError) {
+          console.error(`EPUB conversion failed for ${lang}:`, epubError);
+        }
       } catch (placeholderError) {
         console.error('Even placeholder PDF failed:', placeholderError);
       }
-      return {
-        lang,
-        outputMarkdown,
-        outputPdf: null,
-        success: false
-      };
+      return result;
     }
   } finally {
     // Clean up temporary template file

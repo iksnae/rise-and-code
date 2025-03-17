@@ -41,12 +41,26 @@ jobs:
       - name: Create build directory
         run: mkdir -p build
       
-      - name: Create images directory if it doesn't exist
+      - name: Set up cover image for EPUB
         run: |
           mkdir -p book/images
-          # Check if cover.png exists, if not create a simple one
-          if [ ! -f "book/images/cover.png" ]; then
-            echo "Cover image doesn't exist, creating a simple placeholder"
+          # First check if cover image exists in art directory and copy it
+          if [ -f "art/cover.png" ]; then
+            echo "Using cover image from art directory"
+            cp art/cover.png book/images/cover.png
+          elif [ -f "art/cover.jpg" ]; then
+            echo "Using cover image from art directory (JPG format)"
+            cp art/cover.jpg book/images/cover.png
+          # Check for other possible cover image files in art directory
+          elif [ -f "art/book-cover.png" ]; then
+            echo "Using book-cover.png from art directory"
+            cp art/book-cover.png book/images/cover.png
+          elif [ -f "art/book-cover.jpg" ]; then
+            echo "Using book-cover.jpg from art directory"
+            cp art/book-cover.jpg book/images/cover.png
+          # If no image found in art directory, create a placeholder
+          elif [ ! -f "book/images/cover.png" ]; then
+            echo "No cover image found in art directory, creating a placeholder"
             convert -size 1200x1800 xc:white -gravity center -pointsize 72 -annotate 0 "Rise & Code" book/images/cover.png
           fi
         
@@ -171,8 +185,7 @@ jobs:
           RELEASE_BODY="${RELEASE_BODY//'%'/'%25'}"
           RELEASE_BODY="${RELEASE_BODY//$'\n'/'%0A'}"
           RELEASE_BODY="${RELEASE_BODY//$'\r'/'%0D'}"
-          echo "::set-output name=body::$RELEASE_BODY"
-          cat release_body.md
+          echo "body=$RELEASE_BODY" >> $GITHUB_OUTPUT
 
       - name: Create GitHub Release
         id: create_release
