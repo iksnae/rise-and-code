@@ -63,12 +63,25 @@ function getChapterDirs(lang) {
     
   if (!fs.existsSync(langPath)) {
     console.error(`Error: Language directory for '${lang}' not found at ${langPath}`);
+    console.error(`Directory contents at ${config.bookDir}:`);
+    try {
+      fs.readdirSync(config.bookDir).forEach(item => {
+        console.error(`  - ${item}`);
+      });
+    } catch (e) {
+      console.error(`Could not read book directory: ${e.message}`);
+    }
     return [];
   }
   
   // Get chapters from the language directory
   console.log(`Looking for chapters in ${langPath}`);
+  console.log(`Directory contents at ${langPath}:`);
   const dirContents = fs.readdirSync(langPath);
+  dirContents.forEach(item => {
+    console.log(`  - ${item}`);
+  });
+  
   const chapterDirs = dirContents
     .filter(item => item.startsWith('chapter-'))
     .sort((a, b) => {
@@ -79,6 +92,20 @@ function getChapterDirs(lang) {
     .map(dir => path.join(langPath, dir));
   
   console.log(`Found ${chapterDirs.length} chapters for language ${lang}`);
+  console.log(`Chapter directories:`);
+  chapterDirs.forEach(dir => {
+    console.log(`  - ${dir}`);
+    try {
+      if (fs.existsSync(dir)) {
+        // Show what's in each chapter directory
+        const chapterContents = fs.readdirSync(dir);
+        console.log(`    Contains: ${chapterContents.join(', ')}`);
+      }
+    } catch (e) {
+      console.error(`Error reading chapter directory ${dir}: ${e.message}`);
+    }
+  });
+  
   return chapterDirs;
 }
 
@@ -512,8 +539,15 @@ function buildBook(lang) {
     
     // Add cover image if it exists
     const coverPath = path.join(config.bookDir, 'images/cover.png');
+    console.log(`Checking for cover image at: ${coverPath}`);
+    if (fs.existsSync(coverPath)) {
+      console.log(`Cover image found: ${coverPath}`);
+    } else {
+      console.log(`Cover image NOT found at: ${coverPath}`);
+    }
+    
     const epubCommand = fs.existsSync(coverPath) 
-      ? `pandoc "${outputMarkdownPath}" -o "${outputEpubPath}" --toc --epub-cover-image="${coverPath}"`
+      ? `pandoc "${outputMarkdownPath}" -o "${outputEpubPath}" --toc --epub-cover-image="${coverPath}" --metadata title="${getBookTitle(lang)}" --metadata author="Open Source Community"`
       : `pandoc "${outputMarkdownPath}" -o "${outputEpubPath}" --toc`;
       
     console.log(`Executing: ${epubCommand}`);

@@ -76,7 +76,28 @@ jobs:
           echo ""
           echo "Available languages:"
           find build -name "rise-and-code*.pdf" | sort
+          echo ""
+          echo "Available EPUB files:"
           find build -name "rise-and-code*.epub" | sort
+          echo ""
+          echo "File sizes to ensure they're not empty:"
+          du -h build/rise-and-code*.pdf build/rise-and-code*.epub 2>/dev/null || echo "Some files not found"
+          
+      - name: Verify EPUB Files
+        run: |
+          # Check for English EPUB
+          if [ -f "build/rise-and-code.epub" ] && [ -s "build/rise-and-code.epub" ]; then
+            echo "English EPUB exists and has content"
+          else
+            echo "WARNING: English EPUB is missing or empty"
+          fi
+          
+          # Check for Spanish EPUB
+          if [ -f "build/rise-and-code-es.epub" ] && [ -s "build/rise-and-code-es.epub" ]; then
+            echo "Spanish EPUB exists and has content"
+          else
+            echo "WARNING: Spanish EPUB is missing or empty"
+          fi
 
       - name: Rename HTML files for GitHub Pages
         run: |
@@ -120,10 +141,12 @@ jobs:
           
           # English (default) version
           if [ -f "build/rise-and-code.pdf" ]; then
-            epub_link=""
-            if [ -f "build/rise-and-code.epub" ]; then
+            # Check for EPUB and ensure it's not empty
+            if [ -f "build/rise-and-code.epub" ] && [ -s "build/rise-and-code.epub" ]; then
+              echo "Including English EPUB in release"
               epub_link="[EPUB](https://github.com/iksnae/rise-and-code/releases/download/${{ env.VERSION }}/rise-and-code.epub)"
             else
+              echo "WARNING: English EPUB is missing or empty, marking as N/A"
               epub_link="N/A"
             fi
             echo "| English | [PDF](https://github.com/iksnae/rise-and-code/releases/download/${{ env.VERSION }}/rise-and-code.pdf) | ${epub_link} | [Markdown](https://github.com/iksnae/rise-and-code/releases/download/${{ env.VERSION }}/rise-and-code.md) | [HTML](https://iksnae.github.io/rise-and-code/) |" >> release_body.md
@@ -149,11 +172,13 @@ jobs:
                 *) langname="$(echo $langcode | tr '[:lower:]' '[:upper:]')" ;;
               esac
               
-              # Check if EPUB exists for this language
-              epub_link=""
-              if [ -f "build/rise-and-code-${langcode}.epub" ]; then
+              # Check if EPUB exists for this language and ensure it's not empty
+              epub_file="build/rise-and-code-${langcode}.epub"
+              if [ -f "$epub_file" ] && [ -s "$epub_file" ]; then
+                echo "Including ${langname} EPUB in release"
                 epub_link="[EPUB](https://github.com/iksnae/rise-and-code/releases/download/${{ env.VERSION }}/rise-and-code-${langcode}.epub)"
               else
+                echo "WARNING: ${langname} EPUB is missing or empty, marking as N/A"
                 epub_link="N/A"
               fi
               
