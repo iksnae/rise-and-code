@@ -38,21 +38,42 @@ const config = {
 
 // Get available language directories
 function getAvailableLanguages() {
-  // First check for dedicated language directories
+  console.log('Detecting available languages...');
   const langDirs = [];
   
   // English (default) is always available in the root
   langDirs.push(defaultLanguage);
+  console.log(`Added default language: ${defaultLanguage}`);
   
-  // Check for additional language directories (e.g., es, fr, etc.)
-  if (fs.existsSync(path.join(config.bookDir, 'es'))) {
-    langDirs.push('es');
+  // Check for dedicated language directories
+  try {
+    const bookContents = fs.readdirSync(config.bookDir);
+    
+    // Look for specific language directories
+    if (fs.existsSync(path.join(config.bookDir, 'es'))) {
+      console.log('Found Spanish (es) language directory');
+      langDirs.push('es');
+    }
+    
+    // Check for other language directories (two letter codes)
+    bookContents.forEach(item => {
+      const fullPath = path.join(config.bookDir, item);
+      
+      // Check if it's a directory and looks like a language code (2 letters)
+      if (fs.statSync(fullPath).isDirectory() && 
+          item.match(/^[a-z]{2}$/) && 
+          item !== 'en' && // Skip default language
+          !langDirs.includes(item)) { // Avoid duplicates
+        
+        console.log(`Found potential language directory: ${item}`);
+        langDirs.push(item);
+      }
+    });
+    
+    console.log(`Detected languages: ${langDirs.join(', ')}`);
+  } catch (error) {
+    console.error('Error detecting language directories:', error);
   }
-  
-  // Add more language checks as needed
-  // if (fs.existsSync(path.join(config.bookDir, 'fr'))) {
-  //   langDirs.push('fr');
-  // }
   
   return langDirs;
 }
@@ -69,16 +90,36 @@ if (!fs.existsSync(config.templateDir)) {
 
 // Get chapter directories sorted by chapter number for a specific language
 function getChapterDirs(lang) {
+  // Handle different directory structures based on language
   const langPath = lang === defaultLanguage ? 
     config.bookDir : 
     path.join(config.bookDir, lang);
     
   if (!fs.existsSync(langPath)) {
-    console.error(`Error: Language directory for '${lang}' not found`);
+    console.error(`Error: Language directory for '${lang}' not found at ${langPath}`);
+    console.log(`Checking if chapters exist directly in book directory for language: ${lang}`);
+    
+    // Fallback to check if chapters exist in the book directory (original approach)
+    const chapterDirs = fs.readdirSync(config.bookDir)
+      .filter(item => item.startsWith('chapter-'))
+      .sort((a, b) => {
+        const numA = parseInt(a.split('-')[1]);
+        const numB = parseInt(b.split('-')[1]);
+        return numA - numB;
+      })
+      .map(dir => path.join(config.bookDir, dir));
+      
+    if (chapterDirs.length > 0) {
+      console.log(`Found ${chapterDirs.length} chapters directly in book directory`);
+      return chapterDirs;
+    }
+    
     return [];
   }
   
-  return fs.readdirSync(langPath)
+  // Get chapters from the language directory
+  const dirContents = fs.readdirSync(langPath);
+  const chapterDirs = dirContents
     .filter(item => item.startsWith('chapter-'))
     .sort((a, b) => {
       const numA = parseInt(a.split('-')[1]);
@@ -86,6 +127,15 @@ function getChapterDirs(lang) {
       return numA - numB;
     })
     .map(dir => path.join(langPath, dir));
+  
+  console.log(`Found ${chapterDirs.length} chapters for language ${lang} in ${langPath}`);
+  
+  // If no chapter directories found, this might be a problem
+  if (chapterDirs.length === 0) {
+    console.warn(`WARNING: No chapter directories found for ${lang} in ${langPath}`);
+  }
+  
+  return chapterDirs;
 }
 
 // Read markdown file content
@@ -333,6 +383,8 @@ function buildBook(lang) {
     console.log('Adding title page...');
     output += readMarkdownFile(titlePagePath);
     output += '\n\n\\newpage\n\n';
+  } else {
+    console.log(`Title page not found at ${titlePagePath}`);
   }
   
   // Add a explicit section break before first chapter to ensure
@@ -353,6 +405,20 @@ function buildBook(lang) {
   
   // Process each chapter
   const chapterDirs = getChapterDirs(lang);
+  console.log(`Processing ${chapterDirs.length} chapters for ${lang}`);
+  
+  // Exit if no chapters found
+  if (chapterDirs.length === 0) {
+    console.error(`ERROR: No chapters found for language ${lang}. Cannot build book.`);
+    return {
+      lang,
+      outputMarkdown: null,
+      outputPdf: null,
+      outputHtml: null,
+      outputEpub: null,
+      success: false
+    };
+  }
   
   for (const chapterDir of chapterDirs) {
     console.log(`Processing ${path.basename(chapterDir)}...`);
@@ -362,8 +428,12 @@ function buildBook(lang) {
     
     // Add chapter README
     const readmePath = path.join(chapterDir, 'README.md');
-    output += readMarkdownFile(readmePath);
-    output += '\n\n';
+    if (fs.existsSync(readmePath)) {
+      output += readMarkdownFile(readmePath);
+      output += '\n\n';
+    } else {
+      console.log(`README not found at ${readmePath}`);
+    }
     
     // Get sections directory
     const sectionsDir = path.join(chapterDir, 'sections');
@@ -373,6 +443,8 @@ function buildBook(lang) {
       const sectionFiles = fs.readdirSync(sectionsDir)
         .filter(file => file.endsWith('.md'))
         .sort(sortFilesByNumber);
+      
+      console.log(`  Adding ${sectionFiles.length} sections`);
       
       for (const sectionFile of sectionFiles) {
         console.log(`  Adding section: ${sectionFile}`);
@@ -384,6 +456,8 @@ function buildBook(lang) {
         output += '## ' + sectionFile.replace(/^\d+-/,'').replace(/-/g, ' ').replace(/\.md$/,'') + '\n\n';
         output += sectionContent;
       }
+    } else {
+      console.log(`  No sections directory found at ${sectionsDir}`);
     }
     
     // Get activities directory
@@ -399,6 +473,8 @@ function buildBook(lang) {
         .filter(file => file.endsWith('.md'))
         .sort(sortFilesByNumber);
       
+      console.log(`  Adding ${activityFiles.length} activities`);
+      
       for (const activityFile of activityFiles) {
         console.log(`  Adding activity: ${activityFile}`);
         const activityPath = path.join(activitiesDir, activityFile);
@@ -409,6 +485,8 @@ function buildBook(lang) {
         output += '### ' + activityFile.replace(/^\d+-/,'').replace(/-/g, ' ').replace(/\.md$/,'') + '\n\n';
         output += activityContent;
       }
+    } else {
+      console.log(`  No activities directory found at ${activitiesDir}`);
     }
     
     // IMPROVEMENT: Add scene summaries from artifacts if they exist
@@ -428,6 +506,8 @@ function buildBook(lang) {
       output += '\n\n\\newpage\n\n';
       output += '## Chapter Summary\n\n';
       output += readMarkdownFile(summaryPath);
+    } else {
+      console.log(`  No chapter summary found at ${summaryPath}`);
     }
   }
   
@@ -435,9 +515,6 @@ function buildBook(lang) {
   const outputMarkdownPath = path.join(config.outputDir, outputMarkdown);
   fs.writeFileSync(outputMarkdownPath, output);
   console.log(`Markdown output written to: ${outputMarkdownPath}`);
-  
-  // Create LaTeX template with version information
-  const templatePath = createLatexTemplate(lang);
   
   // Results object to track success of different formats
   const result = {
@@ -449,52 +526,66 @@ function buildBook(lang) {
     success: false
   };
 
-  // Convert to PDF
+  // Create LaTeX template with version information
+  const templatePath = createLatexTemplate(lang);
+  
+  // First focus on generating the PDF properly
   try {
-    console.log(`Converting ${lang} version to PDF...`);
-    // Call pandoc with custom template
-    execSync(`pandoc "${outputMarkdownPath}" -o "${path.join(config.outputDir, outputPdf)}" --pdf-engine=xelatex --template="${templatePath}" --toc`, { stdio: 'inherit' });
+    console.log(`\nConverting ${lang} version to PDF...`);
+    // Call pandoc with custom template for PDF generation
+    const pdfCommand = `pandoc "${outputMarkdownPath}" -o "${path.join(config.outputDir, outputPdf)}" --pdf-engine=xelatex --template="${templatePath}" --toc`;
+    console.log(`Executing PDF command: ${pdfCommand}`);
+    
+    execSync(pdfCommand, { stdio: 'inherit' });
     console.log(`PDF output written to: ${path.join(config.outputDir, outputPdf)}`);
     result.outputPdf = outputPdf;
     
-    // Generate HTML file from Markdown
+    // Generate HTML file after PDF success
     const outputHtml = lang === defaultLanguage 
       ? 'rise-and-code.html' 
       : `rise-and-code-${lang}.html`;
       
     const outputHtmlPath = path.join(config.outputDir, outputHtml);
-    console.log(`Generating HTML file for ${lang}...`);
+    console.log(`\nGenerating HTML file for ${lang}...`);
     execSync(`pandoc "${outputMarkdownPath}" -o "${outputHtmlPath}" --toc`, { stdio: 'inherit' });
     console.log(`HTML output written to: ${outputHtmlPath}`);
     result.outputHtml = outputHtml;
     
-    // Generate EPUB file from Markdown
+    // Now that PDF and HTML are done, try EPUB generation
+    console.log(`\nGenerating EPUB file for ${lang}...`);
     const outputEpubPath = path.join(config.outputDir, outputEpub);
-    console.log(`Generating EPUB file for ${lang}...`);
     
-    // Create EPUB with metadata including cover image if available
-    const epubCommand = `pandoc "${outputMarkdownPath}" -o "${outputEpubPath}" --toc --epub-cover-image="${path.join(config.bookDir, 'images/cover.png')}" --metadata title="${bookTitle}" --metadata author="Open Source Community"`;
-    
-    try {
-      execSync(epubCommand, { stdio: 'inherit' });
-      console.log(`EPUB output written to: ${outputEpubPath}`);
-      result.outputEpub = outputEpub;
-    } catch (epubError) {
-      console.error(`EPUB conversion failed for ${lang}:`, epubError);
-      // Try again with simpler command
+    // Wait a moment before generating EPUB to avoid resource conflicts
+    setTimeout(() => {
       try {
-        execSync(`pandoc "${outputMarkdownPath}" -o "${outputEpubPath}" --toc`, { stdio: 'inherit' });
-        console.log(`EPUB output written to: ${outputEpubPath} (without cover)`);
+        // Create EPUB with metadata including cover image if available
+        const epubCommand = `pandoc "${outputMarkdownPath}" -o "${outputEpubPath}" --toc`;
+        
+        // Add cover image if it exists
+        const coverPath = path.join(config.bookDir, 'images/cover.png');
+        let finalEpubCommand = epubCommand;
+        
+        if (fs.existsSync(coverPath)) {
+          finalEpubCommand = `${epubCommand} --epub-cover-image="${coverPath}" --metadata title="${bookTitle}" --metadata author="Open Source Community"`;
+          console.log(`Using cover image from: ${coverPath}`);
+        } else {
+          console.log('No cover image found, generating EPUB without cover');
+        }
+        
+        console.log(`Executing EPUB command: ${finalEpubCommand}`);
+        execSync(finalEpubCommand, { stdio: 'inherit' });
+        console.log(`EPUB output written to: ${outputEpubPath}`);
         result.outputEpub = outputEpub;
-      } catch (simpleEpubError) {
-        console.error('Simple EPUB conversion failed:', simpleEpubError);
+      } catch (epubError) {
+        console.error(`EPUB conversion failed for ${lang}:`, epubError);
+        console.log('Continuing without EPUB format');
       }
-    }
+    }, 1000); // Wait 1 second before generating EPUB
     
     result.success = true;
-    return result;
+    
   } catch (error) {
-    console.error(`PDF conversion failed for ${lang}:`, error);
+    console.error(`\nPDF conversion failed for ${lang}:`, error);
     // Try again without custom template
     try {
       console.log('Trying PDF conversion without custom template...');
@@ -502,40 +593,21 @@ function buildBook(lang) {
       console.log(`PDF output written to: ${path.join(config.outputDir, outputPdf)}`);
       result.outputPdf = outputPdf;
       
-      // Still try to generate EPUB if PDF works with fallback
-      const outputEpubPath = path.join(config.outputDir, outputEpub);
-      try {
-        execSync(`pandoc "${outputMarkdownPath}" -o "${outputEpubPath}" --toc`, { stdio: 'inherit' });
-        console.log(`EPUB output written to: ${outputEpubPath}`);
-        result.outputEpub = outputEpub;
-      } catch (epubError) {
-        console.error(`EPUB conversion failed for ${lang}:`, epubError);
-      }
-      
+      // Mark as success if we at least got a PDF
       result.success = true;
-      return result;
+      
     } catch (fallbackError) {
       console.error('PDF conversion failed completely:', fallbackError);
+      console.log('Creating placeholder PDF with error message');
+      
       // Create a placeholder PDF with an error message
       fs.writeFileSync(path.join(config.outputDir, 'placeholder.md'), 
         `# Build Error for ${lang} Version\n\nThe PDF generation process failed. Please check the build logs.`);
       try {
         execSync(`pandoc "${path.join(config.outputDir, 'placeholder.md')}" -o "${path.join(config.outputDir, outputPdf)}" --pdf-engine=xelatex`, { stdio: 'inherit' });
-        
-        // Still try to generate EPUB even if PDF failed
-        const outputEpubPath = path.join(config.outputDir, outputEpub);
-        try {
-          execSync(`pandoc "${outputMarkdownPath}" -o "${outputEpubPath}" --toc`, { stdio: 'inherit' });
-          console.log(`EPUB output written to: ${outputEpubPath}`);
-          result.outputEpub = outputEpub;
-          result.success = true; // Consider success if at least EPUB worked
-        } catch (epubError) {
-          console.error(`EPUB conversion failed for ${lang}:`, epubError);
-        }
       } catch (placeholderError) {
         console.error('Even placeholder PDF failed:', placeholderError);
       }
-      return result;
     }
   } finally {
     // Clean up temporary template file
@@ -546,6 +618,8 @@ function buildBook(lang) {
       console.log('Note: Could not clean up temporary template file');
     }
   }
+  
+  return result;
 }
 
 // Main execution
