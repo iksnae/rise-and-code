@@ -12,7 +12,7 @@ language: "en"
 # Rise & Code
 ## A Programming Book for Everyone
 
-### Version: v2025.03.17-0049
+### Version: v2025.03.17-0101
 ### Generated on: March 17, 2025
 
 This book is designed to teach programming, software development, and logical problem-solving to people without access to computers.
