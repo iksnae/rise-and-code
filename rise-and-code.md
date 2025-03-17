@@ -41,7 +41,7 @@ This book is released under the Creative Commons Attribution-NonCommercial-Share
 # Rise & Code
 ## A Programming Book for Everyone
 
-### Version: v2025.03.17-0139
+### Version: v2025.03.17-0149
 ### Generated on: March 17, 2025
 
 This book is designed to teach programming, software development, and logical problem-solving to people without access to computers.
