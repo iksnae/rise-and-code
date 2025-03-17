@@ -478,20 +478,68 @@ function buildBook(lang) {
     const chapterName = path.basename(chapterDir);
     console.log(`Processing chapter: ${chapterName}`);
     
-    // Read the chapter's main markdown file if it exists
-    const chapterFilePath = path.join(chapterDir, 'index.md');
+    // First try to read the chapter's index.md file
+    const indexFilePath = path.join(chapterDir, 'index.md');
     
-    if (fs.existsSync(chapterFilePath)) {
-      console.log(`  Adding content from ${chapterFilePath}`);
-      output += readMarkdownFile(chapterFilePath);
+    if (fs.existsSync(indexFilePath)) {
+      console.log(`  Adding content from ${indexFilePath}`);
+      output += readMarkdownFile(indexFilePath);
       output += '\n\n';
     } else {
-      console.log(`  No index.md found in ${chapterDir}`);
+      // Fall back to README.md if index.md doesn't exist
+      const readmeFilePath = path.join(chapterDir, 'README.md');
+      if (fs.existsSync(readmeFilePath)) {
+        console.log(`  Adding content from ${readmeFilePath}`);
+        output += readMarkdownFile(readmeFilePath);
+        output += '\n\n';
+      } else {
+        console.log(`  No index.md or README.md found in ${chapterDir}`);
+      }
+    }
+    
+    // Check for chapter-summary.md
+    const summaryFilePath = path.join(chapterDir, 'chapter-summary.md');
+    if (fs.existsSync(summaryFilePath)) {
+      console.log(`  Adding chapter summary from ${summaryFilePath}`);
+      output += readMarkdownFile(summaryFilePath);
+      output += '\n\n';
+    }
+    
+    // Process sections directory if it exists
+    const sectionsDir = path.join(chapterDir, 'sections');
+    if (fs.existsSync(sectionsDir)) {
+      console.log(`  Processing sections from ${sectionsDir}`);
+      const sectionFiles = fs.readdirSync(sectionsDir)
+        .filter(file => file.endsWith('.md'))
+        .sort(sortFilesByNumber);
+      
+      for (const file of sectionFiles) {
+        console.log(`    Adding section content from ${file}`);
+        const filePath = path.join(sectionsDir, file);
+        output += readMarkdownFile(filePath);
+        output += '\n\n';
+      }
+    }
+    
+    // Process activities directory if it exists
+    const activitiesDir = path.join(chapterDir, 'activities');
+    if (fs.existsSync(activitiesDir)) {
+      console.log(`  Processing activities from ${activitiesDir}`);
+      const activityFiles = fs.readdirSync(activitiesDir)
+        .filter(file => file.endsWith('.md'))
+        .sort(sortFilesByNumber);
+      
+      for (const file of activityFiles) {
+        console.log(`    Adding activity content from ${file}`);
+        const filePath = path.join(activitiesDir, file);
+        output += readMarkdownFile(filePath);
+        output += '\n\n';
+      }
     }
     
     // Process any numbered markdown files in sequence
     const chapterFiles = fs.readdirSync(chapterDir)
-      .filter(file => file.match(/^\d+.*\.md$/) && file !== 'index.md')
+      .filter(file => file.match(/^\d+.*\.md$/) && file !== 'index.md' && file !== 'README.md' && file !== 'chapter-summary.md')
       .sort(sortFilesByNumber);
     
     console.log(`  Found ${chapterFiles.length} additional content files`);
@@ -565,7 +613,22 @@ function buildBook(lang) {
   // Write the collated markdown to the output file
   const markdownOutputPath = path.join(config.outputDir, outputMarkdown);
   console.log(`Writing markdown to ${markdownOutputPath}`);
-  fs.writeFileSync(markdownOutputPath, output);
+  
+  // Write file with explicit UTF-8 encoding and synchronously to ensure completion
+  try {
+    fs.writeFileSync(markdownOutputPath, output, { encoding: 'utf8' });
+    
+    // Verify file was written correctly
+    const stats = fs.statSync(markdownOutputPath);
+    console.log(`Markdown file size: ${(stats.size / 1024 / 1024).toFixed(2)} MB`);
+    
+    if (stats.size === 0) {
+      throw new Error('Output file has zero size!');
+    }
+  } catch (error) {
+    console.error(`Error writing markdown file: ${error.message}`);
+    process.exit(1);
+  }
   
   // Results to track build success
   const results = {
@@ -582,6 +645,7 @@ function buildBook(lang) {
   const tempTemplatePath = createLatexTemplate(lang);
   
   try {
+    // Use a simplified pandoc command without --wrap=none for PDF generation
     const pdfCommand = `pandoc "${markdownOutputPath}" -o "${pdfOutputPath}" --from=markdown --template="${tempTemplatePath}" --pdf-engine=xelatex --toc`;
     console.log(`Executing: ${pdfCommand}`);
     execSync(pdfCommand, { stdio: 'inherit' });
@@ -589,6 +653,18 @@ function buildBook(lang) {
     results.outputPdf = pdfOutputPath;
   } catch (error) {
     console.error(`Error generating PDF: ${error}`);
+    // Try a fallback approach for PDF generation
+    try {
+      console.log('Trying fallback PDF generation...');
+      // Use a more basic command without a custom template
+      const fallbackCommand = `pandoc "${markdownOutputPath}" -o "${pdfOutputPath}" --pdf-engine=xelatex --toc`;
+      console.log(`Executing: ${fallbackCommand}`);
+      execSync(fallbackCommand, { stdio: 'inherit' });
+      console.log(`PDF generated successfully with fallback: ${pdfOutputPath}`);
+      results.outputPdf = pdfOutputPath;
+    } catch (fallbackError) {
+      console.error(`Fallback PDF generation also failed: ${fallbackError}`);
+    }
   }
   
   // Generate an HTML file
@@ -606,7 +682,7 @@ function buildBook(lang) {
     }
     
     console.log(`Generating HTML: ${htmlOutputPath}`);
-    const htmlCommand = `pandoc "${markdownOutputPath}" -o "${htmlOutputPath}" --standalone --toc --metadata title="${bookTitle}" --metadata=lang:${lang}`;
+    const htmlCommand = `pandoc "${markdownOutputPath}" -o "${htmlOutputPath}" --standalone --toc --metadata title="${bookTitle}" --metadata=lang:${lang} --wrap=none`;
     console.log(`Executing: ${htmlCommand}`);
     execSync(htmlCommand, { stdio: 'inherit' });
     console.log(`HTML generated successfully: ${htmlOutputPath}`);
@@ -626,9 +702,9 @@ function buildBook(lang) {
     // Create the EPUB command
     let epubCommand;
     if (coverImagePath) {
-      epubCommand = `pandoc "${markdownOutputPath}" -o "${epubOutputPath}" --toc --epub-cover-image="${coverImagePath}" --metadata title="${bookTitle}" --metadata subtitle="${bookSubtitle}" --metadata author="Open Source Community" --metadata lang=${lang}`;
+      epubCommand = `pandoc "${markdownOutputPath}" -o "${epubOutputPath}" --toc --epub-cover-image="${coverImagePath}" --metadata title="${bookTitle}" --metadata subtitle="${bookSubtitle}" --metadata author="Open Source Community" --metadata lang=${lang} --wrap=none`;
     } else {
-      epubCommand = `pandoc "${markdownOutputPath}" -o "${epubOutputPath}" --toc --metadata title="${bookTitle}" --metadata subtitle="${bookSubtitle}" --metadata author="Open Source Community" --metadata lang=${lang}`;
+      epubCommand = `pandoc "${markdownOutputPath}" -o "${epubOutputPath}" --toc --metadata title="${bookTitle}" --metadata subtitle="${bookSubtitle}" --metadata author="Open Source Community" --metadata lang=${lang} --wrap=none`;
     }
     
     console.log(`Executing: ${epubCommand}`);
@@ -642,7 +718,7 @@ function buildBook(lang) {
     try {
       const epubOutputPath = path.join(config.outputDir, outputEpub);
       console.log('Trying fallback EPUB generation...');
-      const fallbackCommand = `pandoc "${markdownOutputPath}" -o "${epubOutputPath}" --toc`;
+      const fallbackCommand = `pandoc "${markdownOutputPath}" -o "${epubOutputPath}" --toc --wrap=none`;
       console.log(`Executing: ${fallbackCommand}`);
       execSync(fallbackCommand, { stdio: 'inherit' });
       console.log(`EPUB generated successfully with fallback: ${epubOutputPath}`);
