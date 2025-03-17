@@ -1,9 +1,10 @@
 ---
 title: "Rise & Code"
 subtitle: "A Programming Book for Everyone"
-date: "March 16, 2025"
+date: "March 17, 2025"
 author: "Open Source Community"
 toc: true
+language: "en"
 ---
 
 # Rise & Code
@@ -34,16 +35,6 @@ This book is released under the Creative Commons Attribution-NonCommercial-Share
 
 
 \newpage
-
-\newpage
-
-# Rise & Code
-## A Programming Book for Everyone
-
-### Version: v2025.03.16-2331
-### Generated on: March 16, 2025
-
-This book is designed to teach programming, software development, and logical problem-solving to people without access to computers.
 
 
 
