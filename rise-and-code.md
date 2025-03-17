@@ -11,7 +11,7 @@ toc: true
 # Rise & Code
 ## A Programming Book for Everyone
 
-### Version: v2025.03.17-0017
+### Version: v2025.03.17-0024
 ### Generated on: March 17, 2025
 
 This book is designed to teach programming, software development, and logical problem-solving to people without access to computers.
