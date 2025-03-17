@@ -4,7 +4,11 @@
   "description": "A free book teaching programming concepts without requiring a computer",
   "scripts": {
     "build": "node tools/build.js",
-    "dev": "nodemon --watch book --ext md --exec \"node tools/build.js\""
+    "build:all": "node tools/build.js --all-languages",
+    "build:es": "node tools/build.js --lang=es",
+    "dev": "nodemon --watch book --ext md --exec \"node tools/build.js\"",
+    "translation:status": "node tools/translation-status.js",
+    "translation:init": "node tools/init-translation.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +28,7 @@
   },
   "homepage": "https://github.com/iksnae/rise-and-code#readme",
   "devDependencies": {
+    "gray-matter": "^4.0.3",
     "nodemon": "^2.0.22"
   },
   "engines": {

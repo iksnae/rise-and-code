@@ -41,40 +41,49 @@ jobs:
       - name: Create build directory
         run: mkdir -p build
         
-      - name: Build book using custom script
+      - name: Build book in all available languages
         run: |
-          node tools/build.js
+          node tools/build.js --all-languages
         env:
           VERSION: ${{ env.VERSION }}
           DATE: ${{ env.DATE }}
       
-      - name: Check PDF file exists and has content
+      - name: Check primary PDF file exists
         run: |
           if [ -f "build/rise-and-code.pdf" ] && [ -s "build/rise-and-code.pdf" ]; then
-            echo "PDF file exists and has content"
+            echo "Primary PDF file exists and has content"
           else
-            echo "WARNING: PDF file is missing or empty, creating a placeholder"
+            echo "WARNING: Primary PDF file is missing or empty, creating a placeholder"
             echo "# Rise & Code - Placeholder PDF" > build/placeholder.md
             pandoc build/placeholder.md -o build/rise-and-code.pdf --pdf-engine=xelatex
           fi
 
-      # New step for HTML generation
-      - name: Generate HTML file
+      - name: List generated files
         run: |
-          pandoc book/**/*.md -o build/rise-and-code.html
-        env:
-          VERSION: ${{ env.VERSION }}
-          DATE: ${{ env.DATE }}
+          echo "Generated files:"
+          ls -la build/
+          echo ""
+          echo "Available languages:"
+          find build -name "rise-and-code*.pdf" | sort
 
-      # Check if HTML file exists
-      - name: Check HTML file exists
+      - name: Rename HTML files for GitHub Pages
         run: |
+          # Create index.html from English version
           if [ -f "build/rise-and-code.html" ]; then
-            echo "HTML file exists"
-          else
-            echo "HTML file is missing!"
-            exit 1
+            cp build/rise-and-code.html build/index.html
+            echo "Created index.html from English version"
           fi
+          
+          # Create language directory structure for all HTML files
+          for htmlfile in build/rise-and-code-*.html; do
+            if [ -f "$htmlfile" ]; then
+              # Extract language code (e.g., 'es' from 'rise-and-code-es.html')
+              langcode=$(basename $htmlfile .html | sed 's/rise-and-code-//')
+              mkdir -p build/$langcode
+              cp $htmlfile build/$langcode/index.html
+              echo "Created $langcode/index.html"
+            fi
+          done
 
       - name: Upload artifacts for debugging if needed
         uses: actions/upload-artifact@v4
@@ -82,6 +91,64 @@ jobs:
           name: build-outputs
           path: build/
           retention-days: 7
+
+      - name: Create Release Markdown Body
+        id: create_release_body
+        run: |
+          echo "# Rise & Code Book - ${{ env.VERSION }}" > release_body.md
+          echo "" >> release_body.md
+          echo "Automatically generated build of the Rise & Code book." >> release_body.md
+          echo "" >> release_body.md
+          echo "## Available Languages" >> release_body.md
+          echo "" >> release_body.md
+          
+          # List all generated PDF files and their languages
+          echo "| Language | PDF | Markdown | HTML |" >> release_body.md
+          echo "|----------|-----|----------|------|" >> release_body.md
+          
+          # English (default) version
+          if [ -f "build/rise-and-code.pdf" ]; then
+            echo "| English | [PDF](https://github.com/iksnae/rise-and-code/releases/download/${{ env.VERSION }}/rise-and-code.pdf) | [Markdown](https://github.com/iksnae/rise-and-code/releases/download/${{ env.VERSION }}/rise-and-code.md) | [HTML](https://iksnae.github.io/rise-and-code/) |" >> release_body.md
+          fi
+          
+          # Additional languages
+          for pdffile in build/rise-and-code-*.pdf; do
+            if [ -f "$pdffile" ]; then
+              # Extract language code
+              langcode=$(basename $pdffile .pdf | sed 's/rise-and-code-//')
+              
+              # Map language code to full name
+              langname=""
+              case $langcode in
+                es) langname="Spanish" ;;
+                fr) langname="French" ;;
+                de) langname="German" ;;
+                zh) langname="Chinese" ;;
+                ja) langname="Japanese" ;;
+                pt) langname="Portuguese" ;;
+                ar) langname="Arabic" ;;
+                ru) langname="Russian" ;;
+                *) langname="$(echo $langcode | tr '[:lower:]' '[:upper:]')" ;;
+              esac
+              
+              # Add row to table
+              echo "| $langname | [PDF](https://github.com/iksnae/rise-and-code/releases/download/${{ env.VERSION }}/rise-and-code-$langcode.pdf) | [Markdown](https://github.com/iksnae/rise-and-code/releases/download/${{ env.VERSION }}/rise-and-code-$langcode.md) | [HTML](https://iksnae.github.io/rise-and-code/$langcode/) |" >> release_body.md
+            fi
+          done
+          
+          echo "" >> release_body.md
+          echo "## Changes in this version" >> release_body.md
+          echo "" >> release_body.md
+          echo "This version includes all changes pushed to the repository as of ${{ env.DATE }}." >> release_body.md
+          
+          # Set release body as output
+          RELEASE_BODY=$(cat release_body.md)
+          # Convert newlines to literal \n for GitHub Actions
+          RELEASE_BODY="${RELEASE_BODY//'%'/'%25'}"
+          RELEASE_BODY="${RELEASE_BODY//$'\n'/'%0A'}"
+          RELEASE_BODY="${RELEASE_BODY//$'\r'/'%0D'}"
+          echo "::set-output name=body::$RELEASE_BODY"
+          cat release_body.md
 
       - name: Create GitHub Release
         id: create_release
@@ -91,37 +158,18 @@ jobs:
           tag_name: ${{ env.VERSION }}
           draft: false
           prerelease: false
-          files: |
-            build/rise-and-code.md
-            build/rise-and-code.pdf
-            build/rise-and-code.html  # Keep HTML file in the release assets
-          body: |
-            # Rise & Code Book - ${{ env.VERSION }}
-            
-            Automatically generated build of the Rise & Code book.
-            
-            ## Changes in this version
-            
-            This version includes all changes pushed to the repository as of ${{ env.DATE }}.
-            
-            ## Download
-            
-            - [Complete Book (Markdown)](https://github.com/iksnae/rise-and-code/releases/download/${{ env.VERSION }}/rise-and-code.md)
-            - [Complete Book (PDF)](https://github.com/iksnae/rise-and-code/releases/download/${{ env.VERSION }}/rise-and-code.pdf)
+          files: build/*.*
+          body_path: release_body.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Rename HTML file for GitHub Pages
-        run: |
-          mv build/rise-and-code.html build/index.html
 
       - name: Deploy to GitHub Pages
         if: github.ref == 'refs/heads/main'  # Only deploy on pushes to the main branch
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages  # The branch to push to
-          folder: build  # The folder containing the HTML file
+          folder: build  # The folder containing the HTML files
           target-folder: .  # Deploy to the root of the branch
-          clean: true  # Clean the target branch before deploying (optional, but can help)
+          clean: true  # Clean the target branch before deploying
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -3,18 +3,25 @@
  * 
  * This script collates all markdown files in the book directory
  * and generates a single markdown file and PDF.
+ * Now supports multiple languages.
  */
 
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
+// Parse command line arguments
+const args = process.argv.slice(2);
+const languageArg = args.find(arg => arg.startsWith('--lang='));
+const defaultLanguage = 'en';
+const language = languageArg ? languageArg.split('=')[1] : defaultLanguage;
+const buildAllLanguages = args.includes('--all-languages');
+
 // Configuration
 const config = {
   outputDir: path.resolve(__dirname, '../build'),
   bookDir: path.resolve(__dirname, '../book'),
-  outputMarkdown: 'rise-and-code.md',
-  outputPdf: 'rise-and-code.pdf',
+  languageDirs: [],
   templateDir: path.resolve(__dirname, '../templates'),
   version: process.env.VERSION || `v${new Date().toISOString().split('T')[0]}`,
   date: process.env.DATE || new Date().toLocaleDateString('en-US', { 
@@ -29,6 +36,24 @@ const config = {
   })
 };
 
+// Get available language directories
+function getLanguageDirs() {
+  const languageDirs = fs.readdirSync(config.bookDir)
+    .filter(item => {
+      const fullPath = path.join(config.bookDir, item);
+      return fs.statSync(fullPath).isDirectory() && 
+             // Only include directories with chapter content
+             fs.existsSync(path.join(fullPath, 'chapter-01'));
+    });
+  
+  if (languageDirs.length === 0) {
+    console.error('Error: No language directories found with chapter content');
+    process.exit(1);
+  }
+  
+  return languageDirs;
+}
+
 // Ensure output directory exists
 if (!fs.existsSync(config.outputDir)) {
   fs.mkdirSync(config.outputDir, { recursive: true });
@@ -39,16 +64,23 @@ if (!fs.existsSync(config.templateDir)) {
   fs.mkdirSync(config.templateDir, { recursive: true });
 }
 
-// Get chapter directories sorted by chapter number
-function getChapterDirs() {
-  return fs.readdirSync(config.bookDir)
+// Get chapter directories sorted by chapter number for a specific language
+function getChapterDirs(lang) {
+  const langDir = path.join(config.bookDir, lang);
+  
+  if (!fs.existsSync(langDir)) {
+    console.error(`Error: Language directory '${lang}' not found`);
+    process.exit(1);
+  }
+  
+  return fs.readdirSync(langDir)
     .filter(item => item.startsWith('chapter-'))
     .sort((a, b) => {
       const numA = parseInt(a.split('-')[1]);
       const numB = parseInt(b.split('-')[1]);
       return numA - numB;
     })
-    .map(dir => path.join(config.bookDir, dir));
+    .map(dir => path.join(langDir, dir));
 }
 
 // Read markdown file content
@@ -222,48 +254,61 @@ $body$
   return tempTemplatePath;
 }
 
-// Build the book
-function buildBook() {
-  console.log('Building Rise & Code book...');
+// Build the book for a specific language
+function buildBook(lang) {
+  console.log(`Building Rise & Code book for language: ${lang}...`);
   console.log(`Version: ${config.version}`);
   console.log(`Date: ${config.date}`);
-  console.log(`Time: ${config.time}`);
+  
+  // Define language-specific output filenames
+  const outputMarkdown = lang === defaultLanguage 
+    ? 'rise-and-code.md' 
+    : `rise-and-code-${lang}.md`;
+    
+  const outputPdf = lang === defaultLanguage 
+    ? 'rise-and-code.pdf' 
+    : `rise-and-code-${lang}.pdf`;
   
   // Initialize output content
   let output = '';
   
-  // Add header and version info
+  // Add header and version info - customize for language
   output += '---\n';
   output += 'title: "Rise & Code"\n';
-  output += 'subtitle: "A Programming Book for Everyone"\n';
+  
+  // Add language-specific subtitle if not English
+  if (lang === defaultLanguage) {
+    output += 'subtitle: "A Programming Book for Everyone"\n';
+  } else if (lang === 'es') {
+    output += 'subtitle: "Un libro de programación para todos"\n';
+  } else if (lang === 'fr') {
+    output += 'subtitle: "Un livre de programmation pour tous"\n';
+  } else {
+    output += `subtitle: "A Programming Book for Everyone (${lang})"\n`;
+  }
+  
   output += `date: "${config.date}"\n`;
   output += `author: "Open Source Community"\n`;
   output += 'toc: true\n';
+  
+  // Add language metadata
+  output += `language: "${lang}"\n`;
   output += '---\n\n';
   
   // IMPROVEMENT: Explicitly include the title page first
-  const titlePagePath = path.join(config.bookDir, 'title-page.md');
+  const titlePagePath = path.join(config.bookDir, lang, 'title-page.md');
   if (fs.existsSync(titlePagePath)) {
     console.log('Adding title page...');
     output += readMarkdownFile(titlePagePath);
     output += '\n\n\\newpage\n\n';
   }
   
-  // Add a explicit section break before first chapter to ensure
-  // it starts on a new page after the TOC
-  output += '\\newpage\n\n';
-  
-  output += '# Rise & Code\n';
-  output += '## A Programming Book for Everyone\n\n';
-  output += `### Version: ${config.version}\n`;
-  output += `### Generated on: ${config.date}\n\n`;
-  output += 'This book is designed to teach programming, software development, and logical problem-solving to people without access to computers.\n\n';
-  
   // Process each chapter
-  const chapterDirs = getChapterDirs();
+  const chapterDirs = getChapterDirs(lang);
   
   for (const chapterDir of chapterDirs) {
-    console.log(`Processing ${path.basename(chapterDir)}...`);
+    const chapterName = path.basename(chapterDir);
+    console.log(`Processing chapter: ${chapterName}`);
     
     // Add chapter separator (use LaTeX page break for PDF)
     output += '\n\n\\newpage\n\n';
@@ -340,7 +385,7 @@ function buildBook() {
   }
   
   // Write combined markdown to file
-  const outputMarkdownPath = path.join(config.outputDir, config.outputMarkdown);
+  const outputMarkdownPath = path.join(config.outputDir, outputMarkdown);
   fs.writeFileSync(outputMarkdownPath, output);
   console.log(`Markdown output written to: ${outputMarkdownPath}`);
   
@@ -348,43 +393,82 @@ function buildBook() {
   const templatePath = createLatexTemplate();
   
   // Convert to PDF
-  const outputPdfPath = path.join(config.outputDir, config.outputPdf);
+  const outputPdfPath = path.join(config.outputDir, outputPdf);
   try {
-    console.log('Converting to PDF...');
+    console.log(`Converting ${lang} version to PDF...`);
     // Call pandoc with custom template
     execSync(`pandoc "${outputMarkdownPath}" -o "${outputPdfPath}" --pdf-engine=xelatex --template="${templatePath}" --toc`, { stdio: 'inherit' });
     console.log(`PDF output written to: ${outputPdfPath}`);
+    
+    // Generate HTML file from Markdown
+    const outputHtml = lang === defaultLanguage 
+      ? 'rise-and-code.html' 
+      : `rise-and-code-${lang}.html`;
+      
+    const outputHtmlPath = path.join(config.outputDir, outputHtml);
+    console.log(`Generating HTML file for ${lang}...`);
+    execSync(`pandoc "${outputMarkdownPath}" -o "${outputHtmlPath}" --toc`, { stdio: 'inherit' });
+    console.log(`HTML output written to: ${outputHtmlPath}`);
+    
+    return {
+      lang,
+      outputMarkdown,
+      outputPdf,
+      outputHtml,
+      success: true
+    };
   } catch (error) {
-    console.error('PDF conversion failed:', error);
+    console.error(`PDF conversion failed for ${lang}:`, error);
     // Try again without custom template
     try {
-      console.log('Trying again with default template...');
-      execSync(`pandoc "${outputMarkdownPath}" -o "${outputPdfPath}" --pdf-engine=xelatex`, { stdio: 'inherit' });
-      console.log(`PDF output written to: ${outputPdfPath} (default template)`);
-    } catch (err) {
-      console.error('Default template conversion failed:', err);
-      // Create a minimal PDF with just title
-      const minimalTitle = '# Rise & Code\n## This is a placeholder PDF. Please see the Markdown version.';
-      fs.writeFileSync(path.join(config.outputDir, 'placeholder.md'), minimalTitle);
+      console.log('Trying PDF conversion without custom template...');
+      execSync(`pandoc "${outputMarkdownPath}" -o "${outputPdfPath}" --pdf-engine=xelatex --toc`, { stdio: 'inherit' });
+      console.log(`PDF output written to: ${outputPdfPath}`);
+      return {
+        lang,
+        outputMarkdown,
+        outputPdf,
+        success: true
+      };
+    } catch (fallbackError) {
+      console.error('PDF conversion failed completely:', fallbackError);
+      // Create a placeholder PDF with an error message
+      fs.writeFileSync(path.join(config.outputDir, 'placeholder.md'), 
+        `# Build Error for ${lang} Version\n\nThe PDF generation process failed. Please check the build logs.`);
       try {
         execSync(`pandoc "${path.join(config.outputDir, 'placeholder.md')}" -o "${outputPdfPath}" --pdf-engine=xelatex`, { stdio: 'inherit' });
-      } catch (err2) {
-        console.error('Even placeholder PDF creation failed:', err2);
+      } catch (placeholderError) {
+        console.error('Even placeholder PDF failed:', placeholderError);
       }
-      fs.unlinkSync(path.join(config.outputDir, 'placeholder.md'));
+      return {
+        lang,
+        outputMarkdown,
+        outputPdf: null,
+        success: false
+      };
     }
   }
-  
-  // Clean up temporary template file
-  try {
-    fs.unlinkSync(templatePath);
-    console.log('Cleaned up temporary template file');
-  } catch (error) {
-    console.log('Note: Could not clean up temporary template file');
-  }
-  
-  console.log('Book build complete!');
 }
 
-// Run the build
-buildBook();
+// Main execution
+if (buildAllLanguages) {
+  // Build for all available languages
+  const languages = getLanguageDirs();
+  console.log(`Building for all available languages: ${languages.join(', ')}`);
+  
+  const results = [];
+  for (const lang of languages) {
+    console.log(`\n==== Building ${lang} version ====\n`);
+    const result = buildBook(lang);
+    results.push(result);
+  }
+  
+  // Summary of builds
+  console.log('\n==== Build Summary ====');
+  results.forEach(result => {
+    console.log(`${result.lang}: ${result.success ? 'SUCCESS' : 'FAILED'}`);
+  });
+} else {
+  // Build for a single language
+  buildBook(language);
+}
