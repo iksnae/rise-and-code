@@ -47,7 +47,7 @@ Este libro se publica bajo la Licencia Internacional Creative Commons Attributio
 # Levántate y Codifica
 ## Un Libro de Programación para Todos
 
-### Version: v2025.03.17-0110
+### Version: v2025.03.17-0118
 ### Generated on: March 17, 2025
 
 Este libro está diseñado para enseñar programación, desarrollo de software y resolución de problemas lógicos a personas sin acceso a computadoras.
