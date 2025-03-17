@@ -13,7 +13,7 @@
 \definecolor{versioncolor}{RGB}{100, 100, 100}
 
 % Set page geometry
-\geometry{margin=1in}
+\geometry{margin=1in }
 
 % Configure section formatting
 \titleformat{\chapter}[display]{\normalfont\huge\bfseries\color{chaptercolor}}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
@@ -26,11 +26,25 @@
 % Define version and build date commands
 \newcommand{\bookversion}{VERSION}
 \newcommand{\builddate}{BUILDDATE}
+\newcommand{\langsetting}{LANG}
+
+% Bilingual title commands
+\newcommand{\entitle}{Rise \& Code}
+\newcommand{\estitle}{Levántate y Codifica}
+
+% Choose title based on language setting
+\newcommand{\booktitle}{%
+  \ifx\langsetting\es
+    \estitle
+  \else
+    \entitle
+  \fi
+}
 
 % Configure headers and footers
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[LE,RO]{Rise \& Code}
+\fancyhead[LE,RO]{\booktitle}
 \fancyhead[RE,LO]{\leftmark}
 \fancyfoot[C]{\thepage}
 \fancyfoot[R]{\textcolor{versioncolor}{\footnotesize{v\bookversion}}}
@@ -48,7 +62,7 @@
 }
 
 % Title page information
-\title{\Huge Rise \& Code\\\large A Programming Book for Everyone}
+\title{\Huge \booktitle\\\large A Programming Book for Everyone}
 \author{Open Source Community}
 \date{\today}
 
