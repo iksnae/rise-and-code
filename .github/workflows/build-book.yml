@@ -50,6 +50,15 @@ jobs:
             echo "Cover image exists at book/images/cover.png"
           else
             echo "WARNING: Cover image not found at book/images/cover.png"
+            # Look for cover image in alternative locations
+            if [ -f "art/cover.png" ]; then
+              echo "Found cover image at art/cover.png, copying to book/images/cover.png"
+              cp art/cover.png book/images/cover.png
+              echo "Cover image copied successfully"
+            else
+              echo "WARNING: Could not find cover image in alternative locations"
+              echo "EPUB generation will proceed without a cover image"
+            fi
           fi
         
       - name: Build book in all available languages

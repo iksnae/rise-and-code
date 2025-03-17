@@ -56,6 +56,50 @@ if (!fs.existsSync(config.templateDir)) {
   fs.mkdirSync(config.templateDir, { recursive: true });
 }
 
+// Ensure cover image is available in book/images
+function ensureCoverImage() {
+  console.log('Ensuring cover image is available...');
+  const targetPath = path.join(config.bookDir, 'images/cover.png');
+  
+  // Check if cover image already exists in book/images
+  if (fs.existsSync(targetPath)) {
+    console.log('Cover image already exists in book/images directory');
+    return targetPath;
+  }
+  
+  // Ensure book/images directory exists
+  const imagesDir = path.join(config.bookDir, 'images');
+  if (!fs.existsSync(imagesDir)) {
+    console.log('Creating book/images directory...');
+    fs.mkdirSync(imagesDir, { recursive: true });
+  }
+  
+  // Try to find the cover image in alternate locations
+  const alternatePaths = [
+    path.resolve(process.cwd(), 'art/cover.png'), 
+    path.join(__dirname, '../art/cover.png')
+  ];
+  
+  for (const altPath of alternatePaths) {
+    if (fs.existsSync(altPath)) {
+      console.log(`Found cover image at: ${altPath}`);
+      try {
+        fs.copyFileSync(altPath, targetPath);
+        console.log(`Successfully copied cover image to: ${targetPath}`);
+        return targetPath;
+      } catch (error) {
+        console.error(`Failed to copy cover image: ${error}`);
+      }
+    }
+  }
+  
+  console.log('WARNING: Could not find cover image in any location');
+  return null;
+}
+
+// Call the function to ensure cover image is available
+ensureCoverImage();
+
 // Get chapter directories sorted by chapter number for a specific language
 function getChapterDirs(lang) {
   // Language directories are directly under bookDir
@@ -537,21 +581,26 @@ function buildBook(lang) {
     const outputEpubPath = path.join(config.outputDir, outputEpub);
     console.log(`\nGenerating EPUB file for ${lang}...`);
     
-    // Add cover image if it exists
-    const coverPath = path.join(config.bookDir, 'images/cover.png');
-    console.log(`Checking for cover image at: ${coverPath}`);
-    if (fs.existsSync(coverPath)) {
-      console.log(`Cover image found: ${coverPath}`);
+    // Get the verified cover image path
+    let coverPath = path.join(config.bookDir, 'images/cover.png');
+    
+    // Ensure the cover image exists by checking/copying from alternate locations
+    if (!fs.existsSync(coverPath)) {
+      console.log('Cover image not found in the standard location, trying to locate it...');
+      coverPath = ensureCoverImage();
     } else {
-      console.log(`Cover image NOT found at: ${coverPath}`);
+      console.log(`Cover image found at: ${coverPath}`);
     }
     
     // Create EPUB with metadata including cover image if available
     let epubCommand = `pandoc "${outputMarkdownPath}" -o "${outputEpubPath}" --toc`;
     
     // Add cover image if it exists
-    if (fs.existsSync(coverPath)) {
+    if (coverPath && fs.existsSync(coverPath)) {
       epubCommand = `pandoc "${outputMarkdownPath}" -o "${outputEpubPath}" --toc --epub-cover-image="${coverPath}" --metadata title="${getBookTitle(lang)}" --metadata author="Open Source Community"`;
+      console.log(`Using cover image for EPUB generation: ${coverPath}`);
+    } else {
+      console.log('WARNING: No cover image found for EPUB generation');
     }
     
     try {

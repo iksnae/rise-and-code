@@ -11,7 +11,26 @@ A free, open-source book designed to teach programming, software development, an
   <a href="https://github.com/iksnae/rise-and-code/releases/latest">
     <img src="https://img.shields.io/badge/Download%20Latest%20PDF-4285F4?style=for-the-badge&logo=adobe-acrobat-reader&logoColor=white" alt="Download Latest PDF">
   </a>
+  <a href="https://github.com/iksnae/rise-and-code/releases/latest">
+    <img src="https://img.shields.io/badge/Download%20Latest%20EPUB-2CA5E0?style=for-the-badge&logo=book&logoColor=white" alt="Download Latest EPUB">
+  </a>
 </div>
+
+## Available Formats
+
+The book is available in the following formats:
+
+- **PDF**: Professionally formatted with LaTeX, ideal for printing or reading on larger screens
+- **EPUB**: Optimized for e-readers and mobile devices, with reflowable content
+- **HTML**: Online readable version on our [GitHub Pages site](https://iksnae.github.io/rise-and-code/)
+- **Markdown**: Raw content files for those who want to contribute or create custom formats
+
+### Language Versions
+
+Each format is available in multiple languages:
+
+- English: [PDF](https://github.com/iksnae/rise-and-code/releases/latest) | [EPUB](https://github.com/iksnae/rise-and-code/releases/latest) | [HTML](https://iksnae.github.io/rise-and-code/)
+- Spanish (Español): [PDF](https://github.com/iksnae/rise-and-code/releases/latest) | [EPUB](https://github.com/iksnae/rise-and-code/releases/latest) | [HTML](https://iksnae.github.io/rise-and-code/es/)
 
 ## About This Project
 
@@ -106,9 +125,10 @@ Each chapter contains hands-on activities to reinforce learning:
 
 ## Getting the Latest Version
 
-The book is automatically built and published as releases. You can access the latest version in three formats:
+The book is automatically built and published as releases. You can access the latest version in the following formats:
 
 - **PDF**: A beautifully formatted PDF ready for reading or printing
+- **EPUB**: An electronic book format optimized for e-readers and mobile devices
 - **Markdown**: A single markdown file containing all content
 - **HTML**: An online readable version
 
@@ -116,6 +136,15 @@ To get the latest version:
 
 1. Go to the [Releases page](https://github.com/iksnae/rise-and-code/releases/latest)
 2. Download your preferred format from the assets section
+3. You can also read the HTML version directly on our [GitHub Pages site](https://iksnae.github.io/rise-and-code/)
+
+### Reading EPUB Files
+
+EPUB files can be opened with various e-reader apps and software:
+
+- **Mobile Devices**: Apple Books, Google Play Books, Kobo, and other e-reader apps
+- **Desktop**: Calibre, Adobe Digital Editions, or browser extensions like EPUBReader
+- **E-Readers**: Kindle (may require conversion), Kobo, Nook, and other e-ink devices
 
 ## Repository Structure
 
