@@ -1,8 +1,4 @@
-# Building Complexity
-
-## Introduction
-
-So far, we've explored how to create simple algorithms and practiced with fun, hands-on activities. Now it's time to take the next step: building more complex algorithms that can solve more challenging problems. In this section, we'll learn how to combine basic algorithmic building blocks to create more sophisticated solutions, and we'll begin to think about how to measure and improve algorithm efficiency.
+# Make It Harder
 
 ## From Simple Steps to Complex Solutions
 
@@ -31,6 +27,8 @@ Selection introduces decision-making—different paths based on conditions. We u
    a. Leave the umbrella at home
 4. Go outside
 ```
+
+[VISUAL: type=decision-tree, title="Algorithm Building Blocks: The Four Pillars", size=half-page, description="Diagram showing Sequence (linear arrows), Selection (if-then branches), Repetition (loop arrows), and Modularity (nested boxes)"]
 
 ### Building Block 3: Repetition (Loops)
 

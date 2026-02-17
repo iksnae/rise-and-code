@@ -1,8 +1,4 @@
-# Coding Challenges
-
-## Introduction
-
-Welcome to the world of coding challenges! This section introduces you to a structured approach for tackling programming problems. Coding challenges are like puzzles that test your ability to think logically, apply programming concepts, and develop efficient solutions. By working through a variety of problems, you'll strengthen your skills and gain confidence in your programming abilities.
+# Try the Challenges
 
 ## What Are Coding Challenges?
 

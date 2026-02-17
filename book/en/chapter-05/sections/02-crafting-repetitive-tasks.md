@@ -1,8 +1,4 @@
-# Crafting Repetitive Tasks
-
-## Introduction
-
-In the previous section, we learned what loops are and why they're important. Now, let's explore how to design and create our own loops to solve specific problems. The art of "crafting" loops involves identifying when repetition is needed, choosing the right type of loop, and structuring the loop elements correctly.
+# Repeat Patterns
 
 ## Recognizing Tasks That Need Loops
 
@@ -80,6 +76,8 @@ length(input) > 0             # Continue while there's still input to process
 ### 3. Loop Body
 
 The body contains the instructions that are executed during each iteration. When designing the body:
+
+[VISUAL: type=loop-anatomy-diagram, title="The Anatomy of a Loop", size=half-page, description="Diagram showing initialization, condition, body, and update parts of a loop with labels and flow arrows"]
 
 - Focus on what happens in a single iteration
 - Keep it focused on a single purpose

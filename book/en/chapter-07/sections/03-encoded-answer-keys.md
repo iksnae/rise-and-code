@@ -1,13 +1,13 @@
-# Encoded Answer Keys
+# Check Your Work
 
-## Introduction
+## How Encoded Answer Keys Work
 
-In this section, we introduce a unique approach to verifying your solutions: encoded answer keys. Instead of providing answers that you can simply look up, we've encoded them using techniques you've learned in previous chapters. This approach serves two purposes:
+In this section, we use encoded answer keys—answers scrambled with techniques you've learned. This approach serves two purposes:
 
 1. It gives you a way to check your answers while adding an extra layer of engagement
-2. It provides practical application of encryption concepts from Chapter 4
+2. It provides practical application of encryption concepts
 
-By decoding the answer keys, you'll not only confirm your solutions but also reinforce your understanding of data transformation techniques.
+By decoding the answer keys, you'll reinforce your understanding of data transformation techniques.
 
 ## Why Encoded Answers?
 

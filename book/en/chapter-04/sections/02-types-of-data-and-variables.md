@@ -1,10 +1,4 @@
-# Types of Data and Variables
-
-## Introduction
-
-In the previous section, we learned that data is information that programs can work with. But not all data is the same—a name, a temperature reading, and a yes/no answer are fundamentally different kinds of information that need to be handled differently. This is where data types come in.
-
-Additionally, programs need a way to store and reference data. This is where variables become essential—they're like labeled containers that hold our data. In this section, we'll explore both data types and variables, which together form the foundation for working with information in programming.
+# Data Types & Variables
 
 ## Data Types: Categories of Information
 
@@ -113,6 +107,8 @@ There are several helpful ways to think about variables:
 
 - **Labeled Boxes**: Variables are like boxes with labels, storing a value you can retrieve.
 - **Nametags**: Variables give names to pieces of data so you can refer to them easily.
+
+[VISUAL: type=data-types-chart, title="Data Types: Numbers, Text, True/False", size=half-page, description="Visual guide showing the four main data types with examples and icons: Numbers (123), Strings (hello), Booleans (true/false), Lists"]
 - **Memory Addresses**: Variables provide named locations in the computer's memory.
 
 ### Working with Variables

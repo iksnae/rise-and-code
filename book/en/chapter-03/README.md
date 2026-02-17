@@ -1,20 +1,20 @@
-# Chapter 3: Playful Programming - Fun with Algorithms
+# Chapter 3: Solve It
 
-Welcome to the third chapter of "Rise & Code"! In this chapter, we'll dive into the world of algorithms through playful, hands-on activities and games. You'll learn how to create and refine algorithms, and discover how they form the backbone of computational thinking and programming.
+**The smartest coders in the world don't start by writing code. They start by breaking big problems into tiny steps. That's called an algorithm, and it's a superpower.**
 
-## Chapter Objectives
+## What You'll Learn
 
-- Understand what algorithms are and why they're important in programming
-- Learn to create clear, step-by-step instructions to solve problems
-- Develop the ability to analyze and improve algorithms
-- Experience how algorithms work through games and interactive exercises
-- Begin to appreciate algorithm efficiency and elegance
+- What algorithms are and why they matter
+- How to write clear, step-by-step instructions
+- How to analyze and improve your solutions
+- How algorithms power games and everyday tasks
+- Why efficiency matters
 
 ## Sections
 
-1. Creating Simple Algorithms
-2. Hands-on Exercises and Games
-3. Building Complexity
+1. Start Simple
+2. Try It Out
+3. Make It Harder
 
 ## Activities
 
@@ -26,4 +26,4 @@ Welcome to the third chapter of "Rise & Code"! In this chapter, we'll dive into 
 
 ## Chapter Summary
 
-Ready to review what you've learned? Check out the Chapter Summary for a recap of key concepts and a preview of what's coming next.
+Review the [chapter summary](./chapter-summary.md) for a recap of key concepts.

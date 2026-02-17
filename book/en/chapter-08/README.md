@@ -1,20 +1,20 @@
-# Chapter 8: Real-world Applications - Connecting Coding to Everyday Life
+# Chapter 8: Code in the Real World
 
-Welcome to the eighth chapter of "Rise & Code"! In this chapter, we'll explore how the programming concepts you've been learning connect to real-world applications and careers. You'll discover how coding skills are applied across different industries, how they solve real problems, and how they might shape your future opportunities.
+**Code powers hospitals that save lives. Apps that help farmers grow food. Games that make billions of people happy. Your coding skills can change the world.**
 
-## Chapter Objectives
+## What You'll Learn
 
-- Understand how programming concepts apply to diverse real-world contexts
-- Recognize the relevance of coding skills in various industries and fields
-- Identify ways programming can address challenges in your own community
-- Explore career possibilities related to programming
-- Gain inspiration from diverse programmers with different backgrounds
+- How programming solves real-world problems
+- Where programmers work and what they do
+- How coding is used in different industries
+- How you can use your skills to help others
+- What careers you might explore
 
 ## Sections
 
-1. Applying Programming to Real Problems
-2. Coding in Various Industries
-3. The Future of Coding Skills
+1. Solve Real Problems
+2. Where Coders Work
+3. Your Coding Future
 
 ## Activities
 
@@ -26,4 +26,4 @@ Welcome to the eighth chapter of "Rise & Code"! In this chapter, we'll explore h
 
 ## Chapter Summary
 
-Ready to review what you've learned? Check out the Chapter Summary for a recap of key concepts and a preview of what's coming next.
+Review the [chapter summary](./chapter-summary.md) for a recap of key concepts.

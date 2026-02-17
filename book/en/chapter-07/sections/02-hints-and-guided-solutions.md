@@ -1,8 +1,4 @@
-# Hints and Guided Solutions
-
-## Introduction
-
-When tackling coding challenges, you'll inevitably encounter problems that seem difficult or even impossible at first glance. This is a normal part of the learning process! In this section, we'll explore how to effectively use hints and guided solutions to continue making progress without sacrificing the valuable learning that comes from struggling with problems.
+# Get Hints
 
 ## The Value of Productive Struggle
 

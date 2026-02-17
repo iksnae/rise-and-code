@@ -1,8 +1,4 @@
-# Who This Book Is For
-
-## Introduction
-
-Programming is for everyone. Whether you're a student, a teacher, a farmer, a doctor, a shopkeeper, or someone who's simply curious about how technology works, this book is designed for you. You don't need any prior experience with computers or programming to benefit from the concepts we'll explore together.
+# Who This Is For
 
 ## Students of All Ages
 

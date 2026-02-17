@@ -1,10 +1,4 @@
-# Coding in Various Industries
-
-## Introduction
-
-When people think of programming, they often imagine a person sitting alone at a computer in a tech company. While this is one reality, the truth is that coding and computational thinking have spread into virtually every industry and field of work. In this section, we'll explore how programming skills are applied across diverse sectors, from farming to healthcare, education to entertainment, revealing the vast opportunities that exist for people with coding knowledge.
-
-The skills you've been developing in this book—algorithmic thinking, problem decomposition, pattern recognition, and creative solution design—are valuable across countless contexts. Understanding these applications can help you see how your programming knowledge might connect to your own interests and goals.
+# Where Coders Work
 
 ## Agriculture and Food Production
 
@@ -63,6 +57,8 @@ Even in settings with limited technology, healthcare workers use computational a
 ## Education and Learning
 
 Educational settings increasingly incorporate programming principles to enhance learning experiences and outcomes.
+
+[VISUAL: type=industry-icons-grid, title="Where Programmers Work: Industries Using Code", size=half-page, description="Grid of industry icons showing Healthcare, Agriculture, Education, Entertainment, Transportation, Finance, with brief examples"]
 
 ### Personalized Learning
 Educators use algorithmic thinking to:

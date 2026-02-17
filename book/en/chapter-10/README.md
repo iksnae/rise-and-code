@@ -1,15 +1,15 @@
-# Chapter 10: Appendices
+# Chapter 10: Extras
 
-Welcome to the appendices of "Rise & Code"! This final section provides valuable reference materials and supplementary content to support your programming journey.
+Reference materials and resources to support your continued learning.
 
-## Appendix Contents
+## What's Here
 
-1. Glossary of Key Terms - A comprehensive dictionary of programming terminology used throughout the book
+1. **Glossary** - All the programming terms used in this book
    
-2. Answer Key and Solution Guide - Example solutions for selected exercises and challenges
+2. **Answer Key** - Example solutions for selected exercises and challenges
    
-3. Recommended Reading and Tools - Additional resources for continuing your learning journey
+3. **Resources** - Where to find more coding learning materials
    
-4. Visual Reference Guides - Quick reference diagrams and cheat sheets for key programming concepts
+4. **Reference Guides** - Quick diagrams and cheat sheets for key concepts
 
-These appendices are designed to be resources you can return to as needed throughout your programming journey, providing clarification, inspiration, and additional practice opportunities.
+Use this section anytime you need to check something or refresh your memory!

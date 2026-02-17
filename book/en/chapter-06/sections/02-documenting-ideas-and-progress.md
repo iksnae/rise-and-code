@@ -1,10 +1,4 @@
-# How to Document Ideas and Progress
-
-## Introduction
-
-Knowing that documentation is valuable is one thing—knowing *how* to document effectively is another. In this section, we'll explore practical methods for capturing your ideas, tracking your progress, and documenting your solutions in ways that will be truly useful to you later.
-
-The goal isn't to create perfect documentation (which can become a distraction), but rather to develop habits that support your learning and problem-solving. Think of good documentation as a conversation with your future self—what would you want to know days, weeks, or months from now?
+# Track Your Thinking
 
 ## Documenting Your Thinking Process
 

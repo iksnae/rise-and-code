@@ -1,6 +1,4 @@
-# What is Data?
-
-## Introduction
+# What's Data?
 
 Every day, we encounter and use countless pieces of information—the time shown on a clock, the price of fruit at the market, the name of a friend, or the color of the sky. In programming, we call this information "data." Understanding data is the first step toward becoming a programmer, because programs are essentially tools that process, transform, and make decisions based on data.
 

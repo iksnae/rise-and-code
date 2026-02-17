@@ -1,8 +1,4 @@
-# Conditional Statements and Flowcharts
-
-## Introduction
-
-In the previous section, we learned about boolean logic and how to make basic decisions using IF-THEN-ELSE structures. Now, we'll expand on these concepts by exploring conditional statements in more detail and introducing flowcharts—visual tools that help us map out the logic of our programs.
+# Making Choices
 
 ## Understanding Conditional Statements
 
@@ -122,6 +118,8 @@ Here are the most common symbols used in flowcharts:
 ### Creating a Simple Flowchart
 
 Let's create a flowchart for a simple morning routine:
+
+[VISUAL: type=flowchart, title="Flowchart Symbols Guide", size=quarter-page, description="Visual reference showing Start/End ovals, Process rectangles, Decision diamonds, and flow arrows"]
 
 ```
 Start

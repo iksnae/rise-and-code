@@ -1,20 +1,20 @@
-# Chapter 6: The Engineering Notebook - Practicing Like a Pro
+# Chapter 6: Your Coding Journal
 
-Welcome to Chapter 6 of "Rise & Code"! In this chapter, we'll explore the invaluable practice of maintaining an engineering notebook—a skill that professional programmers and engineers rely on daily. You've already been using a notebook throughout this book, but now we'll take your documentation practices to the next level.
+**Some of the best programmers in the world keep notebooks. They write down their ideas, their mistakes, and how they solved them. You're about to become one of them.**
 
-## Chapter Objectives
+## What You'll Learn
 
-- Understand why documentation is critical in programming and engineering
-- Learn effective organization techniques for your coding notebook
-- Develop skills to document your thinking process, algorithms, and solutions
-- Practice reflection methods that help you learn from both successes and mistakes
-- Create templates and frameworks for problem-solving documentation
+- Why documentation helps you become a better programmer
+- How to organize your coding notebook
+- How to write down your thinking and solutions
+- How to learn from your mistakes
+- How to create a personal resource you can use for years
 
 ## Sections
 
-1. Benefits of Keeping a Coding Journal
-2. How to Document Ideas and Progress
-3. Tips for Effective Note-taking
+1. Why Keep Notes
+2. Track Your Thinking
+3. Note-Taking Tips
 
 ## Activities
 
@@ -25,4 +25,4 @@ Welcome to Chapter 6 of "Rise & Code"! In this chapter, we'll explore the invalu
 
 ## Chapter Summary
 
-Ready to review what you've learned? Check out the Chapter Summary for a recap of key concepts and a preview of what's coming next.
+Review the [chapter summary](./chapter-summary.md) for a recap of key concepts.

@@ -1,10 +1,4 @@
-# Pseudo Coding
-
-## Introduction
-
-In the previous sections, we explored boolean logic, conditional statements, and flowcharts. Now we're going to learn about pseudocode, a powerful tool that bridges the gap between human language and formal programming languages.
-
-Pseudocode is like a rough draft of a program—it expresses the logic and steps in a form that's easier for humans to write and understand, while still maintaining enough structure to be easily translated into actual code later.
+# Write Like a Coder
 
 ## What is Pseudocode?
 

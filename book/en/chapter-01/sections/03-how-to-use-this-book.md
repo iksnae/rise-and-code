@@ -1,8 +1,4 @@
-# How to Use This Book (Including the Notebook Method)
-
-## Introduction
-
-This book is designed to be both a guide and a workbook for your programming journey. In this section, we'll explain how to get the most out of the book and introduce the "notebook method"—a powerful approach to learning programming without a computer.
+# How to Use This Book
 
 ## The Notebook Method: Your Paper Computer
 

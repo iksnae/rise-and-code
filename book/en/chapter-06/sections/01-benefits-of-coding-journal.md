@@ -1,10 +1,4 @@
-# Benefits of Keeping a Coding Journal
-
-## Introduction
-
-Throughout history, the greatest minds have maintained detailed notebooks of their ideas, experiments, and observations. Leonardo da Vinci filled thousands of pages with sketches and notes. Marie Curie meticulously documented her groundbreaking radiation experiments. Thomas Edison recorded over 5 million pages of notes across 3,500 journals. These notebooks didn't just record their discoveries—they were active tools that helped shape their thinking and led to breakthroughs.
-
-As you've been learning programming concepts using your notebook, you've already begun the practice of keeping an engineering notebook. In this section, we'll explore why this practice is so valuable and how it can transform your learning and problem-solving abilities.
+# Why Keep Notes
 
 ## The Power of Documentation
 

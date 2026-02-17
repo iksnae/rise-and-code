@@ -1,8 +1,4 @@
-# Hands-on Exercises and Games
-
-## Introduction
-
-In the previous section, we explored what algorithms are and how to create simple ones. Now, let's have some fun! This section introduces playful exercises and games that will help you develop your algorithmic thinking skills while enjoying the process. These hands-on activities are designed to be engaging, educational, and accessible without requiring a computer.
+# Try It Out
 
 ## Why Games and Exercises Matter
 
@@ -31,6 +27,8 @@ This game quickly reveals the importance of precise instructions. When the robot
 - Interpret the instruction literally in an unexpected way
 
 The detailed instructions for this game are in the Activities section of this chapter.
+
+[VISUAL: type=character-illustration, title="The Human Robot Game", size=quarter-page, description="Cartoon programmer giving instructions to robot character; thought bubbles showing correct vs. incorrect interpretations"]
 
 ## Algorithm Trading Cards
 
@@ -70,6 +68,8 @@ We'll explore several different sorting algorithms:
 - **Insertion Sort**: Take one number at a time and insert it into its correct position in the sorted section
 
 Each algorithm has strengths and weaknesses, and experiencing them physically helps understand why efficiency matters in algorithm design.
+
+[VISUAL: type=comparison-flowchart, title="Sorting Algorithms: Bubble Sort vs. Selection Sort", size=half-page, description="Side-by-side flowcharts showing the logic flow of two different sorting algorithms with numbers"]
 
 ## Recipe to Algorithm Translation
 

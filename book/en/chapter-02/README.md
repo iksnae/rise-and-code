@@ -1,19 +1,19 @@
-# Chapter 2: The Human Compiler - Understanding Logic and Structure
+# Chapter 2: Think in Logic
 
-This chapter introduces fundamental concepts of logic and program structure that form the foundation of computational thinking.
+**Want to know a secret? Every decision you make every day—like choosing what to eat or which game to play—uses the same logic that computers use. Let's learn how it works.**
 
-## Chapter Objectives
+## What You'll Learn
 
-- Understand basic logic operations and boolean values
-- Learn how to create and follow flowcharts
-- Practice writing pseudocode to express algorithms
-- Develop logical thinking skills through decision-making exercises
+- How computers make logical decisions (true or false)
+- How to map decisions with flowcharts
+- How to write pseudocode (code-like instructions)
+- How to solve problems by thinking logically
 
 ## Sections
 
-1. Basic Logic and Decision Making
-2. Conditional Statements and Flowcharts
-3. Pseudo Coding
+1. Logic Basics
+2. Making Choices
+3. Write Like a Coder
 
 ## Activities
 
@@ -24,4 +24,4 @@ This chapter introduces fundamental concepts of logic and program structure that
 
 ## Chapter Summary
 
-Ready to review what you've learned? Check out the Chapter Summary for a recap of key concepts and a preview of what's coming next.
+Review the [chapter summary](./chapter-summary.md) for a recap of key concepts.

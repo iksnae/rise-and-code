@@ -1,20 +1,20 @@
-# Chapter 4: Data Explorers - Understanding Variables and Data Types
+# Chapter 4: Work with Data
 
-Welcome to the fourth chapter of "Rise & Code"! In this chapter, we'll explore the concept of data in programming and how we store, organize, and manipulate it through variables and data types. Understanding data is foundational to programming, as nearly every program involves working with some form of information.
+**Data is information. Your age, your favorite color, your score in a game—that's all data. Coders organize data to make computers smarter. Ready to be a data explorer?**
 
-## Chapter Objectives
+## What You'll Learn
 
-- Understand what data is and why it's important in programming
-- Learn about different data types and their characteristics
-- Master the concept of variables as containers for data
-- Practice manipulating and transforming data
-- Recognize how data types affect operations and calculations
+- What data is and why it matters in programming
+- Different types of data (numbers, words, true/false)
+- How to use variables as containers for data
+- How to change and work with data
+- How data types affect what computers can do
 
 ## Sections
 
-1. What is Data?
-2. Types of Data and Variables
-3. How to Manipulate Data
+1. What's Data?
+2. Data Types & Variables
+3. Work with Data
 
 ## Activities
 
@@ -25,4 +25,4 @@ Welcome to the fourth chapter of "Rise & Code"! In this chapter, we'll explore t
 
 ## Chapter Summary
 
-Ready to review what you've learned? Check out the Chapter Summary for a recap of key concepts and a preview of what's coming next.
+Review the [chapter summary](./chapter-summary.md) for a recap of key concepts.

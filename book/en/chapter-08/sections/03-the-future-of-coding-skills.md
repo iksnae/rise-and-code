@@ -1,10 +1,4 @@
-# The Future of Coding Skills
-
-## Introduction
-
-Throughout this book, you've been developing programming skills using just paper and pencil. You've learned to think algorithmically, break down problems, work with data, design solutions, and document your thinking. These foundational skills prepare you not just for today's world but for the future as well.
-
-In this section, we'll explore how programming and computational thinking are likely to evolve in the coming years and decades. While we can't predict the future with certainty, we can identify trends and opportunities that will help you continue growing your skills and applying them in meaningful ways.
+# Your Coding Future
 
 ## The Evolving Nature of Programming
 

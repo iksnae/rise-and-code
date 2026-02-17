@@ -1,10 +1,4 @@
-# Resources for Further Learning
-
-## Introduction
-
-Throughout this book, you've developed a strong foundation in programming concepts and computational thinking without requiring a computer. As you continue your journey, you may wonder: "What's next?" In this section, we'll explore a variety of resources to help you continue learning, whether you have limited access to technology or are ready to transition to computer-based programming.
-
-The beauty of the skills you've developed is that they transfer to any programming environment. The logical thinking, problem-solving approach, and algorithmic mindset you've cultivated will serve you well regardless of which direction you choose to go next.
+# Keep Learning
 
 ## Learning with Limited Technology Access
 

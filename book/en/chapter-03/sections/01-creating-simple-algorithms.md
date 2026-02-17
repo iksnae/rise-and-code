@@ -1,8 +1,4 @@
-# Creating Simple Algorithms
-
-## Introduction
-
-Imagine you're teaching a younger sibling how to make their favorite sandwich, or giving directions to a visitor in your town. In both cases, you're creating an algorithm—a step-by-step set of instructions to accomplish a task or solve a problem. In this section, we'll explore what algorithms are, why they matter, and how to create effective ones.
+# Start Simple
 
 ## What is an Algorithm?
 
@@ -27,6 +23,8 @@ Before we dive into creating algorithms, let's identify some common algorithms w
 - **Games**: The rules and procedures for playing
 
 Take a moment to think about the algorithms you follow in your daily life. What makes some easier to follow than others?
+
+[VISUAL: type=comparison-grid, title="Algorithms Around You", size=half-page, description="Side-by-side comparison cards showing Recipe → Algorithm, Assembly Guide → Algorithm, Morning Routine → Algorithm"]
 
 ## The Elements of a Good Algorithm
 
@@ -66,6 +64,8 @@ Algorithm: Making a Paper Airplane
 ```
 
 Notice how each step is clear and specific. There's no ambiguity about what to do next.
+
+[VISUAL: type=step-diagram, title="Paper Airplane Folding Steps", size=full-page, description="Visual sequence showing 10 steps of paper airplane folding with hand positions and fold lines"]
 
 ## Levels of Detail in Algorithms
 

@@ -1,20 +1,20 @@
-# Chapter 9: Beyond the Book - Next Steps in Your Coding Journey
+# Chapter 9: Keep Going
 
-Welcome to the final chapter of "Rise & Code"! Throughout this book, you've built a solid foundation in programming concepts and computational thinking without requiring a computer. Now, we'll explore how to continue your coding journey beyond these pages, whether you have access to technology or are still working with limited resources.
+**You've learned so much already. But the best part? You're just getting started. Let's look at what's next on your coding journey.**
 
-## Chapter Objectives
+## What You'll Learn
 
-- Discover accessible pathways to continue your programming education
-- Learn how to transition from paper-based to computer-based programming
-- Explore potential careers in technology and software development
-- Find community resources and support networks for ongoing learning
-- Create a personalized action plan for your continued coding journey
+- Where to find free coding resources online
+- How to start coding on a computer
+- What programming careers look like
+- How to find people who code and learn with them
+- How to keep your skills sharp
 
 ## Sections
 
-1. Resources for Further Learning - Discover accessible tools, materials, and communities to continue building your skills
-2. Pursuing a Career in Tech - Explore different career paths in technology and how to prepare for them
-3. Continuing the Coding Adventure - Strategies for lifelong learning and keeping your coding skills fresh
+1. Keep Learning
+2. Tech Careers
+3. Next Steps
 
 ## Activities
 
@@ -26,6 +26,6 @@ Welcome to the final chapter of "Rise & Code"! Throughout this book, you've buil
 
 ## Chapter Summary
 
-Ready to review what you've learned and plan your next steps? Check out the Chapter Summary for a recap of key concepts and final thoughts on continuing your programming journey.
+Review the [chapter summary](./chapter-summary.md) for a recap of key concepts and final thoughts on continuing your programming journey.
 
-Your coding journey doesn't end with the last page of this book—it's just beginning! This chapter will help you build bridges from the concepts you've learned to their practical application in further education, careers, and personal projects, regardless of your access to technology.
+Your coding journey is just beginning!

@@ -1,10 +1,4 @@
-# Understanding Loops
-
-## Introduction
-
-Imagine you're teaching a younger sibling to wash dishes. Would you give them separate instructions for each dish? "Wash this plate. Now rinse it. Now dry it. Now wash this cup. Now rinse it. Now dry it..." That would be tedious and inefficient! Instead, you'd say something like: "For each dirty dish: wash it, rinse it, and dry it."
-
-What you've just done is create a loop—a set of instructions that repeats until a certain condition is met. Loops are one of the most powerful concepts in programming because they allow computers to perform repetitive tasks efficiently, saving both time and effort.
+# Loops Explained
 
 ## What is a Loop?
 

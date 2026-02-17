@@ -1,10 +1,4 @@
-# Basic Logic and Decision Making
-
-## Introduction
-
-In the previous chapter, we explored why programming matters and how you can learn it without a computer. Now, we'll dive into the heart of how computers "think" by exploring the foundations of logic and decision making.
-
-Think of this chapter as learning the language of clear thinking—a skill that will serve you well whether you're writing code or making everyday decisions.
+# Logic Basics
 
 ## What is Logic?
 
@@ -64,6 +58,8 @@ Example: "I will go to the park if it is sunny AND I have finished my homework."
 The OR operator combines two boolean values and results in true if at least one of the values is true.
 
 Think of OR as an easy-going friend who is happy if anything good happens.
+
+[VISUAL: type=truth-table-diagram, title="Boolean Logic: AND, OR, NOT", size=half-page, description="Visual diagrams showing how AND, OR, and NOT operators work with simple icons and color coding"]
 
 | Statement A | Statement B | A OR B  |
 |-------------|-------------|---------|

@@ -1,19 +1,19 @@
-# Chapter 1: Introduction - The World of Coding Without a Computer
+# Chapter 1: Let's Code
 
-Welcome to the first chapter of "Rise & Code"! This chapter introduces you to the concept of programming without a computer and sets the stage for the rest of the book.
+**Every day, you use systems that someone programmed. From traffic lights to video games, code is everywhere. Now it's your turn to learn how to think like the people who created them.**
 
-## Chapter Objectives
+## What You'll Learn
 
-- Understand why programming skills are valuable in today's world
-- Recognize that programming concepts can be learned without a computer
-- Learn how to use the notebook method for practicing programming concepts
-- Get familiar with the book's approach and structure
+- Why programming skills are valuable in today's world
+- How to learn programming without a computer
+- The notebook method for practicing like a real programmer
+- How this book works and how to get the most out of it
 
 ## Sections
 
-1. Why Programming Matters
-2. Who This Book Is For
-3. How to Use This Book (Including the Notebook Method)
+1. Why Code Matters
+2. Who This Is For
+3. How to Use This Book
 
 ## Activities
 
@@ -23,4 +23,4 @@ Welcome to the first chapter of "Rise & Code"! This chapter introduces you to th
 
 ## Chapter Summary
 
-Ready to review what you've learned? Check out the Chapter Summary for a recap of key concepts and a preview of what's coming next.
+Review the [chapter summary](./chapter-summary.md) for a recap of key concepts.
