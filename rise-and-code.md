@@ -1362,497 +1362,475 @@ Ready to review what you've learned? Check out the Chapter Summary for a recap o
 
 # Basic Logic and Decision Making
 
-## Introduction
+## Meet Logic the Robot
 
-In the previous chapter, we explored why programming matters and how you can learn it without a computer. Now, we'll dive into the heart of how computers "think" by exploring the foundations of logic and decision making.
+Before we dive into how computers think, I want you to meet someone important.
 
-Think of this chapter as learning the language of clear thinking—a skill that will serve you well whether you're writing code or making everyday decisions.
+**This is Logic.**
 
-## What is Logic?
+Logic is a robot who is incredibly helpful. But Logic has one very specific way of understanding the world:
 
-Logic is the study of reasoning, particularly focused on how we determine whether statements are true or false. In our everyday lives, we use logic constantly:
+**Logic only understands YES or NO.**
 
-- "If it's raining, I should bring an umbrella."
-- "Since the store is closed today, I'll go tomorrow."
-- "Either I take the bus or I'll be late for school."
+That's it. Logic can't handle "maybe." Logic can't understand "sort of." Logic doesn't do "probably" or "we'll see."
 
-In computer programming, logic works in a similar way, but with very strict rules. Computers can't handle the ambiguity that humans navigate easily. They need precise, clear instructions based on whether conditions are true or false.
+Logic is perfectly happy with YES. Logic is perfectly happy with NO.
 
-## Boolean Logic: The Foundation of Computing
+Anything else? Logic gets confused.
 
-At its simplest, computer logic is based on a system called "Boolean logic," named after mathematician George Boole. It deals with only two possible values:
+## Logic's Superpower (and Limitation)
 
-- **True** (often represented as 1, "yes," or "on")
-- **False** (often represented as 0, "no," or "off")
+Here's the amazing part: **Because Logic only thinks in YES and NO, Logic is incredibly good at making decisions.**
 
-This binary approach might seem limited, but it's actually incredibly powerful. Complex decisions in computing are built up from these basic true/false building blocks.
+Let me show you what I mean.
 
-## Boolean Values in Real Life
+**You to your friend:** "Should we go to the park today?"  
+**Friend's answer:** "Well... it's kind of nice outside, but maybe it'll rain later, and I'm a little tired, but I really want to see if my favorite spot is still there, and..."
 
-Before we dive deeper, let's identify boolean values in everyday scenarios:
+Your friend is being honest. Real life is complicated. Decisions ARE messy.
 
-- The light switch is on (true) or off (false)
-- The door is open (true) or closed (false)
-- I have enough money to buy this item (true or false)
-- It is currently raining (true or false)
+**You to Logic:** "Should we go to the park today?"  
+**Logic's answer:** "YES" or "NO"
 
-Activity: In your notebook, list 5 boolean statements about your day today—things that can only be true or false.
+Logic will give you an answer. Right away. No hemming and hawing.
 
-## Boolean Operators: AND, OR, and NOT
+**But here's the catch:** For Logic to answer, you have to ask the RIGHT question.
 
-To build more complex logical structures, we use three basic operators:
+## Teaching Logic to Understand
 
-### 1. AND (Logical Conjunction)
+So how do you talk to Logic?
 
-The AND operator combines two boolean values and results in true ONLY if both values are true.
+You ask **YES or NO questions.**
 
-Think of AND as a demanding friend who is only satisfied when everything is perfect.
+### YES or NO Questions
 
-| Statement A | Statement B | A AND B |
-|-------------|-------------|---------|
-| true        | true        | true    |
-| true        | false       | false   |
-| false       | true        | false   |
-| false       | false       | false   |
+These work with Logic:
+- "Is it raining?" → YES or NO
+- "Do I have time?" → YES or NO
+- "Is the park open?" → YES or NO
+- "Am I tired?" → YES or NO
 
-Example: "I will go to the park if it is sunny AND I have finished my homework."
-- Sunny: true, Homework done: true → I go to the park (true)
-- Sunny: true, Homework done: false → I don't go to the park (false)
-- Sunny: false, Homework done: true → I don't go to the park (false)
-- Sunny: false, Homework done: false → I don't go to the park (false)
+Logic can answer these all day long.
 
-### 2. OR (Logical Disjunction)
+### Questions That Confuse Logic
 
-The OR operator combines two boolean values and results in true if at least one of the values is true.
+These don't work with Logic:
+- "What should I do?" → Logic doesn't know. This isn't YES/NO.
+- "How nice is the weather?" → Logic shrugs. This needs more than YES/NO.
+- "Will it rain?" → Logic wants you to be specific. "In the next hour?" "Later today?"
 
-Think of OR as an easy-going friend who is happy if anything good happens.
+When you ask Logic a non-YES/NO question, Logic looks at you confused.
 
-| Statement A | Statement B | A OR B  |
-|-------------|-------------|---------|
-| true        | true        | true    |
-| true        | false       | true    |
-| false       | true        | true    |
-| false       | false       | false   |
+"I don't understand," Logic says. "I only know YES or NO."
 
-Example: "I will bring an umbrella if it is raining OR the forecast predicts rain."
-- Raining: true, Forecast rain: true → Bring umbrella (true)
-- Raining: true, Forecast rain: false → Bring umbrella (true)
-- Raining: false, Forecast rain: true → Bring umbrella (true)
-- Raining: false, Forecast rain: false → Don't bring umbrella (false)
+## Your Turn: Speaking Logic's Language
 
-### 3. NOT (Logical Negation)
+Let's practice turning messy questions into YES/NO questions that Logic understands.
 
-The NOT operator simply reverses a boolean value. If something is true, NOT makes it false, and vice versa.
+### Example 1: Going to the Park
 
-Think of NOT as someone who always contradicts what you say.
+**Messy question:** "Should we go to the park?"
 
-| Statement A | NOT A   |
-|-------------|---------|
-| true        | false   |
-| false       | true    |
+**YES/NO questions Logic can answer:**
+- Is it raining? (YES/NO)
+- Is the park open? (YES/NO)
+- Do I have time? (YES/NO)
+- Do I want to go? (YES/NO)
 
-Example: "If it is NOT raining, I will go for a walk."
-- Raining: true → NOT raining: false → Don't go for a walk
-- Raining: false → NOT raining: true → Go for a walk
+Once you ask all those YES/NO questions and get answers, then you can decide.
 
-## Truth Tables: Mapping Out Logic
+### Example 2: Eating Pizza
 
-The tables we've been using are called "truth tables." They help us visualize all possible combinations of inputs and outputs for logical operations. Truth tables are especially useful when logic gets complex.
+**Messy question:** "Should I eat pizza?"
 
-## Making Decisions Based on Logic
+**YES/NO questions Logic can answer:**
+- Am I hungry? (YES/NO)
+- Is there pizza? (YES/NO)
+- Do I like pizza? (YES/NO)
+- Do I have time to eat? (YES/NO)
 
-In programming, logic is used to make decisions. Here's the general pattern:
+### Example 3: Going to Bed
 
-```
-IF (some condition is true) THEN
-    (do something)
-ELSE
-    (do something else)
-END IF
-```
+**Messy question:** "Is it time to sleep?"
 
-This structure appears in virtually all programming languages, though the exact syntax may vary. It's the foundation of decision-making in code.
+**YES/NO questions Logic can answer:**
+- Is it past 9 PM? (YES/NO)
+- Am I tired? (YES/NO)
+- Do I have school tomorrow? (YES/NO)
+- Have I finished my tasks? (YES/NO)
 
-## Decision Making in Real Life
+## The Power of YES and NO: Truth and Falsehood
 
-Let's explore a real-life decision through the lens of programming logic:
+Now here's where it gets interesting.
 
-**Scenario: Deciding what to wear based on weather**
+In Logic's world, YES means **TRUE** and NO means **FALSE**.
 
-```
-IF (it is raining) THEN
-    Wear a raincoat and take an umbrella
-ELSE
-    IF (it is sunny AND hot) THEN
-        Wear light clothing and a hat
-    ELSE
-        Wear regular clothes and maybe bring a light jacket
-    END IF
-END IF
-```
+These words mean the same thing:
 
-Notice how we can nest decisions within decisions to handle more complex scenarios.
+**YES = TRUE = 1 (on)**  
+**NO = FALSE = 0 (off)**
 
-## Combining Multiple Conditions
+They're just different ways of saying the same thing.
 
-Decision-making often involves multiple conditions:
+Why does this matter?
 
-```
-IF (it is a weekend) AND (the weather is good) THEN
-    Go to the park
-ELSE
-    Stay home and read a book
-END IF
-```
+Because once you translate everything to TRUE/FALSE, you can start combining answers.
 
-Using combinations of AND, OR, and NOT allows us to create sophisticated decision structures:
+## Combining Answers: AND, OR, NOT
 
-```
-IF (it is a holiday) OR ((it is a weekend) AND (I have no homework)) THEN
-    Plan something fun with friends
-ELSE
-    Catch up on studies
-END IF
-```
+When you ask Logic multiple YES/NO questions, you're building up information.
 
-## Practice Example: The Party Decision
+But sometimes you need to combine that information. That's where three powerful words come in:
 
-Let's walk through a more complex example:
+**AND**, **OR**, and **NOT**.
 
-**Scenario: Deciding whether to go to a party**
+These are Logic's tools for combining TRUE and FALSE answers.
 
-Conditions:
-- It's on a school night
-- You have an exam tomorrow
-- Your best friend really wants you to come
-- The party is close to your home
+### AND: Everything Must Be True
 
-Let's express this as a logical decision:
+**AND** means: Both things have to be YES for the answer to be YES.
 
-```
-IF (NOT school_night) OR (NOT have_exam_tomorrow AND party_is_close) THEN
-    Go to the party
-ELSE
-    IF (best_friend_really_wants_you_to_come AND party_is_close AND NOT have_exam_tomorrow) THEN
-        Go to the party but leave early
-    ELSE
-        Stay home
-    END IF
-END IF
-```
+**Example:**
+- Question 1: "Is it sunny?" → YES
+- Question 2: "Do I have free time?" → YES
+- Combined with AND: "Is it sunny AND do I have free time?" → YES
 
-## Activity: Logic in Action
+Both are YES, so the AND answer is YES.
 
-In your notebook, write out the logic for at least two everyday decisions you make, using IF, THEN, ELSE, and the boolean operators AND, OR, and NOT. Try to include at least one complex decision with multiple conditions.
+But if one is NO:
+- Question 1: "Is it sunny?" → YES
+- Question 2: "Do I have free time?" → NO
+- Combined with AND: "Is it sunny AND do I have free time?" → NO
 
-For example:
-- Choosing what to eat for lunch
-- Deciding whether to take the bus or walk
-- Selecting which subject to study first
+One is NO, so the AND answer is NO.
 
-## Key Takeaways
+### OR: At Least One Must Be True
 
-- Boolean logic uses only two values: true and false
-- The three basic boolean operators are AND, OR, and NOT
-- Truth tables help visualize all possible outcomes of logical operations
-- Decision structures in programming are built using IF-THEN-ELSE patterns
-- Complex decisions can be modeled by combining and nesting logical structures
+**OR** means: If at least one thing is YES, the answer is YES.
 
-In the next section, we'll build on these foundations to explore conditional statements and flowcharts, which will give us powerful tools to visualize and structure more complex decision-making processes.
+**Example:**
+- Question 1: "Am I hungry?" → YES
+- Question 2: "Do I love ice cream?" → YES
+- Combined with OR: "Am I hungry OR do I love ice cream?" → YES
+
+At least one is YES (actually both are!), so the OR answer is YES.
+
+Even if one is NO:
+- Question 1: "Am I hungry?" → NO
+- Question 2: "Do I love ice cream?" → YES
+- Combined with OR: "Am I hungry OR do I love ice cream?" → YES
+
+At least one is YES, so the OR answer is YES.
+
+The only time OR is NO is when BOTH are NO.
+
+### NOT: Flip It
+
+**NOT** means: Switch YES to NO and NO to YES.
+
+**Example:**
+- Question: "Is it raining?" → YES
+- NOT version: "Is it NOT raining?" → NO
+
+You flipped the answer.
+
+Another example:
+- Question: "Do I like broccoli?" → NO
+- NOT version: "Do I NOT like broccoli?" → YES
+
+You flipped it again.
+
+## Why Logic Matters
+
+Here's the secret: **Computers think exactly like Logic.**
+
+Your phone, your laptop, your watch—they all think in YES and NO (TRUE and FALSE).
+
+Everything a computer does comes down to these simple decisions.
+
+When your phone decides to:
+- Turn on the screen
+- Send a notification
+- Play a song
+- Block a call
+
+...it's asking YES/NO questions and using AND, OR, and NOT to decide.
+
+You, right now, without a computer, can think like Logic.
+
+And when you do, you're thinking like a programmer.
+
+## A Real-World Example: Your Morning
+
+Let's see how Logic would help you decide about your morning.
+
+**Decision:** Should I get up now?
+
+**Logic's YES/NO questions:**
+1. Is my alarm going off? (YES/NO)
+2. Is it a school day? (YES/NO)
+3. Do I feel rested? (YES/NO)
+4. Do I have breakfast ready? (YES/NO)
+
+**Using AND, OR, NOT:**
+- "Should I get up?" = Alarm is going OFF AND it's a school day OR I'm already rested = YES
+
+Logic would say: YES, get up.
+
+Logic didn't have to think about it long. Logic just combined the YES/NO answers.
+
+## What You're Learning
+
+You're not learning computer code. You're learning how to think clearly.
+
+When you:
+- Break a problem into YES/NO questions
+- Combine them with AND, OR, NOT
+- Make a decision based on facts
+
+...you're using the exact thinking that programmers use.
+
+This is the foundation of everything. Logic before code. Thinking before programming.
+
+And you just learned it.
+
+---
+
+## 🎮 Activity: Help Logic Understand Your Day
+
+(See "Logic Says" activity sheet)
 
 
 # Conditional Statements and Flowcharts
 
-## Introduction
+## Logic Needs to Make Decisions
 
-In the previous section, we learned about boolean logic and how to make basic decisions using IF-THEN-ELSE structures. Now, we'll expand on these concepts by exploring conditional statements in more detail and introducing flowcharts—visual tools that help us map out the logic of our programs.
+In the last section, we learned that Logic can answer YES/NO questions using AND, OR, and NOT.
 
-## Understanding Conditional Statements
+But knowing an answer isn't enough. Logic needs to know **what to do with that answer.**
 
-Conditional statements are the backbone of decision-making in programming. They allow a program to perform different actions based on whether certain conditions are true or false.
+That's where **conditional statements** come in.
 
-The basic conditional statement structure is:
+A conditional statement is just a fancy way of saying: "**If this is true, then do that. Otherwise, do something else.**"
+
+## IF, THEN, ELSE: Logic's Decision Structure
+
+Here's the pattern Logic uses:
 
 ```
-IF condition THEN
-    do something
-ELSE
-    do something else
+IF (some condition is true)
+THEN (do this)
+ELSE (do that instead)
 END IF
 ```
 
-Let's examine each part:
+That's it. That's how computers make decisions.
 
-- **IF**: Signals the start of a conditional statement
-- **condition**: A boolean expression that evaluates to true or false
-- **THEN**: Marks what happens if the condition is true
-- **do something**: The actions that occur if the condition is true
-- **ELSE**: Introduces the alternative actions
-- **do something else**: The actions that occur if the condition is false
-- **END IF**: Signals the end of the conditional statement
-
-## Types of Conditional Statements
-
-### 1. Simple IF Statement
-
-The simplest form only executes code when a condition is true:
+### Real-World Example: Morning Decision
 
 ```
-IF it is raining THEN
-    take an umbrella
+IF (my alarm is going off AND it's a school day)
+THEN (get out of bed)
+ELSE (sleep 5 more minutes)
 END IF
 ```
 
-In this case, nothing specific happens if it's not raining. The program simply continues to the next instructions.
+Logic asks the condition. The condition is either TRUE or FALSE. Based on that, Logic does one thing or the other.
 
-### 2. IF-ELSE Statement
-
-This form provides two paths: one for when the condition is true and another for when it's false:
+### Another Example: Should I Wear a Coat?
 
 ```
-IF temperature > 30 degrees THEN
-    wear light clothing
-ELSE
-    wear a jacket
+IF (it's cold AND I'm going outside)
+THEN (wear a coat)
+ELSE (don't wear a coat)
 END IF
 ```
 
-### 3. Nested IF Statements
+Logic doesn't think about it. Doesn't debate. Checks the condition. Does one thing or the other.
 
-Conditional statements can be placed inside other conditional statements to handle more complex scenarios:
+## Nesting: Decisions Within Decisions
+
+Sometimes Logic needs to make a decision, and then make another decision based on that.
 
 ```
-IF it is a weekday THEN
-    IF it is morning THEN
-        go to school
-    ELSE
-        do homework
-    END IF
-ELSE
-    relax and play
+IF (it's raining)
+THEN (take an umbrella)
+  IF (it's also cold)
+  THEN (wear a jacket too)
+  ELSE (just take umbrella)
+  END IF
+ELSE (no umbrella needed)
+  IF (it's sunny)
+  THEN (wear sunscreen)
+  ELSE (it's just cloudy)
+  END IF
 END IF
 ```
 
-### 4. ELSE IF (or ELIF) Statement
+This is called "nesting" — decisions inside decisions.
 
-When we need to check multiple conditions in sequence:
+Computers do this constantly. It looks complicated, but it's just: ask a question, do something, ask another question, do something else.
 
-```
-IF score >= 90 THEN
-    grade = "A"
-ELSE IF score >= 80 THEN
-    grade = "B"
-ELSE IF score >= 70 THEN
-    grade = "C"
-ELSE IF score >= 60 THEN
-    grade = "D"
-ELSE
-    grade = "F"
-END IF
-```
+## Flowcharts: Drawing Logic's Thinking
 
-In this example, we're checking a series of conditions in order, and only one block of code will execute.
+Words are great, but sometimes it's easier to DRAW how Logic thinks.
 
-## Introducing Flowcharts
+That's what flowcharts are for.
 
-A flowchart is a diagram that represents a process or workflow, showing the steps as boxes of different kinds, and their order by connecting them with arrows. Flowcharts are particularly useful for visualizing the logic of programs, especially those with conditional statements.
+A flowchart is a visual map of Logic's decisions.
 
-### Basic Flowchart Symbols
+### Flowchart Symbols
 
-Here are the most common symbols used in flowcharts:
-
-1. **Start/End (Oval or Rounded Rectangle)**
-   - Used to indicate the beginning or end of a process
-   - Example: "Start" or "End"
-
-2. **Process (Rectangle)**
-   - Represents a step in the process or an action to be taken
-   - Example: "Add 2 cups of flour" or "Calculate total price"
-
-3. **Decision (Diamond)**
-   - Shows a point where a decision must be made
-   - Typically contains a question with a yes/no or true/false answer
-   - Example: "Is it raining?" or "Is x > 10?"
-
-4. **Flow Lines (Arrows)**
-   - Connect the symbols to show the sequence of steps
-   - Indicate the flow direction of the process
-
-5. **Input/Output (Parallelogram)**
-   - Represents input or output operations
-   - Example: "Enter your name" or "Display total"
-
-### Creating a Simple Flowchart
-
-Let's create a flowchart for a simple morning routine:
+Here's what each shape means:
 
 ```
-Start
-  |
-  v
-Is it a weekday?
-  |
-  |--> Yes --> Wake up at 6:30 AM
-  |              |
-  |              v
-  |            Eat breakfast
-  |              |
-  |              v
-  |            Go to school/work
-  |
-  |--> No --> Wake up at 8:00 AM
-                |
-                v
-              Have a leisurely breakfast
-                |
-                v
-              Enjoy free time
-                |
-                v
-End
+   ┌─────────────┐
+   │   START     │   (Circle or oval = start/stop)
+   └──────┬──────┘
+          │
+     ┌────▼────┐
+     │ rectangle│   (Rectangle = action/process)
+     └────┬────┘
+          │
+     ◇─────◇    (Diamond = decision/question)
+    ╱       ╲
+  YES      NO
+  │         │
 ```
 
-This flowchart clearly shows the different paths our morning might take depending on whether it's a weekday or not.
-
-## Translating Between Conditional Statements and Flowcharts
-
-The two representations—code and flowcharts—can be readily translated into each other. For example, the morning routine in code would be:
+### Simple Flowchart Example: Should I Get Up?
 
 ```
-IF it is a weekday THEN
-    Wake up at 6:30 AM
-    Eat breakfast
-    Go to school/work
-ELSE
-    Wake up at 8:00 AM
-    Have a leisurely breakfast
-    Enjoy free time
-END IF
+          ┌──────────────┐
+          │    START     │
+          └──────┬───────┘
+                 │
+          ┌──────▼──────────┐
+          │ Alarm going     │
+          │ off?            │
+          └─┬──────────┬────┘
+            │ YES      │ NO
+            │          └─────────────┐
+      ┌─────▼──────────┐       ┌─────▼──┐
+      │ Get out of     │       │ Sleep  │
+      │ bed            │       │ 5 min  │
+      └─────┬──────────┘       └─────┬──┘
+            │                        │
+            └───────────┬────────────┘
+                        │
+                   ┌────▼────┐
+                   │   END    │
+                   └──────────┘
 ```
 
-The correspondence between the two representations is direct and intentional. Flowcharts provide a visual overview of the program logic, while code provides the detailed instructions.
+This flowchart shows exactly how Logic thinks.
 
-## When to Use Flowcharts
-
-Flowcharts are particularly useful when:
-
-1. Planning a program before writing code
-2. Explaining your logic to others
-3. Debugging complex decision structures
-4. Documenting how a program works
-
-## Activity: Decision Making with Flowcharts
-
-Let's practice by creating a flowchart for deciding what to do on a Saturday afternoon.
-
-Here's a set of rules:
-- If it's raining, you'll stay inside and read a book or watch a movie
-- If it's not raining but very hot (over 35°C), you'll go to the swimming pool
-- If it's not raining and the temperature is pleasant, you'll go to the park
-- If it's not raining but cold (below 15°C), you'll visit a friend's house
-
-Draw the flowchart for this decision process in your notebook. Make sure to use the proper symbols for start/end, decisions, and processes.
-
-## Complex Conditions in Flowcharts
-
-Flowcharts can also represent complex boolean conditions:
-
-### AND Condition
-When using AND, both conditions must be true to follow the "Yes" path:
+### Complex Flowchart Example: What to Eat for Lunch
 
 ```
-Is it sunny?
-  |
-  |--> Yes --> Do I have free time?
-  |              |
-  |              |--> Yes --> Go to the beach
-  |              |
-  |              |--> No --> Stay home and look out the window
-  |
-  |--> No --> (next decision)
+        ┌──────────────┐
+        │    START     │
+        └──────┬───────┘
+               │
+        ┌──────▼───────────┐
+        │ Am I hungry?     │
+        └─┬──────────┬─────┘
+          │ YES      │ NO
+          │          │
+    ┌─────▼──────┐   │
+    │ Do I like  │   │
+    │ pizza?     │   │
+    └─┬──────┬───┘   │
+      │ YES  │ NO    │
+      │      │       │
+ ┌────▼──┐ ┌─▼───┐  │
+ │ Eat   │ │Eat  │  │
+ │pizza  │ │fruit│  │
+ └────┬──┘ └─┬───┘  │
+      │      │  ┌───▼────┐
+      │      │  │Make     │
+      │      │  │snack    │
+      └──┬───┴──┴──┬──┬───┘
+         │         │  │
+      ┌──▼─────────▼──▼──┐
+      │      END         │
+      └──────────────────┘
 ```
 
-### OR Condition
-When using OR, either condition being true is enough to follow the "Yes" path:
+This shows more complex decision-making.
+
+## Why Flowcharts Matter
+
+Flowcharts show you exactly how Logic will behave BEFORE you test it.
+
+You can:
+- **Spot mistakes** — "Oh, what if it's 3 AM? The logic breaks."
+- **Communicate clearly** — You can show someone your flowchart and they understand
+- **Plan before coding** — Work out all the decisions before you write code
+- **Test mentally** — Follow the flowchart with different inputs and see what happens
+
+## Drawing Your Own Flowchart
+
+Let's practice.
+
+**Scenario: Should I go to the park?**
+
+**Logic's questions:**
+1. Is it sunny?
+2. Do I have free time?
+3. Do I want exercise?
+
+**Logic's decision:**
+- If it's sunny AND I have time, then go
+- Else, if I want exercise, then go anyway
+- Else, stay home
+
+**Flowchart:**
 
 ```
-Is it raining OR snowing?
-  |
-  |--> Yes --> Stay indoors
-  |
-  |--> No --> (next decision)
+        ┌──────────┐
+        │  START   │
+        └─────┬────┘
+              │
+        ┌─────▼──────┐
+        │ Is it      │
+        │ sunny?     │
+        └─┬──────┬───┘
+          │ YES  │ NO
+          │      │
+     ┌────▼──┐ ┌─▼──────────┐
+     │Go to  │ │ Want       │
+     │park   │ │ exercise?  │
+     └────┬──┘ └─┬──────┬───┘
+          │      │ YES  │ NO
+          │      │      │
+          │   ┌──▼──┐ ┌─▼────┐
+          │   │Go   │ │Stay  │
+          │   │park │ │home  │
+          │   └──┬──┘ └─┬────┘
+          │      │      │
+          └──┬───┴──┬───┘
+             │      │
+          ┌──▼──────▼──┐
+          │    END      │
+          └─────────────┘
 ```
 
-## Nested Decisions vs. Compound Conditions
+See? It's just drawing Logic's thinking.
 
-There are often multiple ways to represent the same logic. Consider these equivalent approaches:
+## From Flowchart to Code-Like Thinking
 
-### Approach 1: Nested Decisions
-```
-Is it a weekend?
-  |
-  |--> Yes --> Is the weather good?
-  |              |
-  |              |--> Yes --> Go to the park
-  |              |
-  |              |--> No --> Stay home
-  |
-  |--> No --> Stay home
-```
+Once you have a flowchart, you can translate it into code-like instructions (called **pseudocode**, which we'll learn more about).
 
-### Approach 2: Compound Condition
-```
-Is it a weekend AND is the weather good?
-  |
-  |--> Yes --> Go to the park
-  |
-  |--> No --> Stay home
-```
+Flowchart → Pseudocode → Code → Computer
 
-Both approaches lead to the same outcomes, but the second is more concise. As you gain experience with programming logic, you'll develop an intuition for which representation works best in different situations.
+But for now, just know: **Flowcharts are how you show Logic's thinking visually.**
 
-## Common Pitfalls in Conditional Logic
+---
 
-### 1. Forgetting Edge Cases
-Always consider all possible paths through your logic. What happens in special or extreme cases?
+## 🎮 Activity: Create Your Own Flowchart
 
-### 2. Overlapping Conditions
-Be careful when conditions can overlap. For example:
-
-```
-IF score > 90 THEN
-    grade = "A"
-IF score > 80 THEN
-    grade = "B"
-...
-```
-
-In this case, a score of 95 would first set the grade to "A", but then immediately overwrite it with "B". The correct approach is to use ELSE IF to make the conditions mutually exclusive.
-
-### 3. Infinite Loops
-When using flowcharts to represent repetitive processes (which we'll explore more in future chapters), be careful not to create paths that never end.
-
-## Activity: Flowcharting a Real-Life Decision
-
-Think about a significant decision you recently made or need to make (like choosing a course to study, deciding on a purchase, or planning an event).
-
-1. List all the factors that influence the decision.
-2. Determine how these factors relate to each other (using AND, OR, NOT).
-3. Draw a flowchart representing the decision process.
-4. Test your flowchart with different scenarios to see if it produces the expected outcomes.
-
-For example, buying a new pair of shoes might involve factors like price, comfort, style, and need.
-
-## Key Takeaways
-
-- Conditional statements (IF-THEN-ELSE) allow programs to make decisions based on conditions
-- There are several types of conditional statements: simple IF, IF-ELSE, nested IF, and ELSE IF
-- Flowcharts are visual representations of program logic using standardized symbols
-- Decisions in flowcharts are represented by diamond shapes with Yes/No paths
-- Complex conditions using AND, OR, and NOT can be represented in flowcharts
-- Both code and flowcharts are tools for expressing the same underlying logic
-
-In the next section, we'll explore pseudocode—a way to write program-like instructions in a form that's easier for humans to read and write, bridging the gap between natural language and formal programming languages.
+(See "Decision Flowchart Challenge" activity sheet)
 
 
 # Pseudo Coding
