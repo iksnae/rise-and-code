@@ -1603,598 +1603,479 @@ And you just learned it.
 
 # Conditional Statements and Flowcharts
 
-## Introduction
+## Logic Needs to Make Decisions
 
-In the previous section, we learned about boolean logic and how to make basic decisions using IF-THEN-ELSE structures. Now, we'll expand on these concepts by exploring conditional statements in more detail and introducing flowcharts—visual tools that help us map out the logic of our programs.
+In the last section, we learned that Logic can answer YES/NO questions using AND, OR, and NOT.
 
-## Understanding Conditional Statements
+But knowing an answer isn't enough. Logic needs to know **what to do with that answer.**
 
-Conditional statements are the backbone of decision-making in programming. They allow a program to perform different actions based on whether certain conditions are true or false.
+That's where **conditional statements** come in.
 
-The basic conditional statement structure is:
+A conditional statement is just a fancy way of saying: "**If this is true, then do that. Otherwise, do something else.**"
+
+## IF, THEN, ELSE: Logic's Decision Structure
+
+Here's the pattern Logic uses:
 
 ```
-IF condition THEN
-    do something
-ELSE
-    do something else
+IF (some condition is true)
+THEN (do this)
+ELSE (do that instead)
 END IF
 ```
 
-Let's examine each part:
+That's it. That's how computers make decisions.
 
-- **IF**: Signals the start of a conditional statement
-- **condition**: A boolean expression that evaluates to true or false
-- **THEN**: Marks what happens if the condition is true
-- **do something**: The actions that occur if the condition is true
-- **ELSE**: Introduces the alternative actions
-- **do something else**: The actions that occur if the condition is false
-- **END IF**: Signals the end of the conditional statement
-
-## Types of Conditional Statements
-
-### 1. Simple IF Statement
-
-The simplest form only executes code when a condition is true:
+### Real-World Example: Morning Decision
 
 ```
-IF it is raining THEN
-    take an umbrella
+IF (my alarm is going off AND it's a school day)
+THEN (get out of bed)
+ELSE (sleep 5 more minutes)
 END IF
 ```
 
-In this case, nothing specific happens if it's not raining. The program simply continues to the next instructions.
+Logic asks the condition. The condition is either TRUE or FALSE. Based on that, Logic does one thing or the other.
 
-### 2. IF-ELSE Statement
-
-This form provides two paths: one for when the condition is true and another for when it's false:
+### Another Example: Should I Wear a Coat?
 
 ```
-IF temperature > 30 degrees THEN
-    wear light clothing
-ELSE
-    wear a jacket
+IF (it's cold AND I'm going outside)
+THEN (wear a coat)
+ELSE (don't wear a coat)
 END IF
 ```
 
-### 3. Nested IF Statements
+Logic doesn't think about it. Doesn't debate. Checks the condition. Does one thing or the other.
 
-Conditional statements can be placed inside other conditional statements to handle more complex scenarios:
+## Nesting: Decisions Within Decisions
+
+Sometimes Logic needs to make a decision, and then make another decision based on that.
 
 ```
-IF it is a weekday THEN
-    IF it is morning THEN
-        go to school
-    ELSE
-        do homework
-    END IF
-ELSE
-    relax and play
+IF (it's raining)
+THEN (take an umbrella)
+  IF (it's also cold)
+  THEN (wear a jacket too)
+  ELSE (just take umbrella)
+  END IF
+ELSE (no umbrella needed)
+  IF (it's sunny)
+  THEN (wear sunscreen)
+  ELSE (it's just cloudy)
+  END IF
 END IF
 ```
 
-### 4. ELSE IF (or ELIF) Statement
+This is called "nesting" — decisions inside decisions.
 
-When we need to check multiple conditions in sequence:
+Computers do this constantly. It looks complicated, but it's just: ask a question, do something, ask another question, do something else.
 
-```
-IF score >= 90 THEN
-    grade = "A"
-ELSE IF score >= 80 THEN
-    grade = "B"
-ELSE IF score >= 70 THEN
-    grade = "C"
-ELSE IF score >= 60 THEN
-    grade = "D"
-ELSE
-    grade = "F"
-END IF
-```
+## Flowcharts: Drawing Logic's Thinking
 
-In this example, we're checking a series of conditions in order, and only one block of code will execute.
+Words are great, but sometimes it's easier to DRAW how Logic thinks.
 
-## Introducing Flowcharts
+That's what flowcharts are for.
 
-A flowchart is a diagram that represents a process or workflow, showing the steps as boxes of different kinds, and their order by connecting them with arrows. Flowcharts are particularly useful for visualizing the logic of programs, especially those with conditional statements.
+A flowchart is a visual map of Logic's decisions.
 
-### Basic Flowchart Symbols
+### Flowchart Symbols
 
-Here are the most common symbols used in flowcharts:
-
-1. **Start/End (Oval or Rounded Rectangle)**
-   - Used to indicate the beginning or end of a process
-   - Example: "Start" or "End"
-
-2. **Process (Rectangle)**
-   - Represents a step in the process or an action to be taken
-   - Example: "Add 2 cups of flour" or "Calculate total price"
-
-3. **Decision (Diamond)**
-   - Shows a point where a decision must be made
-   - Typically contains a question with a yes/no or true/false answer
-   - Example: "Is it raining?" or "Is x > 10?"
-
-4. **Flow Lines (Arrows)**
-   - Connect the symbols to show the sequence of steps
-   - Indicate the flow direction of the process
-
-5. **Input/Output (Parallelogram)**
-   - Represents input or output operations
-   - Example: "Enter your name" or "Display total"
-
-### Creating a Simple Flowchart
-
-Let's create a flowchart for a simple morning routine:
+Here's what each shape means:
 
 ```
-Start
-  |
-  v
-Is it a weekday?
-  |
-  |--> Yes --> Wake up at 6:30 AM
-  |              |
-  |              v
-  |            Eat breakfast
-  |              |
-  |              v
-  |            Go to school/work
-  |
-  |--> No --> Wake up at 8:00 AM
-                |
-                v
-              Have a leisurely breakfast
-                |
-                v
-              Enjoy free time
-                |
-                v
-End
+   ┌─────────────┐
+   │   START     │   (Circle or oval = start/stop)
+   └──────┬──────┘
+          │
+     ┌────▼────┐
+     │ rectangle│   (Rectangle = action/process)
+     └────┬────┘
+          │
+     ◇─────◇    (Diamond = decision/question)
+    ╱       ╲
+  YES      NO
+  │         │
 ```
 
-This flowchart clearly shows the different paths our morning might take depending on whether it's a weekday or not.
-
-## Translating Between Conditional Statements and Flowcharts
-
-The two representations—code and flowcharts—can be readily translated into each other. For example, the morning routine in code would be:
+### Simple Flowchart Example: Should I Get Up?
 
 ```
-IF it is a weekday THEN
-    Wake up at 6:30 AM
-    Eat breakfast
-    Go to school/work
-ELSE
-    Wake up at 8:00 AM
-    Have a leisurely breakfast
-    Enjoy free time
-END IF
+          ┌──────────────┐
+          │    START     │
+          └──────┬───────┘
+                 │
+          ┌──────▼──────────┐
+          │ Alarm going     │
+          │ off?            │
+          └─┬──────────┬────┘
+            │ YES      │ NO
+            │          └─────────────┐
+      ┌─────▼──────────┐       ┌─────▼──┐
+      │ Get out of     │       │ Sleep  │
+      │ bed            │       │ 5 min  │
+      └─────┬──────────┘       └─────┬──┘
+            │                        │
+            └───────────┬────────────┘
+                        │
+                   ┌────▼────┐
+                   │   END    │
+                   └──────────┘
 ```
 
-The correspondence between the two representations is direct and intentional. Flowcharts provide a visual overview of the program logic, while code provides the detailed instructions.
+This flowchart shows exactly how Logic thinks.
 
-## When to Use Flowcharts
-
-Flowcharts are particularly useful when:
-
-1. Planning a program before writing code
-2. Explaining your logic to others
-3. Debugging complex decision structures
-4. Documenting how a program works
-
-## Activity: Decision Making with Flowcharts
-
-Let's practice by creating a flowchart for deciding what to do on a Saturday afternoon.
-
-Here's a set of rules:
-- If it's raining, you'll stay inside and read a book or watch a movie
-- If it's not raining but very hot (over 35°C), you'll go to the swimming pool
-- If it's not raining and the temperature is pleasant, you'll go to the park
-- If it's not raining but cold (below 15°C), you'll visit a friend's house
-
-Draw the flowchart for this decision process in your notebook. Make sure to use the proper symbols for start/end, decisions, and processes.
-
-## Complex Conditions in Flowcharts
-
-Flowcharts can also represent complex boolean conditions:
-
-### AND Condition
-When using AND, both conditions must be true to follow the "Yes" path:
+### Complex Flowchart Example: What to Eat for Lunch
 
 ```
-Is it sunny?
-  |
-  |--> Yes --> Do I have free time?
-  |              |
-  |              |--> Yes --> Go to the beach
-  |              |
-  |              |--> No --> Stay home and look out the window
-  |
-  |--> No --> (next decision)
+        ┌──────────────┐
+        │    START     │
+        └──────┬───────┘
+               │
+        ┌──────▼───────────┐
+        │ Am I hungry?     │
+        └─┬──────────┬─────┘
+          │ YES      │ NO
+          │          │
+    ┌─────▼──────┐   │
+    │ Do I like  │   │
+    │ pizza?     │   │
+    └─┬──────┬───┘   │
+      │ YES  │ NO    │
+      │      │       │
+ ┌────▼──┐ ┌─▼───┐  │
+ │ Eat   │ │Eat  │  │
+ │pizza  │ │fruit│  │
+ └────┬──┘ └─┬───┘  │
+      │      │  ┌───▼────┐
+      │      │  │Make     │
+      │      │  │snack    │
+      └──┬───┴──┴──┬──┬───┘
+         │         │  │
+      ┌──▼─────────▼──▼──┐
+      │      END         │
+      └──────────────────┘
 ```
 
-### OR Condition
-When using OR, either condition being true is enough to follow the "Yes" path:
+This shows more complex decision-making.
+
+## Why Flowcharts Matter
+
+Flowcharts show you exactly how Logic will behave BEFORE you test it.
+
+You can:
+- **Spot mistakes** — "Oh, what if it's 3 AM? The logic breaks."
+- **Communicate clearly** — You can show someone your flowchart and they understand
+- **Plan before coding** — Work out all the decisions before you write code
+- **Test mentally** — Follow the flowchart with different inputs and see what happens
+
+## Drawing Your Own Flowchart
+
+Let's practice.
+
+**Scenario: Should I go to the park?**
+
+**Logic's questions:**
+1. Is it sunny?
+2. Do I have free time?
+3. Do I want exercise?
+
+**Logic's decision:**
+- If it's sunny AND I have time, then go
+- Else, if I want exercise, then go anyway
+- Else, stay home
+
+**Flowchart:**
 
 ```
-Is it raining OR snowing?
-  |
-  |--> Yes --> Stay indoors
-  |
-  |--> No --> (next decision)
+        ┌──────────┐
+        │  START   │
+        └─────┬────┘
+              │
+        ┌─────▼──────┐
+        │ Is it      │
+        │ sunny?     │
+        └─┬──────┬───┘
+          │ YES  │ NO
+          │      │
+     ┌────▼──┐ ┌─▼──────────┐
+     │Go to  │ │ Want       │
+     │park   │ │ exercise?  │
+     └────┬──┘ └─┬──────┬───┘
+          │      │ YES  │ NO
+          │      │      │
+          │   ┌──▼──┐ ┌─▼────┐
+          │   │Go   │ │Stay  │
+          │   │park │ │home  │
+          │   └──┬──┘ └─┬────┘
+          │      │      │
+          └──┬───┴──┬───┘
+             │      │
+          ┌──▼──────▼──┐
+          │    END      │
+          └─────────────┘
 ```
 
-## Nested Decisions vs. Compound Conditions
+See? It's just drawing Logic's thinking.
 
-There are often multiple ways to represent the same logic. Consider these equivalent approaches:
+## From Flowchart to Code-Like Thinking
 
-### Approach 1: Nested Decisions
-```
-Is it a weekend?
-  |
-  |--> Yes --> Is the weather good?
-  |              |
-  |              |--> Yes --> Go to the park
-  |              |
-  |              |--> No --> Stay home
-  |
-  |--> No --> Stay home
-```
+Once you have a flowchart, you can translate it into code-like instructions (called **pseudocode**, which we'll learn more about).
 
-### Approach 2: Compound Condition
-```
-Is it a weekend AND is the weather good?
-  |
-  |--> Yes --> Go to the park
-  |
-  |--> No --> Stay home
-```
+Flowchart → Pseudocode → Code → Computer
 
-Both approaches lead to the same outcomes, but the second is more concise. As you gain experience with programming logic, you'll develop an intuition for which representation works best in different situations.
+But for now, just know: **Flowcharts are how you show Logic's thinking visually.**
 
-## Common Pitfalls in Conditional Logic
+---
 
-### 1. Forgetting Edge Cases
-Always consider all possible paths through your logic. What happens in special or extreme cases?
+## 🎮 Activity: Create Your Own Flowchart
 
-### 2. Overlapping Conditions
-Be careful when conditions can overlap. For example:
-
-```
-IF score > 90 THEN
-    grade = "A"
-IF score > 80 THEN
-    grade = "B"
-...
-```
-
-In this case, a score of 95 would first set the grade to "A", but then immediately overwrite it with "B". The correct approach is to use ELSE IF to make the conditions mutually exclusive.
-
-### 3. Infinite Loops
-When using flowcharts to represent repetitive processes (which we'll explore more in future chapters), be careful not to create paths that never end.
-
-## Activity: Flowcharting a Real-Life Decision
-
-Think about a significant decision you recently made or need to make (like choosing a course to study, deciding on a purchase, or planning an event).
-
-1. List all the factors that influence the decision.
-2. Determine how these factors relate to each other (using AND, OR, NOT).
-3. Draw a flowchart representing the decision process.
-4. Test your flowchart with different scenarios to see if it produces the expected outcomes.
-
-For example, buying a new pair of shoes might involve factors like price, comfort, style, and need.
-
-## Key Takeaways
-
-- Conditional statements (IF-THEN-ELSE) allow programs to make decisions based on conditions
-- There are several types of conditional statements: simple IF, IF-ELSE, nested IF, and ELSE IF
-- Flowcharts are visual representations of program logic using standardized symbols
-- Decisions in flowcharts are represented by diamond shapes with Yes/No paths
-- Complex conditions using AND, OR, and NOT can be represented in flowcharts
-- Both code and flowcharts are tools for expressing the same underlying logic
-
-In the next section, we'll explore pseudocode—a way to write program-like instructions in a form that's easier for humans to read and write, bridging the gap between natural language and formal programming languages.
+(See "Decision Flowchart Challenge" activity sheet)
 
 
 # Pseudo Coding
 
-## Introduction
+## Bridge Between Thinking and Programming
 
-In the previous sections, we explored boolean logic, conditional statements, and flowcharts. Now we're going to learn about pseudocode, a powerful tool that bridges the gap between human language and formal programming languages.
+We've learned a lot:
+- **Logic** thinks in YES/NO (TRUE/FALSE)
+- **AND, OR, NOT** combine answers
+- **IF/THEN/ELSE** makes decisions
+- **Flowcharts** show decisions visually
 
-Pseudocode is like a rough draft of a program—it expresses the logic and steps in a form that's easier for humans to write and understand, while still maintaining enough structure to be easily translated into actual code later.
+Now we need a bridge between all this thinking and actual computer code.
+
+That bridge is called **pseudocode**.
 
 ## What is Pseudocode?
 
-Pseudocode is a way of describing an algorithm or program using a mixture of natural language (like English) and programming-like structures. It's not meant to be executed by a computer but rather to help programmers plan their code and communicate their ideas to others.
+**Pseudocode** is code-like instructions written in plain English (or your language).
 
-Think of pseudocode as a set of cooking instructions. When you read a recipe, it has a specific format and uses certain conventions, but it's written in a way that humans can easily understand. Similarly, pseudocode uses programming concepts but expresses them in a more readable form.
+It's not real code that a computer can run. It's more like writing instructions for Logic in a way that's structured and clear.
 
-## Why Use Pseudocode?
+Think of it as: "Talking to Logic like you're writing real code, but using words you understand."
 
-Pseudocode offers several advantages:
+### Example: Making Toast
 
-1. **Focus on Logic**: It lets you concentrate on the problem-solving logic without getting caught up in programming language syntax details.
-
-2. **Communication**: It's easier for others (even non-programmers) to understand, making it great for discussing algorithms and solutions.
-
-3. **Planning**: It helps you organize your thoughts and plan your program before writing actual code.
-
-4. **Language Independence**: Pseudocode isn't tied to any specific programming language, so the same pseudocode can be translated into different languages.
-
-5. **Error Prevention**: By planning your logic in pseudocode first, you can catch logical errors early, before writing actual code.
-
-## Pseudocode Conventions
-
-While there's no single "official" pseudocode syntax, certain conventions are commonly used:
-
-1. **Use descriptive English statements** for most instructions
-
-2. **CAPITALIZE** keywords like IF, ELSE, WHILE, FOR, etc.
-
-3. **Indent** code blocks to show structure
-
-4. **Use standard symbols** for operations:
-   - = for assignment
-   - ==, >, <, >=, <= for comparisons
-   - +, -, *, / for arithmetic operations
-
-5. **Number lines** (optional) to make discussion easier
-
-Let's see an example of pseudocode for determining the largest of three numbers:
+**Pseudocode for making toast:**
 
 ```
-1. START
-2. GET number1, number2, number3
-3. SET largest = number1
-4. IF number2 > largest THEN
-5.     SET largest = number2
-6. END IF
-7. IF number3 > largest THEN
-8.     SET largest = number3
-9. END IF
-10. DISPLAY "The largest number is " + largest
-11. END
+START
+  Get bread from cupboard
+  Put bread in toaster
+  Set toaster to medium
+  Press down lever
+  WAIT until toaster pops
+  Take toast out
+  Put toast on plate
+  GET butter
+  Spread butter on toast
+END
 ```
 
-## From Flowcharts to Pseudocode
+That's pseudocode. It's structured like code. It has a START and END. It's step-by-step. But it's written in plain English.
 
-One of the strengths of pseudocode is how well it pairs with flowcharts. Let's take the weekend activity flowchart from the previous section and convert it to pseudocode:
+## Pseudocode Pattern
 
-Flowchart (conceptual):
-```
-Is it a weekend AND is the weather good?
-  |
-  |--> Yes --> Go to the park
-  |
-  |--> No --> Stay home
-```
+Here's the pattern for writing pseudocode:
 
-Pseudocode:
 ```
-1. GET day_of_week
-2. GET weather_condition
-3. IF day_of_week == "Saturday" OR day_of_week == "Sunday" THEN
-4.     IF weather_condition == "good" THEN
-5.         DISPLAY "Go to the park"
-6.     ELSE
-7.         DISPLAY "Stay home"
-8.     END IF
-9. ELSE
-10.    DISPLAY "Stay home"
-11. END IF
+START
+  (do something)
+  (do something else)
+  IF (condition) THEN
+    (do this)
+  ELSE
+    (do that)
+  END IF
+  (continue)
+END
 ```
 
-Notice how the pseudocode is more detailed than the flowchart but still easier to read than actual programming code.
+Notice:
+- Indentation (lines under IF are indented)
+- Clear structure (START/END, IF/THEN/ELSE)
+- One step per line
+- No ambiguity
 
-## Common Pseudocode Elements
+## Translating Flowchart to Pseudocode
 
-### Input and Output
-```
-GET variable_name          // For input
-DISPLAY message            // For output
-```
+Remember the "Should I get up?" flowchart?
 
-### Variables and Assignment
+**Flowchart:**
 ```
-SET variable = value       // Assigns a value to a variable
+Is alarm going off?
+  YES → Get out of bed
+  NO → Sleep 5 more minutes
 ```
 
-### Conditional Statements
-```
-IF condition THEN          // Simple if
-    statements
-END IF
+**Pseudocode version:**
 
-IF condition THEN          // If-else
-    statements1
+```
+START
+  IF (alarm is going off) THEN
+    Get out of bed
+  ELSE
+    Sleep 5 more minutes
+  END IF
+END
+```
+
+See how they match? Flowchart shows it visually. Pseudocode shows it in text.
+
+## More Complex Pseudocode: Making a Sandwich
+
+**Real-world decision:** Should I make a sandwich?
+
+**Pseudocode:**
+
+```
+START
+  IF (I'm hungry) THEN
+    Check if there's bread
+    IF (bread exists) THEN
+      Check if there's filling
+      IF (filling exists) THEN
+        Get bread
+        Get filling
+        Make sandwich
+        Eat sandwich
+      ELSE
+        Make toast instead
+      END IF
+    ELSE
+      Make something else
+    END IF
+  ELSE
+    Don't eat right now
+  END IF
+END
+```
+
+This shows nested decisions. It's structured. A computer could almost understand this.
+
+## Why Pseudocode Matters
+
+**Pseudocode is the bridge between thinking and coding.**
+
+When you:
+1. Think about a problem (flowchart stage)
+2. Write pseudocode (organization stage)
+3. Write real code (programming stage)
+
+...you're using a proven technique that professional programmers use every day.
+
+Pseudocode helps you:
+- **Organize your thoughts** — Get logic right before coding
+- **Catch mistakes** — See flaws in your thinking
+- **Communicate clearly** — Others can understand your plan
+- **Translate easily** — Convert to real code in any language
+
+## From Your Language to Code
+
+The beautiful part: Pseudocode is the SAME regardless of programming language.
+
+**Pseudocode:**
+```
+IF (it's raining) THEN
+  Bring umbrella
 ELSE
-    statements2
-END IF
-
-IF condition1 THEN         // If-else if-else
-    statements1
-ELSE IF condition2 THEN
-    statements2
-ELSE
-    statements3
+  Leave umbrella home
 END IF
 ```
 
-### Loops (which we'll explore more in later chapters)
-```
-WHILE condition DO         // While loop
-    statements
-END WHILE
-
-FOR i = start TO end       // For loop
-    statements
-END FOR
-```
-
-### Functions (which we'll also explore more later)
-```
-FUNCTION name(parameters)
-    statements
-    RETURN value
-END FUNCTION
-```
-
-## Example: Using Pseudocode to Plan a Solution
-
-Let's use pseudocode to plan a solution for a common problem: determining whether a year is a leap year.
-
-A leap year is a year that is divisible by 4, except for years that are divisible by 100 but not by 400.
-
-Here's the pseudocode:
-
-```
-1. START
-2. GET year
-3. IF (year is divisible by 400) THEN
-4.     SET is_leap_year = true
-5. ELSE IF (year is divisible by 100) THEN
-6.     SET is_leap_year = false
-7. ELSE IF (year is divisible by 4) THEN
-8.     SET is_leap_year = true
-9. ELSE
-10.    SET is_leap_year = false
-11. END IF
-12. IF is_leap_year THEN
-13.    DISPLAY year + " is a leap year"
-14. ELSE
-15.    DISPLAY year + " is not a leap year"
-16. END IF
-17. END
-```
-
-Writing out the logic in pseudocode helps us catch potential issues before we start coding. For example, the order of the conditions is crucial; if we checked for divisibility by 4 first, we'd incorrectly classify years like 1900 (which is divisible by 100 but not 400) as leap years.
-
-## Translating Natural Language to Pseudocode
-
-Often, you'll need to translate a problem described in natural language into pseudocode. Here's a process for doing this:
-
-1. **Identify the inputs and outputs**
-2. **Break down the problem into steps**
-3. **Identify decision points**
-4. **Write pseudocode for each step**
-5. **Review and refine your solution**
-
-Let's practice with an example:
-
-**Problem**: A teacher wants to calculate the average score of a student's tests, but wants to drop the lowest score if the student has taken more than three tests.
-
-Step 1: Identify inputs and outputs
-- Inputs: A list of test scores
-- Output: The average score (potentially with the lowest score dropped)
-
-Step 2-5: Break down the problem and write pseudocode
-
-```
-1. START
-2. GET test_scores (a list of numbers)
-3. SET total = 0
-4. SET count = number of scores in test_scores
-5. IF count > 3 THEN
-6.     SET min_score = first score in test_scores
-7.     FOR each score in test_scores
-8.         IF score < min_score THEN
-9.             SET min_score = score
-10.        END IF
-11.    END FOR
-12.    SET total = sum of all scores in test_scores - min_score
-13.    SET count = count - 1
-14. ELSE
-15.    SET total = sum of all scores in test_scores
-16. END IF
-17. SET average = total / count
-18. DISPLAY "The average score is " + average
-19. END
-```
-
-## Activity: Translating Problems to Pseudocode
-
-Try converting these real-world problems into pseudocode:
-
-1. **Problem**: Determine if a student has passed a course. To pass, the student must have an average score of at least 60% and have attended at least 80% of the classes.
-
-2. **Problem**: Calculate the cost of a taxi ride. The base fare is $2.50, and then it's $0.50 per kilometer. If the total distance is more than 10 kilometers, a 5% discount is applied to the total fare.
-
-3. **Problem**: A vending machine gives change using the fewest number of coins possible. Given an amount of change to return, determine how many quarters (25¢), dimes (10¢), nickels (5¢), and pennies (1¢) to provide.
-
-After writing your pseudocode, test it with specific examples to make sure it works correctly.
-
-## Pseudocode Best Practices
-
-To write effective pseudocode:
-
-1. **Be clear and concise**: Use simple language that anyone can understand.
-
-2. **Be consistent**: Choose a style and stick with it throughout your pseudocode.
-
-3. **Use the right level of detail**: Include enough detail to understand the logic, but don't get bogged down in implementation specifics.
-
-4. **Think step by step**: Break down complex operations into simpler steps.
-
-5. **Use meaningful variable names**: Choose names that describe what the variables represent.
-
-6. **Comment your pseudocode**: Add explanations for complex or non-obvious parts.
-
-## From Pseudocode to Code
-
-Once you've refined your pseudocode, translating it to actual code becomes much easier. Here's a simple example showing pseudocode and its translation to several programming languages:
-
-Pseudocode:
-```
-IF temperature > 30 THEN
-    DISPLAY "It's hot!"
-ELSE
-    DISPLAY "It's not too hot."
-END IF
-```
-
-Python:
+**Python code:**
 ```python
-if temperature > 30:
-    print("It's hot!")
+if its_raining:
+    bring_umbrella()
 else:
-    print("It's not too hot.")
+    leave_umbrella_home()
 ```
 
-JavaScript:
+**JavaScript code:**
 ```javascript
-if (temperature > 30) {
-    console.log("It's hot!");
+if (itsRaining) {
+    bringUmbrella();
 } else {
-    console.log("It's not too hot.");
+    leaveUmbrellaHome();
 }
 ```
 
-When you eventually start writing in a specific programming language, you'll find that the transition is much smoother if you've already worked out the logic in pseudocode.
+Same logic. Different languages.
 
-## Activity: Implementing Pseudocode in Real Life
+**Pseudocode is the universal translator.**
 
-Pseudocode isn't just for computer programs—it can help with real-life processes too!
+## Your Turn: Write Pseudocode
 
-1. Choose a routine task that you perform regularly (like making breakfast, getting ready for school, or organizing your study time).
+Let's practice translating thinking into pseudocode.
 
-2. Write pseudocode for this process, including decision points and repetitive actions.
+**Real-world scenario:** Morning routine
 
-3. Test your pseudocode by following it step by step.
+**Questions:**
+- What time is it?
+- Do I have school?
+- Am I tired?
+- What's the weather?
 
-4. Revise your pseudocode to make the process more efficient.
+**Pseudocode for morning routine:**
 
-This exercise helps develop algorithmic thinking for everyday situations.
+```
+START
+  Check the time
+  IF (time is 6 AM) THEN
+    Get out of bed
+    Check if it's a school day
+    IF (school day) THEN
+      Eat breakfast
+      Get dressed
+      Pack backpack
+      Leave for school
+    ELSE
+      Relax
+      Have leisurely breakfast
+    END IF
+  ELSE
+    Sleep more
+  END IF
+END
+```
 
-## Key Takeaways
+See? Start with questions. Use IF/THEN/ELSE. Put one step per line. Done.
 
-- Pseudocode is a way to describe algorithms using a mixture of natural language and programming-like structures
-- It bridges the gap between human thinking and formal programming languages
-- Pseudocode helps focus on the logic of a solution without getting caught up in language-specific syntax
-- While there's no single standard for pseudocode, consistency and clarity are important
-- Pseudocode works well with flowcharts—they complement each other
-- Developing strong pseudocode skills makes transitioning to actual programming languages easier
+## Debugging with Pseudocode
 
-In this chapter, we've built a solid foundation in logical thinking and program structure. We've explored boolean logic and truth tables, conditional statements and flowcharts, and finally pseudocode as a bridge to expressing algorithms more formally. These building blocks are essential to programming and computational thinking, and they'll serve you well as we dive deeper into more complex concepts in the coming chapters.
+Pseudocode also helps you find mistakes.
+
+**Original pseudocode for breakfast:**
+```
+START
+  Get bowl
+  Pour cereal
+  Pour milk
+  Eat
+END
+```
+
+**Problem:** You forgot the spoon! Pseudocode made this obvious.
+
+**Fixed pseudocode:**
+```
+START
+  Get bowl
+  Get spoon
+  Pour cereal
+  Pour milk
+  Eat with spoon
+END
+```
+
+Small mistake, but catching it BEFORE you code saves time.
+
+---
+
+## 🎮 Activity: Translate to Pseudocode
+
+(See "Pseudocode Translator" activity sheet)
 
 
 # Activity: Truth Tables and Logic Puzzles
