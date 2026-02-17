@@ -578,239 +578,423 @@ Nice work. 👋
 
 # Who This Book Is For
 
-## Introduction
+## You, Specifically
 
-Programming is for everyone. Whether you're a student, a teacher, a farmer, a doctor, a shopkeeper, or someone who's simply curious about how technology works, this book is designed for you. You don't need any prior experience with computers or programming to benefit from the concepts we'll explore together.
+This book was written for **you.**
 
-## Students of All Ages
+Not some imaginary "perfect student." Not someone who already knows about computers. Not a genius or a prodigy.
 
-Are you a young person who wants to understand the technology that shapes our world? Or perhaps you're an adult who never had the opportunity to learn programming before? This book is for learners of all ages.
+You.
 
-The activities and explanations are designed to be accessible whether you're 10 or 70 years old. Some concepts might be challenging at first, but we've broken them down into manageable pieces that build on each other.
+Whoever you are, wherever you are, whatever your situation—this book is designed with YOU in mind.
 
-## People with Limited Access to Technology
+## Different Stories, Same Door
 
-One of the most important goals of this book is to make programming education accessible to everyone—especially those who don't have regular access to computers.
+Let me tell you about some people who picked up this book:
 
-If you:
-- Live in a region with limited electricity or internet access
-- Don't have a personal computer
-- Share limited technology resources with many others
-- Only have occasional access to computers
+### Maya's Story
 
-...then this book was created specifically with you in mind. Everything in this book can be done with just paper, pencil, and your own creative thinking.
+Maya is 14. She lives in a city, goes to school, and is curious about how the world works. One day she wondered: *"How do apps actually decide what to show me?"* She's never programmed before. She doesn't have her own computer. But she's smart, she asks questions, and she wanted to understand.
 
-## Educators and Community Leaders
+This book is for Maya.
 
-If you're a teacher, mentor, or community leader looking to introduce programming concepts to your students or community members, this book provides a framework for doing so without requiring a computer lab or expensive equipment.
+### Ahmed's Story
 
-The activities can be adapted for:
-- Classroom settings
-- After-school programs
-- Community workshops
-- Individual mentoring
+Ahmed is 45. He's been incarcerated for several years. He spends a lot of time in his cell. One day, a teacher brought this book to the library. Ahmed thought: *"What's programming? I've never done anything like that."* He'd never touched a computer. He has time, and he wants to learn something that matters.
 
-Each chapter includes activities that can be done individually or in groups, making them flexible for different learning environments.
+This book is for Ahmed.
 
-## Self-Directed Learners
+### Zainab's Story
 
-If you're teaching yourself, this book provides a structured pathway to learn programming concepts at your own pace. The activities are designed to be self-contained, with clear instructions and reflective questions to guide your learning.
+Zainab is 9. She lives in a small village. Her school doesn't have computers. Her family doesn't have money for fancy tools. But Zainab watches her parents run the family farm, and she asks a LOT of questions about how things work. She wants to understand everything.
 
-## Those Who Learn by Doing
+This book is for Zainab.
 
-Many people learn best through practical, hands-on activities rather than abstract theory. If you're someone who prefers to learn by doing, you'll find that this book is full of interactive exercises that let you practice programming concepts immediately.
+### James's Story
 
-## Anyone Curious About How Programming Works
+James is 68. He's retired. His grandkids are always talking about coding and apps, and he wants to understand what they're doing. He's not tech-savvy, but he's curious. He's smart. He just wants to learn what this "programming" thing actually IS.
 
-Perhaps you've heard about programming and want to understand what it's all about. Or maybe you use technology every day and want to peek behind the curtain to see how it works. This book will help demystify programming and show you the logical thinking that powers our digital world.
+This book is for James.
 
-## What You Don't Need for This Book
+### Kai's Story
 
-It's important to highlight what you DON'T need for this book:
+Kai is 11. Kai has a learning difference that makes reading and concentrating hard. Kai's parent found this book because it doesn't require a computer—just pen and paper. Kai's confused sometimes, but Kai's not dumb. Kai just learns differently. When Kai read the first section, Kai felt: *"Oh, this is actually for ME."*
 
-- You don't need a computer
-- You don't need internet access
-- You don't need expensive materials
-- You don't need previous experience with mathematics or programming
-- You don't need to speak any specific language (though this book is currently available in [list languages here])
+This book is for Kai.
 
-## What You DO Need for This Book
+## What They All Have in Common
 
-Here's all you need to get started:
+Maya, Ahmed, Zainab, James, and Kai don't have much in common on the surface. Different ages. Different places. Different reasons for wanting to learn.
 
-- A notebook or paper
-- Something to write with (pencil, pen, etc.)
-- Curiosity and willingness to try new ways of thinking
-- Persistence when challenges arise (and they will!)
-- Time to work through activities and reflect on what you've learned
+But they all have this in common:
 
-## Activity: Your Learning Profile
+✨ **They're curious**  
+✨ **They're willing to try**  
+✨ **They deserve to learn**  
+✨ **They have smart brains**  
 
-**Materials needed**: Your notebook and something to write with
+And that's who this book is for.
 
-**Instructions**:
-1. Title a page in your notebook "My Learning Profile"
-2. Answer the following questions:
-   - What interests you most about programming?
-   - What experience (if any) do you have with technology?
-   - How do you learn best? (By reading, doing, seeing, discussing, etc.)
-   - What kinds of problems would you like to solve with programming?
-   - What might be challenging for you in learning to program?
-   - What resources and support do you have available?
-3. Keep this page handy as you work through the book. It will help you connect the concepts to your own goals and learning style.
+## What You Won't Find in This Book
 
-## Key Takeaways
+**You won't find:**
+- Judgment about your age, your background, or where you are
+- Complicated technical jargon that makes you feel stupid
+- A computer requirement (this whole book works without one)
+- Pressure to finish quickly or "get it right"
+- The assumption that you've done this before
 
-- This book is designed for people of all ages and backgrounds
-- No access to computers is required to learn from this book
-- Everyone can benefit from programming concepts, regardless of their career or interests
-- Different readers will have different goals and learning preferences
-- Programming is a skill that anyone can learn with practice and persistence
+## What You Will Find
 
-In the next section, we'll explain how to use this book effectively, including the notebook method that will be central to your learning experience.
+**You will find:**
+- A warm voice that talks TO you, not AT you
+- Real stories and real problems that matter
+- Concepts that build on what you already know
+- Activities that feel like play, not homework
+- Permission to go at your own pace
+- A book that treats you like your brain matters (because it does)
 
-# How to Use This Book (Including the Notebook Method)
+## You Belong Here
 
-## Introduction
+Maybe you picked this book up because:
+- You're curious about how things work
+- You want to understand computers (or learn that you don't need them as much as you think)
+- You're in a place where education is hard to access
+- You have time and you want to use it well
+- Someone you trust told you this book is good
+- You just want to try something new
 
-This book is designed to be both a guide and a workbook for your programming journey. In this section, we'll explain how to get the most out of the book and introduce the "notebook method"—a powerful approach to learning programming without a computer.
+**Whatever your reason: You belong here.**
 
-## The Notebook Method: Your Paper Computer
+This book wasn't written for "smart people" or "computer people." It was written for people who are curious, who want to learn, and who deserve access to real knowledge.
 
-Throughout history, great scientists, mathematicians, and inventors have used notebooks to develop their ideas. Leonardo da Vinci filled thousands of pages with sketches, calculations, and observations. Ada Lovelace, often considered the world's first programmer, used paper to write the first algorithm designed for a machine.
+That's you.
 
-In this tradition, your notebook will become your "paper computer"—a place where you can work through programming concepts, track your progress, test your ideas, and reflect on your learning.
+---
 
-## Setting Up Your Coding Notebook
+## A Note on Accessibility
 
-To get started, you'll need a notebook that will become your programming companion. Ideally, choose one that:
+This book works for people with different needs:
 
-- Has plenty of pages (at least 100)
-- Stays open easily when placed on a flat surface
-- Has pages that are large enough for diagrams
-- Has blank or grid/graph paper (rather than lined) if possible, but lined paper works too
+**No computer needed** — The whole book works with just pencil and paper.
 
-If you don't have a dedicated notebook, you can use loose paper collected in a folder, or even make your own notebook by binding paper together.
+**No expensive materials** — Most activities use things you probably have: coins, paper, things from around you.
 
-## Organizing Your Notebook
+**Different ways of learning** — Some people like to read carefully. Some like to jump around. Some need to move around while they learn. That's all OK here.
 
-We recommend dividing your notebook into these sections:
+**Different abilities** — If you have ADHD, dyslexia, or a learning difference, this book can work for you. If you're blind or have low vision, the activities can be adapted. If English isn't your first language, the words are simple and the ideas are clear.
 
-1. **Table of Contents** (first few pages)
-   - Leave space to record what you've written and where to find it
+**Different ages** — An 8-year-old can learn from this. So can an 80-year-old. Everyone finds something here.
 
-2. **Concepts** (about 25% of your notebook)
-   - For notes on programming concepts as you learn them
-   - Include your own explanations and examples
+**Different backgrounds** — Whether you're in a prison, a refugee camp, a poor neighborhood, a wealthy suburb, or anywhere else—this book is yours.
 
-3. **Exercises & Activities** (about 50% of your notebook)
-   - For completing the activities in the book
-   - Working through your own practice problems
-   - Space for debugging and revising your work
+## One More Thing
 
-4. **Reflections** (about 15% of your notebook)
-   - Record what you've learned
-   - Note connections between concepts
-   - Track challenges and breakthroughs
-   - Set goals for what to learn next
+You might be thinking: *"I'm not a 'computer person.' I'm not smart about this stuff."*
 
-5. **Reference** (about 10% of your notebook)
-   - Create your own quick reference guides
-   - Keep track of symbols, terms, and concepts you want to remember
+Here's the truth: **Programming isn't about computers. It's about thinking clearly.** And you probably already do that.
 
-You can mark these sections with tabs, bookmarks, or by coloring the edges of the pages.
+Every time you:
+- Plan your day
+- Teach someone something
+- Follow a recipe
+- Figure out a problem
+- Explain something complicated
 
-## How the Book Is Structured
+...you're using programming thinking.
 
-"Rise & Code" is organized into chapters that build on each other. Each chapter follows a similar structure:
+This book just helps you get BETTER at it.
 
-1. **Introduction** - Overview of the concepts covered
-2. **Core Concepts** - Explanations of key programming ideas
-3. **Examples** - Illustrations of concepts in action
-4. **Activities** - Hands-on exercises to practice the concepts
-5. **Reflections** - Questions to deepen your understanding
-6. **Key Takeaways** - Summary of main points
-7. **Next Steps** - Preview of what's coming next
+---
 
-While the book is designed to be read in order, feel free to jump to specific topics if you're already comfortable with earlier concepts.
+## Ready to Begin
 
-## Working Through Activities
+By the end of this book, you'll understand:
+- How logical thinking works
+- How to break big problems into small steps
+- How data gets organized
+- How patterns repeat in the world
+- Why all of this matters
 
-Activities are the heart of this book. They're designed to be done with simple materials and to engage you actively in the learning process. For each activity:
+And you'll feel something shift. You'll look at the world differently. You'll notice systems and patterns everywhere. You'll realize: *"I can think about this. I can understand this."*
 
-1. **Read through completely** before starting
-2. **Gather any needed materials** (usually just your notebook and something to write with)
-3. **Work at your own pace** - some activities may take minutes, others may take an hour or more
-4. **Record your work** in your notebook
-5. **Reflect on the process** and what you've learned
-6. **Check your understanding** using the questions provided
-7. **Revisit challenging activities** later if needed
+That's the real power of programming thinking.
 
-Don't worry about making mistakes—they're part of the learning process! In fact, finding and fixing errors (called "debugging" in programming) is one of the most important skills you'll develop.
+Not computers. Not code.
 
-## Learning Alone vs. Learning Together
+**Clear thinking. Problem-solving. Understanding.**
 
-This book can be used effectively either on your own or in a group:
+That's what this book teaches. That's what YOU'RE about to learn.
 
-**For solo learners:**
-- Set a regular schedule for working through the book
-- Find ways to test your understanding by explaining concepts aloud
-- Create your own challenges to extend the activities
-- Connect with others learning to program if possible, even remotely
+---
 
-**For groups:**
-- Take turns explaining concepts to each other
-- Work through activities collaboratively 
-- Discuss different approaches to solving problems
-- Create study groups to share challenges and insights
+## Next Up
 
-## Tracking Your Progress
+In the next section, we'll talk about how to use this book. We'll explore what you need (spoiler: not much), and how to get the most out of it.
 
-As you work through the book, it's helpful to track your progress:
+**But first, know this:**
 
-- Check off completed sections in the Table of Contents
-- Note concepts you find challenging and may want to revisit
-- Celebrate your "aha!" moments in your Reflections section
-- Periodically review earlier work to see how far you've come
-- Set goals for what you want to learn next
+You were meant to read this book. Your curiosity brought you here. Your brain is ready to learn.
 
-## Activity: Setting Up Your Coding Notebook
+Let's go.
 
-**Materials needed**: A notebook or paper, something to write with, and optionally markers/tabs for dividing sections
 
-**Instructions**:
-1. Set up the five sections in your notebook as described above.
-2. On the first page, write your name and "My Programming Journey" or your own title.
-3. Create a simple Table of Contents with space to add entries as you go.
-4. On the first page of your Concepts section, write today's date and "Beginning My Programming Journey."
-5. Write down 3-5 things you hope to learn from this book.
-6. In the Reference section, create your first entry: a drawing of a simple flowchart showing the steps of making a decision (like what to eat for dinner).
+# How to Use This Book
+
+## The Basic Idea
+
+This book has two parts that work together:
+
+1. **The book itself** — Stories, explanations, ideas
+2. **Activity sheets** — Printable exercises you can do and share
+
+You read the book. You do the activities. That's it. Simple.
+
+But there are some ways to get the most out of it.
+
+## The Workbook Model: Why It's Different
+
+Most books have activities embedded inside them. You do the activity, write in the book, and it's done. The book gets worn out. One person uses it.
+
+**This book is different.**
+
+The activities are on separate sheets. Here's why that matters:
+
+**For you:**
+- The sheet is yours to write on with pen or pencil
+- You can erase and do it again
+- You can give it to someone else when you're done
+- Multiple people can learn from one book
+
+**For your community:**
+- One book can reach many learners
+- Sheets can be photocopied (cheap and easy)
+- Activities can be adapted for different people
+- The book stays fresh for years
+
+**It's designed to be shared.**
+
+## What You Need
+
+Here's the beautiful part: **You don't need much.**
+
+- [ ] This book (or even just one chapter)
+- [ ] Paper (blank or lined, doesn't matter)
+- [ ] A pencil or pen
+- [ ] Your brain
+- [ ] Optional: Common stuff like coins, dice, or string for some activities
+
+**That's it. You're ready.**
+
+No computer required. No Wi-Fi needed. No special tools or software. Just you, this book, and paper.
+
+## How to Read This Book
+
+**You have choices:**
+
+### Option 1: Read Straight Through
+Start at Chapter 1, read to the end. Each chapter builds on the one before it. This works great if you want the full experience.
+
+**Time:** Maybe 2-3 hours per chapter, done over several days or weeks.
+
+### Option 2: Pick and Choose
+Jump to a chapter that interests you. Each chapter stands alone if you need it to. Maybe you're interested in Logic? Go to Chapter 2. Want to learn about Loops? Chapter 5 is waiting.
+
+**Time:** Do one chapter whenever you want.
+
+### Option 3: Use This as a Group
+Read Chapter 1 together. Discuss. Do the activity sheet as a group. Then move to the next chapter.
+
+**Time:** 1-2 hours per chapter as a group.
+
+**There's no "wrong" way. You're in charge.**
+
+## The Companion Notebook
+
+You'll get the most out of this book if you keep a notebook as you read.
+
+**What to put in it:**
+- Questions you have (you don't need answers right away—just wonder)
+- Things that confuse you (write them down, they might make sense later)
+- Examples YOU find of the concepts (your own stories)
+- Rough answers to activities (rough is fine)
+- Thoughts and feelings as you learn
+
+**Why?**
+- Writing helps your brain remember
+- A notebook is YOUR space to think
+- You can look back and see how much you've learned
+- It's proof that you're learning
+
+**Important:** Your notebook doesn't need to be neat. Messy is OK. Rough drafts are perfect. This is for YOU, not for anyone else.
+
+## How Activities Work
+
+When you see an activity in this book, here's what happens:
+
+1. **Read the setup** in the book (usually a story or challenge)
+2. **Get the activity sheet** (from your teacher, printed out, or from the back of the book)
+3. **Do the activity** with a pencil (so you can erase if you want)
+4. **Reflect** on what you learned
+5. **Optional: Share it** with someone or teach them what you learned
+
+**Important:** There are no "right answers" here. There are just good thinking and learning.
+
+Some activities ask you to observe something. Others ask you to create something. Some ask you to think about something differently. None of them have one correct answer.
+
+Your thinking is what matters.
+
+## Pace Yourself
+
+**You don't have to rush.**
+
+Some people will read a chapter in one sitting. Others will take a week. Some will do one activity per day.
+
+**All of that is great.**
+
+If something confuses you, you can:
+- Read it again
+- Move on and come back later
+- Ask someone about it
+- Just keep going—it might make sense next chapter
+
+There's no deadline. There's no grade. There's just you learning at your pace.
+
+## Using This Book Alone vs. With Others
+
+### Alone
+**Pros:**
+- Go at your own pace
+- Read when you want
+- Privacy to think and wonder
+- Notebook is yours alone
+
+**Tips:**
+- Write everything down
+- Read sections twice if they confuse you
+- Talk through ideas out loud (yes, really)
+- Take breaks when you need them
+
+### With a Group or Class
+**Pros:**
+- Bounce ideas off others
+- Learn from different perspectives
+- Activities are more fun
+- Someone can answer your questions
+
+**Tips:**
+- Everyone might understand differently—that's good
+- Share your thinking, listen to others
+- Do activities together or separately
+- Have someone lead who's read ahead (but they don't have to be an "expert")
+
+### With a Teacher or Facilitator
+**Pros:**
+- Someone can help when you're stuck
+- Can discuss deeper questions
+- Can get feedback
+- Can do more complex activities
+
+**Tips:**
+- Tell them what confuses you
+- Ask questions
+- Do your own thinking first before asking for help
+- Activities work best when you try before getting help
+
+## Dealing with Confusion
+
+**What if I don't understand something?**
+
+That's completely normal. Programming thinking is new. It's OK to be confused.
+
+**Here's what you do:**
+
+1. **Read it again** — Sometimes it clicks the second time
+2. **Look at examples** — Real-world examples help
+3. **Do the activity** — Sometimes doing it makes it clear
+4. **Skip it** — Seriously. Keep reading. It might make sense in the next chapter
+5. **Ask someone** — A friend, teacher, or facilitator
+6. **Come back** — You can always revisit a chapter later
+
+**You won't break anything by being confused. And you won't get dumber by asking.**
+
+## How Long Does This Take?
+
+**Per chapter:** 2-3 hours (reading + activity)
+**Whole book:** 20-30 hours over several weeks
+
+But here's the thing: **You don't have to do it all at once.**
+
+Some people do a chapter per week. Some do one per month. Some do chapters out of order.
+
+**The pace is yours.**
+
+## Using This Book Multiple Times
+
+**You can come back to this book.**
+
+Maybe you read it once, then a year later you want to refresh. You can do the activities again.
+
+The activity sheets are designed so you can:
+- Do them multiple times (use a fresh sheet each time)
+- Do them with different people
+- Do them at different stages of your learning
+
+**This book doesn't wear out. You can keep using it.**
+
+## Accessibility
+
+**If you have different needs, this book adapts:**
+
+- **Can't see well?** Activities don't require tiny font. Ask someone to read parts out loud. Activities can be done verbally
+- **Hard to read?** The language is simple. Pictures and examples help. Ask for help—that's what the sheets are for
+- **Need to move around?** Do activities while walking, standing, or moving. Movement helps learning
+- **Get bored easily?** Jump around the book. Do activities in different order. The book is flexible
+- **Are deaf or hard of hearing?** All activities work visually or on paper. No audio required
+
+**Tell someone if something isn't working. We can figure it out.**
+
+## One More Thing: You're Not Alone
+
+Maybe you're doing this book alone in your cell. Maybe you're in a classroom with 30 other people. Maybe you're at home with your family.
+
+Wherever you are: thousands of other people are doing this too.
+
+You're part of a movement of people learning to think clearly without needing expensive technology.
+
+**That's powerful.**
+
+---
+
+## Ready to Go
+
+You've read:
+- Why programming matters
+- Who this book is for
+- How to use it
+
+**Now you're ready for the real work.**
+
+In the next chapters, you'll meet Logic, Recipe, Data, and Patterns. You'll learn to think like a programmer.
+
+But first, you've got to do one thing:
+
+**Stop here and do the activities for this chapter.** The sheets are coming up. Take them seriously (but have fun too). This is where your learning starts.
+
+See you on the other side.
+
+---
 
 ## Tips for Success
 
-1. **Consistency matters more than duration** - Even 15 minutes of daily practice is better than several hours once a week.
+✨ **Keep a notebook** — Write down your thoughts  
+✨ **Take your time** — No rush. Quality > speed  
+✨ **Ask questions** — Confusion means you're learning  
+✨ **Do the activities** — They're the real teachers  
+✨ **Teach someone else** — The best way to learn  
+✨ **Be kind to yourself** — This is new. You're doing great  
+✨ **Come back** — You can revisit chapters anytime  
 
-2. **Explain concepts to others** (or to yourself) - Teaching something is one of the best ways to learn it.
-
-3. **Draw pictures** - Visual representations help solidify abstract concepts.
-
-4. **Connect ideas to your own experiences** - How does a programming concept relate to something you already know?
-
-5. **Be patient with yourself** - Programming involves a new way of thinking that takes time to develop.
-
-6. **Review regularly** - Return to earlier concepts to deepen your understanding.
-
-7. **Apply concepts broadly** - Try to see how programming ideas relate to everyday situations.
-
-## Key Takeaways
-
-- Your notebook is your most important tool for learning programming without a computer
-- Organizing your learning process helps you retain and build upon concepts
-- Activities provide hands-on practice essential for learning programming
-- Consistent practice, reflection, and application are key to success
-- The book is designed to be flexible for different learning styles and contexts
-
-In the next chapter, we'll dive into the fundamentals of logic and structure—the building blocks of all programming languages.
 
 # Activity: Your First Algorithm
 
