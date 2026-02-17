@@ -33,7 +33,7 @@ Loops are essential in programming for several reasons:
 
 In programming, there are several types of loops, but the most common are:
 
-![Loop Visualization](../../assets/phase3-visuals/ch5-loop-visualization.png)
+![Loop Visualization](../../images/ch5-loop-visualization.png)
 
 ### 1. Count-Controlled Loops (For Loops)
 
@@ -94,7 +94,7 @@ Every loop has several key components:
 3. **Body**: The instructions that are repeated each time the loop runs
 4. **Update**: How the loop changes with each iteration (like incrementing a counter)
 
-![WHILE loop with initialization, condition, body, and update labeled](../../assets/phase3-visuals/ch5-while-loop.png)
+![WHILE loop with initialization, condition, body, and update labeled](../../images/ch5-while-loop.png)
 
 Let's look at these components in an example:
 

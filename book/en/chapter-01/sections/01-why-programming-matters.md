@@ -22,7 +22,7 @@ You may not realize it, but you're surrounded by programming every day:
 - When farmers use automated irrigation systems
 - When health workers track disease outbreaks
 
-![Real-world examples of programming in daily life with icons](../../assets/phase3-visuals/ch1-realworld-examples.png)
+![Real-world examples of programming in daily life with icons](../../images/ch1-realworld-examples.png)
 
 All of these systems run on instructions written by programmers. And increasingly, knowing how to program—or at least understanding how programming works—is becoming an essential skill for many jobs and opportunities.
 
@@ -57,7 +57,7 @@ Learning to think like a programmer offers many benefits:
 
 6. **Career opportunities**: Programming skills open doors to jobs in virtually every industry, from agriculture to healthcare to education.
 
-![Six benefits of programming thinking illustrated with icons](../../assets/phase3-visuals/ch1-programming-benefits.png)
+![Six benefits of programming thinking illustrated with icons](../../images/ch1-programming-benefits.png)
 
 Even if you never write code professionally, understanding how to think like a programmer will help you in our increasingly digital world.
 

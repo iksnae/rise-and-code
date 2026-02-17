@@ -17,7 +17,7 @@ At its heart, programming is a method for solving problems following a consisten
 5. **Testing**: Verifying that the solution works as intended
 6. **Refinement**: Improving the solution based on testing results
 
-![Circular problem-solving cycle with 6 steps showing iterative process](../../assets/phase3-visuals/ch8-problem-solving-cycle.png)
+![Circular problem-solving cycle with 6 steps showing iterative process](../../images/ch8-problem-solving-cycle.png)
 
 This cycle applies whether you're writing code on a computer or addressing challenges in entirely different contexts. Let's explore how this works in practice.
 
@@ -55,7 +55,7 @@ Before diving into solutions, skilled programmers spend time identifying and und
 - Supporting community organization
 - Addressing environmental challenges
 
-![Five problem categories illustrated with icons and brief examples](../../assets/phase3-visuals/ch8-problem-categories.png)
+![Five problem categories illustrated with icons and brief examples](../../images/ch8-problem-categories.png)
 
 Remember that the best problems to solve are often those that:
 1. Affect many people
