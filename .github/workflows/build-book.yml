@@ -48,6 +48,26 @@ jobs:
             break || \
             if [ $attempt -lt 3 ]; then sleep 10; fi
           done
+      
+      - name: Setup book-tools with image fix
+        run: |
+          echo "Installing book-tools with EPUB image fix..."
+          chmod +x .github/custom-install.sh
+          bash .github/custom-install.sh
+          
+          # Add to PATH for subsequent steps
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+          
+          # Verify installation
+          export PATH="$HOME/.local/bin:$PATH"
+          which book-tools || echo "book-tools not found in PATH, but may still work"
+          
+          # Verify the image fix was applied
+          if grep -q "generate-epub.sh" "$HOME/.book-tools/src/scripts/build-language.sh"; then
+            echo "✅ Image fix successfully applied to book-tools"
+          else
+            echo "⚠️ Warning: Image fix may not have been applied correctly"
+          fi
           
       - name: Set up version info
         id: version
