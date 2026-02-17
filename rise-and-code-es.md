@@ -1,7 +1,7 @@
 ---
 title: "Rise & Code"
 subtitle: "Un libro de programación para todos"
-date: "March 17, 2025"
+date: "February 17, 2026"
 author: "Open Source Community"
 toc: true
 language: "es"
