@@ -1,4 +1,4 @@
-# Basic Logic and Decision Making
+# Make Smart Decisions with Logic
 
 ## Introduction
 
@@ -23,6 +23,8 @@ At its simplest, computer logic is based on a system called "Boolean logic," nam
 - **True** (often represented as 1, "yes," or "on")
 - **False** (often represented as 0, "no," or "off")
 
+[VISUAL: type=diagram, size=small, description=Binary switch showing True/False or On/Off states]
+
 This binary approach might seem limited, but it's actually incredibly powerful. Complex decisions in computing are built up from these basic true/false building blocks.
 
 ## Boolean Values in Real Life
@@ -39,6 +41,8 @@ Activity: In your notebook, list 5 boolean statements about your day today—thi
 ## Boolean Operators: AND, OR, and NOT
 
 To build more complex logical structures, we use three basic operators:
+
+[VISUAL: type=truth-table, size=large, description=Three logic gates AND, OR, NOT with truth tables and visual representations]
 
 ### 1. AND (Logical Conjunction)
 

@@ -1,4 +1,4 @@
-# Coding in Various Industries
+# Code Powers Every Industry
 
 ## Introduction
 

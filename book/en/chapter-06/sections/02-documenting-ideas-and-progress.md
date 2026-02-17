@@ -1,4 +1,4 @@
-# How to Document Ideas and Progress
+# Document Ideas Like a Pro
 
 ## Introduction
 

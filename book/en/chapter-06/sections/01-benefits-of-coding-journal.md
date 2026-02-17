@@ -1,4 +1,4 @@
-# Benefits of Keeping a Coding Journal
+# Why Document Your Code?
 
 ## Introduction
 
@@ -15,6 +15,8 @@ Our brains are remarkable but have limitations. We forget details, mix up steps,
 - It preserves your exact thinking at a specific moment in time
 - It records details that might seem unimportant now but become crucial later
 - It stores information in a format that won't fade or change over time
+
+[VISUAL: type=benefit-icon, size=small, description=Brain icon with notebook showing memory augmentation]
 
 Instead of trying to remember exactly how you solved a problem two weeks ago, you can simply turn to your notebook and see your solution with all its details intact.
 
@@ -41,6 +43,8 @@ Many programmers report having "aha moments" while documenting their thinking, d
 ## Real-World Engineering Practice
 
 Documentation isn't just a learning tool—it's a fundamental professional practice:
+
+[VISUAL: type=workflow-diagram, size=medium, description=Professional work cycle showing Plan → Implement → Document → Review]
 
 ### Professional Standard
 

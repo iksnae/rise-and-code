@@ -1,4 +1,4 @@
-# Real-world Looping Examples
+# Loops in Action: Real-World Examples
 
 ## Introduction
 

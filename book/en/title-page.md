@@ -1,25 +1,25 @@
 # Rise & Code
 ## A Programming Book for Everyone
 
-### About This Book
+Programming is for everyone—and it doesn't require a computer. "Rise & Code" teaches computational thinking through unplugged activities, hands-on exercises, and a notebook-based methodology that works anywhere. Whether you're in a classroom, at home, or in a community center, you can learn to code.
 
-"Rise & Code" makes the exciting world of programming accessible to everyone, regardless of age, background, or access to technology. Through interactive lessons, engaging visuals, and a unique notebook methodology, it offers a fresh and empowering approach to learning code.
+Build real problem-solving skills that transfer to any programming language and any career. Through playful activities, coding challenges, and real-world applications, you'll develop the mindset of a programmer while using nothing more than pen and paper.
 
-### Key Features
+## How to Use This Book
 
-- **No Computer Required**: Learn programming concepts using just pen and paper
-- **Hands-on Activities**: Every chapter includes practical exercises and activities
-- **Visual Learning**: Concepts illustrated through diagrams and flowcharts
-- **Progressive Curriculum**: Builds skills gradually from foundational to advanced topics
-- **Inclusive Design**: Created for diverse audiences with different learning styles
+- **Work through chapters sequentially** (or jump to what interests you)
+- **Keep a notebook handy** — write, sketch, and practice alongside each section
+- **Try the activities** — they're the heart of learning; don't skip them
 
-### Our Mission
+## What You'll Learn
 
-- Make programming education accessible to underserved communities
-- Teach computational thinking through unplugged activities
-- Build foundational skills that transfer to any programming language
-- Create a resource that can be freely shared, printed, and distributed
+- **Chapters 1–2**: Programming foundations without a computer
+- **Chapters 3–5**: Algorithms, data, and the power of loops
+- **Chapter 6**: Document like a professional engineer
+- **Chapters 7–8**: Solve challenges and discover real-world coding
+- **Chapter 9**: Your next steps in the coding journey
+- **Chapter 10**: Reference guides and glossary
 
-### License
+## License
 
 This book is released under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0).

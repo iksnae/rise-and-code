@@ -1,4 +1,4 @@
-# Hands-on Exercises and Games
+# Play and Learn with Algorithm Games
 
 ## Introduction
 

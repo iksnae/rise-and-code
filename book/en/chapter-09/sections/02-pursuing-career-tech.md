@@ -1,4 +1,4 @@
-# Pursuing a Career in Tech
+# Launch Your Tech Career
 
 ## Introduction
 

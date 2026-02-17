@@ -1,4 +1,4 @@
-# Understanding Loops
+# Unlock the Power of Loops
 
 ## Introduction
 
@@ -32,6 +32,8 @@ Loops are essential in programming for several reasons:
 ## Types of Loops
 
 In programming, there are several types of loops, but the most common are:
+
+[VISUAL: type=loop-types-diagram, size=large, description=Three loop types (FOR, WHILE, DO-WHILE) with flow diagrams]
 
 ### 1. Count-Controlled Loops (For Loops)
 
@@ -91,6 +93,8 @@ Every loop has several key components:
 2. **Condition**: The test that determines whether the loop continues or stops
 3. **Body**: The instructions that are repeated each time the loop runs
 4. **Update**: How the loop changes with each iteration (like incrementing a counter)
+
+[VISUAL: type=annotated-code, size=medium, description=WHILE loop with initialization, condition, body, and update labeled and color-coded]
 
 Let's look at these components in an example:
 

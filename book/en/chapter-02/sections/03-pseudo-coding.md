@@ -1,4 +1,4 @@
-# Pseudo Coding
+# Write Instructions Like a Programmer
 
 ## Introduction
 

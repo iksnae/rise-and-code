@@ -1,4 +1,4 @@
-# Coding Challenges
+# Take On Coding Challenges
 
 ## Introduction
 

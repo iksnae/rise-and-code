@@ -1,4 +1,4 @@
-# Resources for Further Learning
+# Find Resources to Keep Learning
 
 ## Introduction
 

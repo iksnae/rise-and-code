@@ -1,4 +1,4 @@
-# How to Use This Book (Including the Notebook Method)
+# Get Started with Your Coding Notebook
 
 ## Introduction
 

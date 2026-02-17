@@ -1,4 +1,4 @@
-# Continuing the Coding Adventure
+# Keep Coding: Your Lifelong Journey
 
 ## Introduction
 

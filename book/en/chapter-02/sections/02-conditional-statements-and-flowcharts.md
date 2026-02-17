@@ -1,4 +1,4 @@
-# Conditional Statements and Flowcharts
+# Draw Your Program with Flowcharts
 
 ## Introduction
 
@@ -17,6 +17,8 @@ ELSE
     do something else
 END IF
 ```
+
+[VISUAL: type=code-breakdown, size=medium, description=IF-ELSE statement with each component highlighted and labeled]
 
 Let's examine each part:
 
@@ -97,6 +99,8 @@ A flowchart is a diagram that represents a process or workflow, showing the step
 ### Basic Flowchart Symbols
 
 Here are the most common symbols used in flowcharts:
+
+[VISUAL: type=symbol-reference, size=large, description=Five flowchart symbols (oval, rectangle, diamond, arrow, parallelogram) with labels and examples]
 
 1. **Start/End (Oval or Rounded Rectangle)**
    - Used to indicate the beginning or end of a process

@@ -1,4 +1,4 @@
-# Hints and Guided Solutions
+# Get Help When You're Stuck
 
 ## Introduction
 

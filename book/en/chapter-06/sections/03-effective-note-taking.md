@@ -1,4 +1,4 @@
-# Tips for Effective Note-taking
+# Master Your Note-Taking
 
 ## Introduction
 

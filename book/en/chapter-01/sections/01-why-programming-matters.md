@@ -1,4 +1,4 @@
-# Why Programming Matters
+# Why You Should Code
 
 ## Introduction
 
@@ -21,6 +21,8 @@ You may not realize it, but you're surrounded by programming every day:
 - When your mobile phone notifies you about a message
 - When farmers use automated irrigation systems
 - When health workers track disease outbreaks
+
+[VISUAL: type=infographic, size=medium, description=Real-world examples of programming in daily life with icons]
 
 All of these systems run on instructions written by programmers. And increasingly, knowing how to program—or at least understanding how programming works—is becoming an essential skill for many jobs and opportunities.
 
@@ -54,6 +56,8 @@ Learning to think like a programmer offers many benefits:
 5. **Persistence**: Debugging (fixing problems in code) teaches patience and persistence in the face of challenges.
 
 6. **Career opportunities**: Programming skills open doors to jobs in virtually every industry, from agriculture to healthcare to education.
+
+[VISUAL: type=icons-grid, size=medium, description=Six benefits of programming thinking illustrated with icons]
 
 Even if you never write code professionally, understanding how to think like a programmer will help you in our increasingly digital world.
 

@@ -1,4 +1,4 @@
-# Encoded Answer Keys
+# Check Your Solutions
 
 ## Introduction
 

@@ -1,4 +1,4 @@
-# What is Data?
+# Discover What Data Is
 
 ## Introduction
 
