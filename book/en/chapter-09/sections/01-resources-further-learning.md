@@ -1,12 +1,10 @@
-# Resources for Further Learning
+# Find Resources to Keep Learning
 
 ## Introduction
 
 Throughout this book, you've developed a strong foundation in programming concepts and computational thinking without requiring a computer. As you continue your journey, you may wonder: "What's next?" In this section, we'll explore a variety of resources to help you continue learning, whether you have limited access to technology or are ready to transition to computer-based programming.
 
-**Learning Objective**: You'll discover accessible learning resources that match your situation, whether you have computer access or not, and build a personal learning plan for your next steps.
-
-The beauty of the skills you've developed is that they transfer to any programming environment. The logical thinking, problem-solving approach, and algorithmic mindset you've cultivated will serve you well regardless of which direction you choose to go next. Recipe reminds us: "There are many ways to prepare a meal—the same ingredients, different techniques. Your learning journey is the same way!"
+The beauty of the skills you've developed is that they transfer to any programming environment. The logical thinking, problem-solving approach, and algorithmic mindset you've cultivated will serve you well regardless of which direction you choose to go next.
 
 ## Learning with Limited Technology Access
 

@@ -1,12 +1,10 @@
-# Coding in Various Industries
+# Code Powers Every Industry
 
 ## Introduction
 
 When people think of programming, they often imagine a person sitting alone at a computer in a tech company. While this is one reality, the truth is that coding and computational thinking have spread into virtually every industry and field of work. In this section, we'll explore how programming skills are applied across diverse sectors, from farming to healthcare, education to entertainment, revealing the vast opportunities that exist for people with coding knowledge.
 
-**Learning Objective**: You'll see how the programming concepts you've learned apply across dozens of different fields and careers, helping you imagine where your own interests and skills might lead.
-
-The skills you've been developing in this book—algorithmic thinking, problem decomposition, pattern recognition, and creative solution design—are valuable across countless contexts. Understanding these applications can help you see how your programming knowledge might connect to your own interests and goals. Patterns loves this part—seeing the same logical structure show up in a farm's irrigation system, a hospital's patient scheduling, and an artist's design process. It's all computation at heart!
+The skills you've been developing in this book—algorithmic thinking, problem decomposition, pattern recognition, and creative solution design—are valuable across countless contexts. Understanding these applications can help you see how your programming knowledge might connect to your own interests and goals.
 
 ## Agriculture and Food Production
 

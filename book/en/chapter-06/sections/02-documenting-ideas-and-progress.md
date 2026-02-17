@@ -1,12 +1,10 @@
-# How to Document Ideas and Progress
+# Document Ideas Like a Pro
 
 ## Introduction
 
 Knowing that documentation is valuable is one thing—knowing *how* to document effectively is another. In this section, we'll explore practical methods for capturing your ideas, tracking your progress, and documenting your solutions in ways that will be truly useful to you later.
 
-**Learning Objective**: You'll learn specific, practical techniques for documenting your programming work that you can start using immediately.
-
-The goal isn't to create perfect documentation (which can become a distraction), but rather to develop habits that support your learning and problem-solving. Think of good documentation as a conversation with your future self—what would you want to know days, weeks, or months from now? Imagine meeting a friend who worked on a cool project last month. They might say, "I don't really remember what I was thinking..." Wouldn't it be great to have a note from them saying exactly how they approached it? That's what your documentation does for you.
+The goal isn't to create perfect documentation (which can become a distraction), but rather to develop habits that support your learning and problem-solving. Think of good documentation as a conversation with your future self—what would you want to know days, weeks, or months from now?
 
 ## Documenting Your Thinking Process
 
@@ -310,8 +308,6 @@ This collaborative documentation allows these projects to grow and improve over 
 
 ## Activity: Documentation Audit
 
-**Printable Sheet**: See "Document Audit Checklist" in the Chapter 6 Activity Sheets
-
 Take a few minutes to review your existing notebook and perform a documentation audit:
 
 1. Choose a section of your notebook from a previous chapter
@@ -322,8 +318,6 @@ Take a few minutes to review your existing notebook and perform a documentation 
    - Did you note any difficulties or insights?
 3. Identify three specific ways you could improve your documentation
 4. Try implementing one of these improvements by adding to your existing notes
-
-Don't worry if your audit reveals room for improvement—that's exactly what it's supposed to do! You're becoming a better documentarian with every reflection.
 
 ## Key Takeaways
 

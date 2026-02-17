@@ -1,12 +1,10 @@
-# Tips for Effective Note-taking
+# Master Your Note-Taking
 
 ## Introduction
 
 So far, we've explored why documentation matters and what to document. Now, let's focus on *how* to take notes effectively. Even with good intentions, poor note-taking techniques can result in documentation that's difficult to use later. In this section, we'll share practical strategies to make your notes clearer, more organized, and more useful.
 
-**Learning Objective**: You'll discover note-taking methods and organizational systems that work with your unique learning style and make your notebook more valuable over time.
-
-Remember that the goal isn't to create a beautiful work of art (unless that helps you), but rather to develop a system that works for your learning style and supports your programming journey. The best note-taking system is one that you'll actually use consistently. There's no "perfect" way to take notes—there's only the way that works best for YOUR brain.
+Remember that the goal isn't to create a beautiful work of art (unless that helps you), but rather to develop a system that works for your learning style and supports your programming journey. The best note-taking system is one that you'll actually use consistently.
 
 ## Fundamental Principles of Effective Note-taking
 
@@ -431,8 +429,6 @@ Curie's laboratory notebooks documented each experiment meticulously with dates,
 
 ## Activity: Technique Experimentation
 
-**Printable Sheet**: See "Note-Taking Technique Sampler" in the Chapter 6 Activity Sheets
-
 Take some time to experiment with different note-taking techniques:
 
 1. Choose a concept you've already learned in this book
@@ -443,7 +439,7 @@ Take some time to experiment with different note-taking techniques:
 3. Reflect on which method felt most natural and effective for you
 4. Note which aspects of each method you might want to incorporate into your personal system
 
-There's no single "best" way to take notes—the most effective approach is the one you'll actually use consistently. This activity is your chance to try them all and pick your favorites!
+There's no single "best" way to take notes—the most effective approach is the one you'll actually use consistently.
 
 ## Key Takeaways
 
