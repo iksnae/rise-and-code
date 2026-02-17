@@ -1,12 +1,10 @@
-# Pursuing a Career in Tech
+# Launch Your Tech Career
 
 ## Introduction
 
 The skills you've developed throughout this book—logical thinking, problem-solving, and algorithmic design—form the foundation for a wide range of careers in technology. While the tech industry might seem distant if you have limited access to computers, many paths can lead to a fulfilling career regardless of your starting point.
 
-**Learning Objective**: You'll explore various career paths in technology, understand the educational routes to reach them, and develop a personalized plan for your own tech career journey.
-
-This section explores various tech career options, educational pathways, and strategies for preparing yourself for these opportunities—all with an awareness of different resource levels and regional contexts. Data reminds us: "Every career path contains patterns—if you understand the patterns, you can build your own route to success!"
+This section explores various tech career options, educational pathways, and strategies for preparing yourself for these opportunities—all with an awareness of different resource levels and regional contexts.
 
 ## Understanding the Technology Landscape
 

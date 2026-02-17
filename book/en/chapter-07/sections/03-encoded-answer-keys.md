@@ -1,4 +1,4 @@
-# Encoded Answer Keys
+# Check Your Solutions
 
 ## Introduction
 
@@ -8,8 +8,6 @@ In this section, we introduce a unique approach to verifying your solutions: enc
 2. It provides practical application of encryption concepts from Chapter 4
 
 By decoding the answer keys, you'll not only confirm your solutions but also reinforce your understanding of data transformation techniques.
-
-**Learning Objective**: You'll learn how to use encoded answer keys as a self-checking tool that reinforces both your problem-solving skills and your understanding of data transformation.
 
 ## Why Encoded Answers?
 
