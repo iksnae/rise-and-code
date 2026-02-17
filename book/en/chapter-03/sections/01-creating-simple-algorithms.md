@@ -14,7 +14,7 @@ An algorithm is a set of clear, precise instructions that describe how to perfor
 4. **Input**: They take some input (which might be zero inputs)
 5. **Output**: They produce a result or output
 
-[VISUAL: type=diagram, size=medium, description=Visual showing algorithm flow: Input → Processing Steps → Output]
+![Algorithm Flowchart](../../assets/phase3-visuals/ch3-algorithm-flowchart.png)
 
 Every time you follow a recipe, use a manual, or give directions, you're working with algorithms. In programming, algorithms are the foundation of everything a computer does—from simple calculations to complex artificial intelligence.
 

@@ -23,7 +23,7 @@ At its simplest, computer logic is based on a system called "Boolean logic," nam
 - **True** (often represented as 1, "yes," or "on")
 - **False** (often represented as 0, "no," or "off")
 
-[VISUAL: type=diagram, size=small, description=Binary switch showing True/False or On/Off states]
+![Boolean Logic: True/False](../../assets/phase3-visuals/ch2-if-then-else.png)
 
 This binary approach might seem limited, but it's actually incredibly powerful. Complex decisions in computing are built up from these basic true/false building blocks.
 
