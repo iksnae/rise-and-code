@@ -176,6 +176,26 @@ function sortFilesByNumber(a, b) {
   return numA - numB;
 }
 
+// Fix image paths in markdown content for build compatibility
+function fixImagePaths(content, lang = 'en') {
+  // Replace image references like ![alt](../../images/...) 
+  // with paths relative to the build directory
+  
+  // Pattern 1: ../../images/ (from section files, 2 levels deep)
+  content = content.replace(/!\[(.*?)\]\(\.\.\/\.\.\/images\//g, 
+    (match, alt) => `![${alt}](../../book/${lang}/images/`);
+  
+  // Pattern 2: ../images/ (from chapter files, 1 level deep)
+  content = content.replace(/!\[(.*?)\]\(\.\.\/images\//g, 
+    (match, alt) => `![${alt}](../../book/${lang}/images/`);
+  
+  // Pattern 3: images/ (from root book files)
+  content = content.replace(/!\[(.*?)\]\(images\//g, 
+    (match, alt) => `![${alt}](../../book/${lang}/images/`);
+    
+  return content;
+}
+
 // Extract scene summaries from artifact files if they exist
 function extractSceneSummaries(chapterDir) {
   const artifactsDir = path.join(chapterDir, 'artifacts');
@@ -430,7 +450,9 @@ function buildBook(lang) {
   const titlePagePath = path.join(config.bookDir, lang, 'title-page.md');
   if (fs.existsSync(titlePagePath)) {
     console.log('Adding title page...');
-    output += readMarkdownFile(titlePagePath);
+    let titlePageContent = readMarkdownFile(titlePagePath);
+    titlePageContent = fixImagePaths(titlePageContent, lang);
+    output += titlePageContent;
     output += '\n\n\\newpage\n\n';
   } else {
     console.log(`No title page found at ${titlePagePath}, skipping...`);
@@ -451,7 +473,9 @@ function buildBook(lang) {
   if (fs.existsSync(forewordPath)) {
     console.log('Adding foreword...');
     output += '# Foreword\n\n';
-    output += readMarkdownFile(forewordPath);
+    let forewordContent = readMarkdownFile(forewordPath);
+    forewordContent = fixImagePaths(forewordContent, lang);
+    output += forewordContent;
     output += '\n\n\\newpage\n\n';
   }
   
@@ -460,7 +484,9 @@ function buildBook(lang) {
   if (fs.existsSync(prefacePath)) {
     console.log('Adding preface...');
     output += '# Preface\n\n';
-    output += readMarkdownFile(prefacePath);
+    let prefaceContent = readMarkdownFile(prefacePath);
+    prefaceContent = fixImagePaths(prefaceContent, lang);
+    output += prefaceContent;
     output += '\n\n\\newpage\n\n';
   }
   
@@ -469,7 +495,9 @@ function buildBook(lang) {
   if (fs.existsSync(introPath)) {
     console.log('Adding introduction...');
     output += '# Introduction\n\n';
-    output += readMarkdownFile(introPath);
+    let introContent = readMarkdownFile(introPath);
+    introContent = fixImagePaths(introContent, lang);
+    output += introContent;
     output += '\n\n\\newpage\n\n';
   }
   
@@ -483,14 +511,18 @@ function buildBook(lang) {
     
     if (fs.existsSync(indexFilePath)) {
       console.log(`  Adding content from ${indexFilePath}`);
-      output += readMarkdownFile(indexFilePath);
+      let indexContent = readMarkdownFile(indexFilePath);
+      indexContent = fixImagePaths(indexContent, lang);
+      output += indexContent;
       output += '\n\n';
     } else {
       // Fall back to README.md if index.md doesn't exist
       const readmeFilePath = path.join(chapterDir, 'README.md');
       if (fs.existsSync(readmeFilePath)) {
         console.log(`  Adding content from ${readmeFilePath}`);
-        output += readMarkdownFile(readmeFilePath);
+        let readmeContent = readMarkdownFile(readmeFilePath);
+        readmeContent = fixImagePaths(readmeContent, lang);
+        output += readmeContent;
         output += '\n\n';
       } else {
         console.log(`  No index.md or README.md found in ${chapterDir}`);
@@ -501,7 +533,9 @@ function buildBook(lang) {
     const summaryFilePath = path.join(chapterDir, 'chapter-summary.md');
     if (fs.existsSync(summaryFilePath)) {
       console.log(`  Adding chapter summary from ${summaryFilePath}`);
-      output += readMarkdownFile(summaryFilePath);
+      let summaryContent = readMarkdownFile(summaryFilePath);
+      summaryContent = fixImagePaths(summaryContent, lang);
+      output += summaryContent;
       output += '\n\n';
     }
     
@@ -516,7 +550,9 @@ function buildBook(lang) {
       for (const file of sectionFiles) {
         console.log(`    Adding section content from ${file}`);
         const filePath = path.join(sectionsDir, file);
-        output += readMarkdownFile(filePath);
+        let sectionContent = readMarkdownFile(filePath);
+        sectionContent = fixImagePaths(sectionContent, lang);
+        output += sectionContent;
         output += '\n\n';
       }
     }
@@ -532,7 +568,9 @@ function buildBook(lang) {
       for (const file of activityFiles) {
         console.log(`    Adding activity content from ${file}`);
         const filePath = path.join(activitiesDir, file);
-        output += readMarkdownFile(filePath);
+        let activityContent = readMarkdownFile(filePath);
+        activityContent = fixImagePaths(activityContent, lang);
+        output += activityContent;
         output += '\n\n';
       }
     }
@@ -547,7 +585,9 @@ function buildBook(lang) {
     for (const file of chapterFiles) {
       console.log(`  Adding content from ${file}`);
       const filePath = path.join(chapterDir, file);
-      output += readMarkdownFile(filePath);
+      let chapterFileContent = readMarkdownFile(filePath);
+      chapterFileContent = fixImagePaths(chapterFileContent, lang);
+      output += chapterFileContent;
       output += '\n\n';
     }
     
@@ -577,7 +617,9 @@ function buildBook(lang) {
       for (const file of appendixFiles) {
         console.log(`  Adding appendix: ${file}`);
         const filePath = path.join(appendicesDir, file);
-        output += readMarkdownFile(filePath);
+        let appendixContent = readMarkdownFile(filePath);
+        appendixContent = fixImagePaths(appendixContent, lang);
+        output += appendixContent;
         output += '\n\n\\newpage\n\n';
       }
     }
@@ -588,7 +630,9 @@ function buildBook(lang) {
   if (fs.existsSync(glossaryPath)) {
     console.log('Adding glossary...');
     output += '# Glossary\n\n';
-    output += readMarkdownFile(glossaryPath);
+    let glossaryContent = readMarkdownFile(glossaryPath);
+    glossaryContent = fixImagePaths(glossaryContent, lang);
+    output += glossaryContent;
     output += '\n\n\\newpage\n\n';
   }
   
@@ -597,7 +641,9 @@ function buildBook(lang) {
   if (fs.existsSync(bibPath)) {
     console.log('Adding bibliography...');
     output += '# Bibliography\n\n';
-    output += readMarkdownFile(bibPath);
+    let bibContent = readMarkdownFile(bibPath);
+    bibContent = fixImagePaths(bibContent, lang);
+    output += bibContent;
     output += '\n\n\\newpage\n\n';
   }
   
@@ -606,7 +652,9 @@ function buildBook(lang) {
   if (fs.existsSync(acknowledgmentsPath)) {
     console.log('Adding acknowledgments...');
     output += '# Acknowledgments\n\n';
-    output += readMarkdownFile(acknowledgmentsPath);
+    let acknowledgmentsContent = readMarkdownFile(acknowledgmentsPath);
+    acknowledgmentsContent = fixImagePaths(acknowledgmentsContent, lang);
+    output += acknowledgmentsContent;
     output += '\n\n';
   }
   
