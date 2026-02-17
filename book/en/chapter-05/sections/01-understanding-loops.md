@@ -33,7 +33,7 @@ Loops are essential in programming for several reasons:
 
 In programming, there are several types of loops, but the most common are:
 
-[VISUAL: type=loop-types-diagram, size=large, description=Three loop types (FOR, WHILE, DO-WHILE) with flow diagrams]
+![Loop Visualization](../../assets/phase3-visuals/ch5-loop-visualization.png)
 
 ### 1. Count-Controlled Loops (For Loops)
 
