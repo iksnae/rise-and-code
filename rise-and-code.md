@@ -1603,234 +1603,296 @@ And you just learned it.
 
 # Conditional Statements and Flowcharts
 
-## Logic Needs to Make Decisions
+## Introduction
 
-In the last section, we learned that Logic can answer YES/NO questions using AND, OR, and NOT.
+In the previous section, we learned about boolean logic and how to make basic decisions using IF-THEN-ELSE structures. Now, we'll expand on these concepts by exploring conditional statements in more detail and introducing flowcharts—visual tools that help us map out the logic of our programs.
 
-But knowing an answer isn't enough. Logic needs to know **what to do with that answer.**
+## Understanding Conditional Statements
 
-That's where **conditional statements** come in.
+Conditional statements are the backbone of decision-making in programming. They allow a program to perform different actions based on whether certain conditions are true or false.
 
-A conditional statement is just a fancy way of saying: "**If this is true, then do that. Otherwise, do something else.**"
-
-## IF, THEN, ELSE: Logic's Decision Structure
-
-Here's the pattern Logic uses:
+The basic conditional statement structure is:
 
 ```
-IF (some condition is true)
-THEN (do this)
-ELSE (do that instead)
+IF condition THEN
+    do something
+ELSE
+    do something else
 END IF
 ```
 
-That's it. That's how computers make decisions.
+Let's examine each part:
 
-### Real-World Example: Morning Decision
+- **IF**: Signals the start of a conditional statement
+- **condition**: A boolean expression that evaluates to true or false
+- **THEN**: Marks what happens if the condition is true
+- **do something**: The actions that occur if the condition is true
+- **ELSE**: Introduces the alternative actions
+- **do something else**: The actions that occur if the condition is false
+- **END IF**: Signals the end of the conditional statement
+
+## Types of Conditional Statements
+
+### 1. Simple IF Statement
+
+The simplest form only executes code when a condition is true:
 
 ```
-IF (my alarm is going off AND it's a school day)
-THEN (get out of bed)
-ELSE (sleep 5 more minutes)
+IF it is raining THEN
+    take an umbrella
 END IF
 ```
 
-Logic asks the condition. The condition is either TRUE or FALSE. Based on that, Logic does one thing or the other.
+In this case, nothing specific happens if it's not raining. The program simply continues to the next instructions.
 
-### Another Example: Should I Wear a Coat?
+### 2. IF-ELSE Statement
+
+This form provides two paths: one for when the condition is true and another for when it's false:
 
 ```
-IF (it's cold AND I'm going outside)
-THEN (wear a coat)
-ELSE (don't wear a coat)
+IF temperature > 30 degrees THEN
+    wear light clothing
+ELSE
+    wear a jacket
 END IF
 ```
 
-Logic doesn't think about it. Doesn't debate. Checks the condition. Does one thing or the other.
+### 3. Nested IF Statements
 
-## Nesting: Decisions Within Decisions
-
-Sometimes Logic needs to make a decision, and then make another decision based on that.
+Conditional statements can be placed inside other conditional statements to handle more complex scenarios:
 
 ```
-IF (it's raining)
-THEN (take an umbrella)
-  IF (it's also cold)
-  THEN (wear a jacket too)
-  ELSE (just take umbrella)
-  END IF
-ELSE (no umbrella needed)
-  IF (it's sunny)
-  THEN (wear sunscreen)
-  ELSE (it's just cloudy)
-  END IF
+IF it is a weekday THEN
+    IF it is morning THEN
+        go to school
+    ELSE
+        do homework
+    END IF
+ELSE
+    relax and play
 END IF
 ```
 
-This is called "nesting" — decisions inside decisions.
+### 4. ELSE IF (or ELIF) Statement
 
-Computers do this constantly. It looks complicated, but it's just: ask a question, do something, ask another question, do something else.
-
-## Flowcharts: Drawing Logic's Thinking
-
-Words are great, but sometimes it's easier to DRAW how Logic thinks.
-
-That's what flowcharts are for.
-
-A flowchart is a visual map of Logic's decisions.
-
-### Flowchart Symbols
-
-Here's what each shape means:
+When we need to check multiple conditions in sequence:
 
 ```
-   ┌─────────────┐
-   │   START     │   (Circle or oval = start/stop)
-   └──────┬──────┘
-          │
-     ┌────▼────┐
-     │ rectangle│   (Rectangle = action/process)
-     └────┬────┘
-          │
-     ◇─────◇    (Diamond = decision/question)
-    ╱       ╲
-  YES      NO
-  │         │
+IF score >= 90 THEN
+    grade = "A"
+ELSE IF score >= 80 THEN
+    grade = "B"
+ELSE IF score >= 70 THEN
+    grade = "C"
+ELSE IF score >= 60 THEN
+    grade = "D"
+ELSE
+    grade = "F"
+END IF
 ```
 
-### Simple Flowchart Example: Should I Get Up?
+In this example, we're checking a series of conditions in order, and only one block of code will execute.
+
+## Introducing Flowcharts
+
+A flowchart is a diagram that represents a process or workflow, showing the steps as boxes of different kinds, and their order by connecting them with arrows. Flowcharts are particularly useful for visualizing the logic of programs, especially those with conditional statements.
+
+### Basic Flowchart Symbols
+
+Here are the most common symbols used in flowcharts:
+
+1. **Start/End (Oval or Rounded Rectangle)**
+   - Used to indicate the beginning or end of a process
+   - Example: "Start" or "End"
+
+2. **Process (Rectangle)**
+   - Represents a step in the process or an action to be taken
+   - Example: "Add 2 cups of flour" or "Calculate total price"
+
+3. **Decision (Diamond)**
+   - Shows a point where a decision must be made
+   - Typically contains a question with a yes/no or true/false answer
+   - Example: "Is it raining?" or "Is x > 10?"
+
+4. **Flow Lines (Arrows)**
+   - Connect the symbols to show the sequence of steps
+   - Indicate the flow direction of the process
+
+5. **Input/Output (Parallelogram)**
+   - Represents input or output operations
+   - Example: "Enter your name" or "Display total"
+
+### Creating a Simple Flowchart
+
+Let's create a flowchart for a simple morning routine:
 
 ```
-          ┌──────────────┐
-          │    START     │
-          └──────┬───────┘
-                 │
-          ┌──────▼──────────┐
-          │ Alarm going     │
-          │ off?            │
-          └─┬──────────┬────┘
-            │ YES      │ NO
-            │          └─────────────┐
-      ┌─────▼──────────┐       ┌─────▼──┐
-      │ Get out of     │       │ Sleep  │
-      │ bed            │       │ 5 min  │
-      └─────┬──────────┘       └─────┬──┘
-            │                        │
-            └───────────┬────────────┘
-                        │
-                   ┌────▼────┐
-                   │   END    │
-                   └──────────┘
+Start
+  |
+  v
+Is it a weekday?
+  |
+  |--> Yes --> Wake up at 6:30 AM
+  |              |
+  |              v
+  |            Eat breakfast
+  |              |
+  |              v
+  |            Go to school/work
+  |
+  |--> No --> Wake up at 8:00 AM
+                |
+                v
+              Have a leisurely breakfast
+                |
+                v
+              Enjoy free time
+                |
+                v
+End
 ```
 
-This flowchart shows exactly how Logic thinks.
+This flowchart clearly shows the different paths our morning might take depending on whether it's a weekday or not.
 
-### Complex Flowchart Example: What to Eat for Lunch
+## Translating Between Conditional Statements and Flowcharts
 
-```
-        ┌──────────────┐
-        │    START     │
-        └──────┬───────┘
-               │
-        ┌──────▼───────────┐
-        │ Am I hungry?     │
-        └─┬──────────┬─────┘
-          │ YES      │ NO
-          │          │
-    ┌─────▼──────┐   │
-    │ Do I like  │   │
-    │ pizza?     │   │
-    └─┬──────┬───┘   │
-      │ YES  │ NO    │
-      │      │       │
- ┌────▼──┐ ┌─▼───┐  │
- │ Eat   │ │Eat  │  │
- │pizza  │ │fruit│  │
- └────┬──┘ └─┬───┘  │
-      │      │  ┌───▼────┐
-      │      │  │Make     │
-      │      │  │snack    │
-      └──┬───┴──┴──┬──┬───┘
-         │         │  │
-      ┌──▼─────────▼──▼──┐
-      │      END         │
-      └──────────────────┘
-```
-
-This shows more complex decision-making.
-
-## Why Flowcharts Matter
-
-Flowcharts show you exactly how Logic will behave BEFORE you test it.
-
-You can:
-- **Spot mistakes** — "Oh, what if it's 3 AM? The logic breaks."
-- **Communicate clearly** — You can show someone your flowchart and they understand
-- **Plan before coding** — Work out all the decisions before you write code
-- **Test mentally** — Follow the flowchart with different inputs and see what happens
-
-## Drawing Your Own Flowchart
-
-Let's practice.
-
-**Scenario: Should I go to the park?**
-
-**Logic's questions:**
-1. Is it sunny?
-2. Do I have free time?
-3. Do I want exercise?
-
-**Logic's decision:**
-- If it's sunny AND I have time, then go
-- Else, if I want exercise, then go anyway
-- Else, stay home
-
-**Flowchart:**
+The two representations—code and flowcharts—can be readily translated into each other. For example, the morning routine in code would be:
 
 ```
-        ┌──────────┐
-        │  START   │
-        └─────┬────┘
-              │
-        ┌─────▼──────┐
-        │ Is it      │
-        │ sunny?     │
-        └─┬──────┬───┘
-          │ YES  │ NO
-          │      │
-     ┌────▼──┐ ┌─▼──────────┐
-     │Go to  │ │ Want       │
-     │park   │ │ exercise?  │
-     └────┬──┘ └─┬──────┬───┘
-          │      │ YES  │ NO
-          │      │      │
-          │   ┌──▼──┐ ┌─▼────┐
-          │   │Go   │ │Stay  │
-          │   │park │ │home  │
-          │   └──┬──┘ └─┬────┘
-          │      │      │
-          └──┬───┴──┬───┘
-             │      │
-          ┌──▼──────▼──┐
-          │    END      │
-          └─────────────┘
+IF it is a weekday THEN
+    Wake up at 6:30 AM
+    Eat breakfast
+    Go to school/work
+ELSE
+    Wake up at 8:00 AM
+    Have a leisurely breakfast
+    Enjoy free time
+END IF
 ```
 
-See? It's just drawing Logic's thinking.
+The correspondence between the two representations is direct and intentional. Flowcharts provide a visual overview of the program logic, while code provides the detailed instructions.
 
-## From Flowchart to Code-Like Thinking
+## When to Use Flowcharts
 
-Once you have a flowchart, you can translate it into code-like instructions (called **pseudocode**, which we'll learn more about).
+Flowcharts are particularly useful when:
 
-Flowchart → Pseudocode → Code → Computer
+1. Planning a program before writing code
+2. Explaining your logic to others
+3. Debugging complex decision structures
+4. Documenting how a program works
 
-But for now, just know: **Flowcharts are how you show Logic's thinking visually.**
+## Activity: Decision Making with Flowcharts
 
----
+Let's practice by creating a flowchart for deciding what to do on a Saturday afternoon.
 
-## 🎮 Activity: Create Your Own Flowchart
+Here's a set of rules:
+- If it's raining, you'll stay inside and read a book or watch a movie
+- If it's not raining but very hot (over 35°C), you'll go to the swimming pool
+- If it's not raining and the temperature is pleasant, you'll go to the park
+- If it's not raining but cold (below 15°C), you'll visit a friend's house
 
-(See "Decision Flowchart Challenge" activity sheet)
+Draw the flowchart for this decision process in your notebook. Make sure to use the proper symbols for start/end, decisions, and processes.
+
+## Complex Conditions in Flowcharts
+
+Flowcharts can also represent complex boolean conditions:
+
+### AND Condition
+When using AND, both conditions must be true to follow the "Yes" path:
+
+```
+Is it sunny?
+  |
+  |--> Yes --> Do I have free time?
+  |              |
+  |              |--> Yes --> Go to the beach
+  |              |
+  |              |--> No --> Stay home and look out the window
+  |
+  |--> No --> (next decision)
+```
+
+### OR Condition
+When using OR, either condition being true is enough to follow the "Yes" path:
+
+```
+Is it raining OR snowing?
+  |
+  |--> Yes --> Stay indoors
+  |
+  |--> No --> (next decision)
+```
+
+## Nested Decisions vs. Compound Conditions
+
+There are often multiple ways to represent the same logic. Consider these equivalent approaches:
+
+### Approach 1: Nested Decisions
+```
+Is it a weekend?
+  |
+  |--> Yes --> Is the weather good?
+  |              |
+  |              |--> Yes --> Go to the park
+  |              |
+  |              |--> No --> Stay home
+  |
+  |--> No --> Stay home
+```
+
+### Approach 2: Compound Condition
+```
+Is it a weekend AND is the weather good?
+  |
+  |--> Yes --> Go to the park
+  |
+  |--> No --> Stay home
+```
+
+Both approaches lead to the same outcomes, but the second is more concise. As you gain experience with programming logic, you'll develop an intuition for which representation works best in different situations.
+
+## Common Pitfalls in Conditional Logic
+
+### 1. Forgetting Edge Cases
+Always consider all possible paths through your logic. What happens in special or extreme cases?
+
+### 2. Overlapping Conditions
+Be careful when conditions can overlap. For example:
+
+```
+IF score > 90 THEN
+    grade = "A"
+IF score > 80 THEN
+    grade = "B"
+...
+```
+
+In this case, a score of 95 would first set the grade to "A", but then immediately overwrite it with "B". The correct approach is to use ELSE IF to make the conditions mutually exclusive.
+
+### 3. Infinite Loops
+When using flowcharts to represent repetitive processes (which we'll explore more in future chapters), be careful not to create paths that never end.
+
+## Activity: Flowcharting a Real-Life Decision
+
+Think about a significant decision you recently made or need to make (like choosing a course to study, deciding on a purchase, or planning an event).
+
+1. List all the factors that influence the decision.
+2. Determine how these factors relate to each other (using AND, OR, NOT).
+3. Draw a flowchart representing the decision process.
+4. Test your flowchart with different scenarios to see if it produces the expected outcomes.
+
+For example, buying a new pair of shoes might involve factors like price, comfort, style, and need.
+
+## Key Takeaways
+
+- Conditional statements (IF-THEN-ELSE) allow programs to make decisions based on conditions
+- There are several types of conditional statements: simple IF, IF-ELSE, nested IF, and ELSE IF
+- Flowcharts are visual representations of program logic using standardized symbols
+- Decisions in flowcharts are represented by diamond shapes with Yes/No paths
+- Complex conditions using AND, OR, and NOT can be represented in flowcharts
+- Both code and flowcharts are tools for expressing the same underlying logic
+
+In the next section, we'll explore pseudocode—a way to write program-like instructions in a form that's easier for humans to read and write, bridging the gap between natural language and formal programming languages.
 
 
 # Pseudo Coding
