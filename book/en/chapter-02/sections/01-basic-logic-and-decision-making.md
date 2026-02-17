@@ -23,7 +23,7 @@ At its simplest, computer logic is based on a system called "Boolean logic," nam
 - **True** (often represented as 1, "yes," or "on")
 - **False** (often represented as 0, "no," or "off")
 
-![Boolean Logic: True/False](../../assets/phase3-visuals/ch2-if-then-else.png)
+![Boolean Logic: True/False](../../images/ch2-if-then-else.png)
 
 This binary approach might seem limited, but it's actually incredibly powerful. Complex decisions in computing are built up from these basic true/false building blocks.
 
@@ -42,7 +42,7 @@ Activity: In your notebook, list 5 boolean statements about your day today—thi
 
 To build more complex logical structures, we use three basic operators:
 
-[VISUAL: type=truth-table, size=large, description=Three logic gates AND, OR, NOT with truth tables and visual representations]
+![Truth table for AND, OR, NOT logic gates showing all combinations](../../images/ch2-truth-table.png)
 
 ### 1. AND (Logical Conjunction)
 

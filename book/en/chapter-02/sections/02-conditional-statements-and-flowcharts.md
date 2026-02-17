@@ -18,7 +18,7 @@ ELSE
 END IF
 ```
 
-[VISUAL: type=code-breakdown, size=medium, description=IF-ELSE statement with each component highlighted and labeled]
+![IF-ELSE statement with each component highlighted and labeled](../../images/ch2-ifelse-breakdown.png)
 
 Let's examine each part:
 
@@ -100,7 +100,7 @@ A flowchart is a diagram that represents a process or workflow, showing the step
 
 Here are the most common symbols used in flowcharts:
 
-[VISUAL: type=symbol-reference, size=large, description=Five flowchart symbols (oval, rectangle, diamond, arrow, parallelogram) with labels and examples]
+![Flowchart symbols including oval, rectangle, diamond, arrow, parallelogram](../../images/ch2-flowchart-symbols.png)
 
 1. **Start/End (Oval or Rounded Rectangle)**
    - Used to indicate the beginning or end of a process
