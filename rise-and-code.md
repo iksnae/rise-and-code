@@ -382,7 +382,7 @@ You may not realize it, but you're surrounded by programming every day:
 - When farmers use automated irrigation systems
 - When health workers track disease outbreaks
 
-[VISUAL: type=infographic, size=medium, description=Real-world examples of programming in daily life with icons]
+![Real-world examples of programming in daily life with icons](../../images/ch1-realworld-examples.png)
 
 All of these systems run on instructions written by programmers. And increasingly, knowing how to program—or at least understanding how programming works—is becoming an essential skill for many jobs and opportunities.
 
@@ -417,7 +417,7 @@ Learning to think like a programmer offers many benefits:
 
 6. **Career opportunities**: Programming skills open doors to jobs in virtually every industry, from agriculture to healthcare to education.
 
-[VISUAL: type=icons-grid, size=medium, description=Six benefits of programming thinking illustrated with icons]
+![Six benefits of programming thinking illustrated with icons](../../images/ch1-programming-benefits.png)
 
 Even if you never write code professionally, understanding how to think like a programmer will help you in our increasingly digital world.
 
@@ -1047,7 +1047,7 @@ At its simplest, computer logic is based on a system called "Boolean logic," nam
 - **True** (often represented as 1, "yes," or "on")
 - **False** (often represented as 0, "no," or "off")
 
-![Boolean Logic: True/False](../../assets/phase3-visuals/ch2-if-then-else.png)
+![Boolean Logic: True/False](../../images/ch2-if-then-else.png)
 
 This binary approach might seem limited, but it's actually incredibly powerful. Complex decisions in computing are built up from these basic true/false building blocks.
 
@@ -1066,7 +1066,7 @@ Activity: In your notebook, list 5 boolean statements about your day today—thi
 
 To build more complex logical structures, we use three basic operators:
 
-[VISUAL: type=truth-table, size=large, description=Three logic gates AND, OR, NOT with truth tables and visual representations]
+![Truth table for AND, OR, NOT logic gates showing all combinations](../../images/ch2-truth-table.png)
 
 ### 1. AND (Logical Conjunction)
 
@@ -1247,7 +1247,7 @@ ELSE
 END IF
 ```
 
-[VISUAL: type=code-breakdown, size=medium, description=IF-ELSE statement with each component highlighted and labeled]
+![IF-ELSE statement with each component highlighted and labeled](../../images/ch2-ifelse-breakdown.png)
 
 Let's examine each part:
 
@@ -1329,7 +1329,7 @@ A flowchart is a diagram that represents a process or workflow, showing the step
 
 Here are the most common symbols used in flowcharts:
 
-[VISUAL: type=symbol-reference, size=large, description=Five flowchart symbols (oval, rectangle, diamond, arrow, parallelogram) with labels and examples]
+![Flowchart symbols including oval, rectangle, diamond, arrow, parallelogram](../../images/ch2-flowchart-symbols.png)
 
 1. **Start/End (Oval or Rounded Rectangle)**
    - Used to indicate the beginning or end of a process
@@ -2874,7 +2874,7 @@ An algorithm is a set of clear, precise instructions that describe how to perfor
 4. **Input**: They take some input (which might be zero inputs)
 5. **Output**: They produce a result or output
 
-![Algorithm Flowchart](../../assets/phase3-visuals/ch3-algorithm-flowchart.png)
+![Algorithm Flowchart](../../images/ch3-algorithm-flowchart.png)
 
 Every time you follow a recipe, use a manual, or give directions, you're working with algorithms. In programming, algorithms are the foundation of everything a computer does—from simple calculations to complex artificial intelligence.
 
@@ -2910,7 +2910,7 @@ Let's walk through the process of creating a simple algorithm together. We'll us
 4. **Be precise**: Make each instruction clear and specific
 5. **Test and refine**: Try following the steps and improve as needed
 
-[VISUAL: type=step-by-step, size=large, description=Illustrated sequence of paper airplane folding steps 1-10]
+![Step-by-step illustrated guide to folding a paper airplane](../../images/ch3-paper-airplane.png)
 
 Here's our algorithm for making a simple paper airplane:
 
@@ -2961,7 +2961,7 @@ Algorithms can be represented in various ways:
 3. **Pseudocode**: A mixture of natural language and programming-like notation
 4. **Actual code**: Instructions written in a programming language
 
-[VISUAL: type=comparison-chart, size=large, description=Four algorithm representation formats side-by-side with same algorithm in each format]
+![Algorithm representation formats compared side-by-side: English, pseudocode, flowchart, code](../../images/ch3-algorithm-formats.png)
 
 Each representation has its strengths. In this book, we'll use all of these methods, starting with natural language and gradually introducing more formal representations.
 
@@ -2975,7 +2975,7 @@ In programming, algorithms are essential because:
 4. **Communication tool**: Algorithms help programmers share and discuss solutions
 5. **Foundation for learning**: Understanding algorithms helps when learning any programming language
 
-[VISUAL: type=infographic, size=medium, description=Icons showing the 5 reasons why algorithms matter in programming]
+![Five reasons why algorithms matter in programming](../../images/ch3-algorithms-importance.png)
 
 ## Activity: Algorithm Awareness
 
@@ -4762,7 +4762,7 @@ Additionally, programs need a way to store and reference data. This is where var
 
 A data type defines what kind of data we're working with and what operations we can perform on it. Just as containers in your kitchen come in different shapes for different purposes (cups for liquids, boxes for solid food), data types are specialized for different kinds of information.
 
-[VISUAL: type=concept-map, size=medium, description=Data types diagram showing different types with examples and icons]
+![Data types concept map showing different types with examples and icons](../../images/ch4-data-types-map.png)
 
 ### Common Data Types
 
@@ -4861,7 +4861,7 @@ A variable is a named container that holds a piece of data. Think of it like a l
 2. **A value**: The data currently stored in the variable
 3. **A type**: What kind of data the variable holds
 
-[VISUAL: type=illustration, size=medium, description=Labeled boxes representing variables with names, values, and types]
+![Variables illustrated as labeled boxes showing names, values, and types](../../images/ch4-variable-illustration.png)
 
 ### Variable Metaphors
 
@@ -6557,7 +6557,7 @@ Loops are essential in programming for several reasons:
 
 In programming, there are several types of loops, but the most common are:
 
-![Loop Visualization](../../assets/phase3-visuals/ch5-loop-visualization.png)
+![Loop Visualization](../../images/ch5-loop-visualization.png)
 
 ### 1. Count-Controlled Loops (For Loops)
 
@@ -6618,7 +6618,7 @@ Every loop has several key components:
 3. **Body**: The instructions that are repeated each time the loop runs
 4. **Update**: How the loop changes with each iteration (like incrementing a counter)
 
-[VISUAL: type=annotated-code, size=medium, description=WHILE loop with initialization, condition, body, and update labeled and color-coded]
+![WHILE loop with initialization, condition, body, and update labeled](../../images/ch5-while-loop.png)
 
 Let's look at these components in an example:
 
@@ -9319,7 +9319,7 @@ Our brains are remarkable but have limitations. We forget details, mix up steps,
 - It records details that might seem unimportant now but become crucial later
 - It stores information in a format that won't fade or change over time
 
-[VISUAL: type=benefit-icon, size=small, description=Brain icon with notebook showing memory augmentation]
+![Brain icon with notebook representing memory augmentation from journaling](../../images/ch6-journal-icon.png)
 
 Instead of trying to remember exactly how you solved a problem two weeks ago, you can simply turn to your notebook and see your solution with all its details intact.
 
@@ -9347,7 +9347,7 @@ Many programmers report having "aha moments" while documenting their thinking, d
 
 Documentation isn't just a learning tool—it's a fundamental professional practice:
 
-[VISUAL: type=workflow-diagram, size=medium, description=Professional work cycle showing Plan → Implement → Document → Review]
+![Professional work cycle showing Plan, Implement, Document, Review](../../images/ch6-professional-workflow.png)
 
 ### Professional Standard
 
@@ -14333,7 +14333,7 @@ At its heart, programming is a method for solving problems following a consisten
 5. **Testing**: Verifying that the solution works as intended
 6. **Refinement**: Improving the solution based on testing results
 
-[VISUAL: type=cycle-diagram, size=large, description=Circular problem-solving cycle with 6 steps, arrows showing iteration]
+![Circular problem-solving cycle with 6 steps showing iterative process](../../images/ch8-problem-solving-cycle.png)
 
 This cycle applies whether you're writing code on a computer or addressing challenges in entirely different contexts. Let's explore how this works in practice.
 
@@ -14371,7 +14371,7 @@ Before diving into solutions, skilled programmers spend time identifying and und
 - Supporting community organization
 - Addressing environmental challenges
 
-[VISUAL: type=category-icons, size=large, description=Five problem categories illustrated with icons and brief examples]
+![Five problem categories illustrated with icons and brief examples](../../images/ch8-problem-categories.png)
 
 Remember that the best problems to solve are often those that:
 1. Affect many people
