@@ -4,7 +4,9 @@
 
 Throughout this book, you've been learning programming concepts, practicing algorithms, and developing computational thinking skills—all without a computer. You might be wondering: "How do these abstract concepts connect to solving real problems in the world around me?"
 
-In this section, we'll explore how the skills you've developed—breaking down problems, creating algorithms, using variables and loops, documenting your thinking—apply directly to addressing real challenges. Programming isn't just about making computers do things; it's about developing a powerful approach to problem-solving that works across countless domains and situations.
+**Learning Objective**: You'll discover how computational thinking—the core skill behind programming—applies to solving real-world problems in communities, schools, and daily life, even without a computer.
+
+In this section, we'll explore how the skills you've developed—breaking down problems, creating algorithms, using variables and loops, documenting your thinking—apply directly to addressing real challenges. Programming isn't just about making computers do things; it's about developing a powerful approach to problem-solving that works across countless domains and situations. As Data loves to say, "The story is in the problem—find it, and the solution follows!"
 
 ## The Problem-Solving Cycle
 
