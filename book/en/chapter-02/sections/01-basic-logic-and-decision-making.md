@@ -42,7 +42,7 @@ Activity: In your notebook, list 5 boolean statements about your day today—thi
 
 To build more complex logical structures, we use three basic operators:
 
-[VISUAL: type=truth-table, size=large, description=Three logic gates AND, OR, NOT with truth tables and visual representations]
+![Truth table for AND, OR, NOT logic gates showing all combinations](../../assets/phase3-visuals/ch2-truth-table.png)
 
 ### 1. AND (Logical Conjunction)
 
