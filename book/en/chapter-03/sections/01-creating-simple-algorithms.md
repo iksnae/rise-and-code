@@ -14,7 +14,7 @@ An algorithm is a set of clear, precise instructions that describe how to perfor
 4. **Input**: They take some input (which might be zero inputs)
 5. **Output**: They produce a result or output
 
-![Algorithm Flowchart](../../assets/phase3-visuals/ch3-algorithm-flowchart.png)
+![Algorithm Flowchart](../../images/ch3-algorithm-flowchart.png)
 
 Every time you follow a recipe, use a manual, or give directions, you're working with algorithms. In programming, algorithms are the foundation of everything a computer does—from simple calculations to complex artificial intelligence.
 
@@ -50,7 +50,7 @@ Let's walk through the process of creating a simple algorithm together. We'll us
 4. **Be precise**: Make each instruction clear and specific
 5. **Test and refine**: Try following the steps and improve as needed
 
-[VISUAL: type=step-by-step, size=large, description=Illustrated sequence of paper airplane folding steps 1-10]
+![Step-by-step illustrated guide to folding a paper airplane](../../images/ch3-paper-airplane.png)
 
 Here's our algorithm for making a simple paper airplane:
 
@@ -101,7 +101,7 @@ Algorithms can be represented in various ways:
 3. **Pseudocode**: A mixture of natural language and programming-like notation
 4. **Actual code**: Instructions written in a programming language
 
-[VISUAL: type=comparison-chart, size=large, description=Four algorithm representation formats side-by-side with same algorithm in each format]
+![Algorithm representation formats compared side-by-side: English, pseudocode, flowchart, code](../../images/ch3-algorithm-formats.png)
 
 Each representation has its strengths. In this book, we'll use all of these methods, starting with natural language and gradually introducing more formal representations.
 
@@ -115,7 +115,7 @@ In programming, algorithms are essential because:
 4. **Communication tool**: Algorithms help programmers share and discuss solutions
 5. **Foundation for learning**: Understanding algorithms helps when learning any programming language
 
-[VISUAL: type=infographic, size=medium, description=Icons showing the 5 reasons why algorithms matter in programming]
+![Five reasons why algorithms matter in programming](../../images/ch3-algorithms-importance.png)
 
 ## Activity: Algorithm Awareness
 

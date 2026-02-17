@@ -10,7 +10,7 @@ Additionally, programs need a way to store and reference data. This is where var
 
 A data type defines what kind of data we're working with and what operations we can perform on it. Just as containers in your kitchen come in different shapes for different purposes (cups for liquids, boxes for solid food), data types are specialized for different kinds of information.
 
-[VISUAL: type=concept-map, size=medium, description=Data types diagram showing different types with examples and icons]
+![Data types concept map showing different types with examples and icons](../../images/ch4-data-types-map.png)
 
 ### Common Data Types
 
@@ -109,7 +109,7 @@ A variable is a named container that holds a piece of data. Think of it like a l
 2. **A value**: The data currently stored in the variable
 3. **A type**: What kind of data the variable holds
 
-[VISUAL: type=illustration, size=medium, description=Labeled boxes representing variables with names, values, and types]
+![Variables illustrated as labeled boxes showing names, values, and types](../../images/ch4-variable-illustration.png)
 
 ### Variable Metaphors
 
