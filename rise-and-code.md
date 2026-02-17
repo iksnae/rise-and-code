@@ -1047,7 +1047,7 @@ At its simplest, computer logic is based on a system called "Boolean logic," nam
 - **True** (often represented as 1, "yes," or "on")
 - **False** (often represented as 0, "no," or "off")
 
-[VISUAL: type=diagram, size=small, description=Binary switch showing True/False or On/Off states]
+![Boolean Logic: True/False](../../assets/phase3-visuals/ch2-if-then-else.png)
 
 This binary approach might seem limited, but it's actually incredibly powerful. Complex decisions in computing are built up from these basic true/false building blocks.
 
@@ -2874,7 +2874,7 @@ An algorithm is a set of clear, precise instructions that describe how to perfor
 4. **Input**: They take some input (which might be zero inputs)
 5. **Output**: They produce a result or output
 
-[VISUAL: type=diagram, size=medium, description=Visual showing algorithm flow: Input → Processing Steps → Output]
+![Algorithm Flowchart](../../assets/phase3-visuals/ch3-algorithm-flowchart.png)
 
 Every time you follow a recipe, use a manual, or give directions, you're working with algorithms. In programming, algorithms are the foundation of everything a computer does—from simple calculations to complex artificial intelligence.
 
@@ -6557,7 +6557,7 @@ Loops are essential in programming for several reasons:
 
 In programming, there are several types of loops, but the most common are:
 
-[VISUAL: type=loop-types-diagram, size=large, description=Three loop types (FOR, WHILE, DO-WHILE) with flow diagrams]
+![Loop Visualization](../../assets/phase3-visuals/ch5-loop-visualization.png)
 
 ### 1. Count-Controlled Loops (For Loops)
 
