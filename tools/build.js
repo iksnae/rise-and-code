@@ -646,7 +646,8 @@ function buildBook(lang) {
   
   try {
     // Use a simplified pandoc command without --wrap=none for PDF generation
-    const pdfCommand = `pandoc "${markdownOutputPath}" -o "${pdfOutputPath}" --from=markdown --template="${tempTemplatePath}" --pdf-engine=xelatex --toc`;
+    // NOTE: Removed --toc to disable table of contents in PDF output
+    const pdfCommand = `pandoc "${markdownOutputPath}" -o "${pdfOutputPath}" --from=markdown --template="${tempTemplatePath}" --pdf-engine=xelatex`;
     console.log(`Executing: ${pdfCommand}`);
     execSync(pdfCommand, { stdio: 'inherit' });
     console.log(`PDF generated successfully: ${pdfOutputPath}`);
@@ -657,7 +658,8 @@ function buildBook(lang) {
     try {
       console.log('Trying fallback PDF generation...');
       // Use a more basic command without a custom template
-      const fallbackCommand = `pandoc "${markdownOutputPath}" -o "${pdfOutputPath}" --pdf-engine=xelatex --toc`;
+      // NOTE: Removed --toc to disable table of contents in PDF output
+      const fallbackCommand = `pandoc "${markdownOutputPath}" -o "${pdfOutputPath}" --pdf-engine=xelatex`;
       console.log(`Executing: ${fallbackCommand}`);
       execSync(fallbackCommand, { stdio: 'inherit' });
       console.log(`PDF generated successfully with fallback: ${pdfOutputPath}`);
@@ -682,7 +684,8 @@ function buildBook(lang) {
     }
     
     console.log(`Generating HTML: ${htmlOutputPath}`);
-    const htmlCommand = `pandoc "${markdownOutputPath}" -o "${htmlOutputPath}" --standalone --toc --metadata title="${bookTitle}" --metadata=lang:${lang} --wrap=none`;
+    // NOTE: Removed --toc to disable table of contents in HTML output
+    const htmlCommand = `pandoc "${markdownOutputPath}" -o "${htmlOutputPath}" --standalone --metadata title="${bookTitle}" --metadata=lang:${lang} --wrap=none`;
     console.log(`Executing: ${htmlCommand}`);
     execSync(htmlCommand, { stdio: 'inherit' });
     console.log(`HTML generated successfully: ${htmlOutputPath}`);
@@ -700,11 +703,12 @@ function buildBook(lang) {
     const coverImagePath = ensureCoverImage(lang);
     
     // Create the EPUB command
+    // NOTE: Removed --toc to disable table of contents in EPUB output
     let epubCommand;
     if (coverImagePath) {
-      epubCommand = `pandoc "${markdownOutputPath}" -o "${epubOutputPath}" --toc --epub-cover-image="${coverImagePath}" --metadata title="${bookTitle}" --metadata subtitle="${bookSubtitle}" --metadata author="Open Source Community" --metadata lang=${lang} --wrap=none`;
+      epubCommand = `pandoc "${markdownOutputPath}" -o "${epubOutputPath}" --epub-cover-image="${coverImagePath}" --metadata title="${bookTitle}" --metadata subtitle="${bookSubtitle}" --metadata author="Open Source Community" --metadata lang=${lang} --wrap=none`;
     } else {
-      epubCommand = `pandoc "${markdownOutputPath}" -o "${epubOutputPath}" --toc --metadata title="${bookTitle}" --metadata subtitle="${bookSubtitle}" --metadata author="Open Source Community" --metadata lang=${lang} --wrap=none`;
+      epubCommand = `pandoc "${markdownOutputPath}" -o "${epubOutputPath}" --metadata title="${bookTitle}" --metadata subtitle="${bookSubtitle}" --metadata author="Open Source Community" --metadata lang=${lang} --wrap=none`;
     }
     
     console.log(`Executing: ${epubCommand}`);
@@ -718,7 +722,8 @@ function buildBook(lang) {
     try {
       const epubOutputPath = path.join(config.outputDir, outputEpub);
       console.log('Trying fallback EPUB generation...');
-      const fallbackCommand = `pandoc "${markdownOutputPath}" -o "${epubOutputPath}" --toc --wrap=none`;
+      // NOTE: Removed --toc to disable table of contents in EPUB output
+      const fallbackCommand = `pandoc "${markdownOutputPath}" -o "${epubOutputPath}" --wrap=none`;
       console.log(`Executing: ${fallbackCommand}`);
       execSync(fallbackCommand, { stdio: 'inherit' });
       console.log(`EPUB generated successfully with fallback: ${epubOutputPath}`);
