@@ -4,7 +4,9 @@
 
 Throughout history, the greatest minds have maintained detailed notebooks of their ideas, experiments, and observations. Leonardo da Vinci filled thousands of pages with sketches and notes. Marie Curie meticulously documented her groundbreaking radiation experiments. Thomas Edison recorded over 5 million pages of notes across 3,500 journals. These notebooks didn't just record their discoveries—they were active tools that helped shape their thinking and led to breakthroughs.
 
-As you've been learning programming concepts using your notebook, you've already begun the practice of keeping an engineering notebook. In this section, we'll explore why this practice is so valuable and how it can transform your learning and problem-solving abilities.
+**Learning Objective**: By the end of this section, you'll understand why keeping a coding journal is one of the most powerful practices for deepening your programming knowledge and problem-solving abilities.
+
+As you've been learning programming concepts using your notebook, you've already begun the practice of keeping an engineering notebook. In this section, we'll explore why this practice is so valuable and how it can transform your learning and problem-solving abilities. Think of your notebook as a trusted friend—someone you can share your messy first attempts with, who helps you think through tough problems, and who reminds you how far you've come.
 
 ## The Power of Documentation
 
@@ -113,11 +115,15 @@ Think of your notebook not just as a record of what you've learned, but as an ac
 
 ## Activity: Reflection on Documentation
 
+**Printable Sheet**: See "Your Documentation Story" in the Chapter 6 Activity Sheets
+
 Before moving on, take a moment to reflect in your notebook:
 
 1. Think about a time when you had to relearn something because you forgot how to do it. How might documentation have helped?
 2. Look back at your notes from earlier chapters. What do you notice about your own documentation style so far?
 3. Write down three specific ways you think better documentation could help you in your learning journey.
+
+This reflection is an important first step toward becoming a documentation champion!
 
 ## Key Takeaways
 
